@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url('dist/img/banner.jpg'); background-size:cover">
 
     @yield('content')
 

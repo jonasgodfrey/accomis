@@ -3,8 +3,8 @@
 @section('content')
     <div class="login-box">
       <div class="login-logo">
-        <img src="dist/img/logo.jpg" alt="" />
-        <a href="login.html"><b>ACCO</b>MIS</a>
+        <!-- <img src="dist/img/logo.jpg" alt="" /> -->
+        <a href="#"><b>ACCO</b>MIS</a>
       </div>
       <!-- /.login-logo -->
       <div class="card">
