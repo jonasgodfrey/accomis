@@ -29,6 +29,9 @@ class CreateClientExitQuestionareTable extends Migration
             $table->string('llin_reception');
             $table->string('llin_reception_location')->nullable();
             $table->string('frequency_of_llin_reception')->nullable();
+            $table->string('sleep_in_llin')->nullable();
+            $table->string('sleep_in_llin_interval')->nullable();
+            $table->string('reason_for_not_sleeping_in_llin')->nullable();
             $table->string('ipt_reception');
             $table->string('frequency_of_ipt_reception')->nullable();
             $table->string('sulfadoxin_pyrimethamine_intake');

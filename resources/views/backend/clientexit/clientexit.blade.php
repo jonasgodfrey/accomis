@@ -274,10 +274,10 @@
                                 <div class="col-md-4 llin_true">
                                     <div class="form-group" id="llin_frequency">
                                         <label>Do you Sleep inside the LLIN?</label>
-                                        <select class="form-control llin_frequency" name="llin_frequency">
+                                        <select class="form-control sleep_in_llin" name="sleep_in_llin">
                                             <option value="" style="display: none">Select</option>
                                             <option value="Yes">Yes</option>
-                                            <option value="No">No</option>                                           
+                                            <option value="No">No</option>
                                         </select>
                                     </div>
                                 </div>
@@ -285,10 +285,10 @@
                                 <div class="col-md-4 llin_true">
                                     <div class="form-group" id="llin_frequency">
                                         <label>If Yes to Prev Qs, How Often do you sleep in it</label>
-                                        <select class="form-control llin_frequency" name="llin_frequency">
+                                        <select class="form-control llin_frequency sleep_in_llin_interval" name="sleep_in_llin_interval">
                                             <option value="" style="display: none">Select</option>
                                             <option value="Frequently">Frequently</option>
-                                            <option value="Infrequently">Infrequently</option>                                           
+                                            <option value="Infrequently">Infrequently</option>
                                         </select>
                                     </div>
                                 </div>
@@ -296,12 +296,12 @@
                                 <div class="col-md-4 llin_true">
                                     <div class="form-group" id="llin_frequency">
                                         <label>If No to Prev Qs, Why?</label>
-                                        <select class="form-control llin_frequency" name="llin_frequency">
+                                        <select class="form-control llin_frequency reason_for_not_sleeping_in_llin" name="reason_for_not_sleeping_in_llin">
                                             <option value="" style="display: none">Select</option>
                                             <option value="I don't Know how to hang it">I don't Know how to hang it</option>
-                                            <option value="It Causes Heat">It Causes Heat</option>       
-                                            <option value="It causes rashes">It causes rashes</option>   
-                                            <option value="Other">Other</option>                                       
+                                            <option value="It Causes Heat">It Causes Heat</option>
+                                            <option value="It causes rashes">It causes rashes</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>

@@ -72,18 +72,20 @@ class RemidialController extends Controller
         $user = Auth::user();
         $cbo = $user->email;
         $ward = "";
-        
+
         if($request->ward == ""){
             $ward = 'not available';
         }
 
+        $issues = implode(', ', $request->input('key_findings'));
+        
         $add_remidial = Remedial::create([
             'state' => $request->state,
             'ward' => $ward,
             'cbo' => $cbo,
             'date_visit' => $request->date_visit,
             'tracker_type' => $request->tracker_type,
-            'identified_issues' => $request->key_findings,
+            'identified_issues' => $issues,
             'root_cause' => $request->root_cause,
             'action_taken_immediately' => $request->taken_action,
             'resolved' => $request->resolved_value,
@@ -94,6 +96,7 @@ class RemidialController extends Controller
             'month' => $month,
             'year' => $year,
         ]);
+
 
         if ($add_remidial) {
             Session::flash('flash_message', 'Remedial Report Added Successfully');

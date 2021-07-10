@@ -316,6 +316,22 @@ $(document).ready(function() {
             llin_frequency = $(".llin_frequency option:selected").val();
         });
 
+        var sleep_in_llin = "not applicable";
+        $(".sleep_in_llin").on("change", function() {
+            sleep_in_llin = $(".sleep_in_llin option:selected").val();
+        });
+
+        var sleep_in_llin_interval = "not applicable";
+        $(".sleep_in_llin_interval").on("change", function() {
+            sleep_in_llin_interval = $(".sleep_in_llin_interval option:selected").val();
+        });
+
+        var reason_for_not_sleeping_in_llin = "not applicable";
+        $(".reason_for_not_sleeping_in_llin").on("change", function() {
+            reason_for_not_sleeping_in_llin = $(".reason_for_not_sleeping_in_llin option:selected").val();
+        });
+
+
         //ipt
         var recieve_ipt = "";
 
@@ -467,6 +483,7 @@ $(document).ready(function() {
                 what_treatment_did_you_recieve,
                 frequency_of_visit,
                 recieve_llin,
+
                 recieve_ipt,
                 smc,
                 malaria_test,
@@ -510,6 +527,9 @@ $(document).ready(function() {
                         recieve_llin: recieve_llin,
                         llin_recieve_location: llin_recieve_location,
                         llin_frequency: llin_frequency,
+                        sleep_in_llin:sleep_in_llin,
+                        sleep_in_llin_interval:sleep_in_llin_interval,
+                        reason_for_not_sleeping_in_llin:reason_for_not_sleeping_in_llin,
                         recieve_ipt: recieve_ipt,
                         ipt_frequency: ipt_frequency,
                         swallow_sp_sulfadoxin: swallow_sp_sulfadoxin,
