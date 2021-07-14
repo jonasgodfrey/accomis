@@ -96,6 +96,20 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                                    <div class="form-group" id="quarter">
+                                        <label>Select Quarter</label>
+                                        <select class="form-control quarter select2" style="width: 100%;"
+                                            name="quarter" required>
+                                            <option value="">Select Quarter</option>
+                                            <option value="Quarter 1 2021">Quarter 1 2021</option>
+                                            <option value="Quarter 2 2021">Quarter 2 2021</option>
+                                            <option value="Quarter 3 2021">Quarter 3 2021</option>
+                                            <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                        </select>
+                                    </div>
+                        </div>
+
+                        <div class="col-md-3">
                             <label>Activity</label>
                             <div class="form-group clearfix">
                                 <div class="icheck-primary d-inline">
@@ -106,7 +120,6 @@
                                     </label>
 
                                 </div>
-
                             </div>
                             <div class="form-group clearfix">
                                 <div class="icheck-success d-inline">
@@ -140,10 +153,10 @@
                             </div>
 
                         </div>
-<div class="col-12">
+<!-- <div class="col-12">
 <hr>
-</div>
-                        <div class="col-md-6">
+</div> -->
+                        <div class="col-md-4">
 
                             <div class="form-group">
                                 <label>Key Findings/Identified Issues</label>
@@ -177,21 +190,21 @@
                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="form-group">
                                 <label>Root Cause</label>
                                 <input type="text" name="root_cause" class="form-control" placeholder="" required>
 
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Action Taken Immediately</label>
                                 <input type="text" name="taken_action" class="form-control" placeholder="" required>
 
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Resolved</label>
                                 <select name="resolved_value" id="" class="form-control" required>
@@ -201,7 +214,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Follow Up Action</label>
                                 <input type="text" name="follow_action" class="form-control" placeholder=""

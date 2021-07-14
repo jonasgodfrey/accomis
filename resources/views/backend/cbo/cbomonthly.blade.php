@@ -71,15 +71,28 @@
                 </div>
               </div>
 
+              <div class="col-md-4">
+                                    <div class="form-group" id="quarter">
+                                        <label>Select Quarter</label>
+                                        <select class="form-control quarter select2" style="width: 100%;"
+                                            name="quarter" required>
+                                            <option value="">Select Quarter</option>
+                                            <option value="Quarter 1 2021">Quarter 1 2021</option>
+                                            <option value="Quarter 2 2021">Quarter 2 2021</option>
+                                            <option value="Quarter 3 2021">Quarter 3 2021</option>
+                                            <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                        </select>
+                                    </div>
+                        </div>
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label>Date of Meeting</label>
                   <input type="date" name="meeting_date" class="form-control" placeholder="" required>
 
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                     <label for="exampleInputFile">Attach Signed Copy</label>
                     <div class="input-group">

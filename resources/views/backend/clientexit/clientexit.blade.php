@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group" id="occupation">
                                         <label>Occupation</label>
                                         <select class="form-control select2 occupation" style="width: 100%;" name="occupation">
@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group" id="education">
                                         <label>Educational Background</label>
                                         <select class="form-control education select2" style="width: 100%;"
@@ -149,6 +149,19 @@
                                             <input type="text" name="" class="form-control educational_bg2 field2"
                                                 placeholder="kindly specify">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" id="quarter">
+                                        <label>Select Quarter</label>
+                                        <select class="form-control quarter select2" style="width: 100%;"
+                                            name="quarter" required>
+                                            <option value="">Select Quarter</option>
+                                            <option value="Quarter 1 2021">Quarter 1 2021</option>
+                                            <option value="Quarter 2 2021">Quarter 2 2021</option>
+                                            <option value="Quarter 3 2021">Quarter 3 2021</option>
+                                            <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <hr>
