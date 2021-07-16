@@ -30,6 +30,7 @@ class CreateRemedialTable extends Migration
             $table->string('signed_document');
             $table->string('month');
             $table->string('year');
+            $table->string('quarter');
             $table->timestamps();
         });
     }

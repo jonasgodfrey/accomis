@@ -55,6 +55,7 @@ class CreateClientExitQuestionareTable extends Migration
             $table->string('month');
             $table->string('year');
             $table->string('day');
+            $table->string('quarter');
             $table->timestamps();
         });
     }

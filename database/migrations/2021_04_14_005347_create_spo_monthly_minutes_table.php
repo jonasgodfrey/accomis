@@ -22,6 +22,7 @@ class CreateSpoMonthlyMinutesTable extends Migration
             $table->longText('minutes_of_meeting');
             $table->string('month');
             $table->string('year');
+            $table->string('quarter');
             $table->timestamps();
         });
     }
