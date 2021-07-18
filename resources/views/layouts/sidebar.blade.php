@@ -90,7 +90,7 @@
                 </a>
               </li>
             @endcan
-        @can('admin_cbo')
+        @can('admin_cbo_me')
           <li class="nav-item">
             <a href="{{ route('client.exit') }}" class="nav-link">
               <i class="nav-icon  far fa-image"></i>
