@@ -79,6 +79,7 @@ class RemidialController extends Controller
 
         $issues = implode(', ', $request->input('key_findings'));
         
+
         $add_remidial = Remedial::create([
             'state' => $request->state,
             'ward' => $ward,
@@ -95,6 +96,7 @@ class RemidialController extends Controller
             'signed_document' => $signed_doc,
             'month' => $month,
             'year' => $year,
+            'quarter' => $request->quarter,
         ]);
 
 

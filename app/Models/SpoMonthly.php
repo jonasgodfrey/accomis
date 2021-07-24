@@ -25,5 +25,6 @@ class SpoMonthly extends Model
         'date_of_meeting',
         'month',
         'year',
+        'quarter',
     ];
 }

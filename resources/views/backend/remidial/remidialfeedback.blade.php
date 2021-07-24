@@ -42,7 +42,7 @@
                 </div>
             </div>
             <!-- /.card-header -->
-            <form role="form" action="{{route('add_remidial')}}" enctype="multipart/form-data" method="POST">
+            <form role="form" class="myform" action="{{route('add_remidial')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -65,13 +65,6 @@
                             <div class="form-group">
                                 <label>LGA</label>
                                 <input type="text" name="lga" class="form-control select2" style="width: 100%;" id="lga" value="{{$cbo_lga}}" readonly>
-
-                                <!-- <select name="lga" class="form-control select2" style="width: 100%;" id="lga">
-                                    <option selected="selected" style="display: none">Select Lga</option>
-                                    {{-- @foreach ($states as $state)
-                    <option value="{{ $state->name }}" i>{{ $state->name }}</option>
-                @endforeach --}}
-                                </select> -->
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -101,10 +94,10 @@
                                         <select class="form-control quarter select2" style="width: 100%;"
                                             name="quarter" required>
                                             <option value="">Select Quarter</option>
-                                            <option value="Quarter 1 2021">Quarter 1 2021</option>
-                                            <option value="Quarter 2 2021">Quarter 2 2021</option>
-                                            <option value="Quarter 3 2021">Quarter 3 2021</option>
-                                            <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                            <option value="Quarter_1_2021">Quarter 1 2021</option>
+                                            <option value="Quarter_2_2021">Quarter 2 2021</option>
+                                            <option value="Quarter_3_2021">Quarter 3 2021</option>
+                                            <option value="Quarter_4_2021">Quarter 4 2021</option>
                                         </select>
                                     </div>
                         </div>
@@ -153,42 +146,32 @@
                             </div>
 
                         </div>
-<!-- <div class="col-12">
-<hr>
-</div> -->
+
                         <div class="col-md-4">
 
-                            <div class="form-group">
-                                <label>Key Findings/Identified Issues</label>
-                                <!-- <select name="key_findings" id="" class="form-control">
-                                    <option value="LLIN Not Available">LLIN Not Available</option>
-                                    <option value="No Medical Personnel">No Medical Personnel</option>
-                                    <option value="No Road Network">No Road Network</option>
-                                    <option value="Poor Logistics">Poor Logistics</option>
+            <div class="form-group">
+                <label>Key Findings/Identified Issues</label>
 
-                                </select> -->
-
-                <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox1" value="LLIN Not Available">
-                    <label for="customCheckbox1" class="custom-control-label">LLIN Not Available</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox2" value="No Medical Personnel">
-                    <label for="customCheckbox2" class="custom-control-label">No Medical Personnel</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox3" value="No Road Network">
-                    <label for="customCheckbox3" class="custom-control-label">No Road Network</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input custom-control-input-danger keyfindings_check"  type="checkbox" id="customCheckbox4" value="Others">
-                    <label for="customCheckbox4" class="custom-control-label">Others</label>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="key_findings[]" class="form-control keyfindings_check_others" placeholder="" required>
-
-                </div>
-                            </div>
+<div class="custom-control custom-checkbox">
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox1" value="LLIN Not Available">
+    <label for="customCheckbox1" class="custom-control-label">LLIN Not Available</label>
+</div>
+<div class="custom-control custom-checkbox">
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox2" value="No Medical Personnel">
+    <label for="customCheckbox2" class="custom-control-label">No Medical Personnel</label>
+</div>
+<div class="custom-control custom-checkbox">
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox3" value="No Road Network">
+    <label for="customCheckbox3" class="custom-control-label">No Road Network</label>
+</div>
+<div class="custom-control custom-checkbox">
+    <input class="custom-control-input keyfindings_check"  type="checkbox" id="customCheckbox4" value="">
+    <label for="customCheckbox4" class="custom-control-label">Others</label>
+</div>
+<div class="form-group">
+    <input type="text" name="key_findings[]" class="form-control keyfindings_check_others" placeholder="" required>
+</div>
+            </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
@@ -254,7 +237,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" type="submit" name="remedial">Submit Remedial Report</button>
+                    <button class="btn btn-primary remedial" type="submit" name="remedial">Submit Remedial Report</button>
                     <!-- /.row -->
 
                 </div>
@@ -541,7 +524,9 @@
 @section('js');
 <script>
 $(document).ready(function() {
-    $('#example1').DataTable();
+   $('.remedial').click(function(){
+    $('.myform').submit();
+   });
 });
 </script>
 <script src="dist/js/remedial.js"></script>
