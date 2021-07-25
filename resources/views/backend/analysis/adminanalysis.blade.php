@@ -30,6 +30,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Quarter</label>
+                                    <select name="state" class="form-control select2 dynamic" style="width: 100%;"
+                                        id="quater" required>
+                                        <option style="display:none" value="">Sort by Quarter</option>
+                                        <option value="Quarter 1 2021">Quarter 1 2021</option>
+                                        <option value="Quarter 2 2021">Quarter 2 2021</option>
+                                        <option value="Quarter 3 2021">Quarter 3 2021</option>
+                                        <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
