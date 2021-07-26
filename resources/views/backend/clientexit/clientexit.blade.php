@@ -554,17 +554,16 @@
                                 </div>
 
                                 <div class="col-md-4 arthemisinin_therapy_show">
-                                    <label>Please Fill The Field Below</label>
+                                    
                                     <div class="form-group clearfix">
-                                        <input type="text" name="arthemisinin_drug_finish_yes"
-                                            class="form-control arthemisinin_therapy_show_yes field8"
-                                            placeholder="Kindly State Type of tablet, timing accuracy and adherance, 24 or 6 tablets 3 days">
-                                        <br>
+                                       
                                         <input type="text" name="arthemisinin_drug_finish_no"
                                             class="form-control arthemisinin_therapy_show_no field9" placeholder="If No, Why?">
 
                                     </div>
                                 </div>
+
+                                
 
 
                                 <div class="col-md-12">
@@ -668,8 +667,9 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <th>Rating</th>
+                                        <!-- <th>Rating</th> -->
                                         <th>Respondant</th>
+                                        <th>Quarter</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -680,10 +680,11 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
-                                            <td><span
+                                            <!-- <td><span
                                                     class="badge bg-warning">{{ $client->service_satisfaction_level }}</span>
-                                            </td>
+                                            </td> -->
                                             <td>{{ $client->respondant_name }}</td>
+                                            <td>{{ $client->quarter}}</td>
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
                                                         class="fa fa-eye"></i></a>
 
@@ -775,8 +776,9 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <th>Rating</th>
+                                        <!-- <th>Rating</th> -->
                                         <th>Respondant</th>
+                                        <th>Quarter</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -810,8 +812,9 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <th>Rating</th>
+                                        <!-- <th>Rating</th> -->
                                         <th>Respondant</th>
+                                        <th>Quarter</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -822,10 +825,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
-                                            <td><span
-                                                    class="badge bg-warning">{{ $client->service_satisfaction_level }}</span>
-                                            </td>
+                                          
                                             <td>{{ $client->respondant_name }}</td>
+                                            <td>{{ $client->quarter }}</td>
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
                                                         class="fa fa-eye"></i></a>
 
@@ -917,8 +919,10 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <th>Rating</th>
+                                        <!-- <th>Rating</th> -->                                        
                                         <th>Respondant</th>
+                                        <th>Quarter</th>
+
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

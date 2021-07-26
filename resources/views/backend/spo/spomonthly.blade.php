@@ -136,6 +136,7 @@
                 <th>Meeting Date</th>
                 <th>Attachment</th>
                 <th>Status</th>
+                <th>Quarter</th>
                 <th>Action</th>
               </tr>
               </thead>
@@ -145,9 +146,11 @@
               @foreach ($spos as $spo)
               <tr>
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $spo->date_of_meeting }}</td>
+              <td>{{ $spo->date_of_meeting }}</td>   
+
               <td><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
               <td><span class="badge bg-warning">Pending</span></td>
+              <td>{{ $spo->quarter }}</td>
               <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $spo->id }}" ><i
                       class="fa fa-eye"></i></a>
 
@@ -221,6 +224,7 @@
                   </div>
               </div>
               </td>
+            
               </tr>
         @endforeach
         @endif
@@ -229,8 +233,9 @@
                     <th>id</th>
                     <th>Meeting Date</th>
                     <th>Attachment</th>
+                    
                     <th>Status</th>
-
+                    <th>Quarter</th>
                     <th>Action</th>
                   </tr>
               </tfoot>

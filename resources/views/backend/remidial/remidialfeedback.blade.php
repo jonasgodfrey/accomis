@@ -275,6 +275,7 @@
                                 <th>Date</th>
                                 <th>Attachment</th>
                                 <th>CBO</th>
+                                <th>Quarter</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -287,6 +288,7 @@
                                         <td>{{ $rem->date_visit }}</td>
                                         <td><a href="#"><i class="fa fa-file-download"></i></a></td>
                                         <td>{{ $rem->cbo }}</td>
+                                        <td>{{ $rem->quater }}</td>
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
                     class="fa fa-eye"></i></a>
 
@@ -372,6 +374,7 @@
                                 <th>Date</th>
                                 <th>Attachment</th>
                                 <th>CBO</th>
+                                <th>Quater</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
