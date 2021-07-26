@@ -344,7 +344,7 @@
 
       </div>
   <!-- Main row -->
-  <legend>Remedial Feedback Extracts</legend>
+    <legend>Remedial Feedback Extracts</legend>
       <div class="row">
        
         <div class="col-md-4 col-sm-6 col-xs-12">
