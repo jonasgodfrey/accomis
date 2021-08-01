@@ -457,16 +457,15 @@
             var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
             var donutData = {
                 labels: [
-                    'Malaria Services',
-                    'ACT Recipients',
+                    'Malaria Services',                    
                     'Positive Cases',
 
                 ],
                 datasets: [{
-                    data: [{{ $tested_malaria ?? '0' }}, {{ $act_recipients ?? '0' }},
+                    data: [{{ $tested_malaria ?? '0' }},
                         {{ $positive_malaria ?? '0' }}
                     ],
-                    backgroundColor: ['#f56954', '#00a65a', '#00004a'],
+                    backgroundColor: ['#f56954', '#00a65a'],
                 }]
             }
             var donutOptions = {
@@ -476,7 +475,7 @@
             //Create pie or douhnut chart
             // You can switch between pie and douhnut using the method below.
             var donutChart = new Chart(donutChartCanvas, {
-                type: 'doughnut',
+                type: 'pie',
                 data: donutData,
                 options: donutOptions
             })

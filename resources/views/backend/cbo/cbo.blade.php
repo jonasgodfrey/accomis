@@ -61,6 +61,7 @@
                                     <th>id</th>
                                     <th>CBO Name</th>
                                     <th>CBO Contact</th>
+                                    <th>Email</th>
                                     <th>State</th>
                                     <th>Action</th>
                                 </tr>
@@ -72,6 +73,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $cbo->cbo_name }}</td>
                                             <td>{{ $cbo->contact_person }}</td>
+                                            <td>{{ $cbo->email }}</td>
                                             <td>{{ $cbo->state }}</td>
                                             <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i
                                                         class="fa fa-eye"></i></a></td>
@@ -83,6 +85,7 @@
                                     <th>id</th>
                                     <th>CBO Name</th>
                                     <th>CBO Contact</th>
+                                    <th>Email</th>
                                     <th>State</th>
                                     <th>Action</th>
                                 </tr>

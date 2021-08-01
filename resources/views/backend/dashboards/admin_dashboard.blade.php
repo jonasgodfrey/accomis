@@ -171,7 +171,7 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$entryfgd ?? '0'}}</h3>
 
                 <p>Entry FGD</p>
               </div>
@@ -186,7 +186,7 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$exitfgd ?? '0'}}</h3>
 
                 <p>Exit FGD</p>
               </div>
@@ -201,7 +201,7 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$kii ?? '0'}}</h3>
 
                 <p>KII</p>
               </div>
@@ -330,7 +330,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="small-box bg-success">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$tested_malaria ?? '0'}}</h3>
 
                 <p>Total Malaria Test Conducted</p>
               </div>
@@ -350,7 +350,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$remedial ?? '0'}}</h3>
 
                 <p>Total Issues Identified</p>
               </div>
@@ -363,7 +363,7 @@
        <div class="col-md-4 col-sm-6 col-xs-12">
        <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$issues_resolved ?? '0'}}</h3>
 
                 <p>Total Issues Resolved</p>
               </div>
@@ -376,7 +376,7 @@
        <div class="col-md-4 col-sm-6 col-xs-12">
        <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$issues_unresolved ?? '0'}}</h3>
 
                 <p>Unresolved Issues</p>
               </div>
@@ -400,7 +400,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Entry FGD Conducted</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{$entryfgd ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -412,7 +412,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Exit FGD Conducted</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{$exitfgd ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -424,7 +424,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Community KII Conducted</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -437,7 +437,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Facility KII Conducted</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -486,23 +486,7 @@
             </div>
             <!-- /.card -->
 
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Area Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
+            
             <!-- /.card -->
 
           </div>
@@ -511,7 +495,7 @@
             <!-- LINE CHART -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title"> Chart</h3>
+                <h3 class="card-title">Purpose of Visiting Health Facility</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -521,37 +505,19 @@
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <canvas id="pieChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
 
-            <!-- BAR CHART -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Total Malaria Cases Vs Positive Cases</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+           
 
             <!-- STACKED BAR CHART -->
             <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Total Malaria Cases Vs Positive Cases</h3>
+                <h3 class="card-title">Treatment Received</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -561,7 +527,7 @@
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <canvas id="pieChart3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
               </div>
               <!-- /.card-body -->
@@ -593,78 +559,78 @@
       //--------------
 
       // Get context with jQuery - using jQuery's .get() method.
-      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+      // var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
-      var areaChartData = {
-        labels  : ['Ogun', 'Osun', 'Gombe', 'Kano'],
-        datasets: [
-          {
-            label               : 'Satisfied',
-            backgroundColor     : 'rgba(60,141,188,0.9)',
-            borderColor         : 'rgba(60,141,188,0.8)',
-            pointRadius          : false,
-            pointColor          : '#3b8bba',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [{{$tested_malaria ?? '0'}}]
-          },
-          {
-            label               : 'Dissatisfied',
-            backgroundColor     : 'rgba(210, 214, 222, 1)',
-            borderColor         : 'rgba(210, 214, 222, 1)',
-            pointRadius         : false,
-            pointColor          : 'rgba(210, 214, 222, 1)',
-            pointStrokeColor    : '#c1c7d1',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,1)',
-            data                : [{{$positive_malaria ?? '0'}}]
-          },
-        ]
-      }
+      // var areaChartData = {
+      //   labels  : ['Ogun', 'Osun', 'Gombe', 'Kano'],
+      //   datasets: [
+      //     {
+      //       label               : 'Satisfied',
+      //       backgroundColor     : 'rgba(60,141,188,0.9)',
+      //       borderColor         : 'rgba(60,141,188,0.8)',
+      //       pointRadius          : false,
+      //       pointColor          : '#3b8bba',
+      //       pointStrokeColor    : 'rgba(60,141,188,1)',
+      //       pointHighlightFill  : '#fff',
+      //       pointHighlightStroke: 'rgba(60,141,188,1)',
+      //       data                : [{{$tested_malaria ?? '0'}}]
+      //     },
+      //     {
+      //       label               : 'Dissatisfied',
+      //       backgroundColor     : 'rgba(210, 214, 222, 1)',
+      //       borderColor         : 'rgba(210, 214, 222, 1)',
+      //       pointRadius         : false,
+      //       pointColor          : 'rgba(210, 214, 222, 1)',
+      //       pointStrokeColor    : '#c1c7d1',
+      //       pointHighlightFill  : '#fff',
+      //       pointHighlightStroke: 'rgba(220,220,220,1)',
+      //       data                : [{{$positive_malaria ?? '0'}}]
+      //     },
+      //   ]
+      // }
 
-      var areaChartOptions = {
-        maintainAspectRatio : false,
-        responsive : true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            gridLines : {
-              display : false,
-            }
-          }],
-          yAxes: [{
-            gridLines : {
-              display : false,
-            }
-          }]
-        }
-      }
+      // var areaChartOptions = {
+      //   maintainAspectRatio : false,
+      //   responsive : true,
+      //   legend: {
+      //     display: false
+      //   },
+      //   scales: {
+      //     xAxes: [{
+      //       gridLines : {
+      //         display : false,
+      //       }
+      //     }],
+      //     yAxes: [{
+      //       gridLines : {
+      //         display : false,
+      //       }
+      //     }]
+      //   }
+      // }
 
       // This will get the first returned node in the jQuery collection.
-      var areaChart       = new Chart(areaChartCanvas, {
-        type: 'line',
-        data: areaChartData,
-        options: areaChartOptions
-      })
+      // var areaChart       = new Chart(areaChartCanvas, {
+      //   type: 'bar',
+      //   data: areaChartData,
+      //   options: areaChartOptions
+      // })
 
       //-------------
       //- LINE CHART -
       //--------------
-      var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-      var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-      var lineChartData = jQuery.extend(true, {}, areaChartData)
-      lineChartData.datasets[0].fill = false;
-      lineChartData.datasets[1].fill = false;
-      lineChartOptions.datasetFill = false
+      // var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+      // var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+      // var lineChartData = jQuery.extend(true, {}, areaChartData)
+      // lineChartData.datasets[0].fill = false;
+      // lineChartData.datasets[1].fill = false;
+      // lineChartOptions.datasetFill = false
 
-      var lineChart = new Chart(lineChartCanvas, {
-        type: 'line',
-        data: lineChartData,
-        options: lineChartOptions
-      })
+      // var lineChart = new Chart(lineChartCanvas, {
+      //   type: 'line',
+      //   data: lineChartData,
+      //   options: lineChartOptions
+      // })
 
       //-------------
       //- DONUT CHART -
@@ -673,15 +639,14 @@
       var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
       var donutData        = {
         labels: [
-            'Malaria Services',
-            'ACT Recipients',
+            'Tested Cases',
             'Positive Cases',
            
         ],
         datasets: [
           {
-            data: [{{$tested_malaria ?? '0'}},{{$act_recipients ?? '0'}},{{$positive_malaria ?? '0'}}],
-            backgroundColor : ['#f56954', '#00a65a', '#00004a'],
+            data: [{{$tested_malaria ?? '0'}},{{$positive_malaria ?? '0'}}],
+            backgroundColor : ['#f56954', '#00a65a'],
           }
         ]
       }
@@ -692,7 +657,7 @@
       //Create pie or douhnut chart
       // You can switch between pie and douhnut using the method below.
       var donutChart = new Chart(donutChartCanvas, {
-        type: 'doughnut',
+        type: 'pie',
         data: donutData,
         options: donutOptions
       })
@@ -704,15 +669,80 @@
       var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
       var pieData        = {
         labels: [
-            'Issues Identified',
+            'Issues Unresolved',
             'Issues Resolved',
             
            
         ],
         datasets: [
           {
-            data: [{{$tested_malaria ?? '0'}},{{$act_recipients ?? '0'}}],
+            data: [{{$issues_unresolved ?? '0'}},{{$issues_resolved ?? '0'}}],
             backgroundColor : ['#f56954', '#00a65a'],
+          }
+        ]
+      }
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+      })
+
+
+       //-------------
+      //- PIE CHART -
+      //-------------
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
+      var pieData        = {
+        labels: [
+            'Maternal',
+            'Malaria',
+            'Antenatal',
+            
+           
+        ],
+        datasets: [
+          {
+            data: [{{$maternal_service ?? '0'}},{{$malaria_service ?? '0'}},{{$antenatal_service ?? '0'}}],
+            backgroundColor : ['#f56954', '#00a65a','#cacac2'],
+          }
+        ]
+      }
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+      })
+
+       //-------------
+      //- PIE CHART -
+      //-------------
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#pieChart3').get(0).getContext('2d')
+      var pieData        = {
+        labels: [
+          'Maternal',
+            'Malaria',
+            'Antenatal',
+            
+           
+        ],
+        datasets: [
+          {
+            data: [{{$maternal_treatment ?? '0'}},{{$malaria_treatment ?? '0'}},{{$antenatal_treatment ?? '0'}}],
+            backgroundColor : ['#f56954', '#00a65a','#cacac2'],
           }
         ]
       }
@@ -733,10 +763,10 @@
       //-------------
       var barChartCanvas = $('#barChart').get(0).getContext('2d')
       var barChartData = {
-        labels  : ['Ogun', 'Osun', 'Gombe', 'Kano'],
+        labels  : ['Maternal & New Born', 'Malaria'],
         datasets: [
           {
-            label               : 'Satisfied',
+            label               : 'Maternal & New Born',
             backgroundColor     : 'rgba(60,141,188,0.9)',
             borderColor         : 'rgba(60,141,188,0.8)',
             pointRadius          : false,
@@ -747,7 +777,7 @@
             data                : [{{$tested_malaria ?? '0'}}]
           },
           {
-            label               : 'Dissatisfied',
+            label               : 'Malaria',
             backgroundColor     : 'rgba(210, 214, 222, 1)',
             borderColor         : 'rgba(210, 214, 222, 1)',
             pointRadius         : false,
@@ -759,8 +789,8 @@
           },
         ]
       }
-      var temp0 = areaChartData.datasets[0]
-      var temp1 = areaChartData.datasets[1]
+      // var temp0 = areaChartData.datasets[0]
+      // var temp1 = areaChartData.datasets[1]
       barChartData.datasets[0] = temp1
       barChartData.datasets[1] = temp0
 
@@ -779,53 +809,64 @@
       //---------------------
       //- STACKED BAR CHART -
       //---------------------
-      var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-      var stackedBarChartData = {
-        labels  : ['Ogun', 'Osun', 'Gombe', 'Kano'],
-        datasets: [
-          {
-            label               : 'Postive Cases',
-            backgroundColor     : 'rgba(60,141,188,0.9)',
-            borderColor         : 'rgba(60,141,188,0.8)',
-            pointRadius          : false,
-            pointColor          : '#3b8bba',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [{{$tested_malaria ?? '0'}}]
-          },
-          {
-            label               : 'Tested Cases',
-            backgroundColor     : '#f56954',
-            borderColor         : 'rgba(210, 214, 222, 1)',
-            pointRadius         : false,
-            pointColor          : 'rgba(210, 214, 222, 1)',
-            pointStrokeColor    : '#c1c7d1',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,1)',
-            data                : [{{$positive_malaria ?? '0'}}]
-          },
-        ]
-      }
+      // var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+      // var stackedBarChartData = {
+      //   labels  : ['Maternal & New Born', 'Malaria', 'Antenatal'],
+      //   datasets: [
+      //     {
+      //       label               : 'Maternal & New Born',
+      //       backgroundColor     : 'rgba(60,141,188,0.9)',
+      //       borderColor         : 'rgba(60,141,188,0.8)',
+      //       pointRadius          : false,
+      //       pointColor          : '#3b8bba',
+      //       pointStrokeColor    : 'rgba(60,141,188,1)',
+      //       pointHighlightFill  : '#fff',
+      //       pointHighlightStroke: 'rgba(60,141,188,1)',
+      //       data                : [{{$tested_malaria ?? '0'}}]
+      //     },
+      //     {
+      //       label               : 'Malaria',
+      //       backgroundColor     : '#f56954',
+      //       borderColor         : 'rgba(210, 214, 222, 1)',
+      //       pointRadius         : false,
+      //       pointColor          : 'rgba(210, 214, 222, 1)',
+      //       pointStrokeColor    : '#c1c7d1',
+      //       pointHighlightFill  : '#fff',
+      //       pointHighlightStroke: 'rgba(220,220,220,1)',
+      //       data                : [{{$positive_malaria ?? '0'}}]
+      //     },
+      //     {
+      //       label               : 'Antenatal',
+      //       backgroundColor     : '#acacac',
+      //       borderColor         : 'rgba(210, 214, 222, 1)',
+      //       pointRadius         : false,
+      //       pointColor          : 'rgba(210, 214, 222, 1)',
+      //       pointStrokeColor    : '#c1c7d1',
+      //       pointHighlightFill  : '#fff',
+      //       pointHighlightStroke: 'rgba(220,220,220,1)',
+      //       data                : [{{$positive_malaria ?? '0'}}]
+      //     },
+      //   ]
+      // }
 
-      var stackedBarChartOptions = {
-        responsive              : true,
-        maintainAspectRatio     : false,
-        scales: {
-          xAxes: [{
-            stacked: true,
-          }],
-          yAxes: [{
-            stacked: true
-          }]
-        }
-      }
+      // var stackedBarChartOptions = {
+      //   responsive              : true,
+      //   maintainAspectRatio     : false,
+      //   scales: {
+      //     xAxes: [{
+      //       stacked: true,
+      //     }],
+      //     yAxes: [{
+      //       stacked: true
+      //     }]
+      //   }
+      // }
 
-      var stackedBarChart = new Chart(stackedBarChartCanvas, {
-        type: 'bar',
-        data: stackedBarChartData,
-        options: stackedBarChartOptions
-      })
+      // var stackedBarChart = new Chart(stackedBarChartCanvas, {
+      //   type: 'bar',
+      //   data: stackedBarChartData,
+      //   options: stackedBarChartOptions
+      // })
     })
   </script>
 @endsection
