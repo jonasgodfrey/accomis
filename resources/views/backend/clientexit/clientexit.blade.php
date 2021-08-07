@@ -500,7 +500,7 @@
                                         </select>
                                     </div>
                                 </div>
-
+                            
                                 <div class="col-md-4" id="arthemisinin_based_therapy">
                                     <label>Were You given Arthemisinin-based-Combination Therapy</label>
                                     <div class="form-group clearfix">
@@ -567,7 +567,7 @@
 
 
                                 <div class="col-md-12">
-                                    <p style="text-align: center; font-size: large;">Question Section 4</p>
+                                    <p style="text-align: center; font-size: large;">Question Section 3</p>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group satisfaction_level">
@@ -645,7 +645,7 @@
                     <!-- /.card -->
                 @endcan
 
-                @can('admin_spo_me')
+                @can('admin_me')
 
                     <!-- SELECT2 EXAMPLE -->
                     <div class="card card-success">
@@ -792,7 +792,7 @@
                     @endcan
                 </div>
                 <!-- /.container-fluid -->
-                @can('cbo_role')
+                @can('spo_role')
                     <div class="card card-success">
                         <div class="card-header">
                             <h3 class="card-title">Client Exit Reports</h3>
@@ -812,7 +812,6 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <!-- <th>Rating</th> -->
                                         <th>Respondant</th>
                                         <th>Quarter</th>
                                         <th>Action</th>

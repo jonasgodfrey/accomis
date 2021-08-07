@@ -14,7 +14,7 @@
         <div class="row mb-2">
 
           <div class="col-sm-6">
-            <h1>CBO Monthly Minutes</h1>
+            <h1>CBO Monthly Report</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -33,7 +33,7 @@
       @can('cbo_role')
       <div class="card card-info">
           <div class="card-header">
-            <h3 class="card-title">CBO Minutes of Meeting</h3>
+            <h3 class="card-title">CBO Monthly Report</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -87,7 +87,7 @@
 
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Date of Meeting</label>
+                  <label>Date</label>
                   <input type="date" name="meeting_date" class="form-control" placeholder="" required>
 
                 </div>
@@ -109,7 +109,7 @@
 
 
             </div>
-            <label>Minutes of Meeting</label>
+            <label>Report</label>
             <textarea name="minutes" class="textarea" placeholder="Place some text here"
                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
 
@@ -169,7 +169,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLabel">CBO Monthly Minutes
+                                    <h5 class="modal-title" id="ModalLabel">CBO Monthly Report
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-label="Close">

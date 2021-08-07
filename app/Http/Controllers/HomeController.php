@@ -115,6 +115,7 @@ class HomeController extends Controller
                 'health_facilities'=>$health_facilities,
                 'client_exits'=>$client_exits,
                 'remidial'=>$remidial,
+                'username'=> $user->name,
             ]);;
         }
 

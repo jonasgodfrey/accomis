@@ -239,7 +239,7 @@
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
 
-        <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$act_recipients ?? '0'}}</h3>
@@ -253,22 +253,8 @@
          
         </div>
         <!-- /.col -->
-        <div class="col-md-2 col-sm-6 col-xs-12">
-        <div class="small-box bg-success">
-              <div class="inner">
-                <h3>{{$ipt_recipients ?? '0'}}</h3>
-
-                <p>IPT Recipients</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-file"></i>
-              </div>
-            </div>
-         
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-2 col-sm-6 col-xs-12">
+      
+        <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$sp_recepients ?? '0'}}</h3>
@@ -296,6 +282,9 @@
             </div>
           
         </div>
+        <!-- /.col -->
+
+        
         <!-- /.col -->
 
         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -391,15 +380,15 @@
       
       </div>
         <!-- /.row (main row) -->
-       <legend>Other Activities</legend>
+       <legend>Key Findings/Issues Identified</legend>
       <div class="row">
        
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-database"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Entry FGD Conducted</span>
+              <span class="info-box-text">Commodities Stockout</span>
               <span class="info-box-number">{{$entryfgd ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
@@ -408,10 +397,10 @@
        </div>
        <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-home"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Exit FGD Conducted</span>
+              <span class="info-box-text">Poor Infrastructures</span>
               <span class="info-box-number">{{$exitfgd ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
@@ -420,10 +409,10 @@
        </div>
        <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-user-md"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Community KII Conducted</span>
+              <span class="info-box-text">Inadequate Manpower</span>
               <span class="info-box-number">{{$kii ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
@@ -433,17 +422,69 @@
 
        <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-hospital"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-dollar-sign"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Facility KII Conducted</span>
+              <span class="info-box-text">Low Patronage</span>
               <span class="info-box-number">{{$kii ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
        </div>
-      
+
+       <div class="col-md-2 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-thumbs-up"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Success Stories</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+
+       <div class="col-md-2 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-check-circle"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Media Reports</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-photo-video"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">State Media Meetings Conducted</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+
+       <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-photo-video"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">National Media Meetings Conducted</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+
       </div> 
         <div class="row">
           <div class="col-md-6">

@@ -153,16 +153,24 @@
                 <label>Key Findings/Identified Issues</label>
 
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox1" value="LLIN Not Available">
-    <label for="customCheckbox1" class="custom-control-label">LLIN Not Available</label>
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox1" 
+    value="Commodities Stockout">
+    <label for="customCheckbox1" class="custom-control-label">Commodities Stockout</label>
 </div>
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox2" value="No Medical Personnel">
-    <label for="customCheckbox2" class="custom-control-label">No Medical Personnel</label>
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox2" 
+    value="Poor Infrastructure">
+    <label for="customCheckbox2" class="custom-control-label">Poor Infrastructure</label>
 </div>
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox3" value="No Road Network">
-    <label for="customCheckbox3" class="custom-control-label">No Road Network</label>
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox3" 
+    value="Inadequate Manpower">
+    <label for="customCheckbox3" class="custom-control-label">Inadequate Manpower</label>
+</div>
+<div class="custom-control custom-checkbox">
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox5" 
+    value="Low Patronage">
+    <label for="customCheckbox5" class="custom-control-label">Low Patronage</label>
 </div>
 <div class="custom-control custom-checkbox">
     <input class="custom-control-input keyfindings_check"  type="checkbox" id="customCheckbox4" value="">
@@ -250,7 +258,7 @@
         </div>
         <!-- /.card -->
         @endcan
-        @can('admin_spo')
+        @can('admin_me')
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-success">
 
@@ -387,7 +395,7 @@
         </div><!-- /.container-fluid -->
         @endcan
 
-        @can('cbo_role')
+        @can('spo_role')
 
         <div class="card card-success">
 

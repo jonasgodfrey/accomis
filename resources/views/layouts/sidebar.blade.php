@@ -80,7 +80,7 @@
           <li class="nav-header brand-link">QUESTIONEERS SECTION</li>
           <li class="nav-item">
             
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="{{ route('cbo') }}" class="nav-link">
                   <i class="nav-icon  far fa-calendar-alt"></i>
                   <p>
@@ -88,14 +88,14 @@
                     <span class="badge badge-info right">2</span>
                   </p>
                 </a>
-              </li>
+              </li> -->
             @endcan
         @can('admin_cbo')
           <li class="nav-item">
             <a href="{{ route('client.exit') }}" class="nav-link">
-              <i class="nav-icon  far fa-image"></i>
+              <i class="nav-icon  far fa-file"></i>
               <p>
-                Client Exit
+                Client Exit Interview
               </p>
             </a>
           </li>
@@ -104,20 +104,21 @@
           @can('admin_cbo')
           <li class="nav-item has-treeview">
             <a href="{{ route('remidial') }}" class="nav-link">
-              <i class="nav-icon  far fa-envelope"></i>
+              <i class="nav-icon  far fa-file"></i>
               <p>
-                Remedial Feedback
+                Remedial Action Feedback
 
               </p>
             </a>
 
           </li>
+          @endcan
 
-
+          @can('admin_cbo')
           <li class="nav-item">
             <a href="{{ route('cbo.monthly') }}" class="nav-link">
               <i class="nav-icon  fa fa-book"></i>
-              <p>CBO Monthly Minutes</p>
+              <p>CBO Monthly Reports</p>
             </a>
           </li>
 
@@ -126,29 +127,21 @@
           <li class="nav-item">
             <a href="{{ route('spo_add_monthly') }}" class="nav-link">
               <i class="nav-icon  fa fa-book"></i>
-              <p>SPO Monthly Minutes</p>
+              <p>SPO Monthly Report</p>
             </a>
           </li>
           @endcan
-          @can('admin_spo')
-          <li class="nav-header brand-link">REPORTS SECTION</li>
+
+          @can('admin_spo_me')
+          <li class="nav-header brand-link">REPORTS SECTION</li>     
          
-          <li class="nav-item">
-            <a href="{{ route('cbo') }}" class="nav-link">
-              <i class="nav-icon  far fa-calendar-alt"></i>
-              <p>
-               List of CBO/CAT
-                <!-- <span class="badge badge-info right">2</span> -->
-              </p>
-            </a>
-          </li>
           
 
           <li class="nav-item">
             <a href="{{ route('client.exit') }}"class="nav-link">
-              <i class="nav-icon  fa fa-image"></i>
+              <i class="nav-icon  fa fa-file"></i>
               <p>
-                 Exit Questionnaire
+                Client Exit Interview
               </p>
             </a>
           </li>
@@ -157,9 +150,9 @@
 
           <li class="nav-item has-treeview">
             <a href="{{ route('remidial') }}" class="nav-link">
-              <i class="nav-icon  fa fa-envelope"></i>
+              <i class="nav-icon  fa fa-file"></i>
               <p>
-                Feedbacks
+                Remedial Action Feedbacks
 
               </p>
             </a>
@@ -167,16 +160,15 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('cbo.monthly') }}" class="nav-link">
-              <i class="nav-icon  fa fa-book"></i>
-              <p>CBO Monthly Minutes</p>
+              <i class="nav-icon  fa fa-file"></i>
+              <p>CBO Monthly Report</p>
             </a>
           </li>
-          @endcan
-          @can('admin_spo')
+          
           <li class="nav-item">
             <a href="{{ route('spo_add_monthly') }}" class="nav-link">
-              <i class="nav-icon  fa fa-book"></i>
-              <p>SPO Monthly Minutes</p>
+              <i class="nav-icon  fa fa-file"></i>
+              <p>SPO Monthly Report</p>
             </a>
           </li>
           @endcan
@@ -186,13 +178,13 @@
           
           <li class="nav-item">
             <a href="{{ route('genanalysis') }}" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-chart-line"></i>
               <p>State Level Analysis</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-chart-pie"></i>
               <p>CBO Level Analysis</p>
             </a>
           </li>
@@ -203,31 +195,39 @@
          
           <li class="nav-item">
             <a href="{{ route('spo.monthly') }}" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-users"></i>
               <p>SPO</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('wards.view')}}" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-map-pin"></i>
               <p>Wards</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('cbo.add.view') }}" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-users"></i>
               <p>CBO/CAT</p>
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('cbo') }}" class="nav-link">
+              <i class="nav-icon  fa fa-list"></i>
+              <p>
+               List of CBO/CAT
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('health_facility') }}" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-hospital-user"></i>
               <p>Health Facilities</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon  far fa-circle text-info"></i>
+              <i class="nav-icon  fa fa-user"></i>
               <p>Profile</p>
             </a>
           </li>

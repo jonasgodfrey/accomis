@@ -8,7 +8,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">CBO Dashboard</h1>
+            <p class="m-0 text-dark">Welcome!</p>
+            <h1 class="m-0 text-dark">{{$username}}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
