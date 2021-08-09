@@ -426,7 +426,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Low Patronage</span>
-              <span class="info-box-number">{{$kii ?? '0'}}</span>
+              <span class="info-box-number">{{$patronage ?? '0'}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>

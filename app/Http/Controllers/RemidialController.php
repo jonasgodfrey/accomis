@@ -1,5 +1,5 @@
 <?php
-
+  
 namespace App\Http\Controllers;
 
 use App\Models\Cbo;
@@ -44,7 +44,7 @@ class RemidialController extends Controller
         $cbo_lga = '';
         $cbo_name = '';
 
-        //loof for parsing fetched authenticated user's data
+        //loop for parsing fetched authenticated user's data
         foreach($cbo as $cbo_detail){
             $cbo_name = $cbo_detail->cbo_name;
             $cbo_state = $cbo_detail->state;

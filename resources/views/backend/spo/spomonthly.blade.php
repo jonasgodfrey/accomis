@@ -13,12 +13,12 @@
         {{-- Flash message end--}}
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>SPO Monthly Minutes</h1>
+            <h1>SPO Monthly Reports</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">SPO Minutes Page</li>
+              <li class="breadcrumb-item active">SPO Report Page</li>
             </ol>
           </div>
         </div>
@@ -33,7 +33,7 @@
         @can('spo_role')
         <div class="card card-info">
           <div class="card-header">
-            <h3 class="card-title">SPO Minutes of Meeting</h3>
+            <h3 class="card-title">SPO Monthly Report</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -71,7 +71,7 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Date of Meeting</label>
+                  <label>Date</label>
                   <input type="date" name="meeting_date" class="form-control" placeholder="">
 
                 </div>
@@ -93,7 +93,7 @@
 
 
             </div>
-            <label>Minutes of Meeting</label>
+            <label>Enter Reports (optional)</label>
             <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px;
             font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="minutes"></textarea>
 

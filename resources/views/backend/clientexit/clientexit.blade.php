@@ -806,7 +806,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>id</th>
@@ -940,11 +940,23 @@
 
 @endsection
 @section('js')
+
+    <script src="dist/js/datatables/datatables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example2').DataTable();
+        });
+
+    </script>
+
+
     <script src="dist/js/dependentform.js"></script>
+
     <script>
         $(document).ready(function() {
             $('#example1').DataTable();
         });
 
     </script>
+
 @endsection

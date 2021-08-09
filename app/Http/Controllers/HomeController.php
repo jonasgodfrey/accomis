@@ -69,6 +69,8 @@ class HomeController extends Controller
             $entryfgd = count(Remedial::where('tracker_type', 'Client Exit')->get());
             $exitfgd = count(Remedial::where('tracker_type', 'Exit FGD')->get());
             $kii = count(Remedial::where('tracker_type', 'KII')->get());
+            $patronage = count(Remedial::where('identified_issues', '[Low Patronage]')->get());
+
 
 
             return view('backend.dashboards.admin_dashboard')->with([
@@ -100,6 +102,7 @@ class HomeController extends Controller
                 'maternal_treatment'=>$maternal_treatment,
                 'antenatal_treatment'=>$antenatal_treatment,
                 'malaria_treatment'=>$malaria_treatment,
+                'issues_identified'=>$patronage,
 
                 
             ]);
