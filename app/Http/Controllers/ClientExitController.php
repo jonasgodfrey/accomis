@@ -22,7 +22,7 @@ class ClientExitController extends Controller
     {
         $this->middleware('auth');
     }
-   
+
     /**
      * Show the application dashboard.
      *
@@ -35,7 +35,27 @@ class ClientExitController extends Controller
             abort('404');
         }
         $user = Auth::user();
-        $clients = ClientExitQuestionare::all();
+        $spouser = Spo::where('email',  $user->email)->get();
+        $state = "";
+        foreach ($spouser as $spo_detail) {
+            $state = $spo_detail->state;
+        }
+
+        $role = implode(' ', $user->roles->pluck('name')->toArray());
+        $clients = "";
+
+        if ($role == "Cbo") {
+            $clients = ClientExitQuestionare::where('state', $user->email)->get();
+        }
+        if ($role == "Admin") {
+            $clients = ClientExitQuestionare::all();
+        }
+
+        if ($role == "Spo") {
+            $state = substr($state, 0, strpos($state, ' '));
+            $clients = ClientExitQuestionare::where('state', $state)->get();
+        }
+
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
         return view('backend.clientexit.clientexit')->with([
             'clients' => $clients,
