@@ -31,7 +31,7 @@ class RemidialController extends Controller
 
     public function remidial()
     {
-        if (Gate::denies('admin_spo_cbo')) {
+        if (Gate::denies('admin_spo_cbo_me')) {
             abort('404');
         }
 

@@ -117,7 +117,7 @@
         </div>
         @endcan
         <!-- SELECT2 EXAMPLE -->
-        @can('admin_spo')
+        @can('admin_spo_me')
         <div class="card card-success">
           <div class="card-header">
             <h3 class="card-title">Monthly Reports</h3>
@@ -133,7 +133,7 @@
               <thead>
               <tr>
                 <th>id</th>
-                <th>Meeting Date</th>
+                <th>Date</th>
                 <th>Attachment</th>
                 <th>Status</th>
                 <th>Quarter</th>
@@ -159,7 +159,7 @@
                   <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h5 class="modal-title" id="ModalLabel">spo Monthly Minutes
+                              <h5 class="modal-title" id="ModalLabel">SPO Monthly Report
                               </h5>
                               <button type="button" class="close" data-dismiss="modal"
                                   aria-label="Close">
@@ -172,7 +172,7 @@
                                       <h3 class="card-title">
                                           <i class="fas fa-text-width"></i>
 
-                                      </h3>
+                                      </h3> 
                                   </div>
                                   <!-- /.card-header -->
                                   <div class="card-body">
@@ -184,7 +184,7 @@
                                           <dt class="col-sm-4">Spo Name:</dt>
                                           <dd class="col-sm-8">{{ $spo->name }}.
                                           </dd>
-                                          <dt class="col-sm-4">Minutes:</dt>
+                                          <dt class="col-sm-4">Report:</dt>
                                           <dd class="col-sm-8">
                                             {!! $spo->minutes_of_meeting !!}
 

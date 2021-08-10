@@ -85,7 +85,7 @@ class SpoController extends Controller
 
     public function spo_monthly()
     {
-        if (Gate::denies('admin_spo')) {
+        if (Gate::denies('admin_spo_me')) {
             abort('404');
         }
 
@@ -100,6 +100,9 @@ class SpoController extends Controller
         }
 
         if ($role == "Admin") {
+            $spo = SpoMonthly::all();
+        }
+        if ($role == "Me") {
             $spo = SpoMonthly::all();
         }
         if ($role == "Spo") {
