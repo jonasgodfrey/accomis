@@ -45,12 +45,11 @@ class ClientExitController extends Controller
         $clients = "";
 
         if ($role == "Cbo") {
-            $clients = ClientExitQuestionare::where('state', $user->email)->get();
+            $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get();
         }
         if ($role == "Admin") {
             $clients = ClientExitQuestionare::all();
         }
-
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
             $clients = ClientExitQuestionare::where('state', $state)->get();
