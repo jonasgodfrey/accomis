@@ -160,7 +160,7 @@ class CboController extends Controller
     {
 
         $request->validate([
-            'attachment' => 'required|mimes:pdf|max:2048'
+            'attachment' => 'required|mimes:pdf,docx,docs,doc|max:20048'
         ]);
 
         $file = $request->file('attachment');
@@ -182,6 +182,7 @@ class CboController extends Controller
             'date_of_meeting' => $request->meeting_date,
             'month' => $month,
             'year' => $year,
+            'quarter' => $request->quarter,
         ]);
 
         if ($submit_cbo_monthly) {

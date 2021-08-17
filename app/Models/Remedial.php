@@ -25,6 +25,7 @@ class Remedial extends Model
         'signed_document',
         'month',
         'year',
+        'quarter',
     ];
 
 }

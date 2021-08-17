@@ -155,12 +155,12 @@
                                     <div class="form-group" id="quarter">
                                         <label>Select Quarter</label>
                                         <select class="form-control quarter select2" style="width: 100%;"
-                                            name="quarter" required>
+                                            name="quarter">
                                             <option value="">Select Quarter</option>
-                                            <option value="Quarter 1 2021">Quarter 1 2021</option>
-                                            <option value="Quarter 2 2021">Quarter 2 2021</option>
-                                            <option value="Quarter 3 2021">Quarter 3 2021</option>
-                                            <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                            <option value="Quarter_1_2021">Quarter 1 2021</option>
+                                            <option value="Quarter_2_2021">Quarter 2 2021</option>
+                                            <option value="Quarter_3_2021">Quarter 3 2021</option>
+                                            <option value="Quarter_4_2021">Quarter 4 2021</option>
                                         </select>
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                     <div class="form-group" id="what_did_you_come_for">
                                         <label>What Service did you come for?</label>
                                         <select class="form-control what_did_you_come_for" name="what_did_you_come_for"
-                                            required>
+                                        >
                                             <option value="" style="display: none">Select</option>
                                             <option value="Maternal and Newborn Care">Maternal and Newborn Care</option>
                                             <option value="Antenatal Care">Antenatal Care</option>
@@ -792,7 +792,7 @@
                     @endcan
                 </div>
                 <!-- /.container-fluid -->
-                @can('spo_role')
+                @can('spo_cbo')
                     <div class="card card-success">
                         <div class="card-header">
                             <h3 class="card-title">Client Exit Reports</h3>
@@ -875,7 +875,7 @@
                                                                                 {{ $client->health_facility_of_interview }}.
                                                                             </dd>
 
-                                                                            <dt class="col-sm-4">Service Came For:</dt>
+                                                                            <dt class="col-sm-4">Service Requested:</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->purpose_of_comming }}.
                                                                             </dd>
@@ -883,6 +883,11 @@
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->treatment_received }}.
                                                                             </dd>
+                                                                            <dt class="col-sm-4">Received LLIN:</dt>
+                                                                            <dd class="col-sm-8">
+                                                                                {{ $client->llin_recipients}}.
+                                                                            </dd>
+
                                                                             <dt class="col-sm-4">Service Rating:</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->service_satisfaction_level }}.
@@ -919,7 +924,7 @@
                                         <th>Date</th>
                                         <th>Health Facility</th>
                                         <!-- <th>Rating</th> -->                                        
-                                        <th>Respondant</th>
+                                        <th>test</th>
                                         <th>Quarter</th>
 
                                         <th>Action</th>

@@ -50,6 +50,9 @@ class ClientExitController extends Controller
         if ($role == "Admin") {
             $clients = ClientExitQuestionare::all();
         }
+        if ($role == "Me") {
+            $clients = ClientExitQuestionare::all();
+        }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
             $clients = ClientExitQuestionare::where('state', $state)->get();
@@ -130,6 +133,7 @@ class ClientExitController extends Controller
             'month' => $month,
             'year' => $year,
             'day' => $day,
+            'quarter' => $request->quarter,
         ]);
     }
 }

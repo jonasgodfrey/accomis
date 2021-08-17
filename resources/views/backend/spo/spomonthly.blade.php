@@ -61,10 +61,10 @@
                                         <select class="form-control quarter select2" style="width: 100%;"
                                             name="quarter">
                                             <option value="">Select Quarter</option>
-                                            <option value="Quarter 1 2021">Quarter 1 2021</option>
-                                            <option value="Quarter 2 2021">Quarter 2 2021</option>
-                                            <option value="Quarter 3 2021">Quarter 3 2021</option>
-                                            <option value="Quarter 4 2021">Quarter 4 2021</option>
+                                            <option value="Quarter_1_2021">Quarter 1 2021</option>
+                                            <option value="Quarter_2_2021">Quarter 2 2021</option>
+                                            <option value="Quarter_3_2021">Quarter 3 2021</option>
+                                            <option value="Quarter_4_2021">Quarter 4 2021</option>
                                         </select>
                                     </div>
                         </div>
@@ -111,9 +111,6 @@
           </div>
         </div>
         <!-- /.card -->
-
-
-
         </div>
         @endcan
         <!-- SELECT2 EXAMPLE -->
