@@ -160,7 +160,7 @@ class CboController extends Controller
     {
 
         $request->validate([
-            'attachment' => 'required|mimes:pdf,docx,docs|max:2048'
+            'attachment' => 'required|mimes:pdf,docx,docs,doc|max:20048'
         ]);
 
         $file = $request->file('attachment');
