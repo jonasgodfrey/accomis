@@ -489,7 +489,6 @@ $(document).ready(function() {
                 what_treatment_did_you_recieve,
                 frequency_of_visit,
                 recieve_llin,
-
                 recieve_ipt,
                 smc,
                 malaria_test,

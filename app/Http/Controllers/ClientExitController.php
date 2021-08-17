@@ -67,27 +67,25 @@ class ClientExitController extends Controller
 
     public function client_exit_add(Request $request)
     {
-        if (Gate::denies('admin_spo_cbo')) {
-            abort('404');
-        }
 
         $month = date('M');
         $day = date('d');
         $year = date('Y');
         $user = Auth::user();
+        $state = '';
+        $spo_email = '';
         $email = $user->email;
 
         $cbo = DB::table('cbos')->where('email', $email)
             ->get();
 
-        $state = '';
-        $spo_email = '';
         //loop for parsing fetched authenticated user's data
         foreach ($cbo as $cbo_detail) {
             $state = $cbo_detail->state;
         }
-        $spo = DB::table('spos')->where('state', 'LIKE', "%{$state}%")
-            ->get();
+
+        $spo = DB::table('spos')->where('state', 'LIKE', "%{$state}%")->get();
+        
         foreach ($spo as $spo_detail) {
             $spo_email = $spo_detail->email;
         }
