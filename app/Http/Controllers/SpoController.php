@@ -24,7 +24,7 @@ class SpoController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');  
+        $this->middleware('auth');
     }
 
     /**
@@ -122,7 +122,7 @@ class SpoController extends Controller
         }
 
         $request->validate([
-            'attachment' => 'required|mimes:pdf|max:2048'
+            'attachment' => 'required|mimes:pdf,docx,docs|max:2048'
         ]);
 
         $file = $request->file('attachment');
