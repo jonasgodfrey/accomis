@@ -395,7 +395,7 @@
         </div><!-- /.container-fluid -->
         @endcan
 
-        @can('spo_role')
+        @can('spo_cbo')
 
         <div class="card card-success">
 
