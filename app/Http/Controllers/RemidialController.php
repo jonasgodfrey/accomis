@@ -1,9 +1,8 @@
 <?php
-
+  
 namespace App\Http\Controllers;
 
 use App\Models\Cbo;
-use App\Models\Spo;
 use Illuminate\Http\Request;
 use App\Models\Remedial;
 use App\Models\States;
@@ -34,10 +33,11 @@ class RemidialController extends Controller
     {
         if (Gate::denies('admin_spo_cbo_me')) {
             abort('404');
-        }
+        } 
 
         $user = Auth::user();
         $cbo = Cbo::where('email', $user->email)->get();
+        $rem = Remedial::all();
         $states = States::where('status', 'active')->get();
 
         $cbo_state = '';
@@ -49,30 +49,6 @@ class RemidialController extends Controller
             $cbo_name = $cbo_detail->cbo_name;
             $cbo_state = $cbo_detail->state;
             $cbo_lga = $cbo_detail->lga;
-        }
-
-        $spouser = Spo::where('email',  $user->email)->get();
-        $state = "";
-        foreach ($spouser as $spo_detail) {
-            $state = $spo_detail->state;
-        }
-
-        $role = implode(' ', $user->roles->pluck('name')->toArray());
-        $rem = "";
-
-        if ($role == "Cbo") {
-            $rem = Remedial::where('cbo', $user->email)->get();
-        }
-        if ($role == "Admin") {
-            $rem = Remedial::all();
-        }
-        if ($role == "Me") {
-            $rem = Remedial::all();
-        }
-
-        if ($role == "Spo") {
-            $state = substr($state, 0, strpos($state, ' '));
-            $rem = Remedial::where('state', $state)->get();
         }
 
         $wards = Ward::where('lga', $cbo_lga)->get();
@@ -102,7 +78,7 @@ class RemidialController extends Controller
         }
 
         $issues = implode(', ', $request->input('key_findings'));
-
+        
 
         $add_remidial = Remedial::create([
             'state' => $request->state,
