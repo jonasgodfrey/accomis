@@ -182,7 +182,6 @@ class CboController extends Controller
             'date_of_meeting' => $request->meeting_date,
             'month' => $month,
             'year' => $year,
-            'quarter' => $request->quarter,
         ]);
 
         if ($submit_cbo_monthly) {

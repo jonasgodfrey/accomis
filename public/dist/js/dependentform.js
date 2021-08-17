@@ -265,12 +265,6 @@ $(document).ready(function() {
             educational_bg = $(this).val();
         });
 
-        //quarter of the year
-        var quarter = "";
-        $(".quarter").on("change", function() {
-            quarter = $(".quarter option:selected").val();
-        });
-
         //what_did_you_come_for
         var what_did_you_come_for = "";
         $(".what_did_you_come_for").on("change", function() {
@@ -527,7 +521,6 @@ $(document).ready(function() {
                         health_facility_of_interview: health_facility_of_interview,
                         occupation: occupation,
                         educational_bg: educational_bg,
-                        quarter: quarter,
                         what_did_you_come_for: what_did_you_come_for,
                         what_treatment_did_you_recieve: what_treatment_did_you_recieve,
                         frequency_of_visit: frequency_of_visit,

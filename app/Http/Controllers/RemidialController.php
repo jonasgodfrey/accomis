@@ -120,7 +120,6 @@ class RemidialController extends Controller
             'signed_document' => $signed_doc,
             'month' => $month,
             'year' => $year,
-            'quarter' => $request->quarter,
         ]);
 
 

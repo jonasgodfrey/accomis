@@ -111,7 +111,6 @@ class ClientExitController extends Controller
             'month' => $month,
             'year' => $year,
             'day' => $day,
-            'quarter' => $request->quarter,
         ]);
     }
 }
