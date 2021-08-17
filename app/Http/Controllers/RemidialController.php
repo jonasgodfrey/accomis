@@ -33,7 +33,7 @@ class RemidialController extends Controller
     {
         if (Gate::denies('admin_spo_cbo_me')) {
             abort('404');
-        }
+        } 
 
         $user = Auth::user();
         $cbo = Cbo::where('email', $user->email)->get();
