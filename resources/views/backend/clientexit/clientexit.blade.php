@@ -622,6 +622,14 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <p></p>
+                                    <div class="form-group">
+                                        <label>Upload Report</label><br>
+                                        <input type="file" name="filename" class="file-input">
+                                    </div>
+                                </div>
+
 
                             </div>
 
@@ -638,8 +646,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <!-- Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-                the plugin. -->
+                          
                         </div>
                     </div>
                     <!-- /.card -->

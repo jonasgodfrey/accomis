@@ -121,6 +121,13 @@
               <p>CBO Monthly Reports</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('fgdreport') }}" class="nav-link">
+              <i class="nav-icon  fa fa-book"></i>
+              <p>Focus Group Discussion</p>
+            </a>
+          </li>
+         
 
           @endcan
           @can('admin_spo')
