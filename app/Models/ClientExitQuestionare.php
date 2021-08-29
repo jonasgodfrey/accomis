@@ -51,5 +51,6 @@ class ClientExitQuestionare extends Model
         'year',
         'day',
         'quarter',
+        'attachment',
     ];
 }

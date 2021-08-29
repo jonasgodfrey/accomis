@@ -29,6 +29,9 @@ Route::get('/cbo', [App\Http\Controllers\CboController::class, 'cbo_index'])->na
 Route::get('/cbo_monthly', [App\Http\Controllers\CboController::class, 'cbo_monthly'])->name('cbo.monthly');
 Route::get('/add_cbo/', [App\Http\Controllers\CboController::class, 'add_cbo_view'])->name('cbo.add.view');
 
+//CBO Get FGD Routes
+Route::get('/otherreports', [App\Http\Controllers\FgdreportController::class, 'fgdreport'])->name('fgdreport');
+
 //Cbo post routes
 Route::post('/cbo', [App\Http\Controllers\CboController::class, 'add_cbo'])->name('cbo.add');
 Route::post('/cbo/cat_add', [App\Http\Controllers\CatController::class, 'add_cat'])->name('cat.add');

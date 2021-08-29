@@ -208,6 +208,8 @@ class CboController extends Controller
         }
     }
 
+    
+
     public function fetch(Request $request)
     {
         $select = $request->get('select');
