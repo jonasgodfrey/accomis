@@ -59,7 +59,6 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
@@ -71,7 +70,7 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 NFM 2 Dashboard
-               
+
               </p>
             </a>
           </li>
@@ -79,7 +78,7 @@
           @can('admin_role')
           <li class="nav-header brand-link">QUESTIONEERS SECTION</li>
           <li class="nav-item">
-            
+
             <!-- <li class="nav-item">
                 <a href="{{ route('cbo') }}" class="nav-link">
                   <i class="nav-icon  far fa-calendar-alt"></i>
@@ -133,9 +132,9 @@
           @endcan
 
           @can('admin_spo_me')
-          <li class="nav-header brand-link">REPORTS SECTION</li>     
-         
-          
+          <li class="nav-header brand-link">REPORTS SECTION</li>
+
+
 
           <li class="nav-item">
             <a href="{{ route('client.exit') }}"class="nav-link">
@@ -164,7 +163,7 @@
               <p>CBO Monthly Report</p>
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a href="{{ route('spo_add_monthly') }}" class="nav-link">
               <i class="nav-icon  fa fa-file"></i>
@@ -175,7 +174,7 @@
 
           @can('me_role')
           <li class="nav-header brand-link">ANALYSIS SECTION</li>
-          
+
           <li class="nav-item">
             <a href="{{ route('genanalysis') }}" class="nav-link">
               <i class="nav-icon  fa fa-chart-line"></i>
@@ -192,7 +191,7 @@
 
           @can('admin_role')
           <li class="nav-header brand-link">SETTINGS SECTION</li>
-         
+
           <li class="nav-item">
             <a href="{{ route('spo.monthly') }}" class="nav-link">
               <i class="nav-icon  fa fa-users"></i>
@@ -241,7 +240,7 @@
           </li> -->
 
           @endcan
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <i class="nav-icon  fa fa-door-open text-info"></i>

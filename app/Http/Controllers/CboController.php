@@ -33,6 +33,8 @@ class CboController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    //cbo view function for parsing data to cbo tables
     public function cbo_index()
     {
         if (Gate::denies('admin_spo')) {
@@ -47,6 +49,8 @@ class CboController extends Controller
             'states' => $states,
         ]);
     }
+
+    //add cbo function
     public function add_cbo_view()
     {
         if (Gate::denies('admin_role')) {
@@ -61,23 +65,32 @@ class CboController extends Controller
             'states' => $states,
         ]);
     }
+
+    //cbo monthly view function also parses cbo monthly view data to cbo monthly tables
     public function cbo_monthly()
     {
+        //for checking the auth user roles
         if (Gate::denies('admin_spo_cbo_me')) {
             abort('404');
         }
 
+        //initiating classes and assinging it to a variable
         $user = Auth::user();
         $spouser = Spo::where('email',  $user->email)->get();
         $state = "";
 
+        //fetching spo state and assigning to the state variable
         foreach ($spouser as $spo_detail) {
             $state = $spo_detail->state;
         }
 
+        //getting the role of the current auth user and assigning it
         $role = implode(' ', $user->roles->pluck('name')->toArray());
+
+        //cbo var initiation
         $cbo = "";
 
+        //conditions for checking the user role and assigning the respective data for that user to view to the cbo var
         if ($role == "Cbo") {
             $cbo = CboMonthly::where('cbo_name', $user->name)->get();
         }
@@ -117,14 +130,18 @@ class CboController extends Controller
         ]);
     }
 
+    //add cbo function
     public function add_cbo(Request $request)
     {
 
         $cboRole = Role::where('name', 'Cbo')->first();
-        if (User::where('email', '=', $request->email)->exists()) {
+        if (User::where('email', '=', $request->email)->exists())
+        {
             Session::flash('error_message', 'A user with this email already exists!');
             return redirect(route('cbo.add.view'));
+
         } else {
+
             $cbo = User::create([
                 'name' => $request->cbo_name,
                 'email' => $request->email,
@@ -149,7 +166,8 @@ class CboController extends Controller
 
             $cbo->roles()->attach($cboRole);
 
-            if ($submit_cbo) {
+            if ($submit_cbo)
+            {
                 Session::flash('flash_message', 'Cbo Added Successfully');
                 return redirect(route('cbo'));
             }
@@ -170,7 +188,6 @@ class CboController extends Controller
 
         // save to storage/app/photos as the new $filename
         $file->storeAs('public/attachments', $filename);
-
         $month = date('M');
         $year = date('Y');
         $submit_cbo_monthly = CboMonthly::create([
