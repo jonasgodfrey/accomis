@@ -15,18 +15,11 @@ class Fgdreport extends Model
         'email',
         'state',
         'lga',
-        'phone',
-        'contact_person',
-        'date_of_engagement',
-        'date_of_establishment',
-        'physical_contact_address',
         'attachment',
-        'minutes_of_meeting',
-        'date_of_meeting',
+        'date_of_activity',
         'month',
         'year',
         'quarter',
         'activity',
-
     ];
-} 
+}

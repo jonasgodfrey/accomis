@@ -500,7 +500,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-4" id="arthemisinin_based_therapy">
                                     <label>Were You given Arthemisinin-based-Combination Therapy</label>
                                     <div class="form-group clearfix">
@@ -554,16 +554,16 @@
                                 </div>
 
                                 <div class="col-md-4 arthemisinin_therapy_show">
-                                    
+
                                     <div class="form-group clearfix">
-                                       
+
                                         <input type="text" name="arthemisinin_drug_finish_no"
                                             class="form-control arthemisinin_therapy_show_no field9" placeholder="If No, Why?">
 
                                     </div>
                                 </div>
 
-                                
+
 
 
                                 <div class="col-md-12">
@@ -624,9 +624,9 @@
 
                                 <div class="col-md-12">
                                     <p></p>
-                                    <div class="form-group">
+                                    <div class="form-group file">
                                         <label>Upload Report</label><br>
-                                        <input type="file" name="filename" class="file-input">
+                                        <input type="file" id="report_file" name="filename" class="file-input report_file">
                                     </div>
                                 </div>
 
@@ -646,7 +646,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                          
+
                         </div>
                     </div>
                     <!-- /.card -->
@@ -831,7 +831,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
-                                          
+
                                             <td>{{ $client->respondant_name }}</td>
                                             <td>{{ $client->quarter }}</td>
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
@@ -930,7 +930,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <!-- <th>Rating</th> -->                                        
+                                        <!-- <th>Rating</th> -->
                                         <th>test</th>
                                         <th>Quarter</th>
 

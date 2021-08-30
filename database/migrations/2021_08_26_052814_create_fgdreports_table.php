@@ -18,9 +18,9 @@ class CreateFgdreportsTable extends Migration
             $table->string('cbo_name');
             $table->string('state');
             $table->string('lga');
-            $table->string('date_of_meeting');
+            $table->string('email');
+            $table->string('date_of_activity');
             $table->string('attachment');
-            $table->longText('minutes_of_meeting');
             $table->string('month');
             $table->string('year');
             $table->string('quarter');

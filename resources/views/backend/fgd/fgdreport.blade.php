@@ -42,7 +42,7 @@
           </div>
           <!-- /.card-header -->
           @can('cbo_role')
-        <form role="form" action="{{ route('cbo.add_monthly') }}" enctype="multipart/form-data" method="POST">
+        <form role="form" action="{{ route('fgdreport.add') }}" enctype="multipart/form-data" method="POST">
              @csrf
           <div class="card-body">
             <div class="row">
@@ -93,17 +93,17 @@
                 </div>
               </div>
               <div class="col-md-3">
-                                    <div class="form-group" id="activity">
-                                        <label>Select Activity</label>
-                                        <select class="form-control activity select2" style="width: 100%;"
-                                            name="activity" required>
-                                            <option value="">Select Quarter</option>
-                                            <option value="Entry_FGD">Entry FGD</option>
-                                            <option value="Exit_FGD">Exit FGD</option>
-                                            <option value="KII">Key Informant Interview</option>                                           
-                                        </select>
-                                    </div>
-                        </div>
+                <div class="form-group" id="activity">
+                    <label>Select Activity</label>
+                    <select class="form-control activity select2" style="width: 100%;"
+                        name="activity" required>
+                        <option value="">Select Quarter</option>
+                        <option value="Entry_FGD">Entry FGD</option>
+                        <option value="Exit_FGD">Exit FGD</option>
+                        <option value="KII">Key Informant Interview</option>
+                    </select>
+                </div>
+            </div>
               <div class="col-md-3">
                 <div class="form-group">
                     <label for="exampleInputFile">Attach Report</label>
@@ -118,13 +118,7 @@
                     </div>
                   </div>
               </div>
-
-
             </div>
-            <!-- <label>Report</label>
-            <textarea name="minutes" class="textarea" placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
- -->
 
 
             <button type="submit" class="btn btn-primary">Submit Report</button>
@@ -169,7 +163,7 @@
                     @foreach ($cbos as $cbo)
                     <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $cbo->date_of_meeting }}</td>
+                    <td>{{ $cbo->date_of_activity}}</td>
                     <td><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                     <td>{{$cbo->cbo_name}}</td>
                     <td>{{ $cbo->quarter }}</td>

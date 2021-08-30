@@ -473,10 +473,56 @@ $(document).ready(function() {
         $(".customer_help_improve").on("input", function() {
             customer_help_improve = $(this).val();
         });
-
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
         $("#submit_form").click(function() {
+
+            var fd = new FormData();
+            var uploader = $('#report_file[type="file"]');
+            $.each(uploader.files, function() {
+                fd.append('file[]', this);
+              });
+            // Get the selected file
+
+            fd.append('_token',CSRF_TOKEN);
+            fd.append('res_name', res_name);
+            fd.append('child_name', child_name);
+            fd.append('res_category', res_category);
+            fd.append('address', address);
+            fd.append('phone_no', phone_no);
+            fd.append('health_facility_of_interview', health_facility_of_interview);
+            fd.append('occupation', occupation);
+            fd.append('educational_bg', educational_bg);
+            fd.append('quarter', quarter);
+            fd.append('what_did_you_come_for', what_did_you_come_for);
+            fd.append('what_treatment_did_you_recieve', what_treatment_did_you_recieve);
+            fd.append('frequency_of_visit', frequency_of_visit);
+            fd.append('recieve_llin', recieve_llin);
+            fd.append('llin_recieve_location', llin_recieve_location);
+            fd.append('llin_frequency', llin_frequency);
+            fd.append('sleep_in_llin',sleep_in_llin);
+            fd.append('sleep_in_llin_interval',sleep_in_llin_interval);
+            fd.append('reason_for_not_sleeping_in_llin',reason_for_not_sleeping_in_llin);
+            fd.append('recieve_ipt', recieve_ipt);
+            fd.append('ipt_frequency', ipt_frequency);
+            fd.append('swallow_sp_sulfadoxin', swallow_sp_sulfadoxin);
+            fd.append('services', services);
+            fd.append('smc', smc);
+            fd.append('smc_reception_age', smc_reception_age);
+            fd.append('malaria_test', malaria_test);
+            fd.append('malaria_reason', malaria_reason);
+            fd.append('malaria_test_period', malaria_test_period);
+            fd.append('arthemisinin_based_therapy', arthemisinin_based_therapy);
+            fd.append('arthemisinin_therapy_false', arthemisinin_therapy_false);
+            fd.append('arthemisinin_drug_finish', arthemisinin_drug_finish);
+            fd.append('abc_input_details', abc_input_details);
+            fd.append('satisfaction_level', satisfaction_level);
+            fd.append('insatisfaction_cause', insatisfaction_cause);
+            fd.append('customer_help', customer_help);
+            fd.append('customer_help_improve', customer_help_improve);
+
             //heavy validation
             var validate = [
+                uploader,
                 res_name,
                 child_name,
                 res_category,
@@ -499,6 +545,7 @@ $(document).ready(function() {
                 customer_help_improve
             ];
 
+
             if (validate.includes("")) {
                 swal.fire({
                     title: "Error",
@@ -512,48 +559,14 @@ $(document).ready(function() {
                 submitData();
             }
 
+
             function submitData() {
                 $.ajax({
                     url: "/clientexit/",
-                    type: "post",
-                    data: {
-                        id: 1,
-                        res_name: res_name,
-                        child_name: child_name,
-                        res_category: res_category,
-                        address: address,
-                        phone_no: phone_no,
-                        health_facility_of_interview: health_facility_of_interview,
-                        occupation: occupation,
-                        educational_bg: educational_bg,
-                        quarter: quarter,
-                        what_did_you_come_for: what_did_you_come_for,
-                        what_treatment_did_you_recieve: what_treatment_did_you_recieve,
-                        frequency_of_visit: frequency_of_visit,
-                        recieve_llin: recieve_llin,
-                        llin_recieve_location: llin_recieve_location,
-                        llin_frequency: llin_frequency,
-                        sleep_in_llin:sleep_in_llin,
-                        sleep_in_llin_interval:sleep_in_llin_interval,
-                        reason_for_not_sleeping_in_llin:reason_for_not_sleeping_in_llin,
-                        recieve_ipt: recieve_ipt,
-                        ipt_frequency: ipt_frequency,
-                        swallow_sp_sulfadoxin: swallow_sp_sulfadoxin,
-                        services: services,
-                        smc: smc,
-                        smc_reception_age: smc_reception_age,
-                        malaria_test: malaria_test,
-                        malaria_reason: malaria_reason,
-                        malaria_test_period: malaria_test_period,
-                        arthemisinin_based_therapy: arthemisinin_based_therapy,
-                        arthemisinin_therapy_false: arthemisinin_therapy_false,
-                        arthemisinin_drug_finish: arthemisinin_drug_finish,
-                        abc_input_details: abc_input_details,
-                        satisfaction_level: satisfaction_level,
-                        insatisfaction_cause: insatisfaction_cause,
-                        customer_help: customer_help,
-                        customer_help_improve: customer_help_improve
-                    },
+                    method: "post",
+                    contentType: false,
+                    processData: false,
+                    data: fd,
                     success: function(response) {
                         swal.fire({
                             title: "Success",
@@ -582,6 +595,7 @@ $(document).ready(function() {
                         )
                     }
                 });
+
             }
         });
 
