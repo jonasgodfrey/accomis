@@ -90,12 +90,12 @@ class ClientExitController extends Controller
             $spo_email = $spo_detail->email;
         }
 
-        $file = $request->file('file[]');
+        // $file = $request->file('file[]');
 
-        $filename = 'attached-file-' . time() . '.' . $file->getClientOriginalExtension();
+        // $filename = 'attached-file-' . time() . '.' . $file->getClientOriginalExtension();
 
-        // save to storage/app/photos as the new $filename
-        $file->storeAs('public/attachments', $filename);
+        // // save to storage/app/photos as the new $filename
+        // $file->storeAs('public/attachments', $filename);
 
         $submit_client_form = ClientExitQuestionare::create([
             'respondant_name' => $request->res_name,
@@ -139,7 +139,7 @@ class ClientExitController extends Controller
             'year' => $year,
             'day' => $day,
             'quarter' => $request->quarter,
-            'attachment' => $filename,
+            'attachment' => "null",
         ]);
     }
 }
