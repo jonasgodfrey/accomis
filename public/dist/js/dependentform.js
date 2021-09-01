@@ -474,15 +474,15 @@ $(document).ready(function() {
             customer_help_improve = $(this).val();
         });
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-        $("#submit_form").click(function() {
 
+        $("#submit_form").click(function(e) {
+            e.preventDefault();
             var fd = new FormData();
-            var uploader = $('#report_file[type="file"]');
-            $.each(uploader.files, function() {
-                fd.append('file[]', this);
-              });
-            // Get the selected file
+            var files = $('#report_file')[0].files;
 
+
+            // Get the selected file
+            fd.append('file',files[0]);
             fd.append('_token',CSRF_TOKEN);
             fd.append('res_name', res_name);
             fd.append('child_name', child_name);
@@ -522,7 +522,7 @@ $(document).ready(function() {
 
             //heavy validation
             var validate = [
-                uploader,
+                files,
                 res_name,
                 child_name,
                 res_category,
@@ -576,6 +576,7 @@ $(document).ready(function() {
                                 text: "close"
                             }
                         });
+
                         setInterval("location.reload()", 3000);
                     },
                     error: function(err) {
