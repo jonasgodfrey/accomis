@@ -75,7 +75,7 @@
             </a>
           </li>
           @endcan
-          @can('admin_role')
+          @can('admin_cbo')
           <li class="nav-header brand-link">QUESTIONEERS SECTION</li>
           <li class="nav-item">
 
@@ -94,7 +94,7 @@
             <a href="{{ route('client.exit') }}" class="nav-link">
               <i class="nav-icon  far fa-file"></i>
               <p>
-                Client Exit Interview
+                Client Exit Interview 
               </p>
             </a>
           </li>
@@ -120,10 +120,11 @@
               <p>CBO Monthly Reports</p>
             </a>
           </li>
+          
           <li class="nav-item">
             <a href="{{ route('fgdreport') }}" class="nav-link">
               <i class="nav-icon  fa fa-book"></i>
-              <p>Focus Group Discussion</p>
+              <p>Other Reports</p>
             </a>
           </li>
          
@@ -164,10 +165,20 @@
             </a>
 
           </li>
+
+         
+
           <li class="nav-item">
             <a href="{{ route('cbo.monthly') }}" class="nav-link">
               <i class="nav-icon  fa fa-file"></i>
               <p>CBO Monthly Report</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('fgdreport') }}" class="nav-link">
+              <i class="nav-icon  fa fa-book"></i>
+              <p>Other Reports</p>
             </a>
           </li>
 
