@@ -692,7 +692,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <!-- <th>Rating</th> -->
+                                        <th>Attachment</th>
                                         <th>Respondant</th>
                                         <th>Quarter</th>
                                         <th>Action</th>
@@ -705,9 +705,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
-                                            <!-- <td><span
-                                                            class="badge bg-warning">{{ $client->service_satisfaction_level }}</span>
-                                                    </td> -->
+                                            <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>
                                             <td>{{ $client->quarter }}</td>
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
@@ -772,7 +770,15 @@
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->service_satisfaction_level }}.
                                                                             </dd>
-
+                                                                            <dt class="col-sm-4">Attached Report:</dt>
+                                                                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
+                                                                            </dd>
+                                                                            <dt class="col-sm-4"></dt>
+                                                                            <dd class="col-sm-8"> <embed
+                                                                              src="{{ url('storage/attachments/'.$client->attachment)}}"
+                                                                              style="width:400px; height:300px;"
+                                                                              frameborder="0"></a>
+                                                                            </dd>
                                                                             <dt class="col-sm-4">Date of Visit:</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->day . '/' . $client->month . '/' . $client->year }}.
@@ -803,7 +809,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <!-- <th>Rating</th> -->
+                                        <th>attachment</th>
                                         <th>Respondant</th>
                                         <th>Quarter</th>
                                         <th>Action</th>
@@ -839,6 +845,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
+                                        <th>Attachment</th>
                                         <th>Respondant</th>
                                         <th>Quarter</th>
                                         <th>Action</th>
@@ -851,7 +858,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
-
+                                            <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>
                                             <td>{{ $client->quarter }}</td>
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
@@ -921,6 +928,15 @@
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->service_satisfaction_level }}.
                                                                             </dd>
+                                                                            <dt class="col-sm-4">Attached Report:</dt>
+                                                                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
+                                                                            </dd>
+                                                                            <dt class="col-sm-4"></dt>
+                                                                            <dd class="col-sm-8"> <embed
+                                                                              src="{{ url('storage/attachments/'.$client->attachment)}}"
+                                                                              style="width:400px; height:300px;"
+                                                                              frameborder="0"></a>
+                                                                            </dd>
 
                                                                             <dt class="col-sm-4">Date of Visit:</dt>
                                                                             <dd class="col-sm-8">
@@ -952,7 +968,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <!-- <th>Rating</th> -->
+                                        <th>Attachment</th>
                                         <th>test</th>
                                         <th>Quarter</th>
 
