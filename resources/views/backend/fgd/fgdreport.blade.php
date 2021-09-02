@@ -14,12 +14,12 @@
         <div class="row mb-2">
 
           <div class="col-sm-6">
-            <h1>FGD Reports</h1>
+            <h1>Activity Reports</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">FGD Page</li>
+              <li class="breadcrumb-item active">Activity Page</li>
             </ol>
           </div>
         </div>
@@ -33,7 +33,7 @@
       @can('cbo_role')
       <div class="card card-info">
           <div class="card-header">
-            <h3 class="card-title">Entry FGD Report</h3>
+            <h3 class="card-title">Activity Report</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -97,7 +97,7 @@
                     <label>Select Activity</label>
                     <select class="form-control activity select2" style="width: 100%;"
                         name="activity" required>
-                        <option value="">Select Quarter</option>
+                        <option value="">Select Activity</option>
                         <option value="Entry_FGD">Entry FGD</option>
                         <option value="Exit_FGD">Exit FGD</option>
                         <option value="KII">Key Informant Interview</option>
@@ -175,7 +175,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLabel">CBO Monthly Report
+                                    <h5 class="modal-title" id="ModalLabel">Activity
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-label="Close">
@@ -202,14 +202,8 @@
                                                 <dt class="col-sm-4">CBO Name:</dt>
                                                 <dd class="col-sm-8">{{ $cbo->cbo_name }}.
                                                 </dd>
-                                                <dt class="col-sm-4">Minutes:</dt>
-                                                <dd class="col-sm-8">
-                                                <textarea name="minutes" class="textarea"
-                                                placeholder="Place some text here"
-                                                style="width: 100%; height: 200px; font-size: 14px;
-                                                line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
-                                                readonly>{{ $cbo->minutes_of_meeting}}</textarea>
-                                                </dd>
+                                                <dt class="col-sm-4">Activity:</dt>
+                                                <dd class="col-sm-8">{{ $cbo->fgds }}.</dd>
 
                                                 <dt class="col-sm-4">Attached Report:</dt>
                                                 <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
