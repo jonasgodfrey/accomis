@@ -31,6 +31,7 @@ class CreateRemedialTable extends Migration
             $table->string('month');
             $table->string('year');
             $table->string('quarter');
+            $table->string('cbo_name');
             $table->timestamps();
         });
     }

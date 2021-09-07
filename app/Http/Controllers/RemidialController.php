@@ -89,12 +89,18 @@ class RemidialController extends Controller
 
     public function add_remidial(Request $request)
     {
+        $file = $request->signed_doc;
 
-        $signed_doc = $request->signed_doc->store('photos/signed_documents');
+        $signed_doc = 'attached-file-' . time() . '.' . $file->getClientOriginalExtension();
+
+        // save to storage/app/photos as the new $filename
+        $file->storeAs('public/remedial', $signed_doc);
+
         $month = date('M');
         $year = date('Y');
         $user = Auth::user();
         $cbo = $user->email;
+        $cbo_name = $user->name;
         $ward = "";
 
         if($request->ward == ""){
@@ -121,6 +127,7 @@ class RemidialController extends Controller
             'month' => $month,
             'year' => $year,
             'quarter' => $request->quarter,
+            'cbo_name'=> $cbo_name,
         ]);
 
 

@@ -202,7 +202,7 @@
                                                 <dd class="col-sm-8">
                                                 <textarea name="minutes" class="textarea"
                                                 placeholder="Place some text here"
-                                                style="width: 100%; height: 200px; font-size: 14px;
+                                                style="width: 100%; height: 200px; font-size: 14px;`
                                                 line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
                                                 readonly>{{ $cbo->minutes_of_meeting}}</textarea>
                                                 </dd> -->

@@ -21,5 +21,6 @@ class Fgdreport extends Model
         'year',
         'quarter',
         'activity',
+        'cbo_name'
     ];
 }

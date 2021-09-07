@@ -153,22 +153,22 @@
                 <label>Key Findings/Identified Issues</label>
 
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox1" 
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox1"
     value="Commodities Stockout">
     <label for="customCheckbox1" class="custom-control-label">Commodities Stockout</label>
 </div>
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox2" 
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox2"
     value="Poor Infrastructure">
     <label for="customCheckbox2" class="custom-control-label">Poor Infrastructure</label>
 </div>
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox3" 
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox3"
     value="Inadequate Manpower">
     <label for="customCheckbox3" class="custom-control-label">Inadequate Manpower</label>
 </div>
 <div class="custom-control custom-checkbox">
-    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox5" 
+    <input class="custom-control-input" name="key_findings[]" type="checkbox" id="customCheckbox5"
     value="Low Patronage">
     <label for="customCheckbox5" class="custom-control-label">Low Patronage</label>
 </div>
@@ -296,7 +296,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
                                         <td><a href="#"><i class="fa fa-file-download"></i></a></td>
-                                        <td>CBO Name</td>
+                                        <td>{{$rem->cbo_name}}</td>
                                         <td>{{ $rem->state }}</td>
                                         <td>{{ $rem->quarter }}</td>
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
@@ -422,7 +422,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO Name</th>                                
+                                <th>CBO Name</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -433,8 +433,9 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
-                                        <td><a href="#"><i class="fa fa-file-download"></i></a></td>
-                                        <td>{{ $rem->cbo }}</td>
+                                        <td><a href="{{ url('storage/remedial/'.$rem->signed_document)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
+                                        <td>{{ $rem->cbo_name }}</td>
+
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
                     class="fa fa-eye"></i></a>
 
@@ -461,8 +462,11 @@
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <dl class="row">
-                                        <dt class="col-sm-4">CBO Name</dt>
+                                        <dt class="col-sm-4">CBO Email</dt>
                                         <dd class="col-sm-8">{{ $rem->cbo }}.
+                                        </dd>
+                                        <dt class="col-sm-4">CBO Name</dt>
+                                        <dd class="col-sm-8">{{ $rem->cbo_name }}.
                                         </dd>
                                         <dt class="col-sm-4">Issues Identified:</dt>
                                         <dd class="col-sm-8">{{ $rem->identified_issues }}.
@@ -484,8 +488,11 @@
                                         </dd>
 
                                         <dt class="col-sm-4">Attached Report:</dt>
-                                        <dd class="col-sm-8"><a href="#"><i class="fa fa-file-download"></i></a>
-                                        </dd>
+                                        <dd class="col-sm-8"> <embed
+                                            src="{{ url('storage/remedial/'.$rem->signed_document)}}"
+                                            style="width:400px; height:300px;"
+                                            frameborder="0"></a>
+                                          </dd>
 
                                         <dt class="col-sm-4">Date of Visit:</dt>
                                         <dd class="col-sm-8">{{ $rem->date_visit }}.

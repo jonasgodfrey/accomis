@@ -23,6 +23,7 @@ class Remedial extends Model
         'responsibility',
         'timeline',
         'signed_document',
+        'cbo_name',
         'month',
         'year',
         'quarter',

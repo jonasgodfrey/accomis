@@ -23,6 +23,7 @@ class CboMonthly extends Model
         'attachment',
         'minutes_of_meeting',
         'date_of_meeting',
+        'cbo_name',
         'month',
         'year',
         'quarter',

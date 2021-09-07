@@ -68,13 +68,14 @@ class ClientExitController extends Controller
     public function client_exit_add(Request $request)
     {
 
-        $month = date('M'); 
+        $month = date('M');
         $day = date('d');
         $year = date('Y');
         $user = Auth::user();
         $state = '';
         $spo_email = '';
         $email = $user->email;
+        $cbo_name = $user->name;
 
         $cbo = DB::table('cbos')->where('email', $email)
             ->get();
@@ -90,12 +91,7 @@ class ClientExitController extends Controller
             $spo_email = $spo_detail->email;
         }
 
-        $file = $request->file('file');
-
-        $filename = 'attached-file-' . time() . '.' . $file->getClientOriginalExtension();
-
-        // save to storage/app/photos as the new $filename
-        $file->storeAs('public/attachments', $filename);
+ 
 
         $submit_client_form = ClientExitQuestionare::create([
             'respondant_name' => $request->res_name,
@@ -133,6 +129,7 @@ class ClientExitController extends Controller
             'service_satisfaction_aid' => $request->customer_help,
             'facility_improvment_suggestion' => $request->customer_help_improve,
             'auth_user_email' => $user->email,
+            'cbo_name'=> $cbo_name,
             'spo' => $spo_email,
             'state' => $state,
             'month' => $month,
