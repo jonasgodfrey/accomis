@@ -282,7 +282,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO Email</th>
+                                <th>CBO Name</th>
                                 <th>State</th>
                                 <th>Quarter</th>
                                 <th>Action</th>
@@ -296,7 +296,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
                                         <td><a href="#"><i class="fa fa-file-download"></i></a></td>
-                                        <td>{{ $rem->cbo }}</td>
+                                        <td>CBO Name</td>
                                         <td>{{ $rem->state }}</td>
                                         <td>{{ $rem->quarter }}</td>
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
@@ -383,7 +383,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO Email</th>
+                                <th>CBO Name</th>
                                 <th>State</th>
                                 <th>Quater</th>
                                 <th>Action</th>
@@ -422,7 +422,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO Email</th>                                
+                                <th>CBO Name</th>                                
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -519,7 +519,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO Email</th>
+                                <th>CBO Name</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>

@@ -145,9 +145,10 @@
                 <thead>
                 <tr>
                   <th>id</th>
-                  <th>Meeting Date</th>
+                  <th>Date</th>
                   <th>Attached Report</th>
                   <th>CBO Name</th>
+                  <th>State</th>
                   <th>Quarter</th>
                   <th>Action</th>
                 </tr>
@@ -160,6 +161,7 @@
                     <td>{{ $cbo->date_of_meeting }}</td>
                     <td><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                     <td>{{$cbo->cbo_name}}</td>
+                    <td>{{$cbo->state}}</td>
                     <td>{{ $cbo->quarter }}</td>
                     <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $cbo->id }}" ><i
                             class="fa fa-eye"></i></a>
@@ -246,9 +248,10 @@
               <tfoot>
                   <tr>
                       <th>id</th>
-                      <th>Meeting Date</th>
+                      <th>Date</th>
                       <th>Attached Report</th>
                       <th>CBO Name</th>
+                      <th>State</th>
                       <th>Quarter</th>
                       <th>Action</th>
                     </tr>
