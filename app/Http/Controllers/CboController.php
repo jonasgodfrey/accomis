@@ -37,7 +37,7 @@ class CboController extends Controller
     //cbo view function for parsing data to cbo tables
     public function cbo_index()
     {
-        if (Gate::denies('admin_spo')) {
+        if (Gate::denies('admin_spo_me')) {
             abort('404');
         }
 

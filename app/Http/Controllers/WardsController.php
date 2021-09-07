@@ -17,7 +17,7 @@ class WardsController extends Controller
 
     public function index()
     {
-        if (Gate::denies('admin_role')) {
+        if (Gate::denies('admin_me')) {
             abort('404');
         }
 

@@ -259,6 +259,53 @@
 
           @endcan
 
+          @can('me_role')
+          <li class="nav-header brand-link">SETTINGS SECTION</li>
+
+          <li class="nav-item">
+            <a href="{{ route('spo.monthly') }}" class="nav-link">
+              <i class="nav-icon  fa fa-users"></i>
+              <p>SPO</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('wards.view')}}" class="nav-link">
+              <i class="nav-icon  fa fa-map-pin"></i>
+              <p>Wards</p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="{{ route('cbo') }}" class="nav-link">
+              <i class="nav-icon  fa fa-list"></i>
+              <p>
+               List of CBO/CAT
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('health_facility') }}" class="nav-link">
+              <i class="nav-icon  fa fa-hospital-user"></i>
+              <p>Health Facilities</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon  fa fa-user"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+
+
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon  far fa-circle text-info"></i>
+              <p>User</p>
+            </a>
+          </li> -->
+
+          @endcan
+
           <li class="nav-item">
             <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <i class="nav-icon  fa fa-door-open text-info"></i>

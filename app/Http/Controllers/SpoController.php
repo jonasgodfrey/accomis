@@ -35,7 +35,7 @@ class SpoController extends Controller
 
     public function spo_index()
     {
-        if (Gate::denies('admin_spo')) {
+        if (Gate::denies('admin_spo_me')) {
             abort('404');
         }
 

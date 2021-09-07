@@ -29,7 +29,7 @@ class HealthFacilitiesController extends Controller
 
     public function health_facility()
     {
-        if (Gate::denies('admin_role')) {
+        if (Gate::denies('admin_me')) {
             abort('404');
         }
 
