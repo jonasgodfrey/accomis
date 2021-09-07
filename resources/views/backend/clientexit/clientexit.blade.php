@@ -694,6 +694,7 @@
                                         <th>Health Facility</th>
                                         <th>Attachment</th>
                                         <th>Respondant</th>
+                                        <th>State</th>
                                         <th>Quarter</th>
                                         <th>Action</th>
                                     </tr>
@@ -707,6 +708,7 @@
                                             <td>{{ $client->health_facility_of_interview }}</td>
                                             <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>
+                                            <td>{{$client->state}}</td>
                                             <td>{{ $client->quarter }}</td>
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
                                                         class="fa fa-eye"></i></a>
@@ -811,6 +813,7 @@
                                         <th>Health Facility</th>
                                         <th>attachment</th>
                                         <th>Respondant</th>
+                                        <th>State</th>
                                         <th>Quarter</th>
                                         <th>Action</th>
                                     </tr>

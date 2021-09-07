@@ -132,7 +132,7 @@
                 <th>id</th>
                 <th>Date</th>
                 <th>Attachment</th>
-                <th>Status</th>
+                <th>State</th>
                 <th>Quarter</th>
                 <th>Action</th>
               </tr>
@@ -146,7 +146,7 @@
               <td>{{ $spo->date_of_meeting }}</td>   
 
               <td><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
-              <td><span class="badge bg-warning">Pending</span></td>
+              <td>{{ $spo->state }}</td>
               <td>{{ $spo->quarter }}</td>
               <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $spo->id }}" ><i
                       class="fa fa-eye"></i></a>
@@ -181,10 +181,10 @@
                                           <dt class="col-sm-4">Spo Name:</dt>
                                           <dd class="col-sm-8">{{ $spo->name }}.
                                           </dd>
-                                          <dt class="col-sm-4">Report:</dt>
+                                          <!-- <dt class="col-sm-4">Report:</dt>
                                           <dd class="col-sm-8">
                                             {!! $spo->minutes_of_meeting !!}
-
+ -->
 
                                           <dt class="col-sm-4">Attached Report:</dt>
                                           <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
@@ -200,9 +200,8 @@
                                           <dd class="col-sm-8">{{ $spo->created_at }}.
                                           </dd>
                                           <br>
-                                          <dt class="col-sm-4">Status:</dt>
-                                          <dd class="col-sm-8"><a class="btn btn-success">Approved</a>
-                                          </dd>
+                                          <dt class="col-sm-4">State:</dt>
+                                          <dd class="col-sm-8">{{ $spo->state }}.</dd>
 
                                       </dl>
                                   </div>
@@ -229,9 +228,8 @@
                 <tr>
                     <th>id</th>
                     <th>Meeting Date</th>
-                    <th>Attachment</th>
-                    
-                    <th>Status</th>
+                    <th>Attachment</th>                    
+                    <th>State</th>
                     <th>Quarter</th>
                     <th>Action</th>
                   </tr>

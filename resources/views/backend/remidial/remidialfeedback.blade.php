@@ -282,7 +282,8 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO</th>
+                                <th>CBO Email</th>
+                                <th>State</th>
                                 <th>Quarter</th>
                                 <th>Action</th>
                             </tr>
@@ -296,7 +297,8 @@
                                         <td>{{ $rem->date_visit }}</td>
                                         <td><a href="#"><i class="fa fa-file-download"></i></a></td>
                                         <td>{{ $rem->cbo }}</td>
-                                        <td>{{ $rem->quater }}</td>
+                                        <td>{{ $rem->state }}</td>
+                                        <td>{{ $rem->quarter }}</td>
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
                     class="fa fa-eye"></i></a>
 
@@ -332,7 +334,7 @@
 
                                         <dt class="col-sm-4">Action Taken:</dt>
                                         <dd class="col-sm-8">
-                                        {{ $rem->action_taken_immediately}}
+                                        {{ $rem->action_taken_immediately }}
                                         </dd>
 
                                         <dt class="col-sm-4">Resolved?:</dt>
@@ -381,7 +383,8 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO</th>
+                                <th>CBO Email</th>
+                                <th>State</th>
                                 <th>Quater</th>
                                 <th>Action</th>
                             </tr>
@@ -419,7 +422,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO</th>
+                                <th>CBO Email</th>                                
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -516,7 +519,7 @@
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
-                                <th>CBO</th>
+                                <th>CBO Email</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>

@@ -68,7 +68,7 @@ class ClientExitController extends Controller
     public function client_exit_add(Request $request)
     {
 
-        $month = date('M');
+        $month = date('M'); 
         $day = date('d');
         $year = date('Y');
         $user = Auth::user();
