@@ -562,7 +562,7 @@ $(document).ready(function() {
 
             function submitData() {
                 $.ajax({
-                    url: "/clientexit/",
+                    url: "/clientexit",
                     method: "post",
                     contentType: false,
                     processData: false,
