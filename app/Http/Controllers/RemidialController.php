@@ -136,4 +136,4 @@ class RemidialController extends Controller
             return redirect(route('remidial'));
         }
     }
-}
+} 

@@ -168,7 +168,7 @@
                     <td>{{ $cbo->date_of_activity}}</td>
                     <td><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                     <td>{{$cbo->cbo_name}}</td>
-                    <td>State here</td>
+                    <td>{{$cbo->state}}</td>
                     <td>{{$cbo->activity}}</td>
                     <td>{{ $cbo->quarter }}</td>
                     <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $cbo->id }}" ><i
