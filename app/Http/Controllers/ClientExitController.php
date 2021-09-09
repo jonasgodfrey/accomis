@@ -91,6 +91,12 @@ class ClientExitController extends Controller
             $spo_email = $spo_detail->email;
         }
 
+        $file = $request->file('file');
+
+        $filename = 'attached-file-' . time() . '.' . $file->getClientOriginalExtension();
+
+        // save to storage/app/photos as the new $filename
+        $file->storeAs('public/attachments', $filename);
  
 
         $submit_client_form = ClientExitQuestionare::create([
