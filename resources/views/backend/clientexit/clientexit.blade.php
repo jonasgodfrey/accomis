@@ -67,6 +67,8 @@
                                                 <option value="Female Pregnant">Female Pregnant</option>
                                                 <option value="Female with under 5 child/children">Female with under 5
                                                     child/children</option>
+                                                    <option value="Female Pregnant with under 5 child/children">Female Pregnant with under 5
+                                                    child/children</option>
                                                 <option value="Female with 6-17 years child/children">Female with 6-17 years
                                                     child/children</option>
                                                 <option value="Female 18-25">Female 18-25</option>
@@ -141,6 +143,10 @@
                                                 </option>
                                                 <option value="Primary Education (Completed)">Primary Education (Completed)
                                                 </option>
+                                                <option value="Secondary Education (Completed)">Secondary Education (Completed)
+                                                </option>
+                                                <option value="Secondary Education (Uncompleted)">Secondary Education (Uncompleted)
+                                                </option>
                                                 <option value="Vocational School">Vocational School</option>
                                                 <option value="University/Polytechnic Uncompleted">University/Polytechnic
                                                     Uncompleted</option>
@@ -164,8 +170,8 @@
                                                 <option value="">Select Quarter</option>
                                                 <option value="Quarter_1_2021">Quarter 1 2021</option>
                                                 <option value="Quarter_2_2021">Quarter 2 2021</option>
-                                                <option value="Quarter_3_2021">Quarter 3 2021</option>
-                                                <option value="Quarter_4_2021">Quarter 4 2021</option>
+                                                <!-- <option value="Quarter_3_2021">Quarter 3 2021</option>
+                                                <option value="Quarter_4_2021">Quarter 4 2021</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -647,7 +653,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                          <label>Date</label>
+                                          <label>Date of Visit</label>
                                           <input type="date" name="date" class="form-control date" placeholder="" required>
 
                                         </div>
@@ -710,7 +716,7 @@
                                     @foreach ($clients as $client)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $client->created_at }}.</td>
+                                            <td>{{ $client->day }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
                                             <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>
@@ -788,7 +794,7 @@
                                                                               style="width:400px; height:300px;"
                                                                               frameborder="0"></a>
                                                                             </dd>
-                                                                            <dt class="col-sm-4">Date of Visit:</dt>
+                                                                            <dt class="col-sm-4">Date Submitted:</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->day . '/' . $client->month . '/' . $client->year }}.
                                                                             </dd>
@@ -868,7 +874,7 @@
                                     @foreach ($clients as $client)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $client->created_at }}.</td>
+                                            <td>{{ $client->day }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
                                             <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>

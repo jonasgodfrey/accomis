@@ -144,5 +144,5 @@ class ClientExitController extends Controller
             'quarter' => $request->quarter,
             'attachment' => $filename,
         ]);
-    }
+    } 
 }

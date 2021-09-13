@@ -141,7 +141,7 @@ class FgdreportController extends Controller
         ]);
 
         if ($submit_fgd) {
-            Session::flash('flash_message', 'FGD Report Added Successfully');
+            Session::flash('flash_message', 'Activity Report Added Successfully');
             return redirect(route('fgdreport'));
         }
     }
