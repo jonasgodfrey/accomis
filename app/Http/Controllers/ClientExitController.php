@@ -97,7 +97,7 @@ class ClientExitController extends Controller
 
         // save to storage/app/photos as the new $filename
         $file->storeAs('public/attachments', $filename);
- 
+
 
         $submit_client_form = ClientExitQuestionare::create([
             'respondant_name' => $request->res_name,
@@ -140,7 +140,7 @@ class ClientExitController extends Controller
             'state' => $state,
             'month' => $month,
             'year' => $year,
-            'day' => $day,
+            'day' => $request->date,
             'quarter' => $request->quarter,
             'attachment' => $filename,
         ]);

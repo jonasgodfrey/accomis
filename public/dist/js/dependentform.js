@@ -460,8 +460,7 @@ $(document).ready(function() {
         $(".insatisfaction_cause_others2").on("input", function() {
             insatisfaction_cause = $(this).val();
         });
-
-        //feedback
+      //feedback
         var customer_help = "";
 
         $(".customer_help").on("input", function() {
@@ -472,6 +471,9 @@ $(document).ready(function() {
 
         $(".customer_help_improve").on("input", function() {
             customer_help_improve = $(this).val();
+        });  var date = "";
+        $(".date").on("input", function() {
+            date = $(this).val();
         });
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
@@ -519,7 +521,7 @@ $(document).ready(function() {
             fd.append('insatisfaction_cause', insatisfaction_cause);
             fd.append('customer_help', customer_help);
             fd.append('customer_help_improve', customer_help_improve);
-
+            fd.append('date', date);
             //heavy validation
             var validate = [
                 files,

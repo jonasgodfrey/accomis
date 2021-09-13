@@ -645,8 +645,13 @@
                                             <input type="file" id="report_file" name="filename" class="file-input report_file">
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                          <label>Date</label>
+                                          <input type="date" name="date" class="form-control date" placeholder="" required>
 
-
+                                        </div>
+                                      </div>
                                 </div>
 
 
@@ -705,7 +710,7 @@
                                     @foreach ($clients as $client)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
+                                            <td>{{ $client->created_at }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
                                             <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>
@@ -863,7 +868,7 @@
                                     @foreach ($clients as $client)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $client->day . '/' . $client->month . '/' . $client->year }}</td>
+                                            <td>{{ $client->created_at }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
                                             <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                             <td>{{ $client->respondant_name }}</td>
@@ -948,7 +953,7 @@
 
                                                                             <dt class="col-sm-4">Date of Visit:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $client->day . '/' . $client->month . '/' . $client->year }}.
+                                                                                {{ $client->created_at }}.
                                                                             </dd>
 
                                                                         </dl>
