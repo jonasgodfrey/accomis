@@ -170,8 +170,8 @@
                                                 <option value="">Select Quarter</option>
                                                 <option value="Quarter_1_2021">Quarter 1 2021</option>
                                                 <option value="Quarter_2_2021">Quarter 2 2021</option>
-                                                <!-- <option value="Quarter_3_2021">Quarter 3 2021</option>
-                                                <option value="Quarter_4_2021">Quarter 4 2021</option> -->
+                                                 <option value="Quarter_3_2021">Quarter 3 2021</option>
+                                                <!--<option value="Quarter_4_2021">Quarter 4 2021</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -647,7 +647,7 @@
                                     <div class="col-md-12">
                                         <p></p>
                                         <div class="form-group file">
-                                            <label>Upload Report</label><br>
+                                            <label>Upload image of Visit(.jpg format)</label><br>
                                             <input type="file" id="report_file" name="filename" class="file-input report_file">
                                         </div>
                                     </div>
