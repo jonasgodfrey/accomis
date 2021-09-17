@@ -85,7 +85,7 @@ class RemidialController extends Controller
             'cbo_name' => $cbo_name,
             'wards' => $wards,
         ]);
-    }
+    } 
 
     public function add_remidial(Request $request)
     {

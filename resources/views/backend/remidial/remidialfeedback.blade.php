@@ -258,6 +258,7 @@
         </div>
         <!-- /.card -->
         @endcan
+
         @can('admin_me')
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-success">
@@ -281,9 +282,10 @@
                             <tr>
                                 <th>id</th>
                                 <th>Date</th>
-                                <th>Attachment</th>
+                                <th>Key Findings/Issues</th>
                                 <th>CBO Name</th>
                                 <th>State</th>
+                                <th>Activity</th>
                                 <th>Quarter</th>
                                 <th>Action</th>
                             </tr>
@@ -295,9 +297,10 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
-                                        <td><a href="#"><i class="fa fa-file-download"></i></a></td>
+                                        <td>{{ $rem->identified_issues }}</td>
                                         <td>{{$rem->cbo_name}}</td>
                                         <td>{{ $rem->state }}</td>
+                                        <td>{{ $rem->tracker_type }}</td>
                                         <td>{{ $rem->quarter }}</td>
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
                     class="fa fa-eye"></i></a>
@@ -325,8 +328,14 @@
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <dl class="row">
-                                        <dt class="col-sm-4">CBO Name</dt>
+                                        <dt class="col-sm-4">CBO Name:</dt>
                                         <dd class="col-sm-8">{{ $rem->cbo }}.
+                                        </dd>
+                                        <dt class="col-sm-4">State:</dt>
+                                        <dd class="col-sm-8">{{ $rem->state }}.
+                                        </dd>
+                                        <dt class="col-sm-4">Ward:</dt>
+                                        <dd class="col-sm-8">{{ $rem->ward }}.
                                         </dd>
                                         <dt class="col-sm-4">Issues Identified:</dt>
                                         <dd class="col-sm-8">{{ $rem->identified_issues }}.
@@ -348,7 +357,10 @@
                                         </dd>
 
                                         <dt class="col-sm-4">Attached Report:</dt>
-                                        <dd class="col-sm-8"><a href="#"><i class="fa fa-file-download"></i></a>
+                                        <dd class="col-sm-8"> <embed
+                                            src="{{ url('storage/remedial/'.$rem->signed_document)}}"
+                                            style="width:400px; height:300px;"
+                                            frameborder="0"></a>
                                         </dd>
 
                                         <dt class="col-sm-4">Date of Visit:</dt>
@@ -385,6 +397,7 @@
                                 <th>Attachment</th>
                                 <th>CBO Name</th>
                                 <th>State</th>
+                                <th>Activity</th>
                                 <th>Quater</th>
                                 <th>Action</th>
                             </tr>
@@ -435,6 +448,7 @@
                                         <td>{{ $rem->date_visit }}</td>
                                         <td><a href="{{ url('storage/remedial/'.$rem->signed_document)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                                         <td>{{ $rem->cbo_name }}</td>
+
 
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
                     class="fa fa-eye"></i></a>

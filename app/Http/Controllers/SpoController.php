@@ -122,7 +122,7 @@ class SpoController extends Controller
         }
 
         $request->validate([
-            'attachment' => 'required|mimes:pdf,docx,docs,docs|max:20048'
+            'attachment' => 'required|mimes:pdf,docx,docs,docs|max:200048'
         ]);
 
         $file = $request->file('attachment');
