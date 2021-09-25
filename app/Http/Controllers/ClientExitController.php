@@ -45,17 +45,17 @@ class ClientExitController extends Controller
         $clients = "";
 
         if ($role == "Cbo") {
-            $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get();
+            $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
         }
         if ($role == "Admin") {
-            $clients = ClientExitQuestionare::all();
+            $clients = ClientExitQuestionare::all()->sortDesc();
         }
         if ($role == "Me") {
-            $clients = ClientExitQuestionare::all();
+            $clients = ClientExitQuestionare::all()->sortDesc();
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            $clients = ClientExitQuestionare::where('state', $state)->get();
+            $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
         }
 
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();

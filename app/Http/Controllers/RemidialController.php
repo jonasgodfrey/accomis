@@ -61,18 +61,18 @@ class RemidialController extends Controller
         $rem = "";
 
         if ($role == "Cbo") {
-            $rem = Remedial::where('cbo', $user->email)->get();
+            $rem = Remedial::where('cbo', $user->email)->get()->sortDesc();
         }
         if ($role == "Admin") {
-            $rem = Remedial::all();
+            $rem = Remedial::all()->sortDesc();
         }
         if ($role == "Me") {
-            $rem = Remedial::all();
+            $rem = Remedial::all()->sortDesc();
         }
 
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            $rem = Remedial::where('state', $state)->get();
+            $rem = Remedial::where('state', $state)->get()->sortDesc();
         }
 
         $wards = Ward::where('lga', $cbo_lga)->get();

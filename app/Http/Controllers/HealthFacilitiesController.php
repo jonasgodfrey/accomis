@@ -44,16 +44,24 @@ class HealthFacilitiesController extends Controller
 
     public function health_facility_add(Request $request)
     {
+
+        $month = date('M');
+        $day = date('d');
+        $year = date('Y');
+
        $health_facility = HealthFacility::create([
             'State' => $request->state,
-            'Lga' => $request->lga,
+            'LGA' => $request->lga,
             'Ward' => $request->ward,
             'Facility' => $request->facility,
-            'CBO' => $request->cbo_name,
+            'CBO' => $request->cbo_name, 
             'CBO_Email' => $request->cbo_email,
             'SPO' => $request->spo_name,
             'SPO_Email' => $request->spo_email,
             'status' => 'active',
+            'month' => $month,
+            'year' => $year,
+            'day' => $day,
        ]);
 
        if ($health_facility) {

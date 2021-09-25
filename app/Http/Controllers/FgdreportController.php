@@ -86,17 +86,17 @@ class FgdreportController extends Controller
         $fgds = '';
 
         if ($role == "Cbo") {
-            $cbo = Fgdreport::where('email', $user->email)->get();
+            $cbo = Fgdreport::where('email', $user->email)->get()->sortDesc();
         }
         if ($role == "Admin") {
-            $cbo = Fgdreport::all();
+            $cbo = Fgdreport::all()->sortDesc();
         }
         if ($role == "Me") {
-            $cbo = Fgdreport::all();
+            $cbo = Fgdreport::all()->sortDesc();
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            $cbo = Fgdreport::where('state', $state)->get();
+            $cbo = Fgdreport::where('state', $state)->get()->sortDesc();
 
         }
         return view('backend.fgd.fgdreport')->with([

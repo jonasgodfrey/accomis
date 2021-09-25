@@ -92,17 +92,17 @@ class CboController extends Controller
 
         //conditions for checking the user role and assigning the respective data for that user to view to the cbo var
         if ($role == "Cbo") {
-            $cbo = CboMonthly::where('cbo_name', $user->name)->get();
+            $cbo = CboMonthly::where('cbo_name', $user->name)->get()->sortDesc();
         }
         if ($role == "Admin") {
-            $cbo = CboMonthly::all();
+            $cbo = CboMonthly::all()->sortDesc();
         }
         if ($role == "Me") {
-            $cbo = CboMonthly::all();
+            $cbo = CboMonthly::all()->sortDesc();
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            $cbo = CboMonthly::where('state', $state)->get();
+            $cbo = CboMonthly::where('state', $state)->get()->sortDesc();
 
 
         }

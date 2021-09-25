@@ -236,6 +236,12 @@
                                             <button type="button" class="btn btn-info"
                                                 data-dismiss="modal">Close</button>
                                         </p>
+                                        @can('admin_spo')
+                                        <p>
+                                            <button type="button" class="btn btn-danger"
+                                                data-dismiss="modal">Delete</button>
+                                        </p>
+                                        @endcan
                                     </div>
                                 </div>
                             </div>

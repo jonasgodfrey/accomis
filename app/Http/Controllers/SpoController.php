@@ -100,14 +100,14 @@ class SpoController extends Controller
         }
 
         if ($role == "Admin") {
-            $spo = SpoMonthly::all();
+            $spo = SpoMonthly::all()->sortDesc();
         }
         if ($role == "Me") {
-            $spo = SpoMonthly::all();
+            $spo = SpoMonthly::all()->sortDesc();
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            $spo = SpoMonthly::where('state', $state)->get();
+            $spo = SpoMonthly::where('state', $state)->get()->sortDesc();
         }
 
         return view('backend.spo.spomonthly')->with([
