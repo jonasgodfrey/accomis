@@ -40,13 +40,21 @@ class FgdreportController extends Controller
     {
         //initiating classes and assinging it to a variable
         $user = Auth::user();
-        $spouser = Spo::where('email', $user->email)->get();
-        $state = "";
+        $spouser = Spo::where('email', $user->email)->first();
+
+        
+
+
+        $state1 = $spouser->state??'';
+
+        $state = $spouser->state??'';
+
+        // dd($state1);
 
         //fetching spo state and assigning to the state variable
-        foreach ($spouser as $spo_detail) {
-            $state = $spo_detail->state;
-        }
+        // foreach ($spouser as $spo_detail) {
+        //     $state = $spo_detail->state;
+        // }
 
         //getting the role of the current auth user and assigning it
         $role = implode(' ', $user->roles->pluck('name')->toArray());
@@ -86,7 +94,7 @@ class FgdreportController extends Controller
         $fgds = '';
 
         if ($role == "Cbo") {
-            $cbo = Fgdreport::where('email', $user->email)->get()->sortDesc();
+            $cbo = Fgdreport::where('email', $user->email)->get();
         }
         if ($role == "Admin") {
             $cbo = Fgdreport::all()->sortDesc();
@@ -95,8 +103,11 @@ class FgdreportController extends Controller
             $cbo = Fgdreport::all()->sortDesc();
         }
         if ($role == "Spo") {
-            $state = substr($state, 0, strpos($state, ' '));
-            $cbo = Fgdreport::where('state', $state)->get()->sortDesc();
+            $state1 = substr($state, 0, strpos($state1, ' '));
+            // $cbo = Fgdreport::where('state', $state)->get();
+            $cbo = Fgdreport::where('state', $state1)->get()->sortDesc();
+
+            // dd($cbo);
 
         }
         return view('backend.fgd.fgdreport')->with([
@@ -146,3 +157,4 @@ class FgdreportController extends Controller
         }
     }
 }
+ 

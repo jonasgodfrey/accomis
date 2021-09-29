@@ -189,12 +189,12 @@
                                           <dt class="col-sm-4">Attached Report:</dt>
                                           <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
                                           </dd>
-                                          <dt class="col-sm-4"></dt>
+                                          <!-- <dt class="col-sm-4"></dt>
                                           <dd class="col-sm-8"> <embed
                                             src="{{ url('storage/attachments/'.$spo->attachment)}}"
                                             style="width:400px; height:300px;"
                                             frameborder="0"></a>
-                                          </dd>
+                                          </dd> -->
 
                                           <dt class="col-sm-4">Date of Submission:</dt>
                                           <dd class="col-sm-8">{{ $spo->created_at }}.

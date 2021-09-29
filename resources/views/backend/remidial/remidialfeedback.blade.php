@@ -328,7 +328,7 @@
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <dl class="row">
-                                        <dt class="col-sm-4">CBO Name:</dt>
+                                        <dt class="col-sm-4">CBO Email:</dt>
                                         <dd class="col-sm-8">{{ $rem->cbo }}.
                                         </dd>
                                         <dt class="col-sm-4">State:</dt>
@@ -357,11 +357,16 @@
                                         </dd>
 
                                         <dt class="col-sm-4">Attached Report:</dt>
+                                                <dd class="col-sm-8"><a href="{{ url('storage/remedial/'.$rem->signed_document)}}"
+                                                target="_blank"><i class="fa fa-file-download"></i></a>
+                                                </dd>
+
+                                        <!-- <dt class="col-sm-4">Attached Report:</dt>
                                         <dd class="col-sm-8"> <embed
                                             src="{{ url('storage/remedial/'.$rem->signed_document)}}"
                                             style="width:400px; height:300px;"
                                             frameborder="0"></a>
-                                        </dd>
+                                        </dd> -->
 
                                         <dt class="col-sm-4">Date of Visit:</dt>
                                         <dd class="col-sm-8">{{ $rem->date_visit }}.
@@ -501,12 +506,12 @@
                                         {{ $rem->root_cause}}
                                         </dd>
 
-                                        <dt class="col-sm-4">Attached Report:</dt>
+                                        <!-- <dt class="col-sm-4">Attached Report:</dt>
                                         <dd class="col-sm-8"> <embed
                                             src="{{ url('storage/remedial/'.$rem->signed_document)}}"
                                             style="width:400px; height:300px;"
                                             frameborder="0"></a>
-                                          </dd>
+                                          </dd> -->
 
                                         <dt class="col-sm-4">Date of Visit:</dt>
                                         <dd class="col-sm-8">{{ $rem->date_visit }}.

@@ -209,7 +209,7 @@
                                                 <dt class="col-sm-4">Activity:</dt>
                                                 <dd class="col-sm-8">{{ $cbo->fgds }}.</dd>
 
-                                                <dt class="col-sm-4">Attached Report:</dt>
+                                                <!-- <dt class="col-sm-4">Attached Report:</dt>
                                                 <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
                                                 </dd>
                                                 <dt class="col-sm-4"></dt>
@@ -217,7 +217,7 @@
                                                   src="{{ url('storage/attachments/'.$cbo->attachment)}}"
                                                   style="width:400px; height:300px;"
                                                   frameborder="0"></a>
-                                                </dd>
+                                                </dd> -->
 
                                                 <dt class="col-sm-4">Date of Submission:</dt>
                                                 <dd class="col-sm-8">{{ $cbo->created_at }}.
