@@ -703,7 +703,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <th>attachment</th>
+                                        <!-- <th>attachment</th> -->
                                         <th>Respondant</th>
                                         <th>CBO Name</th>
                                         <th>State</th>
@@ -718,7 +718,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
-                                            <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
+                                            <!-- <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td> -->
                                             <td>{{ $client->respondant_name }}</td>
                                             <td>{{$client->cbo_name}}</td>
                                             <td>{{$client->state}}</td>
@@ -824,7 +824,7 @@
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
-                                        <th>attachment</th>
+                                        <!-- <th>attachment</th> -->
                                         <th>Respondant</th>
                                         <th>CBO Name</th>
                                         <th>State</th>
