@@ -5,6 +5,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
+                            {{-- Flash message --}}
+                            <div id="alert">
+                                @include('partials.flash')
+                                </div>
+                        {{-- Flash message end--}}
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Client Exit Questionnaire</h1>
@@ -723,8 +728,47 @@
                                             <td>{{$client->cbo_name}}</td>
                                             <td>{{$client->state}}</td>
                                             <td>{{ $client->quarter }}</td>
-                                            <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
-                                                        class="fa fa-eye"></i></a>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
+                                                            class="fa fa-eye"></i></a>
+                                                    </div>
+                                                    <!--modal begin-->
+@can("admin_role")
+
+                                                    <div class="col-md-6">
+                                                        <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
+
+
+                                                        <div class="modal fade" id="{{'exampleModal' . $client->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure??</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Delete client exit report of {{$client->cbo_name}}.
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <form action="{{'/clientexit/delete/'. $client->id}}" method="post" >
+                                                                            @method('post')
+                                                                            @csrf
+                                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endcan
+                                                </div>
+
 
 
                                                 <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1"
@@ -948,7 +992,7 @@
                                                                                 {{ $client->service_satisfaction_level }}.
                                                                             </dd>
                                                                             <!-- <dt class="col-sm-4">Attached Report:</dt>
-                                                                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}" 
+                                                                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}"
                                                                             target="_blank"><i class="fa fa-file-download"></i></a>
                                                                             </dd>
                                                                             <dt class="col-sm-4"></dt>

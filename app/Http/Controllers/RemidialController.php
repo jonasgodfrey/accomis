@@ -11,6 +11,7 @@ use App\Models\Ward;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class RemidialController extends Controller
 {
@@ -85,7 +86,7 @@ class RemidialController extends Controller
             'cbo_name' => $cbo_name,
             'wards' => $wards,
         ]);
-    } 
+    }
 
     public function add_remidial(Request $request)
     {
@@ -136,4 +137,20 @@ class RemidialController extends Controller
             return redirect(route('remidial'));
         }
     }
-} 
+    public function delete($id)
+    {
+        $files = Remedial::where('id', $id)->get();
+
+        foreach ($files as $file) {
+            if (Storage::delete("public/remedial/".$file->signed_document)) {
+                Remedial::where('id', $id)->delete();
+                Session::flash('flash_message', 'Remedial Report Deleted successfully');
+                return redirect()->back();
+            }else{
+                Session::flash('error_message', 'Sorry an error occured, try again later !');
+                return redirect()->back();
+            }
+        }
+
+    }
+}

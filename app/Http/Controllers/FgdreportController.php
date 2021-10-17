@@ -16,6 +16,7 @@ use App\Models\Spo;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Fgdreport;
+use Illuminate\Support\Facades\Storage;
 
 class FgdreportController extends Controller
 {
@@ -42,7 +43,7 @@ class FgdreportController extends Controller
         $user = Auth::user();
         $spouser = Spo::where('email', $user->email)->first();
 
-        
+
 
 
         $state1 = $spouser->state??'';
@@ -156,5 +157,20 @@ class FgdreportController extends Controller
             return redirect(route('fgdreport'));
         }
     }
+    public function delete($id)
+    {
+        $files = Fgdreport::where('id', $id)->get();
+
+        foreach ($files as $file) {
+            if (Storage::delete("public/attachments/".$file->attachment)) {
+                Fgdreport::where('id', $id)->delete();
+                Session::flash('flash_message', 'Fgd Report Deleted successfully');
+                return redirect()->back();
+            }else{
+                Session::flash('error_message', 'Sorry an error occured, try again later !');
+                return redirect()->back();
+            }
+        }
+
+    }
 }
- 

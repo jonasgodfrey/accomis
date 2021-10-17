@@ -10,6 +10,8 @@ use App\Models\Spo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ClientExitController extends Controller
 {
@@ -144,5 +146,21 @@ class ClientExitController extends Controller
             'quarter' => $request->quarter,
             'attachment' => $filename,
         ]);
-    } 
+    }
+    public function delete($id)
+    {
+        $files = ClientExitQuestionare::where('id', $id)->get();
+
+        foreach ($files as $file) {
+            if (Storage::delete("public/attachments/".$file->attachment)) {
+                ClientExitQuestionare::where('id', $id)->delete();
+                Session::flash('flash_message', 'Client Exit Report Deleted successfully');
+                return redirect()->back();
+            }else{
+                Session::flash('error_message', 'Sorry an error occured, try again later !');
+                return redirect()->back();
+            }
+        }
+
+    }
 }

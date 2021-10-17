@@ -143,13 +143,52 @@
               @foreach ($spos as $spo)
               <tr>
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $spo->date_of_meeting }}</td>   
+              <td>{{ $spo->date_of_meeting }}</td>
 
               <td><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
               <td>{{ $spo->state }}</td>
               <td>{{ $spo->quarter }}</td>
-              <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $spo->id }}" ><i
-                      class="fa fa-eye"></i></a>
+              <td>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <a href="#" data-toggle="modal" data-target="{{ '#Modal' . $spo->id }}" ><i
+                            class="fa fa-eye"></i></a>
+                    </div>
+                    <!--modal begin-->
+@can("admin_role")
+
+                    <div class="col-md-6">
+                        <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $spo->id}}"></button>
+
+
+                        <div class="modal fade" id="{{'exampleModal' . $spo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure??</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Delete spo monthly report of {{$spo->name}}.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <form action="{{'/spo_monthly/delete/'. $spo->id}}" method="post" >
+                                            @method('post')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endcan
+                </div>
+
 
                       <div class="modal fade" id="{{ 'Modal' . $spo->id }}" tabindex="-1"
                   role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -169,7 +208,7 @@
                                       <h3 class="card-title">
                                           <i class="fas fa-text-width"></i>
 
-                                      </h3> 
+                                      </h3>
                                   </div>
                                   <!-- /.card-header -->
                                   <div class="card-body">
@@ -220,7 +259,7 @@
                   </div>
               </div>
               </td>
-            
+
               </tr>
         @endforeach
         @endif
@@ -228,7 +267,7 @@
                 <tr>
                     <th>id</th>
                     <th>Meeting Date</th>
-                    <th>Attachment</th>                    
+                    <th>Attachment</th>
                     <th>State</th>
                     <th>Quarter</th>
                     <th>Action</th>

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request; 
-use App\Models\States;
 use App\Models\Cbo;
-use App\Models\Lgas;
-use Illuminate\Support\Facades\Session;
 use App\Models\CboMonthly;
-use Illuminate\Support\Facades\DB;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Role;
 use App\Models\Spo;
-use Illuminate\Support\Facades\Gate;
+use App\Models\States;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class CboController extends Controller
 {
@@ -76,7 +76,7 @@ class CboController extends Controller
 
         //initiating classes and assinging it to a variable
         $user = Auth::user();
-        $spouser = Spo::where('email',  $user->email)->get();
+        $spouser = Spo::where('email', $user->email)->get();
         $state = "";
 
         //fetching spo state and assigning to the state variable
@@ -103,7 +103,6 @@ class CboController extends Controller
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
             $cbo = CboMonthly::where('state', $state)->get()->sortDesc();
-
 
         }
 
@@ -135,8 +134,7 @@ class CboController extends Controller
     {
 
         $cboRole = Role::where('name', 'Cbo')->first();
-        if (User::where('email', '=', $request->email)->exists())
-        {
+        if (User::where('email', '=', $request->email)->exists()) {
             Session::flash('error_message', 'A user with this email already exists!');
             return redirect(route('cbo.add.view'));
 
@@ -166,8 +164,7 @@ class CboController extends Controller
 
             $cbo->roles()->attach($cboRole);
 
-            if ($submit_cbo)
-            {
+            if ($submit_cbo) {
                 Session::flash('flash_message', 'Cbo Added Successfully');
                 return redirect(route('cbo'));
             }
@@ -178,7 +175,7 @@ class CboController extends Controller
     {
 
         $request->validate([
-            'attachment' => 'required|mimes:pdf,docx,docs,doc|max:30048'
+            'attachment' => 'required|mimes:pdf,docx,docs,doc|max:30048',
         ]);
 
         $file = $request->file('attachment');
@@ -208,8 +205,6 @@ class CboController extends Controller
         }
     }
 
-    
-
     public function fetch(Request $request)
     {
         $select = $request->get('select');
@@ -218,7 +213,7 @@ class CboController extends Controller
         $output = '';
         foreach ($data as $row) {
             $output .=
-                '<option class="'.$row->id.'" id="' . $row->name . '" value="' . $row->name . '">' . $row->name . '</option>
+            '<option class="' . $row->id . '" id="' . $row->name . '" value="' . $row->name . '">' . $row->name . '</option>
             ';
         }
 
@@ -235,14 +230,31 @@ class CboController extends Controller
 
         $output = '';
 
-
         foreach ($data as $row) {
 
             $output .=
-                '<option value="' . $row->cbo_name . '">' . $row->cbo_name . '</option>
+            '<option value="' . $row->cbo_name . '">' . $row->cbo_name . '</option>
         ';
         }
 
         echo $output;
     }
+
+    public function delete_cbo_monthly($id)
+    {
+        $files = CboMonthly::where('id', $id)->get();
+
+        foreach ($files as $file) {
+            if (Storage::delete("public/attachments/".$file->attachment)) {
+                CboMonthly::where('id', $id)->delete();
+                Session::flash('flash_message', 'Complaint Deleted successfully');
+                return redirect()->back();
+            }else{
+                Session::flash('error_message', 'Sorry an error occured, try again later !');
+                return redirect()->back();
+            }
+        }
+
+    }
+
 }

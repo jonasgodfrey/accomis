@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Spo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SpoController extends Controller
 {
@@ -166,5 +167,22 @@ class SpoController extends Controller
         if (Gate::denies('admin_spo')) {
             abort('404');
         }
+    }
+
+    public function delete($id)
+    {
+        $files = SpoMonthly::where('id', $id)->get();
+
+        foreach ($files as $file) {
+            if (Storage::delete("public/attachments/".$file->attachment)) {
+                SpoMonthly::where('id', $id)->delete();
+                Session::flash('flash_message', 'Spo Monthly Report Deleted successfully');
+                return redirect()->back();
+            }else{
+                Session::flash('error_message', 'Sorry an error occured, try again later !');
+                return redirect()->back();
+            }
+        }
+
     }
 }

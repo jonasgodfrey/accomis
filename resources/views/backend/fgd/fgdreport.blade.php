@@ -171,8 +171,47 @@
                     <td>{{$cbo->state}}</td>
                     <td>{{$cbo->activity}}</td>
                     <td>{{ $cbo->quarter }}</td>
-                    <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $cbo->id }}" ><i
-                            class="fa fa-eye"></i></a>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <a href="#" data-toggle="modal" data-target="{{ '#Modal' . $cbo->id }}" ><i
+                                    class="fa fa-eye"></i></a>
+                            </div>
+                            <!--modal begin-->
+@can("admin_role")
+
+                            <div class="col-md-6">
+                                <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
+
+
+                                <div class="modal fade" id="{{'exampleModal' . $cbo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Are you sure??</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Delete FGD report of {{$cbo->cbo_name}}.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <form action="{{'/otherreports/delete/'. $cbo->id}}" method="post" >
+                                                    @method('post')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endcan
+                        </div>
+
 
                             <div class="modal fade" id="{{ 'Modal' . $cbo->id }}" tabindex="-1"
                         role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
