@@ -478,6 +478,7 @@ $(document).ready(function() {
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
         $("#submit_form").click(function(e) {
+
             e.preventDefault();
             var fd = new FormData();
             var files = $('#report_file')[0].files;
@@ -522,6 +523,7 @@ $(document).ready(function() {
             fd.append('customer_help', customer_help);
             fd.append('customer_help_improve', customer_help_improve);
             fd.append('date', date);
+
             //heavy validation
             var validate = [
                 files,
@@ -574,9 +576,6 @@ $(document).ready(function() {
                             title: "Success",
                             text: "Client exit data added successfully",
                             icon: "success",
-                            button: {
-                                text: "close"
-                            }
                         });
 
                         setInterval("location.reload()", 3000);
@@ -587,9 +586,9 @@ $(document).ready(function() {
                             title: "Error",
                             text: err.statusText,
                             icon: "error",
-                            button: {
-                                text: "close"
-                            }
+                            // button: {
+                            //     text: "close"
+                            // }
                         });
                     },
                     headers: {
