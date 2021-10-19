@@ -310,12 +310,12 @@
                                                         class="fa fa-eye"></i></a>
                                                 </div>
                                                 <!--modal begin-->
-@can("admin_role")
+                                            @can("admin_me")
 
                                                 <div class="col-md-6">
-                                                    <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $rem->id}}"></button>
+                                                    <button class="fas fa-trash btn-sm btn-danger " data-toggle="modal" data-target="{{'#exampleModal'. $rem->id}}"></button>
 
-
+                                            
                                                     <div class="modal fade" id="{{'exampleModal' . $rem->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">

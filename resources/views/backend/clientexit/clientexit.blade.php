@@ -927,6 +927,10 @@
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
                                                         class="fa fa-eye"></i></a>
 
+                                                        @can("admin_spo_me")
+                                                        <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
+                                                        @endcan
+
 
                                                 <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
