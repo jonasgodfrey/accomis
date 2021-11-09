@@ -97,7 +97,7 @@
                                             <option value="Quarter_1_2021">Quarter 1 2021</option>
                                             <option value="Quarter_2_2021">Quarter 2 2021</option>
                                             <option value="Quarter_3_2021">Quarter 3 2021</option>
-                                            <!--<option value="Quarter_4_2021">Quarter 4 2021</option> -->
+                                            <option value="Quarter_4_2021">Quarter 4 2021</option>
                                         </select>
                                     </div>
                         </div>
@@ -496,6 +496,9 @@
 
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
                     class="fa fa-eye"></i></a>
+                    @can('spo')
+                    <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
+                    @endcan
 
                     <div class="modal fade" id="{{ 'Modal' . $rem->id }}" tabindex="-1"
                 role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">

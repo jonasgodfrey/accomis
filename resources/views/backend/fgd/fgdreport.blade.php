@@ -80,7 +80,7 @@
                                             <option value="Quarter_1_2021">Quarter 1 2021</option>
                                             <option value="Quarter_2_2021">Quarter 2 2021</option>
                                           <option value="Quarter_3_2021">Quarter 3 2021</option>
-                                            <!-- <option value="Quarter_4_2021">Quarter 4 2021</option> -->
+                                            <option value="Quarter_4_2021">Quarter 4 2021</option>
                                         </select>
                                     </div>
                         </div>
@@ -181,8 +181,8 @@
                             <!--modal begin-->
 @can("admin_spo_me")
 
-                            <div class="col-md-6">
-                                <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
+                        <div class="col-md-6">
+                              <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
 
 
                                 <div class="modal fade" id="{{'exampleModal' . $cbo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
