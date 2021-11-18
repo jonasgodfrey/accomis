@@ -51,7 +51,7 @@ class ClientExitController extends Controller
         }
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
-            $clients = ClientExitQuestionare::latest()->paginate(50);
+            $clients = ClientExitQuestionare::latest()->paginate(1000);
         }
         if ($role == "Me") {
             $clients = ClientExitQuestionare::all()->sortDesc();
