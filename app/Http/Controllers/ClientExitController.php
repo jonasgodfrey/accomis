@@ -50,7 +50,8 @@ class ClientExitController extends Controller
             $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
         }
         if ($role == "Admin") {
-            $clients = ClientExitQuestionare::all()->sortDesc();
+            // $clients = ClientExitQuestionare::all()->sortDesc();
+            $clients = ClientExitQuestionare::latest()->paginate(50);
         }
         if ($role == "Me") {
             $clients = ClientExitQuestionare::all()->sortDesc();
