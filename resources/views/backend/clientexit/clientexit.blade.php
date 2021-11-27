@@ -851,12 +851,12 @@
                                                                             <dt class="col-sm-4">Attached Report:</dt>
                                                                             <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
                                                                             </dd>
-                                                                            <dt class="col-sm-4"></dt>
+                                                                            <!-- <dt class="col-sm-4"></dt>
                                                                             <dd class="col-sm-8"> <embed
                                                                               src="{{ url('storage/attachments/'.$client->attachment)}}"
                                                                               style="width:400px; height:300px;"
                                                                               frameborder="0"></a>
-                                                                            </dd>
+                                                                            </dd> -->
                                                                             <dt class="col-sm-4">Date Submitted:</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{ $client->day . '/' . $client->month . '/' . $client->year }}.
@@ -919,7 +919,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                        <div class="col-md-3">
+                        <div class="col-sm-4">
                            <!-- <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=120')}}" class="btn btn-primary btn-sm">Load 120 perpage</a>
                            </div>
                            <div class="c">
@@ -927,10 +927,10 @@
                         <form action="" method="get" class="form-inline">
                             <select name="page_views" class="form-control">
                                 
-                                <option value="500"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=500')}}" class="">Load 500 Entries</a></option>
-                                <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Entries</a></option>
-                                <option value="1500"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1500')}}" class="">Load 1500 Entries</a></option>
-                                <option value="2000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=2000')}}" class="">Load 2000 Entries</a></option>
+                                <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Latest Entries</a></option>
+                                <option value="2000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=2000')}}" class="">Load 2000 Latest Entries</a></option>
+                                <option value="3000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=3000')}}" class="">Load 3000 Latest Entries</a></option>
+                                <option value="3850"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=3850')}}" class="">Load 3850 Latest Entries</a></option>
 
                             </select>
                             <div class="form-group">
