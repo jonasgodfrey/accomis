@@ -965,8 +965,8 @@
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
                                                         class="fa fa-eye"></i></a>
 
-                                                        @can("spo")
-                                                        <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->ids}}"></button>
+                                                        @can("admin_spo_me")
+                                                        <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
                                                         @endcan
 
 
