@@ -702,6 +702,25 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                        <div class="col-sm-3">
+                           <!-- <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=120')}}" class="btn btn-primary btn-sm">Load 120 perpage</a>
+                           </div>
+                           <div class="c">
+                           <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=250')}}" class="btn btn-primary btn-sm">Load 250 perpage</a> -->
+                        <form action="" method="get">
+                            <select name="page_views" class="form-control">
+                                
+                                <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Entries</a></option>
+                                <option value="5000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=5000')}}" class="">Load 5000 Entries</a></option>
+                                <option value="10000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=10000')}}" class="">Load 10000 Entries</a></option>
+                                <option value="15000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=15000')}}" class="">Load 15000 Entries</a></option>
+
+                            </select>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm" type="submit">Load</button>
+                            </div>
+                        </form>   
+                        </div>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -736,7 +755,7 @@
                                                             class="fa fa-eye"></i></a>
                                                     </div>
                                                     <!--modal begin-->
-@can("admin_role")
+                        @can("admin_me")
 
                                                     <div class="col-md-6">
                                                         <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
@@ -900,6 +919,25 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                        <div class="col-md-3">
+                           <!-- <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=120')}}" class="btn btn-primary btn-sm">Load 120 perpage</a>
+                           </div>
+                           <div class="c">
+                           <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=250')}}" class="btn btn-primary btn-sm">Load 250 perpage</a> -->
+                        <form action="" method="get" class="form-inline">
+                            <select name="page_views" class="form-control">
+                                
+                                <option value="500"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=500')}}" class="">Load 500 Entries</a></option>
+                                <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Entries</a></option>
+                                <option value="1500"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1500')}}" class="">Load 1500 Entries</a></option>
+                                <option value="2000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=2000')}}" class="">Load 2000 Entries</a></option>
+
+                            </select>
+                            <div class="form-group">
+                               <br><span> <button class="btn btn-primary btn-sm" type="submit">Load</button></span>
+                            </div>
+                        </form>   
+                        </div><br>
                             <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>

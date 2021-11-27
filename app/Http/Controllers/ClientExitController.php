@@ -33,6 +33,10 @@ class ClientExitController extends Controller
 
     public function client_exit()
     {
+        $page_views = request()->page_views;
+
+        // dd($page_views??100);
+
         if (Gate::denies('admin_spo_cbo_me')) {
             abort('404');
         }
@@ -51,14 +55,16 @@ class ClientExitController extends Controller
         }
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
-            $clients = ClientExitQuestionare::latest()->paginate(1000);
+            $clients = ClientExitQuestionare::latest()->paginate($page_views);
         }
         if ($role == "Me") {
-            $clients = ClientExitQuestionare::all()->sortDesc();
+            // $clients = ClientExitQuestionare::all()->sortDesc();
+            $clients = ClientExitQuestionare::latest()->paginate($page_views);
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
+            // $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
+            $clients = ClientExitQuestionare::where('state', $state)->latest()->paginate($page_views);
         }
 
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
