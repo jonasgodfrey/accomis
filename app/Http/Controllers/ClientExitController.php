@@ -170,4 +170,20 @@ class ClientExitController extends Controller
         }
 
     }
+    public function deletes($ids)
+    {
+        $files = ClientExitQuestionare::where('id', $ids)->get();       
+
+        foreach ($files as $file) {
+            if (Storage::delete("public/attachments/".$file->attachment)) {
+                ClientExitQuestionare::where('id', $ids && 'state', $state)->delete();
+                Session::flash('flash_message', 'Client Exit Report Deleted successfully');
+                return redirect()->back();
+            }else{
+                Session::flash('error_message', 'Sorry an error occured, try again later !');
+                return redirect()->back();
+            }
+        }
+
+    }
 }
