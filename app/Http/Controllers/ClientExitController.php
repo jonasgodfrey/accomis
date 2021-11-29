@@ -51,7 +51,7 @@ class ClientExitController extends Controller
         $clients = "";
 
         if ($role == "Cbo") {
-            $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->latest();
+            $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
         }
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
