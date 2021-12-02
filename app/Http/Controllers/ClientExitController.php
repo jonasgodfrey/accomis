@@ -63,8 +63,8 @@ class ClientExitController extends Controller
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
-            // $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
-            $clients = ClientExitQuestionare::where('state', $state)->latest()->paginate($page_views);
+            $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
+            // $clients = ClientExitQuestionare::where('state', $state)->latest()->paginate($page_views);
         }
 
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
