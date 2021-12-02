@@ -755,7 +755,7 @@
                                                             class="fa fa-eye"></i></a>
                                                     </div>
                                                     <!--modal begin-->
-                        @can("admin_me")
+                                                    @can("admin_me")
 
                                                     <div class="col-md-6">
                                                         <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
@@ -924,7 +924,7 @@
                            </div>
                            <div class="c">
                            <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=250')}}" class="btn btn-primary btn-sm">Load 250 perpage</a> -->
-                        <form action="" method="get" class="form-inline">
+                        <!-- <form action="" method="get" class="form-inline">
                             <select name="page_views" class="form-control">
                                 
                                 <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Latest Entries</a></option>
@@ -936,9 +936,10 @@
                             <div class="form-group">
                                <br><span> <button class="btn btn-primary btn-sm" type="submit">Load</button></span>
                             </div>
-                        </form>   
+                        </form>    -->
                         </div><br>
                             <table id="example2" class="table table-bordered table-striped">
+                                
                                 <thead>
                                     <tr>
                                         <th>id</th>
@@ -962,12 +963,46 @@
                                             <td>{{ $client->respondant_name }}</td>
                                             <td>{{$client->cbo_name}}</td>
                                             <td>{{ $client->quarter }}</td>
-                                            <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
-                                                        class="fa fa-eye"></i></a>
+                                            <td>
+                                            <div class="row">
+                                                    <div class="col-md-6">
 
-                                                        @can("admin_spo_me")
+                                                        <a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->id }}"><i
+                                                            class="fa fa-eye"></i></a>
+                                                    </div>
+                                                    <!--modal begin-->
+                                                    @can("admin_spo")
+
+                                                    <div class="col-md-6">
                                                         <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
-                                                        @endcan
+
+
+                                                        <div class="modal fade" id="{{'exampleModal' . $client->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure??</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Delete client exit report of {{$client->cbo_name}}.
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <form action="{{'/clientexit/delete/'. $client->id}}" method="post" >
+                                                                            @method('post')
+                                                                            @csrf
+                                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endcan
+                                                </div>    
 
 
                                                 <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1"
