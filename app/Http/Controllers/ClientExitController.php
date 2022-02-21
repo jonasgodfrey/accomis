@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
+
 
 class ClientExitController extends Controller
 {
@@ -31,8 +33,19 @@ class ClientExitController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+
+
     public function client_exit()
     {
+        
+
+        $responsex = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/aweG5RNYvHNj7TMM2xHvxL/submissions/?format=json');
+
+        $kobos =  $responsex->object();
+
+        // return $kobos;
+
+        
         $page_views = request()->page_views;
 
         // dd($page_views??100);
@@ -70,7 +83,8 @@ class ClientExitController extends Controller
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
         return view('backend.clientexit.clientexit')->with([
             'clients' => $clients,
-            'health_facilities'=> $health_facilities
+            'health_facilities'=> $health_facilities,
+            'kobos' => $kobos
         ]);
     }
 
@@ -170,4 +184,7 @@ class ClientExitController extends Controller
         }
 
     }
+
+   
 }
+ 

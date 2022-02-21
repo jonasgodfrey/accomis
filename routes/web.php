@@ -68,7 +68,8 @@ Route::post('/healthfacilities/fetch_info', [App\Http\Controllers\HealthFaciliti
 
 //Remidial get routes
 Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
- 
+// Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'kobocollect'])->name('client.exit');
+
 //Remidial post routes
 Route::post('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit_add'])->name('client_exit.add');
 Route::post('/clientexit/delete/{id}', [App\Http\Controllers\ClientExitController::class, 'delete'])->name('client_exit.delete');
