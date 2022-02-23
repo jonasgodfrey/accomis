@@ -1354,10 +1354,10 @@
                                        <td>{{$kobo->cbo}}</td>
                                         <td>{{$kobo->qtr}}</td> 
                                         <td>{{$kobo->today}}</td>                                           
-                                        <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $kobo->_id }}"><i
+                                        <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $kobo->recordid }}"><i
                                             class="fa fa-eye"></i></a>
 
-                                            <div class="modal fade" id="{{ 'Modal' . $kobo->_id }}" tabindex="-1"
+                                            <div class="modal fade" id="{{ 'Modal' . $kobo->recordid }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg" role="document">
                                                     <div class="modal-content">
