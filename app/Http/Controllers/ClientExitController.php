@@ -127,6 +127,7 @@ class ClientExitController extends Controller
         $user = Auth::user();
         $spouser = Spo::where('email',  $user->email)->get();
         $state = "";
+        $cbo = "";
         foreach ($spouser as $spo_detail) {
             $state = $spo_detail->state;
         }
@@ -136,28 +137,32 @@ class ClientExitController extends Controller
 
         if ($role == "Cbo") {
             $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
-            // $kobocbocei = Cei::where('cbo', $cbo)->get();
+            $kobocei = Cei::where('cbo', $cbo)->get();
         }
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate($page_views);
+            $kobocei = Cei::latest();
            
         }
         if ($role == "Me") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate($page_views);
+            $kobocei = Cei::latest();
         }
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
             $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
-            // $kobocei = Cei::where('state', $state)->get();
+            $kobocei = Cei::where('state', $state)->get();
         }
 
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
+
         return view('backend.clientexit.clientexit')->with([
             'clients' => $clients,
             'health_facilities'=> $health_facilities,
-            'collection' => $collection
+            'collection' => $collection,
+            'kobocei' => $kobocei
         ]);
     }
 
