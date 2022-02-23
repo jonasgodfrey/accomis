@@ -932,8 +932,8 @@
                                         <th>CBO</th>
                                         <th>Health Facility</th>
                                         <th>LGA</th>
-                                      <th>Quarter</th>
                                       <th>Ward</th>
+                                      <th>Quarter</th>
                                       <th>Action</th>
                                         
                                         
