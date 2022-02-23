@@ -1119,6 +1119,7 @@
                                 
                                 <thead>
                                     <tr>
+                                        <th><input type="checkbox" id="chkCheckAll"/></th>
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -1133,6 +1134,7 @@
 
                                     @foreach ($clients as $client)
                                         <tr>
+                                            <td><input type="checkbox" name="ids" class="checkBoxClass" value="" /></td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
@@ -1283,6 +1285,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th><input type="checkbox" id="chkCheckAll"/></th>
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
