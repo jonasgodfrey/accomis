@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KoboceiController;
+use App\Model\Cei;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,13 +68,14 @@ Route::post('/healthfacilities/fetch', [App\Http\Controllers\HealthFacilitiesCon
 Route::post('/healthfacilities/cbo/fetch', [App\Http\Controllers\HealthFacilitiesController::class, 'cbo_fetch'])->name('healthfacilities.cbo.fetch');
 Route::post('/healthfacilities/fetch_info', [App\Http\Controllers\HealthFacilitiesController::class, 'cbo_info'])->name('cbo_info');
 
-//Remidial get routes
+//Client Exit get routes
 Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 // Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'kobocollect'])->name('client.exit');
 
-//Remidial post routes
+//Client Exit post routes
 Route::post('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit_add'])->name('client_exit.add');
 Route::post('/clientexit/delete/{id}', [App\Http\Controllers\ClientExitController::class, 'delete'])->name('client_exit.delete');
+
 
 //Wards get routes
 Route::get('/wards', [App\Http\Controllers\WardsController::class, 'index'])->name('wards.view');

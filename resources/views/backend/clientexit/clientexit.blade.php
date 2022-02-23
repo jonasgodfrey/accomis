@@ -931,30 +931,29 @@
                                         <th>State</th>
                                         <th>CBO</th>
                                         <th>Health Facility</th>
+                                        <th>LGA</th>
                                       <th>Quarter</th>
+                                      <th>Ward</th>
                                       <th>Action</th>
-                                         {{--  <th>State</th>
-                                        <th>Quarter</th> --}}
+                                        
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
                                    
-                                    @foreach($kobos as $kobo)
+                                    @foreach($collection as $kobo)
 
-                                   <?php $array = json_decode(json_encode($kobo), true); ?>
+                                  
                                         <tr>
                                             
 
-                                            <td>{{ $loop->iteration }}</td>                                          
-                                            <td>{{ $array['group_bq2rs29/State'] }}</td>
-                                            <td>{{ $array['group_bq2rs29/Name_of_CBO'] }}</td>
-                                            <td>{{$kobo->Name_of_Health_Facility}}</td>
-                                            <td>{{$kobo->Quarter}}</td>
-                                           {{-- <td>{{$kobo->Cash_Charges}}</td> --}}
-                                           {{-- <td>{{$array['group_bq2rs29/LGA']}}</td> --}}
-                                            {{--  <td>{{$kobo->Debit_Charges}}</td>
-                                            <td>{{$kobo->Amount_Naira}}</td> --}}
+                                            <td>{{ $loop->iteration }}</td>                                         
+                                           <td>{{$kobo->state}}</td>
+                                            <td>{{$kobo->cbo}}</td>
+                                           <td>{{$kobo->hf}}</td>
+                                           <td>{{$kobo->lga}}</td>
+                                           <td>{{$kobo->ward}}</td>
+                                            <td>{{$kobo->qtr}}</td>                                            
                                             <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $kobo->_id }}"><i
                                                 class="fa fa-eye"></i></a>
 
@@ -983,61 +982,61 @@
                                                                         <dl class="row">
                                                                             <dt class="col-sm-4">Respondant Name</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{$kobo->Name_of_Respondent}}.
+                                                                                {{$kobo->resp_name}}.
                                                                             </dd>
                                                                             <dt class="col-sm-4">Respondant Category:
                                                                             </dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{$kobo->Respondent_Category}}.
+                                                                                {{$kobo->resp_cat}}.
                                                                             </dd>
                                                                             <dt class="col-sm-4">Service:
                                                                             </dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{$kobo->_1_What_Service_s_you_came_fo}}.
+                                                                                {{$kobo->service_cat}}.
                                                                             </dd>                                                                            
                                                                             <dt class="col-sm-4">Service Received:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->What_Service_Services_Receiv}}
+                                                                                {{ $kobo->serv_received}}
                                                                             </dd>
                                                                             <dt class="col-sm-4">Did you get LLIN:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->Do_you_have_Long_Lasting_Insec}}
+                                                                                {{ $kobo->llin_recipient}}
                                                                             </dd>
                                                                             <dt class="col-sm-4">Did You Receive IPT:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->Did_you_receive_IPT}}
+                                                                                {{ $kobo->ipt_recipient}}
                                                                             </dd>
                                                                             <dt class="col-sm-4">Tested fo Malaria?:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->Were_you_tested_for_Malaria}}
+                                                                                {{ $kobo->malaria}}
                                                                             </dd>
-                                                                            <dt class="col-sm-4">Result:</dt>
+                                                                            {{-- <dt class="col-sm-4">Result:</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{ $kobo->What_was_the_result}}
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">When Were you Tested?:</dt>
+                                                                            </dd> --}}
+                                                                            {{-- <dt class="col-sm-4">When Were you Tested?:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->When_were_you_tested_for_malaria}}
-                                                                            </dd>
+                                                                                {{ $kobo->tested_when}}
+                                                                            </dd> --}}
                                                                             <dt class="col-sm-4">Given ACT?:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->Were_you_given_Arthemisinin_ba}}
+                                                                                {{ $kobo->act_recipient}}
                                                                             </dd>
 
-                                                                            <dt class="col-sm-4">Finish the Drug?:</dt>
+                                                                            {{-- <dt class="col-sm-4">Finish the Drug?:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->Did_you_finish_the_drug}}
-                                                                            </dd>                                                                            
-
-                                                                            <dt class="col-sm-4">Rate the Facility?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->How_Satisfied_are_you_with_the}}
-                                                                            </dd>
+                                                                                {{ $kobo->act_finish}}
+                                                                            </dd>                                                                             --}}
 
                                                                             <dt class="col-sm-4">Rate the Facility?:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->How_Satisfied_are_you_with_the}}
+                                                                                {{ $kobo->rating}}
                                                                             </dd>
+
+                                                                            {{-- <dt class="col-sm-4">Why Dissatisfied?:</dt>
+                                                                            <dd class="col-sm-8">
+                                                                                {{ $kobo->dissatisfied}}
+                                                                            </dd> --}}
 
                                                                             <dt class="col-sm-4">Rate the Facility?:</dt>
                                                                             <dd class="col-sm-8">
