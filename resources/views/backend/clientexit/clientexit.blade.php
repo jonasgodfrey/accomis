@@ -980,6 +980,10 @@
                                                                     <!-- /.card-header -->
                                                                     <div class="card-body">
                                                                         <dl class="row">
+                                                                            <dt class="col-sm-4">CBO Email</dt>
+                                                                            <dd class="col-sm-8">
+                                                                                {{$kobo->cboemail}}.
+                                                                            </dd>
                                                                             <dt class="col-sm-4">Respondant Name</dt>
                                                                             <dd class="col-sm-8">
                                                                                 {{$kobo->resp_name}}.
@@ -1033,10 +1037,25 @@
                                                                                 {{ $kobo->rating}}
                                                                             </dd>
 
-                                                                            {{-- <dt class="col-sm-4">Why Dissatisfied?:</dt>
+                                                                            <dt class="col-sm-4">Start Date:</dt>
                                                                             <dd class="col-sm-8">
-                                                                                {{ $kobo->dissatisfied}}
-                                                                            </dd> --}}
+                                                                                {{ $kobo->start}}
+                                                                            </dd>
+
+                                                                            <dt class="col-sm-4">End Date:</dt>
+                                                                            <dd class="col-sm-8">
+                                                                                {{ $kobo->end}}
+                                                                            </dd>
+
+                                                                            <dt class="col-sm-4">Date Submitted:</dt>
+                                                                            <dd class="col-sm-8">
+                                                                                {{ $kobo->today}}
+                                                                            </dd>
+
+                                                                            <dt class="col-sm-4">Location (Long/Lat):</dt>
+                                                                            <dd class="col-sm-8">
+                                                                                {{ $kobo->store_gps}}
+                                                                            </dd>
 
                                                                             <dt class="col-sm-4">Rate the Facility?:</dt>
                                                                             <dd class="col-sm-8">
@@ -1297,18 +1316,12 @@
                                 </tfoot>
                             </table>
                             <br>
-
-                        <!-- Kobo Collect Table -->
-
-                        <!-- /.card-body -->
-
-
-
-
                 @endcan
-
-                @can('spo_role')
-                <div class="card-body"> <div class="card card-warning">
+            </div>
+        </div>
+            <br>
+            @can('spo_cbo')
+                <div class="card card-warning">
                     <div class="card-header">
                         <h3 class="card-title">CEI From KoboCollect</h3>
 
@@ -1334,8 +1347,6 @@
                                     <th>Quarter</th>
                                     <th>Date</th>
                                     <th>Action</th>
-                                    
-                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -1344,9 +1355,7 @@
 
                               
                                     <tr>
-                                        
-
-                                        <td>{{ $loop->iteration }}</td>                                         
+                                     <td>{{ $loop->iteration }}</td>                                         
                                        <td>{{$kobo->resp_name}}</td>
                                         <td>{{$kobo->hf}}</td>
                                        <td>{{$kobo->ward}}</td>
@@ -1474,9 +1483,9 @@
                             
                         </table>
                     </div>
-                </div>
+               
                 @endcan
-                </div>
+            
         </section>
         <!-- /.content -->
     </div>

@@ -22,6 +22,7 @@ class CreateCeisTable extends Migration
              $table->string('state');
              $table->string('lga');
              $table->string('cbo');
+             $table->string('cboemail');
              $table->string('ward');
              $table->string('hf');
              $table->string('qtr');
@@ -68,7 +69,7 @@ class CreateCeisTable extends Migration
              $table->string('suggestion');
              $table->string('store_gps');
              $table->string('upload_image');
-              $table->timestamps();
+            $table->timestamps();
         }); 
     }
 

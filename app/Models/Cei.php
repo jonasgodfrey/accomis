@@ -18,6 +18,7 @@ class Cei extends Model
            'state',
            'lga',
            'cbo',
+           'cboemail',
            'ward',
            'hf',
            'qtr',

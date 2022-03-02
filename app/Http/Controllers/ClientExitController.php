@@ -54,7 +54,7 @@ class ClientExitController extends Controller
             
     
             foreach ($collection as $key => $row){
-                
+                // dd($collection);
                
                 $record  = Cei::insertOrIgnore([
                    "recordid" => $row->_id,                
@@ -64,7 +64,8 @@ class ClientExitController extends Controller
                    "state" => $row->state,
                    "lga" => $row->lga,
                    "cbo" => $row->cbo,
-                   "ward" => $row->ward,
+                   "cboemail"=> $row->cboemail,
+                   "ward" =>isset($row->ward)? $row->ward:'',
                    "hf" => $row->hf,
                    "qtr" => $row->qtr,
                    "resp_name" => isset($row->resp_name)? $row->resp_name:'',
@@ -127,7 +128,7 @@ class ClientExitController extends Controller
         $user = Auth::user();
         $spouser = Spo::where('email',  $user->email)->get();
         $state = "";
-        $cbo = "";
+        $cboemail = "";
         foreach ($spouser as $spo_detail) {
             $state = $spo_detail->state;
         }
@@ -137,7 +138,7 @@ class ClientExitController extends Controller
 
         if ($role == "Cbo") {
             $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
-            $kobocei = Cei::where('cbo', $cbo)->get();
+            $kobocei = Cei::where('cboemail', $user->email)->get()->sortDesc();
         }
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
