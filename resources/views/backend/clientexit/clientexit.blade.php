@@ -1389,6 +1389,10 @@
                                                                 <!-- /.card-header -->
                                                                 <div class="card-body">
                                                                     <dl class="row">
+                                                                        <dt class="col-sm-4">CBO Email</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{$kobo->cboemail}}.
+                                                                        </dd>
                                                                         <dt class="col-sm-4">Respondant Name</dt>
                                                                         <dd class="col-sm-8">
                                                                             {{$kobo->resp_name}}.
@@ -1445,6 +1449,11 @@
                                                                         <dt class="col-sm-4">Why Dissatisfied?:</dt>
                                                                         <dd class="col-sm-8">
                                                                             {{ $kobo->dissatisfied}}
+                                                                        </dd>
+
+                                                                        <dt class="col-sm-4">Date Submitted:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $kobo->today}}
                                                                         </dd>
 
                                                                         {{-- <dt class="col-sm-4">Rate the Facility?:</dt>
