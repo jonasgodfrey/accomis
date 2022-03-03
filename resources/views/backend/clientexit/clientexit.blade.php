@@ -1449,6 +1449,16 @@
                                                                         <dt class="col-sm-4">Why Dissatisfied?:</dt>
                                                                         <dd class="col-sm-8">
                                                                             {{ $kobo->dissatisfied}}
+                                                                        </dd>                                                                       
+
+                                                                        <dt class="col-sm-4">Start Date:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $kobo->start}}
+                                                                        </dd>
+
+                                                                        <dt class="col-sm-4">End Date:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $kobo->end}}
                                                                         </dd>
 
                                                                         <dt class="col-sm-4">Date Submitted:</dt>
@@ -1456,14 +1466,10 @@
                                                                             {{ $kobo->today}}
                                                                         </dd>
 
-                                                                        {{-- <dt class="col-sm-4">Rate the Facility?:</dt>
+                                                                        <dt class="col-sm-4">Location (Long/Lat):</dt>
                                                                         <dd class="col-sm-8">
-                                                                            @foreach ($kobocei->upload_image as $item)
-                                                                           <a href="{{$item->upload_image}}" target="_blank">evidence</a>
-                                                                            
-                                                                            @endforeach
-                                                                            
-                                                                        </dd> --}}
+                                                                            {{ $kobo->store_gps}}
+                                                                        </dd>
 
                                                                         
 
