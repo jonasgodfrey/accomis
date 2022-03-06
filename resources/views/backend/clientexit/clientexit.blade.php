@@ -910,190 +910,7 @@
                         <!-- /.card-body -->
                         
                         
-                    <div class="card-body"> <div class="card card-warning">
-                        <div class="card-header">
-                            <h3 class="card-title">CEI From KoboCollect</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i></button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-
-                            <table id="example3" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>State</th>
-                                        <th>CBO</th>
-                                        <th>Health Facility</th>
-                                        <th>LGA</th>
-                                      <th>Ward</th>
-                                      <th>Quarter</th>
-                                      <th>Action</th>
-                                        
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   
-                                    @foreach($collection as $kobo)
-
-                                  
-                                        <tr>
-                                            
-
-                                            <td>{{ $loop->iteration }}</td>                                         
-                                           <td>{{$kobo->state}}</td>
-                                            <td>{{$kobo->cbo}}</td>
-                                           <td>{{$kobo->hf}}</td>
-                                           <td>{{$kobo->lga}}</td>
-                                           <td>{{$kobo->ward}}</td>
-                                            <td>{{$kobo->qtr}}</td>                                            
-                                            <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $kobo->_id }}"><i
-                                                class="fa fa-eye"></i></a>
-
-                                                <div class="modal fade" id="{{ 'Modal' . $kobo->_id }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="ModalLabel">CEI KoboCollect
-                                                                </h5>
-                                                                <button type="button" class="close"
-                                                                    data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="card">
-                                                                    <div class="card-header">
-                                                                        <h3 class="card-title">
-                                                                            <i class="fas fa-text-width"></i>
-
-                                                                        </h3>
-                                                                    </div>
-                                                                    <!-- /.card-header -->
-                                                                    <div class="card-body">
-                                                                        <dl class="row">
-                                                                            <dt class="col-sm-4">CBO Email</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{$kobo->cboemail}}.
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">Respondant Name</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{$kobo->resp_name}}.
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">Respondant Category:
-                                                                            </dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{$kobo->resp_cat}}.
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">Service:
-                                                                            </dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{$kobo->service_cat}}.
-                                                                            </dd>                                                                            
-                                                                            <dt class="col-sm-4">Service Received:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->serv_received}}
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">Did you get LLIN:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->llin_recipient}}
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">Did You Receive IPT:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->ipt_recipient}}
-                                                                            </dd>
-                                                                            <dt class="col-sm-4">Tested fo Malaria?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->malaria}}
-                                                                            </dd>
-                                                                            {{-- <dt class="col-sm-4">Result:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->What_was_the_result}}
-                                                                            </dd> --}}
-                                                                            {{-- <dt class="col-sm-4">When Were you Tested?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->tested_when}}
-                                                                            </dd> --}}
-                                                                            <dt class="col-sm-4">Given ACT?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->act_recipient}}
-                                                                            </dd>
-
-                                                                            {{-- <dt class="col-sm-4">Finish the Drug?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->act_finish}}
-                                                                            </dd>                                                                             --}}
-
-                                                                            <dt class="col-sm-4">Rate the Facility?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->rating}}
-                                                                            </dd>
-
-                                                                            <dt class="col-sm-4">Start Date:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->start}}
-                                                                            </dd>
-
-                                                                            <dt class="col-sm-4">End Date:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->end}}
-                                                                            </dd>
-
-                                                                            <dt class="col-sm-4">Date Submitted:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->today}}
-                                                                            </dd>
-
-                                                                            <dt class="col-sm-4">Location (Long/Lat):</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                {{ $kobo->store_gps}}
-                                                                            </dd>
-
-                                                                            <dt class="col-sm-4">Rate the Facility?:</dt>
-                                                                            <dd class="col-sm-8">
-                                                                                @foreach ($kobo->_attachments as $item)
-                                                                               <a href="{{$item->download_url}}" target="_blank">evidence</a>
-                                                                                
-                                                                                @endforeach
-                                                                                
-                                                                            </dd>
-
-                                                                            
-
-                                                                        </dl>
-                                                                    </div>
-                                                                    <!-- /.card-body -->
-                                                                </div>
-                                                                <!-- /.card -->
-
-                                                                <div class="modal-footer">
-                                                                    <p>
-                                                                        <button type="button" class="btn btn-info"
-                                                                            data-dismiss="modal">Close</button>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            
-                                            </td>
-                                            
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                                
-                            </table>
-                        </div>
-                    </div>
+                   
                         
 
 
@@ -1342,7 +1159,7 @@
                         </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body">
+                    {{-- <div class="card-body">
 
                         <table id="example3" class="table table-bordered table-striped">
                             <thead>
@@ -1506,7 +1323,7 @@
                             </tbody>
                             
                         </table>
-                    </div>
+                    </div> --}}
                
                 @endcan 
 
