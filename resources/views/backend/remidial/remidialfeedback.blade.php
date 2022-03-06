@@ -9,6 +9,7 @@
         {{-- Flash message --}}
         <div id="alert">
             @include('partials.flash')
+            @include('partials.modal')
         </div>
         {{-- Flash message end --}}
         <div class="row mb-2">
@@ -86,7 +87,7 @@
                                 <label>Date Visit</label>
                                 <input type="date" name="date_visit" class="form-control" placeholder="" required>
 
-                            </div>
+                            </div> 
                         </div>
                         <div class="col-md-6">
                                     <div class="form-group" id="quarter">
@@ -265,7 +266,7 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-success">
 
-
+            <p class="page_name" style="display: none;">/remidialfeedback/delete</p>
             <div class="card card-success">
                 <div class="card-header">
                     <h3 class="card-title">Remedial Feedbacks</h3>
@@ -279,9 +280,13 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
+                        <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                @can("admin_spo_me")
+                                <th><input type="checkbox" id="selectall" class="checked"/></th>
+                               @endcan 
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Key Findings/Issues</th>
@@ -297,6 +302,9 @@
 
                                 @foreach ($rems as $rem)
                                     <tr>
+                                        @can("admin_spo_me")
+                                        <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$rem->id}}"  /></td>
+                                        @endcan
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
                                         <td>{{ $rem->identified_issues }}</td>

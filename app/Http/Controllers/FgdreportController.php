@@ -164,7 +164,7 @@ class FgdreportController extends Controller
         foreach ($files as $file) {
             if (Storage::delete("public/attachments/".$file->attachment)) {
                 Fgdreport::where('id', $id)->delete();
-                Session::flash('flash_message', 'Fgd Report Deleted successfully');
+                Session::flash('flash_message', 'Report Deleted successfully');
                 return redirect()->back();
             }else{
                 Session::flash('error_message', 'Sorry an error occured, try again later !');

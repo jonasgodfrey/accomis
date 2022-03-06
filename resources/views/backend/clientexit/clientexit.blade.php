@@ -703,6 +703,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
                         <div class="col-sm-3">
                            <!-- <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=120')}}" class="btn btn-primary btn-sm">Load 120 perpage</a>
                            </div>
@@ -732,6 +733,9 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        @can("admin_spo_me")
+                                            <th><input type="checkbox" id="selectall" class="checked"/></th>
+                                        @endcan 
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -746,7 +750,11 @@
                                 <tbody>
 
                                     @foreach ($clients as $client)
-                                        <tr>
+                                     
+                                            <tr id="sid{{$client->id}}">
+                                                @can("admin_spo_me")
+                                                <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$client->id}}"  /></td>
+                                                @endcan
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>

@@ -134,7 +134,7 @@
       @endcan
         <!-- /.card -->
 
-        <p class="page_name" style="display: none;">/clientexit/delete</p>
+        <p class="page_name" style="display: none;">/cbo_monthly/delete</p>
 
         <div class="card card-success">
             <div class="card-header">

@@ -59,6 +59,7 @@ Route::get('/remidialfeedback', [App\Http\Controllers\RemidialController::class,
 //Remidial post routes
 Route::post('/remidialfeedback', [App\Http\Controllers\RemidialController::class, 'add_remidial'])->name('add_remidial');
 Route::post('/remidialfeedback/delete/{id}', [App\Http\Controllers\RemidialController::class, 'delete'])->name('remedial.delete');
+Route::post('/remidialfeedback/delete', [App\Http\Controllers\RemidialController::class, 'multiple_delete'])->name('remedial.multiple_delete');
 
 //Health-facilities get routes
 Route::get('/healthfacilities', [App\Http\Controllers\HealthFacilitiesController::class, 'health_facility'])->name('health_facility');

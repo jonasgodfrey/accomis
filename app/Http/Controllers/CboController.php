@@ -265,7 +265,7 @@ class CboController extends Controller
         foreach ($files as $file) {
             if (Storage::delete("public/attachments/".$file->attachment)) {
                 CboMonthly::where('id', $id)->delete();
-                Session::flash('flash_message', 'Complaint Deleted successfully');
+                Session::flash('flash_message', 'Monthly Report Deleted successfully');
                 return redirect()->back();
             }else{
                 Session::flash('error_message', 'Sorry an error occured, try again later !');
