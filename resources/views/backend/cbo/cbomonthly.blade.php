@@ -9,13 +9,15 @@
             {{-- Flash message --}}
                 <div id="alert">
                 @include('partials.flash')
+                @include('partials.modal')
+
                 </div>
         {{-- Flash message end--}}
         <div class="row mb-2">
 
           <div class="col-sm-6">
             <h1>CBO Monthly Report</h1>
-          </div>
+          </div> 
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -132,6 +134,8 @@
       @endcan
         <!-- /.card -->
 
+        <p class="page_name" style="display: none;">/clientexit/delete</p>
+
         <div class="card card-success">
             <div class="card-header">
               <h3 class="card-title">CBO Monthly Reports</h3>
@@ -143,9 +147,13 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+            <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                @can("admin_spo_me")
+                  <th><input type="checkbox" id="selectall" class="checked"/></th>
+                 @endcan 
                   <th>id</th>
                   <th>Date</th>
                   <th>Attached Report</th>
@@ -158,7 +166,10 @@
                 <tbody>
                 @if (count($cbos)>0)
                     @foreach ($cbos as $cbo)
-                    <tr>
+                    <tr id="sid{{$cbo->id}}">
+                    @can("admin_spo_me")
+                    <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$cbo->id}}"  /></td>
+                    @endcan
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $cbo->date_of_meeting }}</td>
                     <td><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
@@ -293,6 +304,9 @@
               @endif
               <tfoot>
                   <tr>
+                  @can("admin_spo_me")
+                    <th></th>
+                    @endcan
                       <th>id</th>
                       <th>Date</th>
                       <th>Attached Report</th>
@@ -306,7 +320,9 @@
             </div>
             <!-- /.card-body -->
 
+
           </div>
+
 
       </div><!-- /.container-fluid -->
     </section>

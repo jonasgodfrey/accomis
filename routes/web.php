@@ -42,6 +42,7 @@ Route::post('/cbo/fetch', [App\Http\Controllers\CboController::class, 'fetch'])-
 Route::post('/cat/fetch', [App\Http\Controllers\CboController::class, 'cbo_fetch'])->name('cbo.fetch');
 Route::post('/cbo_monthly/add', [App\Http\Controllers\CboController::class, 'add_cbo_monthly'])->name('cbo.add_monthly');
 Route::post('/cbo_monthly/delete/{id}', [App\Http\Controllers\CboController::class, 'delete_cbo_monthly'])->name('cbo.delete_monthly');
+Route::post('/cbo_monthly/delete', [App\Http\Controllers\CboController::class, 'multiple_delete'])->name('cbo.multiple_delete');
 
 //Spo get routes
 Route::get('/spo_add', [App\Http\Controllers\SpoController::class, 'spo_index'])->name('spo.monthly');
@@ -75,6 +76,7 @@ Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'cl
 //Client Exit post routes
 Route::post('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit_add'])->name('client_exit.add');
 Route::post('/clientexit/delete/{id}', [App\Http\Controllers\ClientExitController::class, 'delete'])->name('client_exit.delete');
+Route::post('/clientexit/delete', [App\Http\Controllers\ClientExitController::class, 'delete_multiple'])->name('client_delete_multiple);
 
 
 //Wards get routes

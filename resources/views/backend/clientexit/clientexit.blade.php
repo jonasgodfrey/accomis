@@ -10,7 +10,7 @@
                                 @include('partials.flash')
                                 </div>
                         {{-- Flash message end--}}
-                <div class="row mb-2">
+                <div class="row mb-2"> 
                     <div class="col-sm-6">
                         <h1>Client Exit Questionnaire</h1>
                     </div>
@@ -1137,7 +1137,9 @@
                                 
                                 <thead>
                                     <tr>
-                                        <th><input type="checkbox" id="chkCheckAll"/></th>
+                                    @can("admin_spo_me")
+                  <th><input type="checkbox" id="selectall" class="checked"/></th>
+                 @endcan 
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -1152,7 +1154,9 @@
 
                                     @foreach ($clients as $client)
                                         <tr>
-                                            <td><input type="checkbox" name="ids" class="checkBoxClass" value="" /></td>
+                                        @can("admin_spo_me")
+                                        <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$client->id}}"  /></td>
+                                        @endcan
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $client->day }}.</td>
                                             <td>{{ $client->health_facility_of_interview }}</td>
@@ -1303,7 +1307,9 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th><input type="checkbox" id="chkCheckAll"/></th>
+                                    @can("admin_spo_me")
+                    <th></th>
+                    @endcan
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -1320,6 +1326,9 @@
             </div>
         </div>
             <br>
+          
+
+
             @can('spo_cbo')
                 <div class="card card-warning">
                     <div class="card-header">
@@ -1352,7 +1361,7 @@
                             <tbody>
                                
                                 @foreach($kobocei as $kobo)
-
+                                <p class="page_name" style="display: none;">/clientexit/delete</p>
                               
                                     <tr>
                                      <td>{{ $loop->iteration }}</td>                                         
@@ -1499,7 +1508,11 @@
                         </table>
                     </div>
                
-                @endcan
+                @endcan 
+
+
+
+
             
         </section>
         <!-- /.content -->

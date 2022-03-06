@@ -240,6 +240,24 @@ class CboController extends Controller
         echo $output;
     }
 
+    public function multiple_delete(Request $request){
+        $ids = $request->ids;
+        $files = CboMonthly::whereIn('id', $ids)->get();
+
+        foreach($files as $record){
+           
+            if (Storage::delete("public/attachments/".$record->attachment)) {
+                $id = $record->id;
+                CboMonthly::where('id', $id)->delete();
+            }
+        
+
+        }
+      
+        return response('Records deleted successfully');
+
+    }
+
     public function delete_cbo_monthly($id)
     {
         $files = CboMonthly::where('id', $id)->get();
