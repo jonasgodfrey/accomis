@@ -484,9 +484,13 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                    <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
                     <table id="example2" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                @can("spo_role")
+                                <th><input type="checkbox" id="selectall" class="checked"/></th>
+                                @endcan
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Attachment</th>
@@ -499,6 +503,9 @@
 
                                 @foreach ($rems as $rem)
                                     <tr>
+                                        @can("spo_role")
+                                        <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$rem->id}}"  /></td>
+                                        @endcan
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
                                         <td><a href="{{ url('storage/remedial/'.$rem->signed_document)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
@@ -593,7 +600,7 @@
                                 @endforeach
                             @endif
 
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>id</th>
                                 <th>Date</th>
@@ -601,7 +608,7 @@
                                 <th>CBO Name</th>
                                 <th>Action</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                     </table>
                 </div>
                 <!-- /.card-body -->
