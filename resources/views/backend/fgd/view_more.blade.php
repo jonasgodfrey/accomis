@@ -25,7 +25,14 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
 
+            <!-- code in here -->
+            
+            </div><!-- /.container-fluid -->
+        </section>
         </div>
 @endsection
 @section('js')
