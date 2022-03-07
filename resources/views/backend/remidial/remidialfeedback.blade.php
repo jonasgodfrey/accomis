@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="content-wrapper">
+<p class="page_name" style="display: none">/remidialfeedback/delete</p>
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -266,7 +268,6 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-success">
 
-            <p class="page_name" style="display: none;">/remidialfeedback/delete</p>
             <div class="card card-success">
                 <div class="card-header">
                     <h3 class="card-title">Remedial Feedbacks</h3>

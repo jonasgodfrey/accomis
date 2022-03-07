@@ -39,8 +39,8 @@ class ClientExitController extends Controller
 
     public function client_exit()
     {
-        
-            $collection = '';
+
+        $collection = '';
 
         // $responsex = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/aweG5RNYvHNj7TMM2xHvxL/submissions/?format=json');
 
@@ -49,16 +49,16 @@ class ClientExitController extends Controller
         // return $kobos;
 
         // $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json');
-      
+
         //     $collection = json_decode($collection->getBody(true)->getContents());
-            
-            
-    
+
+
+
         //     foreach ($collection as $key => $row){
         //         // dd($collection);
-               
+
         //         $record  = Cei::insertOrIgnore([
-        //            "recordid" => $row->_id,                
+        //            "recordid" => $row->_id,
         //            "start" => $row->start,
         //            "end" => $row->end,
         //            "today" => $row->today,
@@ -114,11 +114,11 @@ class ClientExitController extends Controller
         //            "suggestion" => isset($row->suggestion)? $row->suggestion:'',
         //            "upload_image" => isset($row->upload_image)? $row->upload_image:'',
         //            "store_gps" => isset($row->store_gps)? $row->store_gps:'',
-                         
+
         //    ]);
         // }
 
-        
+
         $page_views = request()->page_views;
 
         // dd($page_views??100);
@@ -145,7 +145,6 @@ class ClientExitController extends Controller
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate($page_views);
             $kobocei = Cei::latest();
-           
         }
         if ($role == "Me") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
@@ -162,7 +161,7 @@ class ClientExitController extends Controller
 
         return view('backend.clientexit.clientexit')->with([
             'clients' => $clients,
-            'health_facilities'=> $health_facilities,
+            'health_facilities' => $health_facilities,
             'collection' => $collection,
             'kobocei' => $kobocei
         ]);
@@ -238,7 +237,7 @@ class ClientExitController extends Controller
             'service_satisfaction_aid' => $request->customer_help,
             'facility_improvment_suggestion' => $request->customer_help_improve,
             'auth_user_email' => $user->email,
-            'cbo_name'=> $cbo_name,
+            'cbo_name' => $cbo_name,
             'spo' => $spo_email,
             'state' => $state,
             'month' => $month,
@@ -248,23 +247,35 @@ class ClientExitController extends Controller
             'attachment' => $filename,
         ]);
     }
+
+    public function multiple_delete(Request $request)
+    {
+        $ids = $request->ids;
+        $files = ClientExitQuestionare::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            if (Storage::delete("public/attachments/" . $record->attachment)) {
+                $id = $record->id;
+                ClientExitQuestionare::where('id', $id)->delete();
+            }
+        }
+
+        return response('Records deleted successfully');
+    }
+    
     public function delete($id)
     {
         $files = ClientExitQuestionare::where('id', $id)->get();
 
         foreach ($files as $file) {
-            if (Storage::delete("public/attachments/".$file->attachment)) {
+            if (Storage::delete("public/attachments/" . $file->attachment)) {
                 ClientExitQuestionare::where('id', $id)->delete();
                 Session::flash('flash_message', 'Client Exit Report Deleted successfully');
-                return redirect()->back();
-            }else{
+            } else {
                 Session::flash('error_message', 'Sorry an error occured, try again later !');
-                return redirect()->back();
             }
+            return redirect()->back();
         }
-
     }
-
-   
 }
- 

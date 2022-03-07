@@ -1,3 +1,6 @@
+page = $('.page_name').text();
+
+console.log('delete script running');
 $(".checkBoxClass").click(function() {
 
     if ($(".checkBoxClass:checked").length > 0) {
@@ -40,9 +43,8 @@ $(function(e) {
             });
 
 
-            page = $('.page_name').text();
 
-            console.log(page);
+
 
 
             $.ajax({
@@ -56,7 +58,7 @@ $(function(e) {
                 },
 
                 success: function(response) {
-
+                    console.log(response);
                     $('#modal-sm').modal('hide');
                     $("input[type=checkbox]").each(function() {
                         $(this).attr("checked", false);
@@ -69,7 +71,7 @@ $(function(e) {
                         confirmButtonText: 'Ok'
                     })
 
-                    location.reload(3000);
+                    location.reload(5000);
 
                 }
 

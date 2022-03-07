@@ -2,15 +2,17 @@
 
 @section('content')
     <div class="content-wrapper">
+    <p class="page_name" style="display: none">/clientexit/delete</p>
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
                             {{-- Flash message --}}
                             <div id="alert">
                                 @include('partials.flash')
+                                @include('partials.modal')
                                 </div>
                         {{-- Flash message end--}}
-                <div class="row mb-2"> 
+                <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Client Exit Questionnaire</h1>
                     </div>
@@ -40,6 +42,7 @@
                                         class="fas fa-times"></i></button>
                             </div>
                         </div>
+
                         <!-- /.card-header -->
                         <form role="form" class="myform" action="" enctype="multipart/form-data" method="POST">
                             @csrf
@@ -711,7 +714,7 @@
                            <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=250')}}" class="btn btn-primary btn-sm">Load 250 perpage</a> -->
                         <form action="" method="get">
                             <select name="page_views" class="form-control">
-                                
+
                                 <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Entries</a></option>
                                 <option value="5000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=5000')}}" class="">Load 5000 Entries</a></option>
                                 <option value="10000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=10000')}}" class="">Load 10000 Entries</a></option>
@@ -721,13 +724,13 @@
                             <div class="form-group">
                                 <button class="btn btn-primary btn-sm" type="submit">Load</button>
                             </div>
-                        </form>  
+                        </form>
                      {{-- @foreach($kobos as $kobo)
 
                      <div class="c">
                         <button class="btn-primary btn">{{$kobo->Transaction_Type}}</button>
                      </div>
-                    
+
                     @endforeach --}}
                         </div>
                             <table id="example1" class="table table-bordered table-striped">
@@ -735,7 +738,7 @@
                                     <tr>
                                         @can("admin_spo_me")
                                             <th><input type="checkbox" id="selectall" class="checked"/></th>
-                                        @endcan 
+                                        @endcan
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -750,7 +753,7 @@
                                 <tbody>
 
                                     @foreach ($clients as $client)
-                                     
+
                                             <tr id="sid{{$client->id}}">
                                                 @can("admin_spo_me")
                                                 <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$client->id}}"  /></td>
@@ -900,6 +903,9 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                    @can("admin_spo_me")
+                                            <th></th>
+                                        @endcan
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -911,15 +917,15 @@
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
-                            </table>                           
+                            </table>
 
-                            
+
                         </div>
                         <!-- /.card-body -->
-                        
-                        
-                   
-                        
+
+
+
+
 
 
                 @endcan
@@ -946,7 +952,7 @@
                            <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=250')}}" class="btn btn-primary btn-sm">Load 250 perpage</a> -->
                         <!-- <form action="" method="get" class="form-inline">
                             <select name="page_views" class="form-control">
-                                
+
                                 <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Latest Entries</a></option>
                                 <option value="2000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=2000')}}" class="">Load 2000 Latest Entries</a></option>
                                 <option value="3000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=3000')}}" class="">Load 3000 Latest Entries</a></option>
@@ -959,12 +965,14 @@
                         </form>    -->
                         </div><br>
                             <table id="example2" class="table table-bordered table-striped">
-                                
+                            
+
+
                                 <thead>
                                     <tr>
                                     @can("admin_spo_me")
                   <th><input type="checkbox" id="selectall" class="checked"/></th>
-                 @endcan 
+                 @endcan
                                         <th>id</th>
                                         <th>Date</th>
                                         <th>Health Facility</th>
@@ -1028,7 +1036,7 @@
                                                         </div>
                                                     </div>
                                                     @endcan
-                                                </div>    
+                                                </div>
 
 
                                                 <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1"
@@ -1151,7 +1159,7 @@
             </div>
         </div>
             <br>
-          
+
 
 
             @can('spo_cbo')
@@ -1173,7 +1181,7 @@
                             <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>Respondent</th>                                
+                                    <th>Respondent</th>
                                     <th>Health Facility</th>
                                     <th>Ward</th>
                                     <th>LGA</th>
@@ -1184,19 +1192,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               
+
                                 @foreach($kobocei as $kobo)
-                                <p class="page_name" style="display: none;">/clientexit/delete</p>
-                              
+
                                     <tr>
-                                     <td>{{ $loop->iteration }}</td>                                         
+                                     <td>{{ $loop->iteration }}</td>
                                        <td>{{$kobo->resp_name}}</td>
                                         <td>{{$kobo->hf}}</td>
                                        <td>{{$kobo->ward}}</td>
                                        <td>{{$kobo->lga}}</td>
                                        <td>{{$kobo->cbo}}</td>
-                                        <td>{{$kobo->qtr}}</td> 
-                                        <td>{{$kobo->today}}</td>                                           
+                                        <td>{{$kobo->qtr}}</td>
+                                        <td>{{$kobo->today}}</td>
                                         <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $kobo->recordid }}"><i
                                             class="fa fa-eye"></i></a>
 
@@ -1240,7 +1247,7 @@
                                                                         </dt>
                                                                         <dd class="col-sm-8">
                                                                             {{$kobo->service_cat}}.
-                                                                        </dd>                                                                            
+                                                                        </dd>
                                                                         <dt class="col-sm-4">Service Received:</dt>
                                                                         <dd class="col-sm-8">
                                                                             {{ $kobo->serv_received}}
@@ -1273,7 +1280,7 @@
                                                                         <dt class="col-sm-4">Finish the Drug?:</dt>
                                                                         <dd class="col-sm-8">
                                                                             {{ $kobo->act_finish}}
-                                                                        </dd>                                                                            
+                                                                        </dd>
 
                                                                         <dt class="col-sm-4">Rate the Facility?:</dt>
                                                                         <dd class="col-sm-8">
@@ -1283,7 +1290,7 @@
                                                                         <dt class="col-sm-4">Why Dissatisfied?:</dt>
                                                                         <dd class="col-sm-8">
                                                                             {{ $kobo->dissatisfied}}
-                                                                        </dd>                                                                       
+                                                                        </dd>
 
                                                                         <dt class="col-sm-4">Start Date:</dt>
                                                                         <dd class="col-sm-8">
@@ -1305,7 +1312,7 @@
                                                                             {{ $kobo->store_gps}}
                                                                         </dd>
 
-                                                                        
+
 
                                                                     </dl>
                                                                 </div>
@@ -1323,22 +1330,22 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        
+
                                         </td>
-                                        
+
                                     </tr>
                                 @endforeach
                             </tbody>
-                            
+
                         </table>
                     </div> --}}
-               
-                @endcan 
+
+                @endcan
 
 
 
 
-            
+
         </section>
         <!-- /.content -->
     </div>

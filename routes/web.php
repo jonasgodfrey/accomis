@@ -77,7 +77,7 @@ Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'cl
 //Client Exit post routes
 Route::post('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit_add'])->name('client_exit.add');
 Route::post('/clientexit/delete/{id}', [App\Http\Controllers\ClientExitController::class, 'delete'])->name('client_exit.delete');
-Route::post('/clientexit/delete', [App\Http\Controllers\ClientExitController::class, 'delete_multiple'])->name('client_delete_multiple');
+Route::post('/clientexit/delete', [App\Http\Controllers\ClientExitController::class, 'multiple_delete'])->name('client.delete_multiple');
 
 
 //Wards get routes

@@ -137,6 +137,25 @@ class RemidialController extends Controller
             return redirect(route('remidial'));
         }
     }
+
+    public function multiple_delete(Request $request)
+    {
+
+        $ids = $request->ids;
+        $files = Remedial::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            $id = $record->id;
+            
+            if (Storage::delete("public/remedial/". $record->signed_document)) {
+                Remedial::where('id', $id)->delete();
+            }
+        }
+
+        return response('Records deleted successfully');
+    }
+
     public function delete($id)
     {
         $files = Remedial::where('id', $id)->get();
