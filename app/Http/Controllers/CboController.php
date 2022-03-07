@@ -129,6 +129,14 @@ class CboController extends Controller
         ]);
     }
 
+    public function view_more($id)
+    {      
+        $cbo_monthly = CboMonthly::where('id', $id)->get();
+        return view('backend.cbo.view_more')->with([
+            'cbo_monthly' => $cbo_monthly,
+        ]);
+    }
+
     //add cbo function
     public function add_cbo(Request $request)
     {

@@ -29,9 +29,13 @@ Route::get('/prevdash', [App\Http\Controllers\PrevdashController::class, 'prevda
 Route::get('/cbo', [App\Http\Controllers\CboController::class, 'cbo_index'])->name('cbo');
 Route::get('/cbo_monthly', [App\Http\Controllers\CboController::class, 'cbo_monthly'])->name('cbo.monthly');
 Route::get('/add_cbo/', [App\Http\Controllers\CboController::class, 'add_cbo_view'])->name('cbo.add.view');
+Route::get('/cbo_monthly/view_more/{id}', [App\Http\Controllers\CboController::class, 'view_more'])->name('cbo.view_more');
+
 
 //CBO Get FGD Routes
 Route::get('/otherreports', [App\Http\Controllers\FgdreportController::class, 'index'])->name('fgdreport');
+Route::get('/otherreports/view_more/{id}', [App\Http\Controllers\FgdreportController::class, 'view_more'])->name('fgdreport.view_more');
+
 Route::post('/otherreports', [App\Http\Controllers\FgdreportController::class, 'add_fgd'])->name('fgdreport.add');
 Route::post('/otherreports/delete/{id}', [App\Http\Controllers\FgdreportController::class, 'delete'])->name('fgdreport.delete');
 
@@ -47,6 +51,7 @@ Route::post('/cbo_monthly/delete', [App\Http\Controllers\CboController::class, '
 //Spo get routes
 Route::get('/spo_add', [App\Http\Controllers\SpoController::class, 'spo_index'])->name('spo.monthly');
 Route::get('/spo_monthly/', [App\Http\Controllers\SpoController::class, 'spo_monthly'])->name('spo_add_monthly');
+Route::get('/spo_monthly/view_more/{id}', [App\Http\Controllers\SpoController::class, 'view_more'])->name('spo_monthly.view_more');
 
 //Spo post routes
 Route::post('/spo/add', [App\Http\Controllers\SpoController::class, 'add_spo'])->name('spo.add');
@@ -55,6 +60,7 @@ Route::post('/spo_monthly/delete/{id}', [App\Http\Controllers\SpoController::cla
 
 //Remidial get routes
 Route::get('/remidialfeedback', [App\Http\Controllers\RemidialController::class, 'remidial'])->name('remidial');
+Route::get('/remidialfeedback/view_more/{id}', [App\Http\Controllers\RemidialController::class, 'view_more'])->name('remidial.view_more');
 
 //Remidial post routes
 Route::post('/remidialfeedback', [App\Http\Controllers\RemidialController::class, 'add_remidial'])->name('add_remidial');
@@ -72,6 +78,8 @@ Route::post('/healthfacilities/fetch_info', [App\Http\Controllers\HealthFaciliti
 
 //Client Exit get routes
 Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
+Route::get('/clientexit/view_more/{id}', [App\Http\Controllers\ClientExitController::class, 'view_more'])->name('client.view_more');
+
 // Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'kobocollect'])->name('client.exit');
 
 //Client Exit post routes

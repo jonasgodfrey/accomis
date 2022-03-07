@@ -316,9 +316,8 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-6">
-
-                                                    <a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
-                                                        class="fa fa-eye"></i></a>
+                                                <a href="{{ '/remidialfeedback/view_more/'. $rem->id }}" ><i
+                                    class="fa fa-eye"></i></a>
                                                 </div>
                                                 <!--modal begin-->
                                             @can("admin_me")

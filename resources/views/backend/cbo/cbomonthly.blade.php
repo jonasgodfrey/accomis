@@ -172,7 +172,7 @@
                     @endcan
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $cbo->date_of_meeting }}</td>
-                    <td><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
+                    <td><a href="{{ url('/storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                     <td>{{$cbo->cbo_name}}</td>
                     <td>{{$cbo->state}}</td>
                     <td>{{ $cbo->quarter }}</td>
@@ -180,7 +180,7 @@
                         <div class="row">
                             <div class="col-md-6">
 
-                                <a href="#" data-toggle="modal" data-target="{{ '#Modal' . $cbo->id }}" ><i
+                                <a href="{{ '/cbo_monthly/view_more/'.$cbo->id }}" ><i
                                     class="fa fa-eye"></i></a>
                             </div>
                             <!--modal begin-->

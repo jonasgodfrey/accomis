@@ -49,6 +49,14 @@ class SpoController extends Controller
         ]);
     }
 
+    public function view_more($id)
+    {
+        $spo = SpoMonthly::where('id', $id)->get();
+        return view('backend.spo.view_more')->with([
+            'spo' => $spo,
+        ]);
+    }
+
     public function add_spo(Request $request)
     {
         $spoRole = Role::where('name', 'Spo')->first();

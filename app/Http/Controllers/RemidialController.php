@@ -88,6 +88,15 @@ class RemidialController extends Controller
         ]);
     }
 
+
+    public function view_more($id)
+    {
+        $rem = Remedial::where('id', $id)->get();
+        return view('backend.remidial.view_more')->with([
+            'remedial' => $rem,
+        ]);
+    }
+
     public function add_remidial(Request $request)
     {
         $file = $request->signed_doc;
