@@ -125,8 +125,8 @@ class FgdreportController extends Controller
     public function view_more($id)
     {
         $fdg = Fgdreport::where('id', $id)->get();
-        return view('backend.fdg.view_more')->with([
-            'fdg' => $fdg,
+        return view('backend.fgd.view_more')->with([
+            'fgd' => $fdg
         ]);
     }
 

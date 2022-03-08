@@ -44,29 +44,20 @@
                     <div class="card-body">
                         <dl class="row">
                             <dt class="col-sm-4">State</dt>
-                            <dd class="col-sm-8">{{ $cbo->state }}.
+                            <dd class="col-sm-8">{{ $fgd->state }}.
                             </dd>
                             <dt class="col-sm-4">Lga:</dt>
-                            <dd class="col-sm-8">{{ $cbo->lga }}.
+                            <dd class="col-sm-8">{{ $fgd->lga }}.
                             </dd>
                             <dt class="col-sm-4">CBO Name:</dt>
-                            <dd class="col-sm-8">{{ $cbo->cbo_name }}.
+                            <dd class="col-sm-8">{{ $fgd->cbo_name }}.
                             </dd>
                             <dt class="col-sm-4">Activity:</dt>
-                            <dd class="col-sm-8">{{ $cbo->fgds }}.</dd>
+                            <dd class="col-sm-8">{{ $fgd->activity }}.</dd>
 
-                            <!-- <dt class="col-sm-4">Attached Report:</dt>
-                                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
-                                            </dd>
-                                            <dt class="col-sm-4"></dt>
-                                            <dd class="col-sm-8"> <embed
-                                              src="{{ url('storage/attachments/'.$cbo->attachment)}}"
-                                              style="width:400px; height:300px;"
-                                              frameborder="0"></a>
-                                            </dd> -->
 
                             <dt class="col-sm-4">Date of Submission:</dt>
-                            <dd class="col-sm-8">{{ $cbo->created_at }}.
+                            <dd class="col-sm-8">{{ $fgd->created_at }}.
                             </dd>
                             <br>
                             <dt class="col-sm-4">Status:</dt>
