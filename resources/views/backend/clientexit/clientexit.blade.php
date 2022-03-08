@@ -664,7 +664,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
+                <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😳</button>
                 <div class="col-sm-3">
                     <!-- <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=120')}}" class="btn btn-primary btn-sm">Load 120 perpage</a>
                         </div>
@@ -700,7 +700,6 @@
                         <th>id</th>
                         <th>Date</th>
                         <th>Health Facility</th>
-                        <!-- <th>attachment</th> -->
                         <th>Respondant</th>
                         <th>CBO Name</th>
                         <th>State</th>
@@ -719,7 +718,6 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $client->day }}.</td>
                         <td>{{ $client->health_facility_of_interview }}</td>
-                        <!-- <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td> -->
                         <td>{{ $client->respondant_name }}</td>
                         <td>{{$client->cbo_name}}</td>
                         <td>{{$client->state}}</td>
@@ -737,7 +735,7 @@
                                     <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
 
 
-                                    <div class="modal fade" id="{{'exampleModal' . $client->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    {{-- <div class="modal fade" id="{{'exampleModal' . $client->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -759,14 +757,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 @endcan
                             </div>
 
 
 
-                            <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                            {{-- <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -850,7 +848,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -1117,7 +1115,6 @@
                         <th>id</th>
                         <th>Date</th>
                         <th>Health Facility</th>
-                        <th>Attachment</th>
                         <th>Respondant</th>
                         <th>CBO Name</th>
                         <th>Quarter</th>
@@ -1134,7 +1131,6 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $client->day }}.</td>
                         <td>{{ $client->health_facility_of_interview }}</td>
-                        <td><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                         <td>{{ $client->respondant_name }}</td>
                         <td>{{$client->cbo_name}}</td>
                         <td>{{ $client->quarter }}</td>
@@ -1152,7 +1148,7 @@
                                     <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $client->id}}"></button>
 
 
-                                    <div class="modal fade" id="{{'exampleModal' . $client->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    {{-- <div class="modal fade" id="{{'exampleModal' . $client->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -1174,13 +1170,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 @endcan
                             </div>
 
 
-                            <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                            {{-- <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -1271,7 +1267,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -1284,7 +1280,6 @@
                         <th>id</th>
                         <th>Date</th>
                         <th>Health Facility</th>
-                        <th>Attachment</th>
                         <th>Respondant</th>
                         <th>CBO Name</th>
                         <th>Quarter</th>

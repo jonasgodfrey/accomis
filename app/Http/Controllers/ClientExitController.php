@@ -167,6 +167,14 @@ class ClientExitController extends Controller
         ]);
     }
 
+    public function view_more($id)
+    {
+        $client = ClientExitQuestionare::where('id', $id)->get();
+        return view('backend.clientexit.view_more')->with([
+            'clientexit' => $client,
+        ]);
+    }
+
     public function client_exit_add(Request $request)
     {
 

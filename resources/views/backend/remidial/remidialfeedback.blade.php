@@ -281,7 +281,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
+                    <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😳</button>
                         <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -326,7 +326,7 @@
                                                     <button class="fas fa-trash btn-sm btn-danger " data-toggle="modal" data-target="{{'#exampleModal'. $rem->id}}"></button>
 
                                             
-                                                    <div class="modal fade" id="{{'exampleModal' . $rem->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    {{-- <div class="modal fade" id="{{'exampleModal' . $rem->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -348,13 +348,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 @endcan
                                             </div>
 
 
-                    <div class="modal fade" id="{{ 'Modal' . $rem->id }}" tabindex="-1"
+            {{-- <div class="modal fade" id="{{ 'Modal' . $rem->id }}" tabindex="-1"
                 role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
@@ -438,24 +438,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             </td>
                                     </tr>
                                 @endforeach
                             @endif
 
-                        <tfoot>
-                            <tr>
-                                <th>id</th>
-                                <th>Date</th>
-                                <th>Attachment</th>
-                                <th>CBO Name</th>
-                                <th>State</th>
-                                <th>Activity</th>
-                                <th>Quater</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
+                        
                     </table>
                 </div>
                 <!-- /.card-body -->
@@ -483,7 +472,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
+                    <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😳</button>
                     <table id="example2" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -492,7 +481,7 @@
                                 @endcan
                                 <th>id</th>
                                 <th>Date</th>
-                                <th>Attachment</th>
+                                <th>Quarter</th>
                                 <th>CBO Name</th>
                                 <th>Action</th>
                             </tr>
@@ -507,7 +496,7 @@
                                         @endcan
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rem->date_visit }}</td>
-                                        <td><a href="{{ url('storage/remedial/'.$rem->signed_document)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
+                                        <td>{{ $rem->quarter }}</td>
                                         <td>{{ $rem->cbo_name }}</td>
 
 
@@ -517,7 +506,7 @@
                     <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
                     @endcan
 
-                    <div class="modal fade" id="{{ 'Modal' . $rem->id }}" tabindex="-1"
+            {{-- <div class="modal fade" id="{{ 'Modal' . $rem->id }}" tabindex="-1"
                 role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
@@ -593,21 +582,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             </td>
                                     </tr>
                                 @endforeach
                             @endif
 
-                        {{-- <tfoot>
-                            <tr>
-                                <th>id</th>
-                                <th>Date</th>
-                                <th>Attachment</th>
-                                <th>CBO Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot> --}}
+                        
                     </table>
                 </div>
                 <!-- /.card-body -->

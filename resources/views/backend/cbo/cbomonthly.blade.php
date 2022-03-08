@@ -147,7 +147,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
+            <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😳</button>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -156,7 +156,6 @@
                  @endcan 
                   <th>id</th>
                   <th>Date</th>
-                  <th>Attached Report</th>
                   <th>CBO Name</th>
                   <th>State</th>
                   <th>Quarter</th>
@@ -172,7 +171,6 @@
                     @endcan
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $cbo->date_of_meeting }}</td>
-                    <td><a href="{{ url('/storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
                     <td>{{$cbo->cbo_name}}</td>
                     <td>{{$cbo->state}}</td>
                     <td>{{ $cbo->quarter }}</td>
@@ -189,7 +187,7 @@
                                 <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
 
 
-                                <div class="modal fade" id="{{'exampleModal' . $cbo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                {{-- <div class="modal fade" id="{{'exampleModal' . $cbo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -211,7 +209,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
 
                             @endcan
@@ -228,7 +226,6 @@
                     @endcan
                       <th>id</th>
                       <th>Date</th>
-                      <th>Attached Report</th>
                       <th>CBO Name</th>
                       <th>State</th>
                       <th>Quarter</th>

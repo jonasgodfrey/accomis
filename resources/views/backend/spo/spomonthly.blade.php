@@ -140,7 +140,6 @@
                  @endcan
               <th>id</th>
               <th>Date</th>
-              <th>Attachment</th>
               <th>State</th>
               <th>Quarter</th>
               <th>Action</th>
@@ -157,7 +156,6 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $spo->date_of_meeting }}</td>
 
-              <td><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
               <td>{{ $spo->state }}</td>
               <td>{{ $spo->quarter }}</td>
               <td>
@@ -175,7 +173,7 @@
                     <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $spo->id}}"></button>
 
 
-                    <div class="modal fade" id="{{'exampleModal' . $spo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    {{-- <div class="modal fade" id="{{'exampleModal' . $spo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -197,13 +195,13 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                   </div>
                   @endcan
                 </div>
 
 
-                <div class="modal fade" id="{{ 'Modal' . $spo->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                {{-- <div class="modal fade" id="{{ 'Modal' . $spo->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -234,7 +232,7 @@
                               <!-- <dt class="col-sm-4">Report:</dt>
                                           <dd class="col-sm-8">
                                             {!! $spo->minutes_of_meeting !!}
- -->
+ 
 
                               <dt class="col-sm-4">Attached Report:</dt>
                               <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$spo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
@@ -267,7 +265,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </td>
 
             </tr>
@@ -280,7 +278,6 @@
                  @endcan
               <th>id</th>
               <th>Meeting Date</th>
-              <th>Attachment</th>
               <th>State</th>
               <th>Quarter</th>
               <th>Action</th>
