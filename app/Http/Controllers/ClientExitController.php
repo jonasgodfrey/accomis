@@ -255,6 +255,23 @@ class ClientExitController extends Controller
             'attachment' => $filename,
         ]);
     }
+
+    public function multiple_delete(Request $request)
+    {
+        $ids = $request->ids;
+        $files = ClientExitQuestionare::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            if (Storage::delete("public/attachments/" . $record->attachment)) {
+                $id = $record->id;
+                ClientExitQuestionare::where('id', $id)->delete();
+            } 
+        }
+
+        return response('Records deleted successfully 😔');
+    }
+    
     public function delete($id)
     {
         $files = ClientExitQuestionare::where('id', $id)->get();
