@@ -130,7 +130,7 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-      <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😂</button>
+      <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😳</button>
 
         <table id="example1" class="table table-bordered table-striped">
           <thead>

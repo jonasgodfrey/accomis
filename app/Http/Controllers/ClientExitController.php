@@ -269,7 +269,7 @@ class ClientExitController extends Controller
             } 
         }
 
-        return response('Records deleted successfully');
+        return response('Records deleted successfully 😔');
     }
     
     public function delete($id)

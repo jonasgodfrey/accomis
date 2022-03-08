@@ -82,7 +82,7 @@ Route::post('/healthfacilities/fetch_info', [App\Http\Controllers\HealthFaciliti
 Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 Route::get('/clientexit/view_more/{id}', [App\Http\Controllers\ClientExitController::class, 'view_more'])->name('client.view_more');
 
-// Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'kobocollect'])->name('client.exit');
+// Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 
 //Client Exit post routes
 Route::post('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit_add'])->name('client_exit.add');

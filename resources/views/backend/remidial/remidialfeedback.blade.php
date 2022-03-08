@@ -264,7 +264,7 @@
         <!-- /.card -->
         @endcan
 
-        @can('admin_me')
+    @can('admin_me')
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-success">
 
@@ -511,7 +511,7 @@
                                         <td>{{ $rem->cbo_name }}</td>
 
 
-                                        <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $rem->id }}" ><i
+                    <td><a href="{{ '/remidialfeedback/view_more/'. $rem->id }}" ><i
                     class="fa fa-eye"></i></a>
                     @can('spo')
                     <button class="fa fa-trash btn-sm btn-danger " style="outline: none" data-toggle="modal" data-target="{{'#exampleModal'. $cbo->id}}"></button>
