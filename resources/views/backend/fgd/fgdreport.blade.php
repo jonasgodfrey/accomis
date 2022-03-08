@@ -174,7 +174,7 @@
                 <td>
                   <div class="row">
                     <div class="col-md-6">
-                      <a href="{{ '/cbo_monthly/view_more/'.$cbo->id }}"><i class="fa fa-eye"></i></a>
+                      <a href="{{ '/otherreports/view_more/'.$cbo->id }}"><i class="fa fa-eye"></i></a>
 
                     </div>
                     <!--modal begin-->

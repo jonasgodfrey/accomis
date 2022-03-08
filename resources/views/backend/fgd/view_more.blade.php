@@ -29,7 +29,59 @@
         <section class="content">
             <div class="container-fluid">
 
-            <!-- code in here -->
+                <div class="card card-info">
+                    <div class="card-header">
+                      <h3 class="card-title">Report</h3>
+          
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    @foreach($fgd as $fgd)
+                    
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-4">State</dt>
+                            <dd class="col-sm-8">{{ $cbo->state }}.
+                            </dd>
+                            <dt class="col-sm-4">Lga:</dt>
+                            <dd class="col-sm-8">{{ $cbo->lga }}.
+                            </dd>
+                            <dt class="col-sm-4">CBO Name:</dt>
+                            <dd class="col-sm-8">{{ $cbo->cbo_name }}.
+                            </dd>
+                            <dt class="col-sm-4">Activity:</dt>
+                            <dd class="col-sm-8">{{ $cbo->fgds }}.</dd>
+
+                            <!-- <dt class="col-sm-4">Attached Report:</dt>
+                                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
+                                            </dd>
+                                            <dt class="col-sm-4"></dt>
+                                            <dd class="col-sm-8"> <embed
+                                              src="{{ url('storage/attachments/'.$cbo->attachment)}}"
+                                              style="width:400px; height:300px;"
+                                              frameborder="0"></a>
+                                            </dd> -->
+
+                            <dt class="col-sm-4">Date of Submission:</dt>
+                            <dd class="col-sm-8">{{ $cbo->created_at }}.
+                            </dd>
+                            <br>
+                            <dt class="col-sm-4">Status:</dt>
+                            <dd class="col-sm-8"><a class="btn btn-success">Approved</a>
+                            </dd>
+
+                          </dl>
+                    </div>
+                    @endforeach
+                    <div class='card-footer'>
+                        <button class="btn btn-success print_window" style="float: right;">Print Page <i class="fa fa-print"></i></button>
+                    </div>
+    
+                    <!-- /.card-body -->
+                </div>
             
             </div><!-- /.container-fluid -->
         </section>
