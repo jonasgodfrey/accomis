@@ -14,7 +14,7 @@
             <div class="row mb-2">
 
                 <div class="col-sm-6">
-                    <h1>Community Based Organization</h1>
+                    <h1>CBO Monthly Report</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -29,12 +29,14 @@
     <section class="content">
         <div class="container-fluid">
 
-            <div class="card">
+            <div class="card card-info">
                 <div class="card-header">
-                    <h3 class="card-title">
-                        <i class="fas fa-text-width"></i>
-
-                    </h3>
+                  <h3 class="card-title">CBO Monthly Report</h3>
+      
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                  </div>
                 </div>
                 <!-- /.card-header -->
                 @foreach($cbo_monthly as $cbo_monthly)
@@ -51,18 +53,24 @@
                         <dd class="col-sm-8">{{ $cbo_monthly->cbo_name }}.
                         </dd>
                       
+                        <dt class="col-sm-4">Quarter:</dt>
+                        <dd class="col-sm-8">{{ $cbo_monthly->quarter }}.
+                        </dd>
 
-                        <dt class="col-sm-4">Attached Report:</dt>
-                        <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$cbo_monthly->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
-                        </dd> 
 
                         <dt class="col-sm-4">Date of Submission:</dt>
                         <dd class="col-sm-8">{{ $cbo_monthly->created_at }}.
                         </dd>
-                        <br>
-                        <dt class="col-sm-4">Status:</dt>
-                        <dd class="col-sm-8"><a class="btn btn-success">Approved</a>
+
+                        <dt class="col-sm-4">Date of Meeting:</dt>
+                        <dd class="col-sm-8">{{ $cbo_monthly->date_of_meeting }}.
                         </dd>
+
+                        <dt class="col-sm-4">Attached Report:</dt>
+                        <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$cbo_monthly->attachment)}}" target="_blank"><i class="fa fa-file-download fa-3x"></i></a>
+                        </dd> 
+
+                        
 
                     </dl>
                 </div>

@@ -266,7 +266,7 @@ class ClientExitController extends Controller
             if (Storage::delete("public/attachments/" . $record->attachment)) {
                 $id = $record->id;
                 ClientExitQuestionare::where('id', $id)->delete();
-            }
+            } 
         }
 
         return response('Records deleted successfully');
