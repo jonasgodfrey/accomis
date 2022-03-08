@@ -122,6 +122,14 @@ class FgdreportController extends Controller
 
     }
 
+    public function view_more($id)
+    {
+        $fdg = Fgdreport::where('id', $id)->get();
+        return view('backend.fgd.view_more')->with([
+            'fgd' => $fdg
+        ]);
+    }
+
     public function add_fgd(Request $request)
     {
 
@@ -157,6 +165,25 @@ class FgdreportController extends Controller
             return redirect(route('fgdreport'));
         }
     }
+
+    public function multiple_delete(Request $request)
+    {
+
+        $ids = $request->ids;
+        $files = Fgdreport::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            $id = $record->id;
+            
+            if (Storage::delete("public/attachments/". $record->attachment)) {
+                Fgdreport::where('id', $id)->delete();
+            }
+        }
+
+        return response('Records deleted successfully');
+    }
+
     public function delete($id)
     {
         $files = Fgdreport::where('id', $id)->get();
@@ -164,7 +191,7 @@ class FgdreportController extends Controller
         foreach ($files as $file) {
             if (Storage::delete("public/attachments/".$file->attachment)) {
                 Fgdreport::where('id', $id)->delete();
-                Session::flash('flash_message', 'Fgd Report Deleted successfully');
+                Session::flash('flash_message', 'Report Deleted successfully');
                 return redirect()->back();
             }else{
                 Session::flash('error_message', 'Sorry an error occured, try again later !');

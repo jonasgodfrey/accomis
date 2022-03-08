@@ -129,6 +129,14 @@ class CboController extends Controller
         ]);
     }
 
+    public function view_more($id)
+    {      
+        $cbo_monthly = CboMonthly::where('id', $id)->get();
+        return view('backend.cbo.view_more')->with([
+            'cbo_monthly' => $cbo_monthly,
+        ]);
+    }
+
     //add cbo function
     public function add_cbo(Request $request)
     {
@@ -240,6 +248,24 @@ class CboController extends Controller
         echo $output;
     }
 
+    public function multiple_delete(Request $request){
+        $ids = $request->ids;
+        $files = CboMonthly::whereIn('id', $ids)->get();
+
+        foreach($files as $record){
+           
+            if (Storage::delete("public/attachments/".$record->attachment)) {
+                $id = $record->id;
+                CboMonthly::where('id', $id)->delete();
+            }
+        
+
+        }
+      
+        return response('Records deleted successfully');
+
+    }
+
     public function delete_cbo_monthly($id)
     {
         $files = CboMonthly::where('id', $id)->get();
@@ -247,7 +273,7 @@ class CboController extends Controller
         foreach ($files as $file) {
             if (Storage::delete("public/attachments/".$file->attachment)) {
                 CboMonthly::where('id', $id)->delete();
-                Session::flash('flash_message', 'Complaint Deleted successfully');
+                Session::flash('flash_message', 'Monthly Report Deleted successfully');
                 return redirect()->back();
             }else{
                 Session::flash('error_message', 'Sorry an error occured, try again later !');

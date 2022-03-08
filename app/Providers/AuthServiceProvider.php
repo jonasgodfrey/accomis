@@ -71,7 +71,7 @@ class AuthServiceProvider extends ServiceProvider
 
          //admin spo and me access
          Gate::define('admin_spo_me', function ($user) {
-            return $user->hasAnyRoles(['Admin','Spo', 'Me']);
+            return $user->hasAnyRoles(['Admin', 'Spo', 'Me']);
         });
 
         //admin and me access

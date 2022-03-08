@@ -49,6 +49,14 @@ class SpoController extends Controller
         ]);
     }
 
+    public function view_more($id)
+    {
+        $spo = SpoMonthly::where('id', $id)->get();
+        return view('backend.spo.view_more')->with([
+            'spo' => $spo,
+        ]);
+    }
+
     public function add_spo(Request $request)
     {
         $spoRole = Role::where('name', 'Spo')->first();
@@ -167,6 +175,24 @@ class SpoController extends Controller
         if (Gate::denies('admin_spo')) {
             abort('404');
         }
+    }
+
+    public function multiple_delete(Request $request)
+    {
+
+        $ids = $request->ids;
+        $files = SpoMonthly::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            $id = $record->id;
+            
+            if (Storage::delete("public/attachments/". $record->attachment)) {
+                SpoMonthly::where('id', $id)->delete();
+            }
+        }
+
+        return response('Records deleted successfully 😔');
     }
 
     public function delete($id)
