@@ -3,12 +3,14 @@
 @section('content')
 
 <div class="content-wrapper">
+<p class="page_name" style="display: none">/otherreports/delete</p>
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
       {{-- Flash message --}}
       <div id="alert">
         @include('partials.flash')
+        @include('partials.modal')
       </div>
       {{-- Flash message end--}}
       <div class="row mb-2">
@@ -147,9 +149,14 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+        <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete</button>
+
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
+              @can("admin_spo_me")
+                  <th><input type="checkbox" id="selectall" class="checked"/></th>
+                 @endcan 
                 <th>id</th>
                 <th>Date</th>
                 <th>Attached Report</th>
@@ -164,6 +171,9 @@
               @if (count($cbos)>0)
               @foreach ($cbos as $cbo)
               <tr>
+              @can("admin_spo_me")
+                    <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$cbo->id}}"  /></td>
+                    @endcan
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $cbo->date_of_activity}}</td>
                 <td><a href="{{ url('storage/attachments/'.$cbo->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a></td>
@@ -284,6 +294,9 @@
               @endif
             <tfoot>
               <tr>
+              @can("admin_spo_me")
+                    <th></th>
+                    @endcan
                 <th>id</th>
                 <th>Meeting Date</th>
                 <th>Attached Report</th>

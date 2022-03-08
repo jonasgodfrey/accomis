@@ -38,6 +38,7 @@ Route::get('/otherreports/view_more/{id}', [App\Http\Controllers\FgdreportContro
 
 Route::post('/otherreports', [App\Http\Controllers\FgdreportController::class, 'add_fgd'])->name('fgdreport.add');
 Route::post('/otherreports/delete/{id}', [App\Http\Controllers\FgdreportController::class, 'delete'])->name('fgdreport.delete');
+Route::post('/otherreports/delete', [App\Http\Controllers\FgdreportController::class, 'multiple_delete'])->name('fgdreport.multiple_delete');
 
 //Cbo post routes
 Route::post('/cbo', [App\Http\Controllers\CboController::class, 'add_cbo'])->name('cbo.add');
@@ -57,6 +58,7 @@ Route::get('/spo_monthly/view_more/{id}', [App\Http\Controllers\SpoController::c
 Route::post('/spo/add', [App\Http\Controllers\SpoController::class, 'add_spo'])->name('spo.add');
 Route::post('/spo_monthly/add', [App\Http\Controllers\SpoController::class, 'add_spomonthly'])->name('spo.add_monthly');
 Route::post('/spo_monthly/delete/{id}', [App\Http\Controllers\SpoController::class, 'delete'])->name('spo.delete_monthly');
+Route::post('/spo_monthly/delete', [App\Http\Controllers\SpoController::class, 'multiple_delete'])->name('spo.multiple_delete');
 
 //Remidial get routes
 Route::get('/remidialfeedback', [App\Http\Controllers\RemidialController::class, 'remidial'])->name('remidial');

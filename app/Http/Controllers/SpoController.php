@@ -177,6 +177,24 @@ class SpoController extends Controller
         }
     }
 
+    public function multiple_delete(Request $request)
+    {
+
+        $ids = $request->ids;
+        $files = SpoMonthly::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            $id = $record->id;
+            
+            if (Storage::delete("public/attachments/". $record->attachment)) {
+                SpoMonthly::where('id', $id)->delete();
+            }
+        }
+
+        return response('Records deleted successfully');
+    }
+
     public function delete($id)
     {
         $files = SpoMonthly::where('id', $id)->get();

@@ -165,6 +165,25 @@ class FgdreportController extends Controller
             return redirect(route('fgdreport'));
         }
     }
+
+    public function multiple_delete(Request $request)
+    {
+
+        $ids = $request->ids;
+        $files = Fgdreport::whereIn('id', $ids)->get();
+
+        foreach ($files as $record) {
+
+            $id = $record->id;
+            
+            if (Storage::delete("public/attachments/". $record->attachment)) {
+                Fgdreport::where('id', $id)->delete();
+            }
+        }
+
+        return response('Records deleted successfully');
+    }
+
     public function delete($id)
     {
         $files = Fgdreport::where('id', $id)->get();
