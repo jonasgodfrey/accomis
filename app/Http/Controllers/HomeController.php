@@ -54,7 +54,7 @@ class HomeController extends Controller
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->get());
             $ipt_recipients = count(ClientExitQuestionare::where('ipt_reception', 'yes')->get());
-            $positive_malaria = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->get());
+            $positive_malaria = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes' && 'respondent_category', 'Female Pregnant')->get());
             $sp_recepients = count(ClientExitQuestionare::where('sulfadoxin_pyrimethamine_intake', 'yes')->get());
             $smc_recepients = count(ClientExitQuestionare::where('child_smc_reception', 'yes')->get());
             $pregnant_women = count(ClientExitQuestionare::where('respondant_category', 'Female Pregnant')->get());
