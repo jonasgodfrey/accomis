@@ -304,7 +304,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$pregnant_women ?? '0'}}</h3>
+                <h3>{{$positive_malaria ?? '0'}}</h3>
 
                 <p>Pregnant Women Who Tested +ve</p>
               </div>
