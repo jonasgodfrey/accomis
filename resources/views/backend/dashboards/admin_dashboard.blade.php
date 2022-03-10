@@ -126,7 +126,7 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>{{$cats ?? '0'}}</h3>
+                <h3>624</h3>
 
                 <p>CATs</p>
               </div>
@@ -272,7 +272,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$sp_recepients ?? '0'}}</h3>
+                <h3>{{$smc_recepients?? '0'}}</h3>
 
                 <p>SMC Recipients</p>
               </div>
