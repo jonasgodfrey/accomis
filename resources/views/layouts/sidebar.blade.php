@@ -100,12 +100,21 @@
           </li>
           @endcan
 
+          @can('admin_spo')
+          <li class="nav-item">
+            <a href="{{ route('cei_analysis') }}" class="nav-link">
+              <i class="nav-icon  fa fa-book"></i>
+              <p>Client Exit Analysis</p>
+            </a>
+          </li>
+          @endcan
+
           @can('admin_cbo')
           <li class="nav-item has-treeview">
             <a href="{{ route('remidial') }}" class="nav-link">
               <i class="nav-icon  far fa-file"></i>
               <p>
-                Remedial Action Feedback
+                Remedial Feedback
 
               </p>
             </a>
@@ -159,7 +168,7 @@
             <a href="{{ route('remidial') }}" class="nav-link">
               <i class="nav-icon  fa fa-file"></i>
               <p>
-                Remedial Action Feedbacks
+                Remedial Feedbacks
 
               </p>
             </a>
