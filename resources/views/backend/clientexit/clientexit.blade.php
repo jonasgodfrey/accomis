@@ -900,6 +900,7 @@
             <div class="col-sm-4">
 
             </div><br>
+            <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete </button>
             <table id="example2" class="table table-bordered table-striped">
 
 

@@ -14,7 +14,7 @@
                 <div class="row mb-2">
 
                     <div class="col-sm-6">
-                        <h1>FGD Report</h1>
+                        <h1>Activity Report</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
 
                 <div class="card card-info">
                     <div class="card-header">
-                      <h3 class="card-title">Report</h3>
+                      <h3 class="card-title">Activity Report</h3>
           
                       <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -49,19 +49,25 @@
                             <dt class="col-sm-4">Lga:</dt>
                             <dd class="col-sm-8">{{ $fgd->lga }}.
                             </dd>
+                            <dt class="col-sm-4">Quarter:</dt>
+                            <dd class="col-sm-8">{{ $fgd->quarter }}.
+                            </dd>
                             <dt class="col-sm-4">CBO Name:</dt>
                             <dd class="col-sm-8">{{ $fgd->cbo_name }}.
                             </dd>
                             <dt class="col-sm-4">Activity:</dt>
                             <dd class="col-sm-8">{{ $fgd->activity }}.</dd>
 
+                            <dt class="col-sm-4">Date of Activity:</dt>
+                            <dd class="col-sm-8">{{ $fgd->date_of_activity }}.
+                            </dd>
 
                             <dt class="col-sm-4">Date of Submission:</dt>
                             <dd class="col-sm-8">{{ $fgd->created_at }}.
                             </dd>
                             <br>
-                            <dt class="col-sm-4">Status:</dt>
-                            <dd class="col-sm-8"><a class="btn btn-success">Approved</a>
+                            <dt class="col-sm-4">Attached Report:</dt>
+                            <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$fgd->attachment)}}" target="_blank"><i class="fa fa-file-download fa-3x"></i></a>
                             </dd>
 
                           </dl>
@@ -80,4 +86,10 @@
 @endsection
 @section('js')
     <script src="dist/js/selectField.js"></script>
+    <script>
+        $('.print_window').click(function(){
+            window.print();
+        });
+    
+    </script>
 @endsection
