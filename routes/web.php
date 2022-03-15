@@ -112,6 +112,5 @@ Route::get('/cei_analysis/table', [App\Http\Controllers\ClientExitController::cl
 Route::post('/cei_analysis', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
 Route::post('/cei_analysis/table', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_table'])->name('cei_analysis.table');
 
-
 //file display
 Route::get('image/{filename}', [App\Http\Controllers\ImageController::class, 'displayImage'])->name('displayImage');
