@@ -270,16 +270,24 @@ class ClientExitController extends Controller
 
     public function cei_analysis_table(Request $request)
     {
+        $state = States::all();
+
+        $client_exit = [];
+        
         $whereCondition = [
  
             ['state', '=', $request->state],
             ['cbo_name', '=', $request->cbo],
-            ['quarter', '>=', $request->quarter],
+            ['quarter', '=', $request->quarter],
          
         ];
-        $state = States::all();
-         
-        $client_exit = ClientExitQuestionare::where($whereCondition)->get();
+
+
+        if ($request->state != "") {
+             
+            $client_exit = ClientExitQuestionare::where($whereCondition)->get();
+            
+        }     
 
         return view('backend.cei_analysis.cei_analysis')->with([
             'states' => $state,
