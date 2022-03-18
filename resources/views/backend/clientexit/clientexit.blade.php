@@ -1084,23 +1084,7 @@
         <!-- /.card-header -->
         <div class="card-body">
             <div class="col-sm-4">
-                <!-- <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=120')}}" class="btn btn-primary btn-sm">Load 120 perpage</a>
-                        </div>
-                        <div class="c">
-                        <a href="{{url('http://127.0.0.1:8000/clientexit?page_views=250')}}" class="btn btn-primary btn-sm">Load 250 perpage</a> -->
-                <!-- <form action="" method="get" class="form-inline">
-                        <select name="page_views" class="form-control">
 
-                            <option value="1000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=1000')}}" class="">Load 1000 Latest Entries</a></option>
-                            <option value="2000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=2000')}}" class="">Load 2000 Latest Entries</a></option>
-                            <option value="3000"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=3000')}}" class="">Load 3000 Latest Entries</a></option>
-                            <option value="3850"><a href="{{url('http://127.0.0.1:8000/clientexit?page_views=3850')}}" class="">Load 3850 Latest Entries</a></option>
-
-                        </select>
-                        <div class="form-group">
-                            <br><span> <button class="btn btn-primary btn-sm" type="submit">Load</button></span>
-                        </div>
-                    </form>    -->
             </div><br>
             <button type="submit" class="btn btn-danger" id="bulk-delete" style="display:none; float:right">Delete 😳</button>
             <table id="example2" class="table table-bordered table-striped">

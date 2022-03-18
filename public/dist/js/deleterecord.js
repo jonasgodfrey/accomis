@@ -1,6 +1,5 @@
 page = $('.page_name').text();
 
-console.log('delete script running');
 $(".checkBoxClass").click(function() {
 
     if ($(".checkBoxClass:checked").length > 0) {
@@ -12,7 +11,6 @@ $(".checkBoxClass").click(function() {
 });
 $(function(e) {
 
-    console.log('page loaded');
 
     $("#selectall").click(function() {
         if ($("#selectall").is(':checked')) {

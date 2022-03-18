@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     window.setTimeout(function() {
         $(".alert")

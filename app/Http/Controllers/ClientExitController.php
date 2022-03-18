@@ -8,6 +8,8 @@ use App\Models\ClientExitQuestionare;
 use App\Models\HealthFacility;
 use App\Models\Spo;
 use App\Models\Cei;
+use App\Models\Lgas;
+use App\Models\States;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -254,6 +256,50 @@ class ClientExitController extends Controller
             'quarter' => $request->quarter,
             'attachment' => $filename,
         ]);
+    }
+
+    public function cei_analysis_index()
+    {
+        $state = States::all();
+        $ceis = [];
+        return view('backend.cei_analysis.cei_analysis')->with([
+            'states' => $state,
+            'ceis' => $ceis,
+        ]);
+    }
+
+    public function cei_analysis_table(Request $request)
+    {
+        $state = States::all();
+
+        $client_exit = [];
+        
+        $whereCondition = [
+ 
+            ['state', '=', $request->state],
+            ['cbo_name', '=', $request->cbo],
+            ['quarter', '=', $request->quarter],
+         
+        ];
+
+
+        if ($request->state != "") {
+             
+            $client_exit = ClientExitQuestionare::where($whereCondition)->get();
+            
+        }     
+
+        return view('backend.cei_analysis.cei_analysis')->with([
+            'states' => $state,
+            'ceis' => $client_exit,
+        ]);
+    }
+
+    public function cei_analysis_fetch(Request $request)
+    {
+        $cbo = Cbo::where('state', $request->value)->get();
+
+        return response()->json($cbo);
     }
 
     public function multiple_delete(Request $request)
