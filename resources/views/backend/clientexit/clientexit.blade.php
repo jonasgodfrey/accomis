@@ -1102,6 +1102,7 @@
                         <th>Date</th>
                         <th>Health Facility</th>
                         <th>Respondant</th>
+                        <th>Child</th>
                         <th>CBO Name</th>
                         <th>Quarter</th>
                         <th>Action</th>
@@ -1118,6 +1119,7 @@
                         <td>{{ $client->day }}.</td>
                         <td>{{ $client->health_facility_of_interview }}</td>
                         <td>{{ $client->respondant_name }}</td>
+                        <td>{{ $client->child_name }}</td>
                         <td>{{$client->cbo_name}}</td>
                         <td>{{ $client->quarter }}</td>
                         <td>
@@ -1267,6 +1269,7 @@
                         <th>Date</th>
                         <th>Health Facility</th>
                         <th>Respondant</th>
+                        <th>Child</th>
                         <th>CBO Name</th>
                         <th>Quarter</th>
                         <th>Action</th>
