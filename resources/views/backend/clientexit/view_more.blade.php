@@ -64,6 +64,10 @@
                             <dd class="col-sm-8">
                                 {{ $client->respondant_name }}
                             </dd>
+                            <dt class="col-sm-4">Child Name</dt>
+                            <dd class="col-sm-8">
+                                {{ $client->child_name }}
+                            </dd>
                             <dt class="col-sm-4">Respondant Occupation:
                             </dt>
                             <dd class="col-sm-8">
