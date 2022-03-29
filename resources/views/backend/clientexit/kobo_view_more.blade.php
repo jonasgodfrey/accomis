@@ -51,6 +51,10 @@
                         <dd class="col-sm-8">
                             {{$kobo->resp_name}}.
                         </dd>
+                        <dt class="col-sm-4">Child Name</dt>
+                        <dd class="col-sm-8">
+                            {{$kobo->child_name}}.
+                        </dd>
                         <dt class="col-sm-4">Respondant Category:
                         </dt>
                         <dd class="col-sm-8">

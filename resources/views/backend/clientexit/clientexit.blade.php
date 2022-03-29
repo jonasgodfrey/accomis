@@ -1156,100 +1156,7 @@
                             </div>
                             @endcan
                         </div>
-
-
-                        {{-- <div class="modal fade" id="{{ 'Modal' . $client->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLabel">Client Exit Details
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h3 class="card-title">
-                                                <i class="fas fa-text-width"></i>
-
-                                            </h3>
-                                        </div>
-                                        <!-- /.card-header -->
-                                        <div class="card-body">
-                                            <dl class="row">
-                                                <dt class="col-sm-4">Respondant Name</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->respondant_name }}.
-                                                </dd>
-                                                <dt class="col-sm-4">Respondant Occupation:
-                                                </dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->respondant_occupation }}.
-                                                </dd>
-                                                <dt class="col-sm-4">Respondant Education:
-                                                </dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->respondant_education }}.
-                                                </dd>
-                                                <dt class="col-sm-4">Category:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->respondant_category }}.
-                                                </dd>
-                                                <dt class="col-sm-4">Facility Name:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->health_facility_of_interview }}.
-                                                </dd>
-
-                                                <dt class="col-sm-4">Service Requested:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->purpose_of_comming }}.
-                                                </dd>
-                                                <dt class="col-sm-4">Service Received:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->treatment_received }}.
-                                                </dd>
-                                                <dt class="col-sm-4">Received LLIN:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->llin_recipients }}.
-                                                </dd>
-
-                                                <dt class="col-sm-4">Service Rating:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->service_satisfaction_level }}.
-                                                </dd>
-                                                <!-- <dt class="col-sm-4">Attached Report:</dt>
-                                                                        <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}"
-                                                                        target="_blank"><i class="fa fa-file-download"></i></a>
-                                                                        </dd>
-                                                                        <dt class="col-sm-4"></dt>
-                                                                        <dd class="col-sm-8"> <embed
-                                                                            src="{{ url('storage/attachments/'.$client->attachment)}}"
-                                                                            style="width:400px; height:300px;"
-                                                                            frameborder="0"></a>
-                                                                        </dd> -->
-
-                                                <dt class="col-sm-4">Date of Visit:</dt>
-                                                <dd class="col-sm-8">
-                                                    {{ $client->created_at }}.
-                                                </dd>
-
-                                            </dl>
-                                        </div>
-                                        <!-- /.card-body -->
-                                    </div>
-                                    <!-- /.card -->
-
-                                    <div class="modal-footer">
-                                        <p>
-                                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    </div> --}}
+                       
     </td>
     </tr>
     @endforeach
@@ -1296,7 +1203,8 @@
                 <tr>
                     <th>id</th>
                     <th>Respondent</th>
-                    <th>Health Facility</th>
+                    <th>Child</th>
+                    <th>HF</th>
                     <th>Ward</th>
                     <th>LGA</th>
                     <th>CBO</th>
@@ -1312,6 +1220,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{$kobo->resp_name}}</td>
+                    <td>{{$kobo->child_name}}</td>
                     <td>{{$kobo->hf}}</td>
                     <td>{{$kobo->ward}}</td>
                     <td>{{$kobo->lga}}</td>
