@@ -282,15 +282,19 @@ class ClientExitController extends Controller
     {
         $fetch_state = States::all();
         $fetch_kobo_ceis = Cei::all();
-        $fetch_kobo_ceis_q1 = count(Cei::where('quarter', 'Quarter_1_2021'));
-        $fetch_kobo_ceis_q2 = count(Cei::where('quarter', 'Quarter_2_2021'));
-        $fetch_kobo_ceis_q3 = count(Cei::where('quarter', 'Quarter_3_2021'));
-        $fetch_kobo_ceis_q4 = count(Cei::where('quarter', 'Quarter_4_2021'));
+        // $fetch_kobo_ceis_1 = Cei::where('quarter', 'Quarter_1_2021');
+        // $fetch_kobo_ceis_2 = Cei::where('quarter', 'Quarter_2_2021');
+        // $fetch_kobo_ceis_3 = Cei::where('quarter', 'Quarter_3_2021');
+        // $fetch_kobo_ceis_4 = Cei::where('quarter', 'Quarter_4_2021');
+        // $fetch_kobo_ceis_q1 = count($fetch_kobo_ceis_1);
+        // $fetch_kobo_ceis_q2 = count($fetch_kobo_ceis_2);
+        // $fetch_kobo_ceis_q3 = count($fetch_kobo_ceis_3);
+        // $fetch_kobo_ceis_q4 = count($fetch_kobo_ceis_4);
 
-        $fetch_client_exit_q1 = count(ClientExitQuestionare::where('quarter', 'Quarter_1_2021'));
-        $fetch_client_exit_q2 = count(ClientExitQuestionare::where('quarter', 'Quarter_2_2021'));
-        $fetch_client_exit_q3 = count(ClientExitQuestionare::where('quarter', 'Quarter_3_2021'));
-        $fetch_client_exit_q4 = count(ClientExitQuestionare::where('quarter', 'Quarter_4_2021'));
+        // $fetch_client_exit_q1 = count(ClientExitQuestionare::where('quarter', 'Quarter_1_2021'));
+        // $fetch_client_exit_q2 = count(ClientExitQuestionare::where('quarter', 'Quarter_2_2021'));
+        // $fetch_client_exit_q3 = count(ClientExitQuestionare::where('quarter', 'Quarter_3_2021'));
+        // $fetch_client_exit_q4 = count(ClientExitQuestionare::where('quarter', 'Quarter_4_2021'));
 
         $state = count($fetch_state);
         $kobo_ceis = count($fetch_kobo_ceis);
@@ -298,10 +302,10 @@ class ClientExitController extends Controller
 
         return view('backend.analysis.chart-analysis')->with([
             'states' => $state,
-            'q1' => $fetch_client_exit_q1,
-            'q2' => $fetch_client_exit_q2,
-            'q3' => $fetch_client_exit_q3,
-            'q4' => $fetch_client_exit_q4,
+            // 'q1' => $fetch_client_exit_q1,
+            // 'q2' => $fetch_client_exit_q2,
+            // 'q3' => $fetch_client_exit_q3,
+            // 'q4' => $fetch_client_exit_q4,
             'kobo_ceis' => $kobo_ceis,
         ]);
     }
