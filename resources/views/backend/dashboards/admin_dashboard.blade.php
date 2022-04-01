@@ -1,217 +1,235 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">NFM 3 Dashboard</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">NFM 3 Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
+    
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$states ?? '0'}}</h3>
 
-                <div class="row">
-                    <div class="col-lg-2 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{ $states ?? '0' }}</h3>
-
-                                <p>State</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-map"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-2 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{ $lgas ?? '0' }}<sup style="font-size: 20px"></sup></h3>
-
-                                <p>LGA</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-map"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-2 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{ $wards ?? '0' }}</h3>
-
-                                <p>Ward</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-map"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-2 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{ $health_facilities ?? '0' }}</h3>
-
-                                <p>Health Facilities</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-medkit"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-2 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{ $spos ?? '0' }}</h3>
-
-                                <p>SPOs</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-users"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-2 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{ $cbos ?? '0' }}<sup style="font-size: 20px"></sup></h3>
-
-                                <p>CBOs</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-building"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                </div>
+                <p>State</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-map"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
             </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$lgas ?? '0'}}<sup style="font-size: 20px"></sup></h3>
 
-            <div class="row">
-                <!-- ./col -->
-                <div class="col-lg-2 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3>624</h3>
+                <p>LGA</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-map"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$wards ?? '0'}}</h3>
 
-                            <p>CATs</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3>{{ $client_exits ?? '0' }}</h3>
+                <p>Ward</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-map"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$health_facilities ?? '0'}}</h3>
 
-                            <p>CEI Conducted</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3>{{ $remedial ?? '0' }}</h3>
+                <p>Health Facilities</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-medkit"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>624</h3>
 
-                            <p>Remedial Feedback</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3>{{ $entryfgd ?? '0' }}</h3>
+                <p>CATs</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-users"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$cbos ?? '0'}}<sup style="font-size: 20px"></sup></h3>
 
-                            <p>Entry FGD</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3>{{ $exitfgd ?? '0' }}</h3>
+                <p>CBOs</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-building"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+       </div>
+      </div>
 
-                            <p>Exit FGD</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-primary">
-                        <div class="inner">
-                            <h3>{{ $kii ?? '0' }}</h3>
+    <div class="row">          
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{$kobocei ?? '0'}}</h3>
 
-                            <p>KII</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
+                <p>CEI From Kobocollect</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{$client_exits ?? '0'}}</h3>
+
+                <p>CEI Conducted</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{$remedial ?? '0'}}</h3>
+
+                <p>Remedial Feedback</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{$entryfgd ?? '0'}}</h3>
+
+                <p>Entry FGD</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{$exitfgd ?? '0'}}</h3>
+
+                <p>Exit FGD</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3>{{$kii ?? '0'}}</h3>
+
+                <p>KII</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+  </div>
+        <!-- /.row -->
+
+    <legend>CEI Extracts</legend>
+    <div class="row">
+        
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        
+         
+          <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{$llin_recipients ?? '0'}}</h3>
+
+                <p>LLIN Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
             </div>
             <!-- /.row -->
 
@@ -226,15 +244,289 @@
                         <div class="inner">
                             <h3>{{ $llin_recipients ?? '0' }}</h3>
 
-                            <p>LLIN Recipients</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-file"></i>
-                        </div>
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
+                <p>Pregnant Women Tested For Malaria</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{$pregnant_women ?? '0'}}</h3>
+
+                <p>Pregnant Women Who Tested +ve</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+       
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{$tested_malaria ?? '0'}}</h3>
+
+                <p>Total Malaria Test Conducted</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+       </div>
+       
+
+    </div>
+  <!-- Main row -->
+
+  <legend>Kobo CEI Extracts</legend>
+    <div class="row">
+        
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        
+         
+          <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$llin_recipients ?? '0'}}</h3>
+
+                <p>LLIN Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$act_recipients ?? '0'}}</h3>
+
+                <p>ACT Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+      
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$sp_recepients ?? '0'}}</h3>
+
+                <p>SP Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$smc_recepients?? '0'}}</h3>
+
+                <p>SMC Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+          
+        </div>
+        <!-- /.col -->
+
+        
+        <!-- /.col -->
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$pregnant_women ?? '0'}}</h3>
+
+                <p>Pregnant Women Tested For Malaria</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$pregnant_women ?? '0'}}</h3>
+
+                <p>Pregnant Women Who Tested +ve</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+       
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$tested_malaria ?? '0'}}</h3>
+
+                <p>Total Malaria Test Conducted</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+       </div>
+       
+
+    </div>
+    <legend>Remedial Feedback Extracts</legend>
+      <div class="row">
+       
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3>{{$remedial ?? '0'}}</h3>
+
+                <p>Total Issues Identified</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+       </div>
+       <div class="col-md-4 col-sm-6 col-xs-12">
+       <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3>{{$issues_resolved ?? '0'}}</h3>
+
+                <p>Total Issues Resolved</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+       </div>
+       <div class="col-md-4 col-sm-6 col-xs-12">
+       <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3>{{$issues_unresolved ?? '0'}}</h3>
+
+                <p>Unresolved Issues</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+       </div>
+       
+     
+      
+      </div>
+        <!-- /.row (main row) -->
+       <legend>Key Findings/Issues Identified</legend>
+      <div class="row">
+       
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-database"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Commodities Stockout</span>
+              <span class="info-box-number">{{$entryfgd ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+       <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-home"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Poor Infrastructures</span>
+              <span class="info-box-number">{{$exitfgd ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+       <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-user-md"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Inadequate Manpower</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+
+       <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-dollar-sign"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Low Patronage</span>
+              <span class="info-box-number">{{$patronage ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+
+       <div class="col-md-2 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-thumbs-up"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Success Stories</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+       </div>
+
+       <div class="col-md-2 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-check-circle"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Media Reports</span>
+              <span class="info-box-number">{{$kii ?? '0'}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
 
                 <!-- fix for small devices only -->
                 <div class="clearfix visible-sm-block"></div>

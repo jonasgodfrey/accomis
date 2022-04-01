@@ -14,6 +14,7 @@ use App\Models\Ward;
 use App\Models\HealthFacility;
 use App\Models\Remedial;
 use App\Models\Spo;
+use App\Models\Cei;
 use DB;
 
 class HomeController extends Controller
@@ -50,6 +51,7 @@ class HomeController extends Controller
             $cats = count(Cat::all());
             $remedial = count(Remedial::all());
             $client_exits = count(ClientExitQuestionare::all());
+            $kobocei = count(Cei::all());
             $tested_malaria = count(ClientExitQuestionare::where('malaria_test', 'yes')->get());
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->get());
@@ -82,6 +84,7 @@ class HomeController extends Controller
                 'cbos'=>$cbos,
                 'cats'=>$cats,
                 'client_exits'=>$client_exits,
+                'kobocei'=>$kobocei,
                 'tested_malaria'=>$tested_malaria ,
                 'llin_recipients'=>$llin_recipients,
                 'act_recipients'=>$act_recipients,
@@ -112,11 +115,13 @@ class HomeController extends Controller
 
             $health_facilities = count(HealthFacility::where('CBO_Email', $user->email)->get());
             $client_exits = count(ClientExitQuestionare::where('auth_user_email', $user->email)->get());
+            $kobocei = count(Cei::where('cboemail', $user->email)->get());
             $remidial = count(Remedial::where('cbo', $user->email)->get());
 
             return view('backend.dashboards.cbo_dashboard')->with([
                 'health_facilities'=>$health_facilities,
                 'client_exits'=>$client_exits,
+                'kobocei'=>$kobocei,
                 'remidial'=>$remidial,
                 'username'=> $user->name,
             ]);;
@@ -143,6 +148,7 @@ class HomeController extends Controller
             $health_facilities = count(HealthFacility::where('state', 'LIKE', "%{$state}%")->get());
             $cbos = count(Cbo::where('state', 'LIKE', "%{$state}%")->get());
             $client_exits = count(ClientExitQuestionare::where('state', 'LIKE', "%{$state}%")->get());
+            $kobocei = count(Cei::where('state', 'LIKE', "%{$state}%")->get());
             $tested_malaria = count(ClientExitQuestionare::where('malaria_test', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
@@ -165,6 +171,7 @@ class HomeController extends Controller
                 'health_facilities'=>$health_facilities,
                 'cbos'=>$cbos,
                 'client_exits'=>$client_exits,
+                'kobocei'=>$kobocei,
                 'tested_malaria'=>$tested_malaria ,
                 'llin_recipients'=>$llin_recipients,
                 'act_recipients'=>$act_recipients,
