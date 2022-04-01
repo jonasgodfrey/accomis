@@ -62,7 +62,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{$client_exits ?? 0}}</h3>
+                <h3>{{$kobocei ?? 0}}</h3>
 
                 <p>CEI From KoboCollect</p>
               </div>

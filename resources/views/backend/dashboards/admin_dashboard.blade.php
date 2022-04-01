@@ -92,9 +92,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$spos ?? '0'}}</h3>
+                <h3>624</h3>
 
-                <p>SPOs</p>
+                <p>CATs</p>
               </div>
               <div class="icon">
                 <i class="fa fa-users"></i>
@@ -126,12 +126,12 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>624</h3>
+                <h3>{{$kobocei ?? '0'}}</h3>
 
-                <p>CATs</p>
+                <p>CEI From Kobocollect</p>
               </div>
               <div class="icon">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-file"></i>
               </div>
               <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
             </div>
@@ -215,8 +215,7 @@
   </div>
         <!-- /.row -->
 
-       <legend>CEI Extracts</legend>
-
+    <legend>CEI Extracts</legend>
     <div class="row">
         
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -331,8 +330,125 @@
        </div>
        
 
-      </div>
+    </div>
   <!-- Main row -->
+
+  <legend>Kobo CEI Extracts</legend>
+    <div class="row">
+        
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        
+         
+          <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$llin_recipients ?? '0'}}</h3>
+
+                <p>LLIN Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$act_recipients ?? '0'}}</h3>
+
+                <p>ACT Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+      
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$sp_recepients ?? '0'}}</h3>
+
+                <p>SP Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$smc_recepients?? '0'}}</h3>
+
+                <p>SMC Recipients</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+          
+        </div>
+        <!-- /.col -->
+
+        
+        <!-- /.col -->
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$pregnant_women ?? '0'}}</h3>
+
+                <p>Pregnant Women Tested For Malaria</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$pregnant_women ?? '0'}}</h3>
+
+                <p>Pregnant Women Who Tested +ve</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+        </div>
+       
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$tested_malaria ?? '0'}}</h3>
+
+                <p>Total Malaria Test Conducted</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-file"></i>
+              </div>
+            </div>
+         
+       </div>
+       
+
+    </div>
     <legend>Remedial Feedback Extracts</legend>
       <div class="row">
        
