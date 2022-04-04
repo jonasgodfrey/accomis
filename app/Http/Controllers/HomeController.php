@@ -171,7 +171,10 @@ class HomeController extends Controller
                 'health_facilities'=>$health_facilities,
                 'cbos'=>$cbos,
                 'client_exits'=>$client_exits,
+                // Start Kobocei Data
                 'kobocei'=>$kobocei,
+                
+                // end
                 'tested_malaria'=>$tested_malaria ,
                 'llin_recipients'=>$llin_recipients,
                 'act_recipients'=>$act_recipients,

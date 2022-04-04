@@ -126,7 +126,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>624</h3>
+                            <h3>{{ $kobocei ?? '0' }}</h3>
 
                             <p>Kobo CEI</p>
                         </div>
