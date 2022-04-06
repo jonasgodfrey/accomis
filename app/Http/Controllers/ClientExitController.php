@@ -280,34 +280,131 @@ class ClientExitController extends Controller
 
     public function barchart()
     {
-        $fetch_state = States::all();
-        $fetch_kobo_ceis = Cei::all();
-        // $fetch_kobo_ceis_1 = Cei::where('quarter', 'Quarter_1_2021');
-        // $fetch_kobo_ceis_2 = Cei::where('quarter', 'Quarter_2_2021');
-        // $fetch_kobo_ceis_3 = Cei::where('quarter', 'Quarter_3_2021');
-        // $fetch_kobo_ceis_4 = Cei::where('quarter', 'Quarter_4_2021');
-        // $fetch_kobo_ceis_q1 = count($fetch_kobo_ceis_1);
-        // $fetch_kobo_ceis_q2 = count($fetch_kobo_ceis_2);
-        // $fetch_kobo_ceis_q3 = count($fetch_kobo_ceis_3);
-        // $fetch_kobo_ceis_q4 = count($fetch_kobo_ceis_4);
+    //     $ceis = Cei::all();
 
-        // $fetch_client_exit_q1 = count(ClientExitQuestionare::where('quarter', 'Quarter_1_2021'));
-        // $fetch_client_exit_q2 = count(ClientExitQuestionare::where('quarter', 'Quarter_2_2021'));
-        // $fetch_client_exit_q3 = count(ClientExitQuestionare::where('quarter', 'Quarter_3_2021'));
-        // $fetch_client_exit_q4 = count(ClientExitQuestionare::where('quarter', 'Quarter_4_2021'));
+    //     $month = [];
 
-        $state = count($fetch_state);
-        $kobo_ceis = count($fetch_kobo_ceis);
+    //     for ($m = 1; $m <= 12; $m++) {
+    //         $month[] = date('m', mktime(0, 0, 0, $m, 1, date('Y')));
+    //     }
 
+
+    //     $list = [];
+    //     // loop all 12 month
+    //     foreach ($month as $month) {
+    //         $flag = false;
+    //         foreach ($ceis as $data) {
+
+    //             $month_no = explode("-", $data->today);
+                
+    //             if ($month_no[1] == $month) {
+                    
+    //                  // if found add to the list
+    //                 $month_gdata = Cei::where('today', $data->today)->count();
+    //                 $list[] = [
+    //                     'month' => $month,
+    //                     'count' => $month_gdata
+    //                 ];
+    //                 $flag = true;
+    //                 break; // break the loop once it found match result
+    //             }
+    //         }
+
+    //         if (!$flag) {
+    //             $list[] = [
+    //                 'month' => $month,
+    //                 'count' =>  0
+    //             ]; // if not found, store as 0
+    //         }
+    //     }
+        
+     // dd(json_encode($list));
+
+
+        $fetch_state = States::where('status', 'active')->get();
 
         return view('backend.analysis.chart-analysis')->with([
-            'states' => $state,
-            // 'q1' => $fetch_client_exit_q1,
-            // 'q2' => $fetch_client_exit_q2,
-            // 'q3' => $fetch_client_exit_q3,
-            // 'q4' => $fetch_client_exit_q4,
-            'kobo_ceis' => $kobo_ceis,
+            'states' => $fetch_state,
         ]);
+    }
+
+
+    public function getkoboChart()
+    {
+
+        $ceis = Cei::all();
+
+        $month = [];
+
+        for ($m = 1; $m <= 12; $m++) {
+            $month[] = date('m', mktime(0, 0, 0, $m, 1, date('Y')));
+        }
+
+        $list = [];
+        // loop all 12 month
+        foreach ($month as $month) {
+            $flag = false;
+            foreach ($ceis as $data) {
+
+                $month_no = explode("-", $data->today);
+
+                if ($month_no[1] == $month) { // if found add to the list
+                    $month_gdata = ClientExitQuestionare::where('month', $data->month)->count();
+                    $list[] = [
+                        'month' => $month,
+                        'count' => $month_gdata
+                    ];
+                    $flag = true;
+                    break; // break the loop once it found match result
+                }
+            }
+
+            if (!$flag) {
+                $list[] = [
+                    'month' => $month,
+                    'count' =>  0
+                ]; // if not found, store as 0
+            }
+        }
+
+        return response()->json($list);
+    }
+
+    public function getChart()
+    {
+
+        $ceis = ClientExitQuestionare::all();
+        $month = [];
+
+        for ($m = 1; $m <= 12; $m++) {
+            $month[] = date('M', mktime(0, 0, 0, $m, 1, date('Y')));
+        }
+
+        $list = [];
+        // loop all 12 month
+        foreach ($month as $month) {
+            $flag = false;
+            foreach ($ceis as $data) {
+                if ($data->month == $month) { // if found add to the list
+                    $month_gdata = ClientExitQuestionare::where('month', $data->month)->count();
+                    $list[] = [
+                        'month' => $month,
+                        'count' => $month_gdata
+                    ];
+                    $flag = true;
+                    break; // break the loop once it found match result
+                }
+            }
+
+            if (!$flag) {
+                $list[] = [
+                    'month' => $month,
+                    'count' =>  0
+                ]; // if not found, store as 0
+            }
+        }
+
+        return response()->json($list);
     }
 
     public function cei_analysis_table(Request $request)

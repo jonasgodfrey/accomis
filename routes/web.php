@@ -110,6 +110,8 @@ Route::post('/genanalysis', [App\Http\Controllers\GeneralAnalysisController::cla
 Route::get('/cei_analysis', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_index'])->name('cei_analysis');
 Route::get('/cei_analysis/table', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_table'])->name('cei_analysis.load');
 Route::get('/cei-barchart', [App\Http\Controllers\ClientExitController::class, 'barchart'])->name('cei_analysis.barchart');
+Route::get('/cei/barchart', [App\Http\Controllers\ClientExitController::class, 'getChart'])->name('cei_analysis.getbarchart');
+Route::get('/kobo/barchart', [App\Http\Controllers\ClientExitController::class, 'getkoboChart'])->name('cei_analysis.getkobobarchart');
 
 
 Route::post('/cei_analysis', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
