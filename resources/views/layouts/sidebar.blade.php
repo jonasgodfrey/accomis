@@ -110,7 +110,8 @@
                      </li>
                  @endcan
 
-                 @can('admin_me')
+
+                 @can('admin_spo_me')
                      <li class="nav-item">
                          <a href="{{ route('cei_analysis') }}" class="nav-link">
                              <i class="nav-icon  fa fa-book"></i>
