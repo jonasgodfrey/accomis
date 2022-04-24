@@ -124,7 +124,7 @@ class HomeController extends Controller
                 'kobocei'=>$kobocei,
                 'remidial'=>$remidial,
                 'username'=> $user->name,
-            ]);;
+            ]);
         }
 
         if ($role == "Spo") {

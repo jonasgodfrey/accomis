@@ -76,7 +76,7 @@
                      </li>
                  @endcan
 
-                 @can('admin_spo')
+                 @can('admin_me')
                      <li class="nav-item">
                          <a href="{{ route('cei_analysis.barchart') }}" class="nav-link active">
                              <i class="nav-icon  fa fa-chart-bar"></i>
