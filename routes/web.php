@@ -82,6 +82,7 @@ Route::post('/healthfacilities/fetch_info', [App\Http\Controllers\HealthFaciliti
 Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 Route::get('/clientexit/view_more/{id}', [App\Http\Controllers\ClientExitController::class, 'view_more'])->name('client.view_more');
 Route::get('/clientexit/kobo-view/{id}', [App\Http\Controllers\ClientExitController::class, 'kobo_view_more'])->name('client.kobo_view_more');
+Route::get('/koboceianalysis', [App\Http\Controllers\CeiAnalysisController::class, 'kobocei_analysis'])->name('backend.cei_analysis.kobocei_analysis');
 
 // Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 

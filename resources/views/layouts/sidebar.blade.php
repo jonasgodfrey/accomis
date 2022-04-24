@@ -120,6 +120,15 @@
                      </li>
                  @endcan
 
+                 @can('admin_spo_me')
+                 <li class="nav-item">
+                     <a href="/koboceianalysis" class="nav-link">
+                         <i class="nav-icon  fa fa-book"></i>
+                         <p>KoboCei Analysis</p>
+                     </a>
+                 </li>
+             @endcan
+
                  @can('admin_cbo')
                      <li class="nav-item has-treeview">
                          <a href="{{ route('remidial') }}" class="nav-link">

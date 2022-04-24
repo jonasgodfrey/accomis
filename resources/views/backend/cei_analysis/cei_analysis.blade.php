@@ -65,9 +65,6 @@
                                         <option value="Quarter_3_2021">Quarter 3 2021</option>
                                         <option value="Quarter_4_2021">Quarter 4 2021</option>
                                         <option value="Quarter_5_2022">Quarter 5 2022</option>
-                                        <option value="Quarter_6_2022">Quarter 6 2022</option>
-                                        <option value="Quarter_7_2022">Quarter 7 2022</option>
-                                        <option value="Quarter_8_2022">Quarter 8 2022</option>
                                     </select>
                                 </div>
                             </div>
