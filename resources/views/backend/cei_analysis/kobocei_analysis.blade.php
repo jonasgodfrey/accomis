@@ -13,7 +13,7 @@
             <!-- Small boxes (Stat box) -->
 
             <div class="card-body">
-                <form role="form" action="#" enctype="multipart/form-data"
+                <form role="form" action="{{ route('kobo_analysis.table') }}" enctype="multipart/form-data"
                     method="POST">
                     @csrf
                     <div class="row">
@@ -27,21 +27,21 @@
                                     id="state_id" required>
                                     <option style="display:none" value="">Selct State</option>
 
-                                    {{-- @if (count($state) != 0)
+                                    @if (count($state) != 0)
                                         @foreach ($state as $state)
                                             <option id="{{ $state->id }}" value="{{ $state->name }}">
                                                 {{ $state->name }}
                                             </option>
                                         @endforeach
                                     @endif
-
+  
                                     @if (count($states) != 0)
                                         @foreach ($states as $state)
                                             <option id="{{ $state->id }}" value="{{ $state->name }}">
                                                 {{ $state->name }}
                                             </option>
                                         @endforeach
-                                    @endif --}}
+                                    @endif
                                 </select>
 
 
@@ -61,6 +61,7 @@
                                 <label>Quarter</label>
                                 <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
                                     <option style="display:none" value="">Select Quarter</option>
+                                    <option value="q5">Quarter 5 2022</option>
                                     <option value="q6">Quarter 6 2022</option>
                                     <option value="q7">Quarter 7 2022</option>
                                     <option value="q8">Quarter 8 2022</option>
@@ -97,7 +98,7 @@
                         style="display:none; float:right">Delete</button>
                     <div class="col-sm-3">
 
-                        {{-- @foreach ($kobos as $kobo)
+                        {{-- @foreach ($ceis as $kobo)
 
                 <div class="c">
                 <button class="btn-primary btn">{{$kobo->Transaction_Type}}</button>
@@ -123,7 +124,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if (count($ceis) > 0)
+                            @if (count($ceis) > 0)
                                 @foreach ($ceis as $client)
                                     <tr id="sid{{ $client->id }}">
                                         @can('admin_spo_me')
@@ -131,17 +132,16 @@
                                                     value="{{ $client->id }}" /></td>
                                         @endcan
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $client->day }}.</td>
-                                        <td>{{ $client->health_facility_of_interview }}</td>
-                                        <!-- <td><a href="{{ url('storage/attachments/' . $client->attachment) }}" target="_blank"><i class="fa fa-file-download"></i></a></td> -->
-                                        <td>{{ $client->respondant_name }}</td>
-                                        <td>{{ $client->cbo_name }}</td>
+                                        <td>{{ $client->today }}.</td>
+                                        <td>{{ $client->hf }}</td>
+                                        <td>{{ $client->resp_name }}</td>
+                                        <td>{{ $client->cbo }}</td>
                                         <td>{{ $client->state }}</td>
-                                        <td>{{ $client->quarter }}</td>
+                                        <td>{{ $client->qtr }}</td>
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <a href="{{ '/clientexit/view_more/' . $client->id }}"><i
+                                                    <a href="{{ '/clientexit/kobo-view/' . $client->id }}"><i
                                                             class="fa fa-eye"></i></a>
 
                                                 </div>
@@ -151,7 +151,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif --}}
+                            @endif
                         </tbody>
                         <tfoot>
                             <tr>
@@ -183,5 +183,5 @@
 <!-- /.content-wrapper -->
 @endsection
 @section('js')
-    <script src="/dist/js/cei_analysis.js"></script>
+    <script src="/dist/js/kobo_analysis.js"></script>
 @endsection
