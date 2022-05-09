@@ -82,6 +82,7 @@ Route::post('/healthfacilities/fetch_info', [App\Http\Controllers\HealthFaciliti
 Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 Route::get('/clientexit/view_more/{id}', [App\Http\Controllers\ClientExitController::class, 'view_more'])->name('client.view_more');
 Route::get('/clientexit/kobo-view/{id}', [App\Http\Controllers\ClientExitController::class, 'kobo_view_more'])->name('client.kobo_view_more');
+Route::get('/koboceianalysis', [App\Http\Controllers\CeiAnalysisController::class, 'kobocei_analysis'])->name('backend.cei_analysis.kobocei_analysis');
 
 // Route::get('/clientexit', [App\Http\Controllers\ClientExitController::class, 'client_exit'])->name('client.exit');
 
@@ -107,15 +108,16 @@ Route::get('/genanalysis', [App\Http\Controllers\GeneralAnalysisController::clas
 Route::post('/genanalysis', [App\Http\Controllers\GeneralAnalysisController::class, 'fetchRecords'])->name('genanalysis.fetch');
 
 //CEI Analysis get routes
-Route::get('/cei_analysis', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_index'])->name('cei_analysis');
-Route::get('/cei_analysis/table', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_table'])->name('cei_analysis.load');
-Route::get('/cei-barchart', [App\Http\Controllers\ClientExitController::class, 'barchart'])->name('cei_analysis.barchart');
-Route::get('/cei/barchart', [App\Http\Controllers\ClientExitController::class, 'getChart'])->name('cei_analysis.getbarchart');
-Route::get('/kobo/barchart', [App\Http\Controllers\ClientExitController::class, 'getkoboChart'])->name('cei_analysis.getkobobarchart');
+Route::get('/cei_analysis', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_index'])->name('cei_analysis');
+Route::get('/cei_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_table'])->name('cei_analysis.load');
+Route::get('/cei-barchart', [App\Http\Controllers\CeiAnalysisController::class, 'barchart'])->name('cei_analysis.barchart');
+Route::get('/cei/barchart', [App\Http\Controllers\CeiAnalysisController::class, 'getChart'])->name('cei_analysis.getbarchart');
+Route::get('/kobo/barchart', [App\Http\Controllers\CeiAnalysisController::class, 'getkoboChart'])->name('cei_analysis.getkobobarchart');
 
 
-Route::post('/cei_analysis', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
-Route::post('/cei_analysis/table', [App\Http\Controllers\ClientExitController::class, 'cei_analysis_table'])->name('cei_analysis.table');
+Route::post('/cei_analysis', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
+Route::post('/cei_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_table'])->name('cei_analysis.table');
+Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table'])->name('kobo_analysis.table');
 
 //file display
 Route::get('image/{filename}', [App\Http\Controllers\ImageController::class, 'displayImage'])->name('displayImage');
