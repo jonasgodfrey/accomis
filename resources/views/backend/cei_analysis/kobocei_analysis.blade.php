@@ -34,7 +34,7 @@
                                             </option>
                                         @endforeach
                                     @endif
-  
+
                                     @if (count($states) != 0)
                                         @foreach ($states as $state)
                                             <option id="{{ $state->id }}" value="{{ $state->name }}">
@@ -61,7 +61,6 @@
                                 <label>Quarter</label>
                                 <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
                                     <option style="display:none" value="">Select Quarter</option>
-                                    <option value="q5">Quarter 5 2022</option>
                                     <option value="q6">Quarter 6 2022</option>
                                     <option value="q7">Quarter 7 2022</option>
                                     <option value="q8">Quarter 8 2022</option>
@@ -138,14 +137,131 @@
                                         <td>{{ $client->cbo }}</td>
                                         <td>{{ $client->state }}</td>
                                         <td>{{ $client->qtr }}</td>
-                                        <td>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <a href="{{ '/clientexit/kobo-view/' . $client->id }}"><i
-                                                            class="fa fa-eye"></i></a>
+                                        <td><a href="#" data-toggle="modal" data-target="{{ '#Modal' . $client->_id }}"><i class="fa fa-eye"></i></a>
 
+                                            <div class="modal fade" id="{{ 'Modal' . $client->_id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ModalLabel">CEI KoboCollect
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h3 class="card-title">
+                                                                        <i class="fas fa-text-width"></i>
+
+                                                                    </h3>
+                                                                </div>
+                                                                <!-- /.card-header -->
+                                                                <div class="card-body">
+                                                                    <dl class="row">
+                                                                        <dt class="col-sm-4">CBO Email</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{$client->cboemail}}.
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Respondant Name</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{$client->resp_name}}.
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Respondant Category:
+                                                                        </dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{$client->resp_cat}}.
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Service:
+                                                                        </dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{$client->service_cat}}.
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Service Received:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->serv_received}}
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Did you get LLIN:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->llin_recipient}}
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Did You Receive IPT:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->ipt_recipient}}
+                                                                        </dd>
+                                                                        <dt class="col-sm-4">Tested fo Malaria?:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->malaria}}
+                                                                        </dd>
+                                                                        {{-- <dt class="col-sm-4">Result:</dt>
+                                                                                <dd class="col-sm-8">
+                                                                                    {{ $client->What_was_the_result}}
+                                                                        </dd> --}}
+                                                                        {{-- <dt class="col-sm-4">When Were you Tested?:</dt>
+                                                                                <dd class="col-sm-8">
+                                                                                    {{ $client->tested_when}}
+                                                                        </dd> --}}
+                                                                        <dt class="col-sm-4">Given ACT?:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->act_recipient}}
+                                                                        </dd>
+
+                                                                        {{-- <dt class="col-sm-4">Finish the Drug?:</dt>
+                                                                                <dd class="col-sm-8">
+                                                                                    {{ $client->act_finish}}
+                                                                        </dd> --}}
+
+                                                                        <dt class="col-sm-4">Rate the Facility?:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->rating}}
+                                                                        </dd>
+
+                                                                        <dt class="col-sm-4">Start Date:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->start}}
+                                                                        </dd>
+
+                                                                        <dt class="col-sm-4">End Date:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->end}}
+                                                                        </dd>
+
+                                                                        <dt class="col-sm-4">Date Submitted:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->today}}
+                                                                        </dd>
+
+                                                                        <dt class="col-sm-4">Location (Long/Lat):</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            {{ $client->store_gps}}
+                                                                        </dd>
+
+                                                                        {{-- <dt class="col-sm-4">Rate the Facility?:</dt>
+                                                                        <dd class="col-sm-8">
+                                                                            @foreach ($client->_attachments as $item)
+                                                                            <a href="{{$item->download_url}}" target="_blank">evidence</a>
+
+                                                                            @endforeach
+
+                                                                        </dd> --}}
+
+
+
+                                                                    </dl>
+                                                                </div>
+                                                                <!-- /.card-body -->
+                                                            </div>
+                                                            <!-- /.card -->
+
+                                                            <div class="modal-footer">
+                                                                <p>
+                                                                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-
                                             </div>
 
                                         </td>
