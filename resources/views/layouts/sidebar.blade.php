@@ -130,21 +130,17 @@
                      </li>
                  @endcan
 
-<<<<<<< HEAD
-                 @can('admin_spo_me')
-=======
 
                  @can('spo_role')
->>>>>>> main
                      <li class="nav-item">
                          <a href="{{ route('cei_analysis') }}" class="nav-link">
                              <i class="nav-icon  fa fa-book"></i>
                              <p>Client Exit Analysis</p>
                          </a>
                      </li>
-                 @endcan
+                
 
-                 @can('spo_role')
+
                  <li class="nav-item">
                      <a href="/koboceianalysis" class="nav-link">
                          <i class="nav-icon  fa fa-book"></i>
