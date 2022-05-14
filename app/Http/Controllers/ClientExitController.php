@@ -66,7 +66,7 @@ class ClientExitController extends Controller
                 "state" => isset($row->state) ? $row->state : '',
                 "lga" => isset($row->lga) ? $row->lga : '',
                 "cbo" => isset($row->cbo) ? $row->cbo : '',
-                "cboemail"isset($row->cboemail) ? $row->cboemail : '',,
+                "cboemail"=>isset($row->cboemail) ? $row->cboemail : '',
                 "ward" => isset($row->ward) ? $row->ward : '',
                 "hf" => isset($row->hf) ? $row->hf : '',
                 "qtr" => isset($row->qtr) ? $row->qtr : '',
