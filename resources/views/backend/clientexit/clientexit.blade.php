@@ -947,6 +947,7 @@
                                                         <dd class="col-sm-8">
                                                             {{$kobo->resp_name}}.
                                                         </dd>
+                                                        
                                                         <dt class="col-sm-4">Respondant Category:
                                                         </dt>
                                                         <dd class="col-sm-8">

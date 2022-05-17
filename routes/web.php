@@ -113,6 +113,11 @@ Route::get('/cei_analysis/table', [App\Http\Controllers\CeiAnalysisController::c
 Route::get('/cei-barchart', [App\Http\Controllers\CeiAnalysisController::class, 'barchart'])->name('cei_analysis.barchart');
 Route::get('/cei/barchart', [App\Http\Controllers\CeiAnalysisController::class, 'getChart'])->name('cei_analysis.getbarchart');
 Route::get('/kobo/barchart', [App\Http\Controllers\CeiAnalysisController::class, 'getkoboChart'])->name('cei_analysis.getkobobarchart');
+Route::get('/ceimonthly', [App\Http\Controllers\CeiAnalysisController::class, 'cei_monthly'])->name('backend.cei_analysis.ceimonthly');
+Route::get('/ceiquarterly', [App\Http\Controllers\CeiAnalysisController::class, 'cei_quarterly'])->name('backend.cei_analysis.ceiquarterly');
+
+//
+Route::get('/otherreportsanalysis', [App\Http\Controllers\FgdAnalysisController::class, 'otherreportsquarterly'])->name('backend.fgd.otherreports');
 
 
 Route::post('/cei_analysis', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');

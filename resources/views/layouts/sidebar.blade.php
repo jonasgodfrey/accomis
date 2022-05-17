@@ -98,6 +98,24 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="/ceimonthly" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>CEI Monthly Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ceiquarterly" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>CEI Quarterly Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/otherreportsanalysis" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>FGD/KII Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('genanalysis') }}" class="nav-link">
                             <i class="nav-icon  fa fa-chart-line"></i>
                             <p>State Level Analysis</p>
@@ -138,7 +156,7 @@
                              <p>Client Exit Analysis</p>
                          </a>
                      </li>
-                
+
 
 
                  <li class="nav-item">

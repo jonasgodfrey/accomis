@@ -64,7 +64,7 @@ class CeiAnalysisController extends Controller
 
     public function cei_analysis_table(Request $request)
     {
-        
+
         $state = States::all();
         $client_exit = [];
         $user = Auth::user();
@@ -99,7 +99,7 @@ class CeiAnalysisController extends Controller
             ]);
 
         } else {
-            
+
             return view('backend.cei_analysis.cei_analysis')->with([
                 'states' => $state,
                 'state' => [],
@@ -151,7 +151,7 @@ class CeiAnalysisController extends Controller
 
     public function kobo_analysis_table(Request $request)
     {
-        
+
         $state = States::all();
         $client_exit = [];
         $user = Auth::user();
@@ -185,12 +185,22 @@ class CeiAnalysisController extends Controller
             ]);
 
         } else {
-            
+
             return view('backend.cei_analysis.kobocei_analysis')->with([
                 'states' => $state,
                 'state' => [],
                 'ceis' => $client_exit,
             ]);
         }
+    }
+
+    public function cei_monthly()
+    {
+        return view('backend.cei_analysis.ceimonthly')->with([]);
+    }
+
+    public function cei_quarterly()
+    {
+        return view('backend.cei_analysis.ceiquarterly')->with([]);
     }
 }
