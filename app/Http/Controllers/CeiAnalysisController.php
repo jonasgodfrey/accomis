@@ -299,7 +299,7 @@ class CeiAnalysisController extends Controller
         // dd($request->state,$request->month);
         if (($request->state == 'all_states') && ($request->quarter != 'all_quarter')) {
 
-            $cei = Cei::where('quarter', $request->quarter)->count();
+            $cei = Cei::where('qtr', $request->quarter)->count();
         }
         elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
             $cei = Cei::all()->count();
@@ -309,7 +309,7 @@ class CeiAnalysisController extends Controller
             /* get count of requested cei */
             $cei = Cei::where([
                 'state' => $request->state,
-                'quarter' => $request->quarter
+                'qtr' => $request->quarter
             ])->count();
         }
 
