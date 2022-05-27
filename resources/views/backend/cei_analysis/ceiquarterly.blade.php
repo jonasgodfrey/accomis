@@ -7,12 +7,12 @@
 
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content"> 
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
 
                 <div class="card-body">
-                    <form role="form" action="{{ route('cei_analysis.table') }}" enctype="multipart/form-data"
+                    <form role="form" action="{{ route('cei_quarterly.search') }}" enctype="multipart/form-data"
                         method="POST">
                         @csrf
                         <div class="row">
@@ -22,9 +22,12 @@
                                     <select name="state" class="form-control" style="width: 100%;" id="state"
                                         required>
                                         <option style="display:none" value="">Select state to view</option>
-                                        <option value="All States">All States</option>
-                                        <option value="Adamawa">Adamawa</option>
-                                        <option value="Delta">Delta</option>
+                                        <option value="all_states">All States</option>
+                                        @forelse ($states as $state)
+                                            <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                        @empty
+                                            <p>No data found</p>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -35,7 +38,7 @@
                                         id="quarter" required>
                                         <option style="display:none" value="">Select Quarter</option>
                                         <option value="Quarter_1_2021">Quarter_1_2021</option>
-                                        <option value="Quarter_2_2022">Quarter_2_2021</option>
+                                        <option value="Quarter_2_2021">Quarter_2_2021</option>
                                         <option value="Quarter_3_2021">Quarter_3_2021</option>
                                         <option value="Quarter_4_2021">Quarter_4_2021</option>
                                         <option value="Quarter_5_2021">Quarter_5_2021</option>
@@ -92,7 +95,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('myid') ?? '' }}</td>
+                                    <td>{{ session('state') ?? '' }}</td>
+                                    <td>{{ session('quarter') ?? 'no data found' }}</td>
+                                    <td>{{ session('record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>
@@ -114,7 +123,7 @@
                 <!-- Small boxes (Stat box) -->
 
                 <div class="card-body">
-                    <form role="form" action="{{ route('cei_analysis.table') }}" enctype="multipart/form-data"
+                    <form role="form" action="{{ route('kobocei_quarterly.search') }}" enctype="multipart/form-data"
                         method="POST">
                         @csrf
                         <div class="row">
@@ -124,9 +133,12 @@
                                     <select name="state" class="form-control" style="width: 100%;" id="state"
                                         required>
                                         <option style="display:none" value="">Select state to view</option>
-                                        <option value="All States">All States</option>
-                                        <option value="Adamawa">Adamawa</option>
-                                        <option value="Delta">Delta</option>
+                                        <option value="all_states">All States</option>
+                                        @forelse ($states as $state)
+                                            <option value="{{ $state->name}}">{{ $state->name }}</option>
+                                        @empty
+                                            <p>No data found</p>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -137,7 +149,7 @@
                                     <label>Quarter</label>
                                     <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Quarter</option>
-                                        <option value="All">All Time</option>
+                                        <option value="all_quarter">All Time</option>
                                         <option value="q6">q6</option>
                                         <option value="q7">q7</option>
                                         <option value="q8">q8</option>
@@ -198,7 +210,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('cei_id') ?? '' }}</td>
+                                    <td>{{ session('cei_state') ?? '' }}</td>
+                                    <td>{{ session('cei_quarter') ?? '' }}</td>
+                                    <td>{{ session('cei_record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>

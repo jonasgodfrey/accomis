@@ -12,7 +12,7 @@
                 <!-- Small boxes (Stat box) -->
 
                 <div class="card-body">
-                    <form role="form" action="{{ route('cei_analysis.table') }}" enctype="multipart/form-data"
+                    <form role="form" action="{{ route('otherreportsquarterly.search') }}" enctype="multipart/form-data"
                         method="POST">
                         @csrf
                         <div class="row">
@@ -22,9 +22,12 @@
                                     <select name="state" class="form-control" style="width: 100%;" id="state"
                                         required>
                                         <option style="display:none" value="">Select state to view</option>
-                                        <option value="All States">All States</option>
-                                        <option value="Adamawa">Adamawa</option>
-                                        <option value="Delta">Delta</option>
+                                        <<option value="all_states">All States</option>
+                                        @forelse ($states as $state)
+                                            <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                        @empty
+                                            <p>No data found</p>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -55,7 +58,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Activity</label>
-                                    <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
+                                    <select name="activity" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Activity</option>
                                         <option value="Entry_FGD">Entry_FGD</option>
                                         <option value="Exit_FGD">Exit_FGD</option>
@@ -114,7 +117,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('myid') ?? '' }}</td>
+                                    <td>{{ session('state') ?? '' }}</td>
+                                    <td>{{ session('quarter') ?? 'no data found' }}</td>
+                                    <td>{{ session('activity') ?? '' }}</td>
+                                    <td>{{ session('record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>
@@ -137,7 +147,7 @@
                 <!-- Small boxes (Stat box) -->
 
                 <div class="card-body">
-                    <form role="form" action="{{ route('cei_analysis.table') }}" enctype="multipart/form-data"
+                    <form role="form" action="{{ route('otherreports_yearly.search') }}" enctype="multipart/form-data"
                         method="POST">
                         @csrf
                         <div class="row">
@@ -147,9 +157,12 @@
                                     <select name="state" class="form-control" style="width: 100%;" id="state"
                                         required>
                                         <option style="display:none" value="">Select state to view</option>
-                                        <option value="All States">All States</option>
-                                        <option value="Adamawa">Adamawa</option>
-                                        <option value="Delta">Delta</option>
+                                        <option value="all_states">All States</option>
+                                        @forelse ($states as $state)
+                                            <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                        @empty
+                                            <p>No data found</p>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -158,7 +171,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Year</label>
-                                    <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
+                                    <select name="year" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Year</option>
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
@@ -171,7 +184,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Activity</label>
-                                    <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
+                                    <select name="activity" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Activity</option>
                                         <option value="Entry_FGD">Entry_FGD</option>
                                         <option value="Exit_FGD">Exit_FGD</option>
@@ -230,7 +243,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('cei_id') ?? '' }}</td>
+                                    <td>{{ session('cei_state') ?? '' }}</td>
+                                    <td>{{ session('cei_year') ?? '' }}</td>
+                                    <td>{{ session('cei_activity') ?? '' }}</td>
+                                    <td>{{ session('cei_record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>

@@ -25,7 +25,7 @@
 
                                 <select name="state" class="form-control select2 dynamic" style="width: 100%;"
                                     id="state_id" required>
-                                    <option style="display:none" value="">Selct State</option>
+                                    <option style="display:none" value="">Select State</option>
 
                                     @if (count($state) != 0)
                                         @foreach ($state as $state)
