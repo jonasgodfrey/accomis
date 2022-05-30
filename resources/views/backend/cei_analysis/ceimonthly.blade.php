@@ -111,15 +111,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{ session('myid') ?? '' }}</td>
-                                    <td>{{ session('state') ?? '' }}</td>
-                                    <td>{{ session('month') ?? 'no data found' }}</td>
-                                    <td>{{ session('year') ?? '' }}</td>
-                                    <td>{{ session('record_count') ?? '' }}</td>
-                                </tr>
 
+                                @if (session()->has('states_data'))
+                                    @php
+                                        $count = 0;
+                                    @endphp
+                                    @foreach (session()->get('states_data') as $data)
+                                        @php
+                                            $count++;
+                                        @endphp
+                                        <tr>
+                                            <td></td>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $data['state_name'] ?? session('state')}}</td>
+                                            <td>{{ session('month') ?? 'no data found' }}</td>
+                                            <td>{{ session('year') ?? '' }}</td>
+                                            <td>{{ $data['count'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
 
                         </table>
@@ -152,7 +162,7 @@
                                     <select name="state" class="form-control" style="width: 100%;" id="state" required>
                                         <option style="display:none" value="">Select state to view</option>
                                         <option value="all_states">All States</option>
-                                         @forelse ($states as $state)
+                                        @forelse ($states as $state)
                                             <option value="{{ $state->name }}">{{ $state->name }}</option>
                                         @empty
                                             <p>No data found</p>
@@ -169,7 +179,8 @@
                                         <option style="display:none" value="">Select Month</option>
                                         <option value="all_months">All Months</option>
                                         @forelse ($cei_months as $month)
-                                            <option value="{{ $month['month_num'] }}"> {{ $month['month_name'] }}</option>
+                                            <option value="{{ $month['month_num'] }}"> {{ $month['month_name'] }}
+                                            </option>
                                         @empty
                                             <p>No data found</p>
                                         @endforelse
@@ -225,13 +236,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td></td>
-                                <td>{{ session('cei_id') ?? '' }}</td>
-                                <td>{{ session('cei_state') ?? '' }}</td>
-                                <td>{{ session('cei_month') ?? '' }}</td>
-                                <td>{{ session('cei_record_count') ?? '' }}</td>
-                            </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('cei_id') ?? '' }}</td>
+                                    <td>{{ session('cei_state') ?? '' }}</td>
+                                    <td>{{ session('cei_month') ?? '' }}</td>
+                                    <td>{{ session('cei_record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>
