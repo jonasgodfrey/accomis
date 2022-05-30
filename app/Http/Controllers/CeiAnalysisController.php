@@ -185,11 +185,19 @@ class CeiAnalysisController extends Controller
 
     public function cei_monthly(Request $request)
     {
+        /**
+         * Query ClientExit DB for states record count and return view with array.
+         *
+         * @return view
+         */
+
         $states = States::all();
+        $active_states = States::where('status', 'active')->get();
         $months = [];
         $cei_months = [];
         $years = ClientExitQuestionare::groupBy('year')->pluck('year')->toArray();
-        $data = [];
+        $state_data = [];
+        $clientexit = '';
 
         for ($m = 1; $m <= 12; $m++) {
             $months[] = date('M', mktime(0, 0, 0, $m, 1, date('Y')));
@@ -204,30 +212,46 @@ class CeiAnalysisController extends Controller
             'states' => $states,
             'years' => $years,
             'cei_months' => $cei_months,
-            'data' => $data,
+            'data' => [],
         ];
 
         if ($request->submit != "") {
 
-            /* get count */
             if (($request->state != 'all_states') && ($request->month == 'all_months')) {
 
+                /* get requested cei data */
                 $clientexit = ClientExitQuestionare::where([
                     'state' => $request->state,
                     'year' => $request->year
-                ])->count();
+                ])->get();
+
+                /* store fetched data into an array */
+                $state_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
             } elseif (($request->state == 'all_states') && ($request->month != 'all_months')) {
 
-                /* get count */
-                $clientexit = ClientExitQuestionare::where([
-                    'month' => $request->month,
-                    'year' => $request->year
-                ])->count();
+                /* get all states data based on condition*/
+                foreach ($active_states as $data) {
+                    $states_client_record = ClientExitQuestionare::where([
+                        'state' => $data->name,
+                        'month' => $request->month,
+                        'year' => $request->year,
+                    ])->get();
+
+                    /* store fetched data into an array */
+                    $state_data[] = ['state_name' => $data->name, 'count' => $states_client_record->count()];
+                }
             } elseif (($request->state == 'all_states') && ($request->month == 'all_months')) {
 
-                $clientexit = ClientExitQuestionare::where([
-                    'year' => $request->year
-                ])->count();
+                /* get all states data based on condition*/
+                foreach ($active_states as $data) {
+                    $states_client_record = ClientExitQuestionare::where([
+                        'state' => $data->name,
+                        'year' => $request->year,
+                    ])->get();
+
+                    /* store fetched data into an array */
+                    $state_data[] = ['state_name' => $data->name, 'count' => $states_client_record->count()];
+                }
             } else {
 
                 /* get count of requested cei */
@@ -235,24 +259,27 @@ class CeiAnalysisController extends Controller
                     'state' => $request->state,
                     'month' => $request->month,
                     'year' => $request->year
-                ])->count();
+                ])->get();
+
+                /* store fetched data into an array */
+                $state_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
             }
 
-
-            // generate new array of data
+            //generate new array of data 
             $data = [
-                'myid' => '1',
                 'state' => $request->state,
                 'month' => $request->month,
                 'year' => $request->year,
-                'record_count' => $clientexit
+                'states_data' => $state_data
             ];
 
-            //merge two arrays
+            // merge newly created array with the orignal $params array
             $merged_data = array_merge($params, $data);
 
+            // return new array back to the view
             return redirect()->back()->with($merged_data);
         } else {
+            //
             return view('backend.cei_analysis.ceimonthly')->with($params);
         }
     }
@@ -300,10 +327,8 @@ class CeiAnalysisController extends Controller
         if (($request->state == 'all_states') && ($request->quarter != 'all_quarter')) {
 
             $cei = Cei::where('quarter', $request->quarter)->count();
-        }
-        elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
+        } elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
             $cei = Cei::all()->count();
-
         } else {
 
             /* get count of requested cei */
