@@ -72,8 +72,15 @@ class HomeController extends Controller
             $exitfgd = count(Remedial::where('tracker_type', 'Exit FGD')->get());
             $kii = count(Remedial::where('tracker_type', 'KII')->get());
             $patronage = count(Remedial::where('identified_issues', '[Low Patronage]')->get());
-
-
+            
+            $kobollin = Cei::where('llin_recipient','Yes')->count();
+            $koboact = Cei::where('act_recipient','Yes')->count();
+            $kobosp = Cei::where('sp_recipient','Yes')->count();
+            $kobosmc = Cei::where('smc_recipient','Yes')->count();
+            $kobomalaria = Cei::where('malaria','Yes')->count();
+            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();                  
+            $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
+            $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
 
             return view('backend.dashboards.admin_dashboard')->with([
                 'states'=>$states,
@@ -106,6 +113,15 @@ class HomeController extends Controller
                 'antenatal_treatment'=>$antenatal_treatment,
                 'malaria_treatment'=>$malaria_treatment,
                 'issues_identified'=>$patronage,
+
+                'kobollin_recipient'=>$kobollin,
+                'koboact_recipient'=>$koboact,
+                'kobosp_recipient'=>$kobosp,
+                'kobosmc_recipient'=>$kobosmc,
+                'kobomalariatest'=>$kobomalaria,
+                'kobomalaria_service'=>$kobomalserv,
+                'koboantenatal_service'=>$koboantenatalserv,
+                'kobonewborn_service'=>$kobonewborncare
 
                 
             ]);
