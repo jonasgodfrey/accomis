@@ -95,13 +95,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{ session('myid') ?? '' }}</td>
-                                    <td>{{ session('state') ?? '' }}</td>
-                                    <td>{{ session('quarter') ?? 'no data found' }}</td>
-                                    <td>{{ session('record_count') ?? '' }}</td>
-                                </tr>
+                                @if (session()->has('states_data'))
+                                    @php
+                                        $count = 0;
+                                    @endphp
+                                    @foreach (session()->get('states_data') as $data)
+                                        @php
+                                            $count++;
+                                        @endphp
+                                        <tr>
+                                            <td></td>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $data['state_name'] ?? session('state')}}</td>
+                                            <td>{{ $data['quarter'] ?? session('quarter')  }}</td>
+                                            <td>{{ $data['count'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
 
                         </table>
@@ -210,13 +220,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>{{ session('cei_id') ?? '' }}</td>
-                                    <td>{{ session('cei_state') ?? '' }}</td>
-                                    <td>{{ session('cei_quarter') ?? '' }}</td>
-                                    <td>{{ session('cei_record_count') ?? '' }}</td>
-                                </tr>
+                                   @if (session()->has('cei_states_data'))
+                                    @php
+                                        $count = 0;
+                                    @endphp
+                                    @foreach (session()->get('cei_states_data') as $data)
+                                        @php
+                                            $count++;
+                                        @endphp
+                                        <tr>
+                                            <td></td>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $data['state_name'] ?? session('cei_state')}}</td>
+                                            <td>{{ session('cei_quarter') ?? '' }}</td>
+                                            <td>{{ $data['count'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
 
                         </table>
