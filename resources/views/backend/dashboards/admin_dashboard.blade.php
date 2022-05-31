@@ -342,7 +342,7 @@
 
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $llin_recipients ?? '0' }}</h3>
+                            <h3>{{ $kobollin_recipient ?? '0' }}</h3>
 
                             <p>LLIN Recipients</p>
                         </div>
@@ -360,7 +360,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $act_recipients ?? '0' }}</h3>
+                            <h3>{{ $koboact_recipient ?? '0' }}</h3>
 
                             <p>ACT Recipients</p>
                         </div>
@@ -375,7 +375,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $sp_recepients ?? '0' }}</h3>
+                            <h3>{{ $kobosp_recipient ?? '0' }}</h3>
 
                             <p>SP Recipients</p>
                         </div>
@@ -390,7 +390,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $smc_recepients ?? '0' }}</h3>
+                            <h3>{{ $kobosmc_recipient ?? '0' }}</h3>
 
                             <p>SMC Recipients</p>
                         </div>
@@ -408,9 +408,9 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $pregnant_women ?? '0' }}</h3>
+                            <h3>{{ $koboantenatal_service ?? '0' }}</h3>
 
-                            <p>Pregnant Women Tested For Malaria</p>
+                            <p>Antenatal Services</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
@@ -422,9 +422,9 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $pregnant_women ?? '0' }}</h3>
+                            <h3>{{ $kobomalaria_service ?? '0' }}</h3>
 
-                            <p>Pregnant Women Who Tested +ve</p>
+                            <p>Malaria Services</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
@@ -437,9 +437,9 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $tested_malaria ?? '0' }}</h3>
+                            <h3>{{ $kobonewborn_service ?? '0' }}</h3>
 
-                            <p>Total Malaria Test Conducted</p>
+                            <p>Maternal & New Born Services</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
@@ -658,7 +658,7 @@
                     <!-- LINE CHART -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Purpose of Visiting Health Facility</h3>
+                            <h3 class="card-title">Purpose of Visiting Health Facility Q1-Q5</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
@@ -683,7 +683,7 @@
                     <!-- STACKED BAR CHART -->
                     <div class="card card-success">
                         <div class="card-header">
-                            <h3 class="card-title">Treatment Received</h3>
+                            <h3 class="card-title">Purpose of Visiting Health Facility Q6 - above</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
@@ -815,15 +815,15 @@
             var pieChartCanvas = $('#pieChart3').get(0).getContext('2d')
             var pieData = {
                 labels: [
-                    'Maternal',
                     'Malaria',
                     'Antenatal',
+                    'Maternal',
 
 
                 ],
                 datasets: [{
-                    data: [{{ $maternal_treatment ?? '0' }}, {{ $malaria_treatment ?? '0' }},
-                        {{ $antenatal_treatment ?? '0' }}
+                    data: [{{ $kobomalaria_service ?? '0' }}, {{ $koboantenatal_service ?? '0' }},
+                        {{ $kobonewborn_service ?? '0' }}
                     ],
                     backgroundColor: ['#f56954', '#00a65a', '#cacac2'],
                 }]
