@@ -19,14 +19,15 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>State</label>
-                                    <select name="state" class="form-control" style="width: 100%;" id="state" required>
+                                    <select name="state" class="form-control" style="width: 100%;" id="state"
+                                        required>
                                         <option style="display:none" value="">Select state to view</option>
                                         <<option value="all_states">All States</option>
-                                            @forelse ($states as $state)
-                                                <option value="{{ $state->name }}">{{ $state->name }}</option>
-                                            @empty
-                                                <p>No data found</p>
-                                            @endforelse
+                                        @forelse ($states as $state)
+                                            <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                        @empty
+                                            <p>No data found</p>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -57,8 +58,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Activity</label>
-                                    <select name="activity" class="form-control" style="width: 100%;" id="quater"
-                                        required>
+                                    <select name="activity" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Activity</option>
                                         <option value="Entry_FGD">Entry_FGD</option>
                                         <option value="Exit_FGD">Exit_FGD</option>
@@ -116,27 +116,15 @@
                                     <th>Counts</th>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                @php
-                                    $count = 0;
-                                @endphp
-                                @if (session()->has('qtr_records'))
-                                    @foreach (session()->get('qtr_records') as $data)
-                                        @php
-                                            $count++;
-                                                                                       
-                                        @endphp
-                                        <tr>
-                                            <td></td>
-                                            <td>{{ $count }}</td>
-                                            <td>{{ $data['state_name'] ?? session('state') }}</td>
-                                            <td>{{ $data['quarter'] ?? '' }}</td>
-                                            <td>{{ session('activity') ?? '' }}</td>
-                                            <td>{{ $data['count'] }}</td>
-                                        </tr>
-                                    @endforeach
-                                @endif
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('myid') ?? '' }}</td>
+                                    <td>{{ session('state') ?? '' }}</td>
+                                    <td>{{ session('quarter') ?? 'no data found' }}</td>
+                                    <td>{{ session('activity') ?? '' }}</td>
+                                    <td>{{ session('record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>
@@ -166,7 +154,8 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>State</label>
-                                    <select name="state" class="form-control" style="width: 100%;" id="state" required>
+                                    <select name="state" class="form-control" style="width: 100%;" id="state"
+                                        required>
                                         <option style="display:none" value="">Select state to view</option>
                                         <option value="all_states">All States</option>
                                         @forelse ($states as $state)
@@ -195,8 +184,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Activity</label>
-                                    <select name="activity" class="form-control" style="width: 100%;" id="quater"
-                                        required>
+                                    <select name="activity" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Activity</option>
                                         <option value="Entry_FGD">Entry_FGD</option>
                                         <option value="Exit_FGD">Exit_FGD</option>
@@ -255,25 +243,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (session()->has('fgd_year_data'))
-                                    @php
-                                        $count = 0;
-                                    @endphp
-                                    @foreach (session()->get('fgd_year_data') as $data)
-                                        @php
-                                            $count++;
-                                        @endphp
-                                        <tr>
-                                            <td></td>
-                                            <td>{{ $count }}</td>
-                                            <td>{{ $data['state_name'] ?? session('state') }}</td>
-                                            <td>{{ $data['year'] ?? '' }}</td>
-                                            <td>{{ session('activity') ?? '' }}</td>
-                                            <td>{{ $data['count'] }}</td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-
+                                <tr>
+                                    <td></td>
+                                    <td>{{ session('cei_id') ?? '' }}</td>
+                                    <td>{{ session('cei_state') ?? '' }}</td>
+                                    <td>{{ session('cei_year') ?? '' }}</td>
+                                    <td>{{ session('cei_activity') ?? '' }}</td>
+                                    <td>{{ session('cei_record_count') ?? '' }}</td>
+                                </tr>
                             </tbody>
 
                         </table>
