@@ -9,8 +9,6 @@ use App\Models\Cei;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Spo;
 use App\Models\Cbo;
-use Carbon\Carbon;
-use COM;
 
 class CeiAnalysisController extends Controller
 {
@@ -101,7 +99,7 @@ class CeiAnalysisController extends Controller
         }
     }
 
-    public function cei_analysis_fetch(Request $request)
+    public function cei_analysis_fetch(Request $request): \Illuminate\Http\JsonResponse
     {
         $cbo = Cbo::where('state', $request->value)->get();
 
@@ -201,10 +199,9 @@ class CeiAnalysisController extends Controller
         $cei_months = [];
         $years = ClientExitQuestionare::groupBy('year')->pluck('year')->toArray();
         $state_data = [];
-        $clientexit = '';
 
         /**
-         *  for loop to get all months in year array 
+         *  for loop to get all months in year array
          */
         for ($m = 1; $m <= 12; $m++) {
             $months[] = date('M', mktime(0, 0, 0, $m, 1, date('Y')));
@@ -214,7 +211,7 @@ class CeiAnalysisController extends Controller
         }
 
         /**
-         * Initialize params array 
+         * Initialize params array
          */
         $params = [
             'months' => $months,
@@ -274,7 +271,7 @@ class CeiAnalysisController extends Controller
                 $state_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
             }
 
-            //generate new array of data 
+            //generate new array of data
             $data = [
                 'state' => $request->state,
                 'month' => $request->month,
@@ -330,6 +327,7 @@ class CeiAnalysisController extends Controller
          */
         $states = States::all();
         $active_states = States::where('status', 'active')->get();
+        $state_data = [];
 
         $params = [
             'states' => $states,
@@ -352,7 +350,11 @@ class CeiAnalysisController extends Controller
                     ])->get();
 
                     /* store fetched data into an array */
-                    $state_data[] = ['state_name' => $data->name, 'count' => $client_record->count(), 'quarter' => $request->quarter];
+                    $state_data[] = [
+                        'state_name' => $data->name,
+                        'count' => $client_record->count(),
+                        'quarter' => $request->quarter
+                    ];
                 }
             } else {
 
@@ -363,11 +365,15 @@ class CeiAnalysisController extends Controller
                 ])->get();
 
                 /* store fetched data into an array */
-                $state_data[] = ['state_name' => $request->state, 'count' => $client_record->count(), 'quarter' => $request->quarter];
+                $state_data[] = [
+                    'state_name' => $request->state,
+                    'count' => $client_record->count(),
+                    'quarter' => $request->quarter
+                ];
             }
 
 
-            // generate new array of data 
+            // generate new array of data
             $data = [
                 'myid' => '1',
                 'state' => $request->state,
@@ -382,7 +388,7 @@ class CeiAnalysisController extends Controller
             return redirect()->back()->with($merged_data);
         } else {
 
-            // return view with $params array 
+            // return view with $params array
             return view('backend.cei_analysis.ceiquarterly')->with($params);
         }
     }
