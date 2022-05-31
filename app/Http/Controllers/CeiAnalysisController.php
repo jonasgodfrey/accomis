@@ -319,41 +319,7 @@ class CeiAnalysisController extends Controller
             'cei_record_count' => $cei
         ];
 
-        //redirect back with data
-        return redirect()->back()->with($data);
-    }
-
-
-    public function kobo_cei_quarterly(Request $request)
-    {
-
-        /* get count */
-
-        // dd($request->state,$request->month);
-        if (($request->state == 'all_states') && ($request->quarter != 'all_quarter')) {
-
-            $cei = Cei::where('qtr', $request->quarter)->count();
-        }
-        elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
-            $cei = Cei::all()->count();
-        } else {
-
-            /* get count of requested cei */
-            $cei = Cei::where([
-                'state' => $request->state,
-                'qtr' => $request->quarter
-            ])->count();
-        }
-
-        // generate new array of data
-        $data = [
-            'cei_id' => '1',
-            'cei_state' => $request->state,
-            'cei_quarter' => $request->quarter,
-            'cei_record_count' => $cei
-        ];
-
-        //redirect back with data
+        // return new array back to the view
         return redirect()->back()->with($data);
     }
 
