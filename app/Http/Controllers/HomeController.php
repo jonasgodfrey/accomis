@@ -82,7 +82,7 @@ class HomeController extends Controller
             $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
             $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
 
-            dd($positive_malaria);
+            
 
             return view('backend.dashboards.admin_dashboard')->with([
                 'states'=>$states,
