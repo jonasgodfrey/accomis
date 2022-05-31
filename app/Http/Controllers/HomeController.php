@@ -56,7 +56,7 @@ class HomeController extends Controller
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->get());
             $ipt_recipients = count(ClientExitQuestionare::where('ipt_reception', 'yes')->get());
-            $positive_malaria = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes' && 'respondent_category', 'Female Pregnant')->get());
+            $positive_malaria = count(ClientExitQuestionare::where('malaria_test_period', 'Positive')->get());
             $sp_recepients = count(ClientExitQuestionare::where('sulfadoxin_pyrimethamine_intake', 'yes')->get());
             $smc_recepients = count(ClientExitQuestionare::where('child_smc_reception', 'yes')->get());
             $pregnant_women = count(ClientExitQuestionare::where('respondant_category', 'Female Pregnant')->get());
@@ -81,6 +81,8 @@ class HomeController extends Controller
             $kobomalserv = Cei::where('service_cat','Malaria Services')->count();                  
             $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
             $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
+
+            dd($positive_malaria);
 
             return view('backend.dashboards.admin_dashboard')->with([
                 'states'=>$states,
@@ -169,7 +171,7 @@ class HomeController extends Controller
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $ipt_recipients = count(ClientExitQuestionare::where('ipt_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
-            $positive_malaria = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
+            $positive_malaria = count(ClientExitQuestionare::where('malaria_test_period', 'Positive')->where('state', 'LIKE', "%{$state}%")->get());
             $sp_recepients = count(ClientExitQuestionare::where('sulfadoxin_pyrimethamine_intake', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $smc_recepients = count(ClientExitQuestionare::where('child_smc_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $maternal = count(ClientExitQuestionare::where('purpose_of_comming', 'Maternal and Newborn Care')->where('state', 'LIKE', "%{$state}%")->get());
