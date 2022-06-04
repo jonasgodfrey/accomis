@@ -15,6 +15,8 @@ class Cei extends Model
            'start',
            'end',
            'today',
+           'month',
+           'year',
            'state',
            'lga',
            'cbo',

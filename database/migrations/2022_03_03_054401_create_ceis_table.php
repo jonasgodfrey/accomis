@@ -19,6 +19,8 @@ class CreateCeisTable extends Migration
              $table->string('start');
              $table->string('end');
              $table->string('today');
+             $table->string('month');
+             $table->string('year');
              $table->string('state');
              $table->string('lga');
              $table->string('cbo');
