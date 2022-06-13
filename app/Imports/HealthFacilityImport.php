@@ -19,7 +19,7 @@ class HealthFacilityImport implements ToCollection
 
         foreach ($rows as $key => $value) {
             if($key > 0){
-                $health = HealthFacility::create([
+                $health = HealthFacility::insertOrIgnore([
                     'State' => $value[1],
                     'LGA' => $value[2],
                     'Ward' => $value[3],

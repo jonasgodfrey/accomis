@@ -30,7 +30,7 @@ class UsersImport implements ToCollection{
 
                 $user->roles()->attach($cboRole);
 
-                $cbo = Cbo::create([
+                $cbo = Cbo::insertOrIgnore([
                     'cbo_name' => $value[1],
                     'email' => $value[2],
                     'phone' =>  $value[3],

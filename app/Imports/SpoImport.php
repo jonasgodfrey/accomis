@@ -31,7 +31,7 @@ class SpoImport implements ToCollection{
 
                 $user->roles()->attach($spoRole);
 
-                $spo = Spo::create([
+                $spo = Spo::insertOrIgnore([
                     'spo_name' => $value[2],
                     'email' => $value[4],
                     'phone' =>  $value[3],

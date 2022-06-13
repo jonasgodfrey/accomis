@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f8840ae-3776-4570-8c3e-7709c54b8d6b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CeiAnalysisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CeiAnalysisController.php" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FgdAnalysisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FgdAnalysisController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/cei_analysis/ceimonthly.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/cei_analysis/ceimonthly.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientExitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientExitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/HealthFacilityImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/HealthFacilityImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/SpoImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/SpoImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/UsersImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/UsersImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_03_054401_create_ceis_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_03_054401_create_ceis_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/cei_analysis/ceimonthly.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/cei_analysis/ceimonthly.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/fgd/otherreports.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/fgd/otherreports.blade.php" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +207,15 @@
       <workItem from="1646656457298" duration="2379000" />
       <workItem from="1646658973023" duration="484000" />
       <workItem from="1653659976687" duration="2403000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1654025171691" duration="882000" />
+      <workItem from="1654026919830" duration="638000" />
+      <workItem from="1654962715025" duration="230000" />
+      <workItem from="1654963645813" duration="2999000" />
+      <workItem from="1655145782922" duration="14000" />
+      <workItem from="1655145841701" duration="4364000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
