@@ -56,7 +56,7 @@ class HomeController extends Controller
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->get());
             $ipt_recipients = count(ClientExitQuestionare::where('ipt_reception', 'yes')->get());
-            $positive_malaria = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes' && 'respondent_category', 'Female Pregnant')->get());
+            $positive_malaria = count(ClientExitQuestionare::where('malaria_test_period', 'Positive')->get());
             $sp_recepients = count(ClientExitQuestionare::where('sulfadoxin_pyrimethamine_intake', 'yes')->get());
             $smc_recepients = count(ClientExitQuestionare::where('child_smc_reception', 'yes')->get());
             $pregnant_women = count(ClientExitQuestionare::where('respondant_category', 'Female Pregnant')->get());
@@ -72,8 +72,17 @@ class HomeController extends Controller
             $exitfgd = count(Remedial::where('tracker_type', 'Exit FGD')->get());
             $kii = count(Remedial::where('tracker_type', 'KII')->get());
             $patronage = count(Remedial::where('identified_issues', '[Low Patronage]')->get());
+            
+            $kobollin = Cei::where('llin_recipient','Yes')->count();
+            $koboact = Cei::where('act_recipient','Yes')->count();
+            $kobosp = Cei::where('sp_recipient','Yes')->count();
+            $kobosmc = Cei::where('smc_recipient','Yes')->count();
+            $kobomalaria = Cei::where('malaria','Yes')->count();
+            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();                  
+            $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
+            $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
 
-
+            
 
             return view('backend.dashboards.admin_dashboard')->with([
                 'states'=>$states,
@@ -107,6 +116,15 @@ class HomeController extends Controller
                 'malaria_treatment'=>$malaria_treatment,
                 'issues_identified'=>$patronage,
 
+                'kobollin_recipient'=>$kobollin,
+                'koboact_recipient'=>$koboact,
+                'kobosp_recipient'=>$kobosp,
+                'kobosmc_recipient'=>$kobosmc,
+                'kobomalariatest'=>$kobomalaria,
+                'kobomalaria_service'=>$kobomalserv,
+                'koboantenatal_service'=>$koboantenatalserv,
+                'kobonewborn_service'=>$kobonewborncare
+
                 
             ]);
         }
@@ -124,7 +142,7 @@ class HomeController extends Controller
                 'kobocei'=>$kobocei,
                 'remidial'=>$remidial,
                 'username'=> $user->name,
-            ]);;
+            ]);
         }
 
         if ($role == "Spo") {
@@ -153,7 +171,7 @@ class HomeController extends Controller
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $ipt_recipients = count(ClientExitQuestionare::where('ipt_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
-            $positive_malaria = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
+            $positive_malaria = count(ClientExitQuestionare::where('malaria_test_period', 'Positive')->where('state', 'LIKE', "%{$state}%")->get());
             $sp_recepients = count(ClientExitQuestionare::where('sulfadoxin_pyrimethamine_intake', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $smc_recepients = count(ClientExitQuestionare::where('child_smc_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $maternal = count(ClientExitQuestionare::where('purpose_of_comming', 'Maternal and Newborn Care')->where('state', 'LIKE', "%{$state}%")->get());

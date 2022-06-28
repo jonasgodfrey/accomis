@@ -66,7 +66,7 @@
 
                  @can('admin_me')
                      <li class="nav-item">
-                         <a href="{{ route('prevdash') }}" class="nav-link active">
+                         <a href="{{ route('prevdash') }}" class="nav-link">
                              <i class="nav-icon fas fa-tachometer-alt"></i>
                              <p>
                                  NFM 2 Dashboard
@@ -76,13 +76,51 @@
                      </li>
                  @endcan
 
-                 @can('admin_spo')
+                 @can('admin_me')
+                 <li class="nav-header brand-link">ANALYSIS SECTION</li>
+
                      <li class="nav-item">
-                         <a href="{{ route('cei_analysis.barchart') }}" class="nav-link active">
+                         <a href="{{ route('cei_analysis.barchart') }}" class="nav-link">
                              <i class="nav-icon  fa fa-chart-bar"></i>
                              <p>Cei BarCharts</p>
                          </a>
                      </li>
+                     <li class="nav-item">
+                        <a href="{{ route('cei_analysis') }}" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>Client Exit Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/koboceianalysis" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>KoboCei Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ceimonthly" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>CEI Monthly Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ceiquarterly" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>CEI Quarterly Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/otherreportsanalysis" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>FGD/KII Analysis</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('genanalysis') }}" class="nav-link">
+                            <i class="nav-icon  fa fa-chart-line"></i>
+                            <p>State Level Analysis</p>
+                        </a>
+                    </li>
                  @endcan
 
                  @can('admin_cbo')
@@ -110,14 +148,24 @@
                      </li>
                  @endcan
 
-                 @can('admin_spo')
+
+                 @can('spo_role')
                      <li class="nav-item">
                          <a href="{{ route('cei_analysis') }}" class="nav-link">
                              <i class="nav-icon  fa fa-book"></i>
                              <p>Client Exit Analysis</p>
                          </a>
                      </li>
-                 @endcan
+
+
+
+                 <li class="nav-item">
+                     <a href="/koboceianalysis" class="nav-link">
+                         <i class="nav-icon  fa fa-book"></i>
+                         <p>KoboCei Analysis</p>
+                     </a>
+                 </li>
+             @endcan
 
                  @can('admin_cbo')
                      <li class="nav-item has-treeview">
@@ -207,22 +255,7 @@
                      </li>
                  @endcan
 
-                 @can('me_role')
-                     <li class="nav-header brand-link">ANALYSIS SECTION</li>
 
-                     <li class="nav-item">
-                         <a href="{{ route('genanalysis') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-chart-line"></i>
-                             <p>State Level Analysis</p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="/" class="nav-link">
-                             <i class="nav-icon  fa fa-chart-pie"></i>
-                             <p>CBO Level Analysis</p>
-                         </a>
-                     </li>
-                 @endcan
 
                  @can('admin_role')
                      <li class="nav-header brand-link">SETTINGS SECTION</li>

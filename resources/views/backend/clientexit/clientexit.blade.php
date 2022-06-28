@@ -29,7 +29,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            @can('admin_me')
+            @can('admin_role')
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-info">
                 <div class="card-header">
@@ -947,6 +947,7 @@
                                                         <dd class="col-sm-8">
                                                             {{$kobo->resp_name}}.
                                                         </dd>
+                                                        
                                                         <dt class="col-sm-4">Respondant Category:
                                                         </dt>
                                                         <dd class="col-sm-8">
@@ -1152,7 +1153,7 @@
                             </div>
                             @endcan
                         </div>
-                       
+
     </td>
     </tr>
     @endforeach

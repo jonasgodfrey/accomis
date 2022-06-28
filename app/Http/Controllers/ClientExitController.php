@@ -10,14 +10,14 @@ use App\Models\Spo;
 use App\Models\Cei;
 use App\Models\Lgas;
 use App\Models\States;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Http;
-
-
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 
 class ClientExitController extends Controller
 {
@@ -63,7 +63,7 @@ class ClientExitController extends Controller
                 "start" => $row->start,
                 "end" => $row->end,
                 "today" => $row->today,
-                "state" => $row->state,
+                "state" =>  $row->state,
                 "lga" => $row->lga,
                 "cbo" => $row->cbo,
                 "cboemail" => $row->cboemail,
@@ -268,57 +268,49 @@ class ClientExitController extends Controller
         ]);
     }
 
-    public function cei_analysis_index()
-    {
-        $state = States::all();
-        $ceis = [];
-        return view('backend.cei_analysis.cei_analysis')->with([
-            'states' => $state,
-            'ceis' => $ceis,
-        ]);
-    }
 
     public function barchart()
     {
-    //     $ceis = Cei::all();
 
-    //     $month = [];
+        //     $ceis = Cei::all();
 
-    //     for ($m = 1; $m <= 12; $m++) {
-    //         $month[] = date('m', mktime(0, 0, 0, $m, 1, date('Y')));
-    //     }
+        //     $month = [];
+
+        //     for ($m = 1; $m <= 12; $m++) {
+        //         $month[] = date('m', mktime(0, 0, 0, $m, 1, date('Y')));
+        //     }
 
 
-    //     $list = [];
-    //     // loop all 12 month
-    //     foreach ($month as $month) {
-    //         $flag = false;
-    //         foreach ($ceis as $data) {
+        //     $list = [];
+        //     // loop all 12 month
+        //     foreach ($month as $month) {
+        //         $flag = false;
+        //         foreach ($ceis as $data) {
 
-    //             $month_no = explode("-", $data->today);
-                
-    //             if ($month_no[1] == $month) {
-                    
-    //                  // if found add to the list
-    //                 $month_gdata = Cei::where('today', $data->today)->count();
-    //                 $list[] = [
-    //                     'month' => $month,
-    //                     'count' => $month_gdata
-    //                 ];
-    //                 $flag = true;
-    //                 break; // break the loop once it found match result
-    //             }
-    //         }
+        //             $month_no = explode("-", $data->today);
 
-    //         if (!$flag) {
-    //             $list[] = [
-    //                 'month' => $month,
-    //                 'count' =>  0
-    //             ]; // if not found, store as 0
-    //         }
-    //     }
-        
-     // dd(json_encode($list));
+        //             if ($month_no[1] == $month) {
+
+        //                  // if found add to the list
+        //                 $month_gdata = Cei::where('today', $data->today)->count();
+        //                 $list[] = [
+        //                     'month' => $month,
+        //                     'count' => $month_gdata
+        //                 ];
+        //                 $flag = true;
+        //                 break; // break the loop once it found match result
+        //             }
+        //         }
+
+        //         if (!$flag) {
+        //             $list[] = [
+        //                 'month' => $month,
+        //                 'count' =>  0
+        //             ]; // if not found, store as 0
+        //         }
+        //     }
+
+        // dd(json_encode($list));
 
 
         $fetch_state = States::where('status', 'active')->get();
@@ -407,38 +399,6 @@ class ClientExitController extends Controller
         return response()->json($list);
     }
 
-    public function cei_analysis_table(Request $request)
-    {
-        $state = States::all();
-
-        $client_exit = [];
-
-        $whereCondition = [
-
-            ['state', '=', $request->state],
-            ['cbo_name', '=', $request->cbo],
-            ['quarter', '=', $request->quarter],
-
-        ];
-
-
-        if ($request->state != "") {
-
-            $client_exit = ClientExitQuestionare::where($whereCondition)->get();
-        }
-
-        return view('backend.cei_analysis.cei_analysis')->with([
-            'states' => $state,
-            'ceis' => $client_exit,
-        ]);
-    }
-
-    public function cei_analysis_fetch(Request $request)
-    {
-        $cbo = Cbo::where('state', $request->value)->get();
-
-        return response()->json($cbo);
-    }
 
     public function multiple_delete(Request $request)
     {
