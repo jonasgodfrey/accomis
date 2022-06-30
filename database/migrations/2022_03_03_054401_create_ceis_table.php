@@ -15,6 +15,7 @@ class CreateCeisTable extends Migration
     {
         Schema::create('ceis', function (Blueprint $table) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             // $table->columntype('columnname');
             $table->string('recordid')->unique();
             $table->string('start');
@@ -72,6 +73,8 @@ class CreateCeisTable extends Migration
             $table->string('store_gps');
             $table->string('upload_image');
 =======
+=======
+>>>>>>> parent of 4606fc2 (worked on kobo cei monthly count)
              // $table->columntype('columnname');
              $table->string('recordid')->unique();            
              $table->string('start');
@@ -129,6 +132,9 @@ class CreateCeisTable extends Migration
              $table->string('suggestion');
              $table->string('store_gps');
              $table->string('upload_image');
+<<<<<<< HEAD
+>>>>>>> parent of 4606fc2 (worked on kobo cei monthly count)
+=======
 >>>>>>> parent of 4606fc2 (worked on kobo cei monthly count)
             $table->timestamps();
         }); 
