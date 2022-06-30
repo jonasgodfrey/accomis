@@ -31,7 +31,7 @@ class CeiAnalysisController extends Controller
         $ceis = [];
         $user = Auth::user();
         $role = implode(' ', $user->roles->pluck('name')->toArray());
-        $spouser = Spo::where('email',  $user->email)->get();
+        $spouser = Spo::where('email', $user->email)->get();
 
 
         if ($role == "Spo") {
@@ -64,7 +64,7 @@ class CeiAnalysisController extends Controller
         $client_exit = [];
         $user = Auth::user();
         $role = implode(' ', $user->roles->pluck('name')->toArray());
-        $spouser = Spo::where('email',  $user->email)->get();
+        $spouser = Spo::where('email', $user->email)->get();
 
         $whereCondition = [
 
@@ -114,7 +114,7 @@ class CeiAnalysisController extends Controller
         $ceis = [];
         $user = Auth::user();
         $role = implode(' ', $user->roles->pluck('name')->toArray());
-        $spouser = Spo::where('email',  $user->email)->get();
+        $spouser = Spo::where('email', $user->email)->get();
 
 
         if ($role == "Spo") {
@@ -147,7 +147,7 @@ class CeiAnalysisController extends Controller
         $client_exit = [];
         $user = Auth::user();
         $role = implode(' ', $user->roles->pluck('name')->toArray());
-        $spouser = Spo::where('email',  $user->email)->get();
+        $spouser = Spo::where('email', $user->email)->get();
 
         $whereCondition = [
             ['state', '=', $request->state],
@@ -199,12 +199,12 @@ class CeiAnalysisController extends Controller
         $active_states = States::where('status', 'active')->get();
         $months = [];
         $cei_months = [];
-        $years = ClientExitQuestionare::groupBy('year')->pluck('year')->toArray();
+        $years = Cei::groupBy('year')->pluck('year')->toArray();
         $state_data = [];
         $clientexit = '';
 
         /**
-         *  for loop to get all months in year array 
+         *  for loop to get all months in year array
          */
         for ($m = 1; $m <= 12; $m++) {
             $months[] = date('M', mktime(0, 0, 0, $m, 1, date('Y')));
@@ -214,7 +214,7 @@ class CeiAnalysisController extends Controller
         }
 
         /**
-         * Initialize params array 
+         * Initialize params array
          */
         $params = [
             'months' => $months,
@@ -274,7 +274,7 @@ class CeiAnalysisController extends Controller
                 $state_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
             }
 
-            //generate new array of data 
+            //generate new array of data
             $data = [
                 'state' => $request->state,
                 'month' => $request->month,
@@ -293,34 +293,71 @@ class CeiAnalysisController extends Controller
         }
     }
 
-    public function kobo_cei_monthly(Request $request)
+    public function kobo_cei_monthly(Request $request): \Illuminate\Http\RedirectResponse
     {
+        $active_states = States::where('status', 'active')->get();
+
 
         if (($request->state != 'all_states') && ($request->month == 'all_months')) {
-            $cei = Cei::where('state', $request->state)->count();
+
+            /* get requested cei data */
+            $clientexit = Cei::where([
+                'state' => $request->state,
+                'year' => $request->year
+            ])->get();
+
+            /* store fetched data into an array */
+            $cei_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
         } elseif (($request->state == 'all_states') && ($request->month != 'all_months')) {
-            /* get count */
-            $cei = Cei::whereMonth('created_at', '=', $request->month)->count();
+
+            /* get all states data based on condition*/
+            foreach ($active_states as $data) {
+                $states_client_record = Cei::where([
+                    'state' => $data->name,
+                    'month' => $request->month,
+                    'year' => $request->year,
+                ])->get();
+
+                /* store fetched data into an array */
+                $cei_data[] = ['state_name' => $data->name, 'count' => $states_client_record->count()];
+            }
         } elseif (($request->state == 'all_states') && ($request->month == 'all_months')) {
-            $cei = Cei::all()->count();
+
+            /* get all states data based on condition*/
+            foreach ($active_states as $data) {
+                $states_client_record = Cei::where([
+                    'state' => $data->name,
+                    'year' => $request->year,
+                ])->get();
+
+                /* store fetched data into an array */
+                $cei_data[] = ['state_name' => $data->name, 'count' => $states_client_record->count()];
+            }
         } else {
 
             /* get count of requested cei */
-            $cei = Cei::whereMonth('created_at', '=', $request->month)->where([
+            $clientexit = Cei::where([
                 'state' => $request->state,
-            ])->count();
-        }
+                'month' => $request->month,
+                'year' => $request->year
+            ])->get();
 
+            /* store fetched data into an array */
+            $cei_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
+        }
         // generate new array of data
         $data = [
             'cei_id' => '1',
             'cei_state' => $request->state,
             'cei_month' => $request->month,
-            'cei_record_count' => $cei
+            'year' => $request->year,
+            'cei_data' => $cei_data
         ];
 
         // return new array back to the view
         return redirect()->back()->with($data);
+
+
     }
 
     public function cei_quarterly(Request $request)
@@ -367,7 +404,7 @@ class CeiAnalysisController extends Controller
             }
 
 
-            // generate new array of data 
+            // generate new array of data
             $data = [
                 'myid' => '1',
                 'state' => $request->state,
@@ -382,12 +419,12 @@ class CeiAnalysisController extends Controller
             return redirect()->back()->with($merged_data);
         } else {
 
-            // return view with $params array 
+            // return view with $params array
             return view('backend.cei_analysis.ceiquarterly')->with($params);
         }
     }
 
-    public function kobo_cei_quarterly(Request $request)
+    public function kobo_cei_quarterly(Request $request): \Illuminate\Http\RedirectResponse
     {
         /**
          * Initialize variables for assignment
