@@ -11,11 +11,12 @@ class Cei extends Model
     protected $table = 'ceis';
     // protected $guarded = [];
 
-    protected $fillable = ['recordid',
+    protected $fillable = ['recordid',            
            'start',
            'end',
            'today',
            'month',
+           'year',
            'state',
            'lga',
            'cbo',
