@@ -52,11 +52,10 @@
                                     <label>Year</label>
                                     <select name="year" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Year</option>
-                                        @forelse ($years as $year)
-                                            <option value="{{ $year }}">{{ $year }}</option>
-                                        @empty
-                                            <p>No data found</p>
-                                        @endforelse
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
                                     </select>
                                 </div>
                             </div>
@@ -266,7 +265,7 @@
                             </tbody>
 
                         </table>
-                        
+
                     </div>
 
 
