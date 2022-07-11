@@ -178,7 +178,7 @@
                                         <option style="display:none" value="">Select Month</option>
                                         <option value="all_months">All Months</option>
                                         @forelse ($cei_months as $month)
-                                            <option value="{{ $month['month_num'] }}"> {{ $month['month_name'] }}
+                                            <option value="{{ $month }}"> {{ $month }}
                                             </option>
                                         @empty
                                             <p>No data found</p>

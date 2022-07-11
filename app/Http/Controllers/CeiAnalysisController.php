@@ -220,7 +220,7 @@ class CeiAnalysisController extends Controller
             'months' => $months,
             'states' => $states,
             'years' => $years,
-            'cei_months' => $cei_months,
+            'cei_months' => $months,
             'data' => [],
         ];
 
@@ -308,6 +308,7 @@ class CeiAnalysisController extends Controller
 
             /* store fetched data into an array */
             $cei_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
+
         } elseif (($request->state == 'all_states') && ($request->month != 'all_months')) {
 
             /* get all states data based on condition*/
