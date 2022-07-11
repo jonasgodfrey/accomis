@@ -204,7 +204,7 @@ class CeiAnalysisController extends Controller
         $clientexit = '';
 
         /**
-         *  for loop to get all months in year array 
+         *  for loop to get all months in year array
          */
         for ($m = 1; $m <= 12; $m++) {
             $months[] = date('M', mktime(0, 0, 0, $m, 1, date('Y')));
@@ -214,7 +214,7 @@ class CeiAnalysisController extends Controller
         }
 
         /**
-         * Initialize params array 
+         * Initialize params array
          */
         $params = [
             'months' => $months,
@@ -274,7 +274,7 @@ class CeiAnalysisController extends Controller
                 $state_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
             }
 
-            //generate new array of data 
+            //generate new array of data
             $data = [
                 'state' => $request->state,
                 'month' => $request->month,
@@ -404,7 +404,7 @@ class CeiAnalysisController extends Controller
             }
 
 
-            // generate new array of data 
+            // generate new array of data
             $data = [
                 'myid' => '1',
                 'state' => $request->state,
@@ -419,7 +419,7 @@ class CeiAnalysisController extends Controller
             return redirect()->back()->with($merged_data);
         } else {
 
-            // return view with $params array 
+            // return view with $params array
             return view('backend.cei_analysis.ceiquarterly')->with($params);
         }
     }
