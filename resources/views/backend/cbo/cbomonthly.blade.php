@@ -17,7 +17,7 @@
 
           <div class="col-sm-6">
             <h1>CBO Monthly Report</h1>
-          </div> 
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -85,6 +85,8 @@
                                              <option value="Quarter_4_2021">Quarter 4 2021</option>
                                              <option value="Quarter_5_2022">Quarter 5 2022</option>
                                              <option value="Quarter_6_2022">Quarter 6 2022</option>
+                                             <option value="Quarter_7_2022">Quarter 7 2022</option>
+                                             <option value="Quarter_8_2022">Quarter 8 2022</option>
                                         </select>
                                     </div>
                         </div>
@@ -153,7 +155,7 @@
                 <tr>
                 @can("admin_spo_me")
                   <th><input type="checkbox" id="selectall" class="checked"/></th>
-                 @endcan 
+                 @endcan
                   <th>id</th>
                   <th>Date</th>
                   <th>CBO Name</th>
