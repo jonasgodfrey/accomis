@@ -123,12 +123,14 @@ Route::get('/otherreportsanalysis', [App\Http\Controllers\FgdAnalysisController:
 Route::post('/cei_analysis', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
 Route::post('/cei_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_table'])->name('cei_analysis.table');
 Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table'])->name('kobo_analysis.table');
-Route::post('/ceimonthly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_monthly'])->name('cei_monthly.search'); 
-Route::post('/ceimonthly/kobo-search', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_monthly'])->name('kobocei_monthly.search'); 
-Route::post('/ceiquarterly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_quarterly'])->name('cei_quarterly.search'); 
-Route::post('/ceiquarterly/kobo-search', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_quarterly'])->name('kobocei_quarterly.search'); 
-Route::post('/other_reports/search', [App\Http\Controllers\FgdAnalysisController::class, 'otherreportsquarterly'])->name('otherreportsquarterly.search'); 
-Route::post('/other_reports/year-search', [App\Http\Controllers\FgdAnalysisController::class, 'otherreports_yearly'])->name('otherreports_yearly.search'); 
+Route::post('/ceimonthly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_monthly'])->name('cei_monthly.search');
+Route::post('/ceimonthly/kobo-search', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_monthly'])->name('kobocei_monthly.search');
+Route::post('/ceiquarterly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_quarterly'])->name('cei_quarterly.search');
+Route::post('/ceiquarterly/kobo-search', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_quarterly'])->name('kobocei_quarterly.search');
+Route::post('/ceiquarterly/kobo-analysis', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_quarterly_analysis'])->name('kobocei_quarterly.analysis');
+
+Route::post('/other_reports/search', [App\Http\Controllers\FgdAnalysisController::class, 'otherreportsquarterly'])->name('otherreportsquarterly.search');
+Route::post('/other_reports/year-search', [App\Http\Controllers\FgdAnalysisController::class, 'otherreports_yearly'])->name('otherreports_yearly.search');
 
 //file display
 Route::get('image/{filename}', [App\Http\Controllers\ImageController::class, 'displayImage'])->name('displayImage');
