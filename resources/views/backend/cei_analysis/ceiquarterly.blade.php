@@ -92,7 +92,8 @@
                                     <th>id</th>
                                     <th>State</th>
                                     <th>Quarter</th>
-                                    <th>Number of CEIs</th>
+                                    <th>Achievements</th>
+                                    <th>Target</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,6 +111,7 @@
                                             <td>{{ $data['state_name'] ?? session('state') }}</td>
                                             <td>{{ $data['quarter'] ?? session('quarter') }}</td>
                                             <td>{{ $data['count'] }}</td>
+                                            <td>384</td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -223,7 +225,8 @@
                                     <th>id</th>
                                     <th>State</th>
                                     <th>Quarter</th>
-                                    <th>Number of CEIs</th>
+                                    <th>Achievements</th>
+                                    <th>Target</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -241,6 +244,7 @@
                                             <td>{{ $data['state_name'] ?? session('cei_state') }}</td>
                                             <td>{{ session('cei_quarter') ?? '' }}</td>
                                             <td>{{ $data['count'] }}</td>
+                                            <td>384</td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -360,7 +364,8 @@
                                     <th>State</th>
                                     <th>CBOs</th>
                                     <th>Quarter</th>
-                                    <th>Number of CEIs</th>
+                                    <th>Quarterly Achievements</th>
+                                    <th>Target</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -379,6 +384,7 @@
                                             <td>{{ $data['cbo_name'] }}</td>
                                             <td>{{ session('cei_quarter') ?? '' }}</td>
                                             <td>{{ $data['count'] }}</td>
+                                            <td>24</td>
                                         </tr>
                                     @endforeach
                                 @endif

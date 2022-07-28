@@ -113,7 +113,8 @@
                                     <th>State</th>
                                     <th>Quarter</th>
                                     <th>Activity</th>
-                                    <th>Counts</th>
+                                    <th>Achievements</th>
+                                    <th>Target</th>
                                 </tr>
                             </thead>
 
@@ -134,6 +135,7 @@
                                             <td>{{ $data['quarter'] ?? '' }}</td>
                                             <td>{{ session('activity') ?? '' }}</td>
                                             <td>{{ $data['count'] }}</td>
+                                            <td>32</td>
                                         </tr>
                                     @endforeach
                                 @endif
