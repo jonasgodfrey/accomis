@@ -77,7 +77,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $health_facilities ?? '0' }}</h3>
+                                <h3>638</h3>
 
                                 <p>Health Facilities</p>
                             </div>
@@ -107,7 +107,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $cbos ?? '0' }}<sup style="font-size: 20px"></sup></h3>
+                                <h3>208<sup style="font-size: 20px"></sup></h3>
 
                                 <p>CBOs</p>
                             </div>

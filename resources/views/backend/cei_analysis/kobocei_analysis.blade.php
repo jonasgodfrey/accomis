@@ -34,6 +34,7 @@
                                             </option>
                                         @endforeach
                                     @endif
+                                    
                                     @if (count($states) != 0)
                                         @foreach ($states as $state)
                                             <option id="{{ $state->id }}" value="{{ $state->name }}">
