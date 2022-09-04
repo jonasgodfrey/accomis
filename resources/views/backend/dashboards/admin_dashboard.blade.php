@@ -171,7 +171,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{ $entryfgd ?? '0' }}</h3>
+                            <h3>2704</h3>
 
                             <p>Entry FGD</p>
                         </div>
@@ -186,7 +186,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{ $exitfgd ?? '0' }}</h3>
+                            <h3>2704</h3>
 
                             <p>Exit FGD</p>
                         </div>
