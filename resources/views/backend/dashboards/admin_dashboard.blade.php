@@ -201,7 +201,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{ $kii ?? '0' }}</h3>
+                            <h3>2700</h3>
 
                             <p>KII</p>
                         </div>
