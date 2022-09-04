@@ -785,7 +785,7 @@
             var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
             var pieData = {
                 labels: [
-                    'Maternal',
+                    'Maternal & New Born Care',
                     'Malaria',
                     'Antenatal',
                 ],
@@ -817,7 +817,7 @@
                 labels: [
                     'Malaria',
                     'Antenatal',
-                    'Maternal',
+                    'Maternal & New Born Care',
 
 
                 ],
