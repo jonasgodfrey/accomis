@@ -47,7 +47,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $lgas ?? '0' }}<sup style="font-size: 20px"></sup></h3>
+                                <h3>104<sup style="font-size: 20px"></sup></h3>
 
                                 <p>LGA</p>
                             </div>
@@ -171,7 +171,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>2704</h3>
+                            <h3>3120</h3>
 
                             <p>Entry FGD</p>
                         </div>
@@ -186,7 +186,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>2704</h3>
+                            <h3>3120</h3>
 
                             <p>Exit FGD</p>
                         </div>
