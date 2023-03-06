@@ -194,6 +194,18 @@
                              <p>Other Reports</p>
                          </a>
                      </li>
+                     <li class="nav-item">
+                         <a href="#" class="nav-link">
+                             <i class="nav-icon  fa fa-piggy-bank"></i>
+                             <p>Retirements</p>
+                         </a>
+                     </li>
+                     <li class="nav-item">
+                         <a href="#" class="nav-link">
+                             <i class="nav-icon  fa fa-video"></i>
+                             <p>Tutorials</p>
+                         </a>
+                     </li>
                  @endcan
                  @can('admin_spo')
                      <li class="nav-item">

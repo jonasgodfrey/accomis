@@ -308,7 +308,6 @@ class CeiAnalysisController extends Controller
 
             /* store fetched data into an array */
             $cei_data[] = ['state_name' => $request->state, 'count' => $clientexit->count()];
-
         } elseif (($request->state == 'all_states') && ($request->month != 'all_months')) {
 
             /* get all states data based on condition*/
@@ -357,8 +356,6 @@ class CeiAnalysisController extends Controller
 
         // return new array back to the view
         return redirect()->back()->with($data);
-
-
     }
 
     public function cei_quarterly(Request $request)
@@ -467,7 +464,6 @@ class CeiAnalysisController extends Controller
                 'count' => $client_record->count(),
                 'quarter' => $request->quarter,
             ];
-
         } elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
 
             /**
@@ -508,6 +504,69 @@ class CeiAnalysisController extends Controller
             'cei_state' => $request->state,
             'cei_quarter' => $request->quarter,
             'cei_states_data' => $state_data
+        ];
+
+        // return new array back to the view
+        return redirect()->back()->with($data);
+    }
+
+    public function kobo_cei_quarterly_analysis(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        /**
+         * Initialize variables for assignment
+         */
+        $state_data = [];
+        $cbos = Cbo::where('state', $request->state)->get();
+
+        if ($request->quarter === 'all_quarter') {
+
+            foreach ($cbos as $cbo) {
+
+                /**
+                 *  Get all states data based on where condition
+                 */
+                $client_record = Cei::where([
+                    'state' => $request->state,
+                    'cboemail' => $cbo->email
+                ])->get();
+
+                $state_data[] = [
+                    'state_name' => $request->state,
+                    'cbo_name' => $cbo->cbo_name,
+                    'count' => $client_record->count(),
+                    'quarter' => $request->quarter
+                ];
+            }
+
+
+        } else {
+            foreach ($cbos as $cbo) {
+
+                /**
+                 *  Get all states data based on where condition
+                 */
+                $client_record = Cei::where([
+                    'state' => $request->state,
+                    'cboemail' => $cbo->email,
+                    'qtr' => $request->quarter
+                ])->get();
+
+                $state_data[] = [
+                    'state_name' => $request->state,
+                    'cbo_name' => $cbo->cbo_name,
+                    'count' => $client_record->count(),
+                    'quarter' => $request->quarter
+                ];
+            }
+
+        }
+
+        // generate new array of data
+        $data = [
+            'cei_id' => '1',
+            'cei_state' => $request->state,
+            'cei_quarter' => $request->quarter,
+            'kobo_cei_analysis' => $state_data
         ];
 
         // return new array back to the view

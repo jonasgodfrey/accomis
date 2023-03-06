@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".dynamic").change(function() {
         var value = $(".dynamic option:selected").attr('value');
         $("#cbo").empty();
-
+        console.log(value);
         if (value != "") {
             $.ajax({
                 headers: {

@@ -146,7 +146,7 @@
         <br>
         <hr>
 
-        <!-- Main content -->
+        <!-- Kobocei Monthly Analysis by State -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
@@ -271,6 +271,9 @@
 
                 </div><!-- /.container-fluid -->
         </section>
+        <!-- /.content -->
+
+      
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

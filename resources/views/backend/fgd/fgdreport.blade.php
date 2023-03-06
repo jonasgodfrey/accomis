@@ -84,6 +84,12 @@
                     <option value="Quarter_4_2021">Quarter 4 2021</option>
                     <option value="Quarter_5_2022">Quarter 5 2022</option>
                     <option value="Quarter_6_2022">Quarter 6 2022</option>
+                    <option value="Quarter_7_2022">Quarter 7 2022</option>
+                    <option value="Quarter_8_2022">Quarter 8 2022</option>
+                    <option value="Quarter_9_2023">Quarter 9 2023</option>
+                    <option value="Quarter_10_2023">Quarter 10 2023</option>
+                    <option value="Quarter_11_2023">Quarter 11 2023</option>
+                    <option value="Quarter_12_2023">Quarter 12 2023</option>
                   </select>
                 </div>
               </div>
@@ -156,7 +162,7 @@
               <tr>
               @can("admin_spo_me")
                   <th><input type="checkbox" id="selectall" class="checked"/></th>
-                 @endcan 
+                 @endcan
                 <th>id</th>
                 <th>Date</th>
                 <th>CBO Name</th>

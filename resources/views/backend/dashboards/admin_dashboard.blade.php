@@ -47,7 +47,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $lgas ?? '0' }}<sup style="font-size: 20px"></sup></h3>
+                                <h3>104<sup style="font-size: 20px"></sup></h3>
 
                                 <p>LGA</p>
                             </div>
@@ -77,7 +77,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $health_facilities ?? '0' }}</h3>
+                                <h3>638</h3>
 
                                 <p>Health Facilities</p>
                             </div>
@@ -107,7 +107,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $cbos ?? '0' }}<sup style="font-size: 20px"></sup></h3>
+                                <h3>208<sup style="font-size: 20px"></sup></h3>
 
                                 <p>CBOs</p>
                             </div>
@@ -171,7 +171,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{ $entryfgd ?? '0' }}</h3>
+                            <h3>3328</h3>
 
                             <p>Entry FGD</p>
                         </div>
@@ -186,7 +186,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{ $exitfgd ?? '0' }}</h3>
+                            <h3>3328</h3>
 
                             <p>Exit FGD</p>
                         </div>
@@ -201,7 +201,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{ $kii ?? '0' }}</h3>
+                            <h3>3150</h3>
 
                             <p>KII</p>
                         </div>
@@ -785,7 +785,7 @@
             var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
             var pieData = {
                 labels: [
-                    'Maternal',
+                    'Maternal & New Born Care',
                     'Malaria',
                     'Antenatal',
                 ],
@@ -817,7 +817,7 @@
                 labels: [
                     'Malaria',
                     'Antenatal',
-                    'Maternal',
+                    'Maternal & New Born Care',
 
 
                 ],

@@ -22,7 +22,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Remidial Feedback Page</li>
-                </ol> 
+                </ol>
             </div>
         </div>
     </div><!-- /.container-fluid -->
@@ -89,7 +89,7 @@
                                 <label>Date Visit</label>
                                 <input type="date" name="date_visit" class="form-control" placeholder="" required>
 
-                            </div> 
+                            </div>
                         </div>
                         <div class="col-md-6">
                                     <div class="form-group" id="quarter">
@@ -103,6 +103,12 @@
                                             <option value="Quarter_4_2021">Quarter 4 2021</option>
                                             <option value="Quarter_5_2022">Quarter 5 2022</option>
                                             <option value="Quarter_6_2022">Quarter 6 2022</option>
+                                            <option value="Quarter_7_2022">Quarter 7 2022</option>
+                                            <option value="Quarter_8_2022">Quarter 8 2022</option>
+                                            <option value="Quarter_9_2023">Quarter 9 2023</option>
+                                            <option value="Quarter_10_2023">Quarter 10 2023</option>
+                                            <option value="Quarter_11_2023">Quarter 11 2023</option>
+                                            <option value="Quarter_12_2023">Quarter 12 2023</option>
                                         </select>
                                     </div>
                         </div>
@@ -287,7 +293,7 @@
                             <tr>
                                 @can("admin_spo_me")
                                 <th><input type="checkbox" id="selectall" class="checked"/></th>
-                               @endcan 
+                               @endcan
                                 <th>id</th>
                                 <th>Date</th>
                                 <th>Key Findings/Issues</th>
@@ -325,7 +331,7 @@
                                                 <div class="col-md-6">
                                                     <button class="fas fa-trash btn-sm btn-danger " data-toggle="modal" data-target="{{'#exampleModal'. $rem->id}}"></button>
 
-                                            
+
                                                     {{-- <div class="modal fade" id="{{'exampleModal' . $rem->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -444,7 +450,7 @@
                                 @endforeach
                             @endif
 
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->
@@ -588,7 +594,7 @@
                                 @endforeach
                             @endif
 
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

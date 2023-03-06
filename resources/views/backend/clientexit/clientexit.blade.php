@@ -29,7 +29,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            @can('admin_role')
+            @can('admin_cbo')
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-info">
                 <div class="card-header">
