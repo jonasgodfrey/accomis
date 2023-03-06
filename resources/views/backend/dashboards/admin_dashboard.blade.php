@@ -171,7 +171,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>3120</h3>
+                            <h3>3328</h3>
 
                             <p>Entry FGD</p>
                         </div>
@@ -186,7 +186,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>3120</h3>
+                            <h3>3328</h3>
 
                             <p>Exit FGD</p>
                         </div>
@@ -201,7 +201,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>2700</h3>
+                            <h3>3150</h3>
 
                             <p>KII</p>
                         </div>
