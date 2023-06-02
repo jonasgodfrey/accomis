@@ -262,6 +262,9 @@
                 </div>
                 <!-- /.card-body -->
             </form>
+            <div class="row">
+            <iframe src=https://ee.humanitarianresponse.info/i/fMWg9TQ3 width="100%" height="800"></iframe>
+            </div>
             <div class="card-footer">
                 <!-- Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
                 the plugin. -->
@@ -431,6 +434,7 @@
 
                                     </dl>
                                 </div>
+                                
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
@@ -460,7 +464,7 @@
         </div><!-- /.container-fluid -->
         @endcan
 
-        @can('spo_cbo')
+        @can('me')
 
         <div class="card card-success">
 
