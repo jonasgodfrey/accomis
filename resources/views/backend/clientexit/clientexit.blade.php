@@ -1148,6 +1148,10 @@
                     </tbody>
 
                 </table>
+
+                <div class="d-flex">
+                    {!! $kobocei->links() !!}
+                </div>
             </div>
 
             @endcan
