@@ -1018,13 +1018,6 @@
                                                         </dd>
 
                                                         <dt class="col-sm-4">Rate the Facility?:</dt>
-                                                        <!-- <dd class="col-sm-8">
-                                                            @foreach ($kobo->_attachments as $item)
-                                                            <a href="{{$item->download_url}}" target="_blank">evidence</a>
-
-                                                            @endforeach
-
-                                                        </dd> -->
 
 
 
