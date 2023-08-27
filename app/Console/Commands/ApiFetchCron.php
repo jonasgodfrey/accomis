@@ -127,7 +127,7 @@ class ApiFetchCron extends Command
             }
 
 
-            $getStart->starting_value = $getStart->starting_value +  $startValue;
+            $getStart->starting_value = $startValue;
             $getStart->save();
         }
     }
