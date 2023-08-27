@@ -54,7 +54,6 @@ class ClientExitController extends Controller
         $collection = json_decode($collection->getBody(true)->getContents());
 
 
-
         foreach ($collection as $key => $row) {
             // dd($collection);
 

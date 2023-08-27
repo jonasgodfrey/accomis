@@ -37,6 +37,11 @@ class ApiFetchCron extends Command
      */
     public function handle()
     {
-        \Log::info("API Cron is working fine!");
+
+        $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json&limit=10&start=1');
+
+        $collection = json_decode($collection->getBody(true)->getContents());
+
+        \Log::info($collection);
     }
 }
