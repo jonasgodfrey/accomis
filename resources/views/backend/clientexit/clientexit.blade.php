@@ -689,7 +689,7 @@
 
                     @endforeach --}}
                 </div>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             @can("admin_spo_me")
@@ -782,7 +782,9 @@
                 </tr>
             </tfoot>
             </table>
-
+            <div class="d-flex">
+                {!! $clients->links() !!}
+            </div>
 
         </div>
         <!-- /.card-body -->
