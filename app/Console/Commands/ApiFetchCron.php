@@ -59,9 +59,6 @@ class ApiFetchCron extends Command
             \Log::info("Ending value is now $startValue");
 
 
-            $collection = json_decode($collection->getBody(true)->getContents());
-
-
             foreach ($collection as $key => $row) {
                 // dd($collection);
 
