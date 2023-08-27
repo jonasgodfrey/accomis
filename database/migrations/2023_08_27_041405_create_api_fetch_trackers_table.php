@@ -15,7 +15,7 @@ class CreateApiFetchTrackersTable extends Migration
     {
         Schema::create('api_fetch_trackers', function (Blueprint $table) {
             $table->id();
-            $table->int('starting_value');
+            $table->integer('starting_value');
             $table->timestamps();
         });
     }
