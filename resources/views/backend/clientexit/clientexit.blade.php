@@ -819,7 +819,7 @@
                                         {{ $client->service_satisfaction_level }}.
                                     </dd>
                                     <dt class="col-sm-4">Attached Report:</dt>
-                                    <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->attachment)}}" target="_blank"><i class="fa fa-file-download"></i></a>
+                                    <dd class="col-sm-8"><a href="{{ url('storage/attachments/'.$client->upload_image)}}" target="_blank"><i class="fa fa-file-download"></i></a>
                                     </dd>
                                     <!-- <dt class="col-sm-4"></dt>
                                                                         <dd class="col-sm-8"> <embed
@@ -1018,13 +1018,13 @@
                                                         </dd>
 
                                                         <dt class="col-sm-4">Rate the Facility?:</dt>
-                                                        <dd class="col-sm-8">
+                                                        <!-- <dd class="col-sm-8">
                                                             @foreach ($kobo->_attachments as $item)
                                                             <a href="{{$item->download_url}}" target="_blank">evidence</a>
 
                                                             @endforeach
 
-                                                        </dd>
+                                                        </dd> -->
 
 
 
