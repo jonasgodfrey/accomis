@@ -29,7 +29,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            @can('admin_cbo')
+            @can('admin')
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-info">
                 <div class="card-header">
@@ -710,7 +710,7 @@
                         @foreach ($clients as $client)
 
                         <tr id="sid{{$client->id}}">
-                            @can("admin_spo_me")
+                            @can("admin_me")
                             <td><input type="checkbox" name="ids" class="checkBoxClass check-all" value="{{$client->id}}" /></td>
                             @endcan
                             <td>{{ $loop->iteration }}</td>
@@ -853,7 +853,7 @@
         </tbody>
         <tfoot>
             <tr>
-                @can("admin_spo_me")
+                @can("admin_me")
                 <th></th>
                 @endcan
                 <th>id</th>
@@ -1066,7 +1066,7 @@
 </div>
 <!-- /.container-fluid -->
 @can('spo_cbo')
-<div class="card card-success">
+<!-- <div class="card card-success">
     <div class="card-header">
         <h3 class="card-title">Client Exit Reports</h3>
 
@@ -1075,7 +1075,7 @@
             <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
         </div>
     </div>
-    <!-- /.card-header -->
+  
     <div class="card-body">
         <div class="col-sm-4">
 
@@ -1120,7 +1120,7 @@
 
                                 <a href="{{ '/clientexit/view_more/'.$client->id }}"><i class="fa fa-eye"></i></a>
                             </div>
-                            <!--modal begin-->
+                            
                             @can("admin_spo")
 
                             <div class="col-md-6">
@@ -1177,7 +1177,7 @@
     <br>
     @endcan
 </div>
-</div>
+</div> -->
 <br>
 
 
