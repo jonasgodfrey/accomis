@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\ApiFetchTracker;
-use App\Models\CeiBackup;
+use App\Models\Cei;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
