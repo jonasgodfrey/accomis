@@ -8,7 +8,7 @@ use App\Models\ClientExitQuestionare;
 use App\Models\HealthFacility;
 use App\Models\Spo;
 use App\Models\Cei;
-use App\Models\CeiBackup;
+use App\Models\Ceibackup;
 use App\Models\Lgas;
 use App\Models\States;
 use App\Models\User;
@@ -121,7 +121,7 @@ class ClientExitController extends Controller
         //     ]);
         // }
 
-        $collection = CeiBackup::paginate(10);
+        $collection = Cei::paginate(10);
 
 
         $page_views = request()->page_views;
@@ -144,25 +144,25 @@ class ClientExitController extends Controller
 
         if ($role == "Cbo") {
             $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
-            $kobocei = CeiBackup::where('cboemail', $user->email)->get()->sortDesc();
+            $kobocei = Cei::where('cboemail', $user->email)->get()->sortDesc();
         }
 
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate(10);
-            $kobocei = CeiBackup::paginate(10);
+            $kobocei = Cei::paginate(10);
         }
 
         if ($role == "Me") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate(10);
-            $kobocei = CeiBackup::paginate(10);
+            $kobocei = Cei::paginate(10);
         }
 
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
             $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
-            $kobocei = CeiBackup::where('state', $state)->get();
+            $kobocei = Cei::where('state', $state)->get();
         }
 
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
@@ -185,7 +185,7 @@ class ClientExitController extends Controller
 
     public function kobo_view_more($id)
     {
-        $client = CeiBackup::where('recordid', $id)->get();
+        $client = Cei::where('recordid', $id)->get();
         return view('backend.clientexit.kobo_view_more')->with([
             'clientexit' => $client,
         ]);
@@ -276,7 +276,7 @@ class ClientExitController extends Controller
     public function barchart()
     {
 
-        //     $ceis = CeiBackup::all();
+        //     $ceis = Cei::all();
 
         //     $month = [];
 
@@ -296,7 +296,7 @@ class ClientExitController extends Controller
         //             if ($month_no[1] == $month) {
 
         //                  // if found add to the list
-        //                 $month_gdata = CeiBackup::where('today', $data->today)->count();
+        //                 $month_gdata = Cei::where('today', $data->today)->count();
         //                 $list[] = [
         //                     'month' => $month,
         //                     'count' => $month_gdata
@@ -328,7 +328,7 @@ class ClientExitController extends Controller
     public function getkoboChart()
     {
 
-        $ceis = CeiBackup::all();
+        $ceis = Cei::all();
 
         $month = [];
 
