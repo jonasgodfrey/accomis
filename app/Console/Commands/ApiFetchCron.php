@@ -47,7 +47,7 @@ class ApiFetchCron extends Command
 
         \Log::info("Initial starting value is $startValue");
 
-        $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get("https://kobo.humanitarianresponse.info/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json&limit=20&start=$startValue");
+        $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get("https://eu.kobotoolbox.org/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json&limit=20&start=$startValue");
 
 
         \Log::info($collection->json());
