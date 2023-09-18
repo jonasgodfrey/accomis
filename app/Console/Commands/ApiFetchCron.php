@@ -6,6 +6,7 @@ use App\Models\ApiFetchTracker;
 use App\Models\Cei;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ApiFetchCron extends Command
 {
@@ -59,7 +60,7 @@ class ApiFetchCron extends Command
 
             $startValue = count($collection) + $getStart->starting_value;
 
-            \Log::info("Ending value is now $startValue");
+            Log::info("Ending value is now $startValue");
 
 
             foreach ($collection as $key => $row) {
