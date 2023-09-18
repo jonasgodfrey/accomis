@@ -63,7 +63,7 @@ class ApiFetchCron extends Command
             foreach ($collection as $key => $row) {
                 // dd($collection);
 
-                $record  = CeiBackup::insertOrIgnore([
+                $record  = Cei::insertOrIgnore([
                     "recordid" => $row->_id,
                     "start" => $row->start,
                     "end" => $row->end,
