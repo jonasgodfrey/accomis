@@ -49,11 +49,10 @@ class ApiFetchCron extends Command
 
         $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get("https://kobo.humanitarianresponse.info/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json&limit=20&start=$startValue");
 
+        
+        \Log::info($collection->toJson());
+        
         $collection = json_decode($collection->getBody(true)->getContents());
-
-        \Log::info($collection);
-        \Log::info(print_r($collection));
-        \Log::info(var_dump($collection));
 
         $collectionCount = count($collection);
 
