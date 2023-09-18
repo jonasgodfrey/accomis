@@ -51,6 +51,8 @@ class ApiFetchCron extends Command
 
         $collection = json_decode($collection->getBody(true)->getContents());
 
+        Log::info($collection);
+
         $collectionCount = count($collection);
 
         if ($collectionCount > 0) {
