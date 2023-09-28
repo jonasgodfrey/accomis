@@ -8,7 +8,7 @@ use App\Models\ClientExitQuestionare;
 use App\Models\HealthFacility;
 use App\Models\Spo;
 use App\Models\Cei;
-// use App\Models\Ceibackup;
+use App\Models\Ceibackup;
 use App\Models\Lgas;
 use App\Models\States;
 use App\Models\User;
@@ -121,7 +121,7 @@ class ClientExitController extends Controller
         //     ]);
         // }
 
-        $collection = Cei::paginate(10);
+        $collection = CeiBackup::paginate(10);
 
 
         $page_views = request()->page_views;
@@ -144,25 +144,25 @@ class ClientExitController extends Controller
 
         if ($role == "Cbo") {
             $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
-            $kobocei = Cei::where('cboemail', $user->email)->get()->sortDesc();
+            $kobocei = CeiBackup::where('cboemail', $user->email)->get()->sortDesc();
         }
 
         if ($role == "Admin") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate(10);
-            $kobocei = Cei::paginate(10);
+            $kobocei = CeiBackup::paginate(10);
         }
 
         if ($role == "Me") {
             // $clients = ClientExitQuestionare::all()->sortDesc();
             $clients = ClientExitQuestionare::latest()->paginate(10);
-            $kobocei = Cei::paginate(10);
+            $kobocei = CeiBackup::paginate(10);
         }
 
         if ($role == "Spo") {
             $state = substr($state, 0, strpos($state, ' '));
             $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
-            $kobocei = Cei::where('state', $state)->get();
+            $kobocei = CeiBackup::where('state', $state)->get();
         }
 
         $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
@@ -185,7 +185,7 @@ class ClientExitController extends Controller
 
     public function kobo_view_more($id)
     {
-        $client = Cei::where('recordid', $id)->get();
+        $client = CeiBackup::where('recordid', $id)->get();
         return view('backend.clientexit.kobo_view_more')->with([
             'clientexit' => $client,
         ]);

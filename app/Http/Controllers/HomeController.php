@@ -134,7 +134,7 @@ class HomeController extends Controller
 
             $health_facilities = count(HealthFacility::where('CBO_Email', $user->email)->get());
             $client_exits = count(ClientExitQuestionare::where('auth_user_email', $user->email)->get());
-            $kobocei = count(Cei::where('cboemail', $user->email)->get());
+            $kobocei = count(CeiBackup::where('cboemail', $user->email)->get());
             $remidial = count(Remedial::where('cbo', $user->email)->get());
 
             return view('backend.dashboards.cbo_dashboard')->with([
