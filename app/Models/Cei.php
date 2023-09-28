@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cei extends Model
 {
     use HasFactory;
-    protected $table = 'ceis';
+    // protected $table = 'ceis';
     // protected $guarded = [];
 
-    protected $fillable = ['recordid',            
+    protected $fillable = [
+           'recordid',            
            'start',
            'end',
            'today',
