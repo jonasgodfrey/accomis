@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\States;
 use App\Models\ClientExitQuestionare;
-use App\Models\Cei;
+// use App\Models\Cei;
 use App\Models\CeiBackup;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Spo;
@@ -158,7 +158,7 @@ class CeiAnalysisController extends Controller
         ];
 
         if ($request->state != "") {
-            $client_exit = Cei::where($whereCondition)->get();
+            $client_exit = CeiBackup::where($whereCondition)->get();
         }
 
         if ($role == "Spo") {
@@ -200,7 +200,7 @@ class CeiAnalysisController extends Controller
         $active_states = States::where('status', 'active')->get();
         $months = [];
         $cei_months = [];
-        $years = Cei::groupBy('year')->pluck('year')->toArray();
+        $years = CeiBackup::groupBy('year')->pluck('year')->toArray();
         $state_data = [];
         $clientexit = '';
 
