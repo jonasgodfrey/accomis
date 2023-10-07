@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\States;
 use App\Models\ClientExitQuestionare;
-// use App\Models\Cei;
-use App\Models\CeiBackup;
+use App\Models\Cei;
+// use App\Models\CeiBackup;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Spo;
 use App\Models\Cbo;
@@ -158,7 +158,7 @@ class CeiAnalysisController extends Controller
         ];
 
         if ($request->state != "") {
-            $client_exit = CeiBackup::where($whereCondition)->get();
+            $client_exit = Cei::where($whereCondition)->get();
         }
 
         if ($role == "Spo") {
@@ -200,7 +200,7 @@ class CeiAnalysisController extends Controller
         $active_states = States::where('status', 'active')->get();
         $months = [];
         $cei_months = [];
-        $years = CeiBackup::groupBy('year')->pluck('year')->toArray();
+        $years = Cei::groupBy('year')->pluck('year')->toArray();
         $state_data = [];
         $clientexit = '';
 
@@ -302,7 +302,7 @@ class CeiAnalysisController extends Controller
         if (($request->state != 'all_states') && ($request->month == 'all_months')) {
 
             /* get requested cei data */
-            $clientexit = CeiBackup::where([
+            $clientexit = Cei::where([
                 'state' => $request->state,
                 'year' => $request->year
             ])->get();
@@ -313,7 +313,7 @@ class CeiAnalysisController extends Controller
 
             /* get all states data based on condition*/
             foreach ($active_states as $data) {
-                $states_client_record = CeiBackup::where([
+                $states_client_record = Cei::where([
                     'state' => $data->name,
                     'month' => $request->month,
                     'year' => $request->year,
@@ -326,7 +326,7 @@ class CeiAnalysisController extends Controller
 
             /* get all states data based on condition*/
             foreach ($active_states as $data) {
-                $states_client_record = CeiBackup::where([
+                $states_client_record = Cei::where([
                     'state' => $data->name,
                     'year' => $request->year,
                 ])->get();
@@ -337,7 +337,7 @@ class CeiAnalysisController extends Controller
         } else {
 
             /* get count of requested cei */
-            $clientexit = CeiBackup::where([
+            $clientexit = Cei::where([
                 'state' => $request->state,
                 'month' => $request->month,
                 'year' => $request->year
@@ -438,7 +438,7 @@ class CeiAnalysisController extends Controller
              */
             foreach ($active_states as $data) {
 
-                $client_record = CeiBackup::where([
+                $client_record = Cei::where([
                     'state' => $data->name,
                     'qtr' => $request->quarter,
                 ])->get();
@@ -455,7 +455,7 @@ class CeiAnalysisController extends Controller
             /**
              *  Get all states data based on where condition
              */
-            $client_record = CeiBackup::where([
+            $client_record = Cei::where([
                 'state' => $request->state,
             ])->get();
 
@@ -472,7 +472,7 @@ class CeiAnalysisController extends Controller
              */
             foreach ($active_states as $data) {
 
-                $client_record = CeiBackup::where([
+                $client_record = Cei::where([
                     'state' => $data->name,
                 ])->get();
 
@@ -486,7 +486,7 @@ class CeiAnalysisController extends Controller
         } else {
 
             /* get count of requested cei */
-            $client_record = CeiBackup::where([
+            $client_record = Cei::where([
                 'state' => $request->state,
                 'qtr' => $request->quarter,
             ])->get();
@@ -526,7 +526,7 @@ class CeiAnalysisController extends Controller
                 /**
                  *  Get all states data based on where condition
                  */
-                $client_record = CeiBackup::where([
+                $client_record = Cei::where([
                     'state' => $request->state,
                     'cboemail' => $cbo->email
                 ])->get();
@@ -546,7 +546,7 @@ class CeiAnalysisController extends Controller
                 /**
                  *  Get all states data based on where condition
                  */
-                $client_record = CeiBackup::where([
+                $client_record = Cei::where([
                     'state' => $request->state,
                     'cboemail' => $cbo->email,
                     'qtr' => $request->quarter
