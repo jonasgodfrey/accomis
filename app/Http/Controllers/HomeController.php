@@ -15,7 +15,7 @@ use App\Models\HealthFacility;
 use App\Models\Remedial;
 use App\Models\Spo;
 use App\Models\Cei;
-use App\Models\CeiBackup;
+// use App\Models\CeiBackup;
 use DB;
 
 class HomeController extends Controller
@@ -52,7 +52,7 @@ class HomeController extends Controller
             $cats = count(Cat::all());
             $remedial = count(Remedial::all());
             $client_exits = count(ClientExitQuestionare::all());
-            $kobocei = count(CeiBackup::all());
+            $kobocei = count(Cei::all());
             $tested_malaria = count(ClientExitQuestionare::where('malaria_test', 'yes')->get());
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->get());
@@ -74,14 +74,14 @@ class HomeController extends Controller
             $kii = count(Remedial::where('tracker_type', 'KII')->get());
             $patronage = count(Remedial::where('identified_issues', '[Low Patronage]')->get());
             
-            $kobollin = CeiBackup::where('llin_recipient','Yes')->count();
-            $koboact = CeiBackup::where('act_recipient','Yes')->count();
-            $kobosp = CeiBackup::where('sp_recipient','Yes')->count();
-            $kobosmc = CeiBackup::where('smc_recipient','Yes')->count();
-            $kobomalaria = CeiBackup::where('malaria','Yes')->count();
-            $kobomalserv = CeiBackup::where('service_cat','Malaria Services')->count();                  
-            $koboantenatalserv = CeiBackup::where('service_cat','Antenatal Care')->count();
-            $kobonewborncare = CeiBackup::where('service_cat','Maternal and Newborn Care')->count();
+            $kobollin = Cei::where('llin_recipient','Yes')->count();
+            $koboact = Cei::where('act_recipient','Yes')->count();
+            $kobosp = Cei::where('sp_recipient','Yes')->count();
+            $kobosmc = Cei::where('smc_recipient','Yes')->count();
+            $kobomalaria = Cei::where('malaria','Yes')->count();
+            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();                  
+            $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
+            $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
 
             
 
