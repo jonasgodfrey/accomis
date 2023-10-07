@@ -3,7 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Models\ApiFetchTracker;
-use App\Models\Cei;
+// use App\Models\Cei;
+use App\Models\Ceibackup;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
@@ -63,7 +64,7 @@ class ApiFetchCron extends Command
             foreach ($collection as $key => $row) {
                 // dd($collection);
 
-                $record  = Cei::insertOrIgnore([
+                $record  = Ceibackup::insertOrIgnore([
                     "recordid" => $row->_id,
                     "start" => $row->start,
                     "end" => $row->end,
