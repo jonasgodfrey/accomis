@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ClientExitQuestionare;
 use App\Models\HealthFacility;
 use App\Models\Spo;
-use App\Models\Cei;
+// use App\Models\Cei;
 use App\Models\Ceibackup;
 use App\Models\Lgas;
 use App\Models\States;
@@ -328,7 +328,7 @@ class ClientExitController extends Controller
     public function getkoboChart()
     {
 
-        $ceis = Cei::all();
+        $ceis = CeiBackup::all();
 
         $month = [];
 
