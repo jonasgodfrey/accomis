@@ -43,136 +43,143 @@ class ClientExitController extends Controller
     public function client_exit()
     {
 
-
-        // $responsex = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/aweG5RNYvHNj7TMM2xHvxL/submissions/?format=json');
-
-        // $kobos =  $responsex->object();
-
-        // return $kobos;
-
-        // $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json');
-
-        // $collection = json_decode($collection->getBody(true)->getContents());
+        try {
 
 
-        // foreach ($collection as $key => $row) {
-        //     // dd($collection);
-
-        //     $record  = Cei::insertOrIgnore([
-        //         "recordid" => $row->_id,
-        //         "start" => $row->start,
-        //         "end" => $row->end,
-        //         "today" => $row->today,
-        //         "month" => isset($row->month) ? $row->month : '',
-        //         "year" => isset($row->year) ? $row->year : '',
-        //         "state" =>  $row->state,
-        //         "lga" => $row->lga,
-        //         "cbo" => $row->cbo,
-        //         "cboemail" => $row->cboemail,
-        //         "ward" => isset($row->ward) ? $row->ward : '',
-        //         "hf" => $row->hf,
-        //         "qtr" => $row->qtr,
-        //         "resp_name" => isset($row->resp_name) ? $row->resp_name : '',
-        //         "child_name" => isset($row->child_name) ? $row->child_name : '',
-        //         "resp_cat" => isset($row->resp_cat) ? $row->resp_cat : '',
-        //         "address" => isset($row->address) ? $row->address : '',
-        //         "phone" => isset($row->phone) ? $row->phone : '',
-        //         "occupation" => isset($row->occupation) ? $row->occupation : '',
-        //         "other_occupation" => isset($row->other_occupation) ? $row->other_occupation : '',
-        //         "resp_edu" => isset($row->resp_edu) ? $row->resp_edu : '',
-        //         "created_at" => isset($row->created_at) ? $row->created_at : '',
-        //         "updated_at" => isset($row->updated_at) ? $row->updated_at : '',
-        //         "other_edu" => isset($row->other_edu) ? $row->other_edu : '',
-        //         "service_cat" => isset($row->service_cat) ? $row->service_cat : '',
-        //         "serv_received" => isset($row->serv_received) ? $row->serv_received : '',
-        //         "other_received" => isset($row->other_received) ? $row->other_received : '',
-        //         "freq_visit" => isset($row->freq_visit) ? $row->freq_visit : '',
-        //         "llin_recipient" => isset($row->llin_recipient) ? $row->llin_recipient : '',
-        //         "llin_where" => isset($row->llin_where) ? $row->llin_where : '',
-        //         "where_others" => isset($row->where_others) ? $row->where_others : '',
-        //         "llin_where" => isset($row->llin_where) ? $row->llin_where : '',
-        //         "llin_freq" => isset($row->llin_freq) ? $row->llin_freq : '',
-        //         "llin_freq" => isset($row->llin_freq) ? $row->llin_freq : '',
-        //         "llin_sleep" => isset($row->llin_sleep) ? $row->llin_sleep : '',
-        //         "sleep_often" => isset($row->sleep_often) ? $row->sleep_often : '',
-        //         "why_no" => isset($row->why_no) ? $row->why_no : '',
-        //         "ipt_recipient" => isset($row->ipt_recipient) ? $row->ipt_recipient : '',
-        //         "freq_ipt" => isset($row->freq_ipt) ? $row->freq_ipt : '',
-        //         "sp_recipient" => isset($row->sp_recipient) ? $row->sp_recipient : '',
-        //         "given_sp" => isset($row->given_sp) ? $row->given_sp : '',
-        //         "sp_no" => isset($row->sp_no) ? $row->sp_no : '',
-        //         "why_others" => isset($row->why_others) ? $row->why_others : '',
-        //         "smc_recipient" => isset($row->smc_recipient) ? $row->smc_recipient : '',
-        //         "smc_age" => isset($row->smc_age) ? $row->smc_age : '',
-        //         "malaria" => isset($row->malaria) ? $row->malaria : '',
-        //         "tested_when" => isset($row->tested_when) ? $row->tested_when : '',
-        //         "act_recipient" => isset($row->act_recipient) ? $row->act_recipient : '',
-        //         "drug_received" => isset($row->drug_received) ? $row->drug_received : '',
-        //         "act_finish" => isset($row->act_finish) ? $row->act_finish : '',
-        //         "drug_finish_no" => isset($row->drug_finish_no) ? $row->drug_finish_no : '',
-        //         "rating" => isset($row->rating) ? $row->rating : '',
-        //         "dissatisfied" => isset($row->dissatisfied) ? $row->dissatisfied : '',
-        //         "others" => isset($row->others) ? $row->others : '',
-        //         "satisfied" => isset($row->satisfied) ? $row->satisfied : '',
-        //         "suggestion" => isset($row->suggestion) ? $row->suggestion : '',
-        //         "upload_image" => isset($row->upload_image) ? $row->upload_image : '',
-        //         "store_gps" => isset($row->store_gps) ? $row->store_gps : ''
-
-        //     ]);
-        // }
-
-        $collection = Cei::paginate(10);
 
 
-        $page_views = request()->page_views;
+            // $responsex = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/aweG5RNYvHNj7TMM2xHvxL/submissions/?format=json');
 
-        // dd($page_views??100);
+            // $kobos =  $responsex->object();
 
-        if (Gate::denies('admin_spo_cbo_me')) {
-            abort('404');
+            // return $kobos;
+
+            // $collection = Http::withBasicAuth('acomin', 'itsupport@acomin.org')->get('https://kobo.humanitarianresponse.info/assets/acM6WkAQpDKeMpvVx7uDSe/submissions/?format=json');
+
+            // $collection = json_decode($collection->getBody(true)->getContents());
+
+
+            // foreach ($collection as $key => $row) {
+            //     // dd($collection);
+
+            //     $record  = Cei::insertOrIgnore([
+            //         "recordid" => $row->_id,
+            //         "start" => $row->start,
+            //         "end" => $row->end,
+            //         "today" => $row->today,
+            //         "month" => isset($row->month) ? $row->month : '',
+            //         "year" => isset($row->year) ? $row->year : '',
+            //         "state" =>  $row->state,
+            //         "lga" => $row->lga,
+            //         "cbo" => $row->cbo,
+            //         "cboemail" => $row->cboemail,
+            //         "ward" => isset($row->ward) ? $row->ward : '',
+            //         "hf" => $row->hf,
+            //         "qtr" => $row->qtr,
+            //         "resp_name" => isset($row->resp_name) ? $row->resp_name : '',
+            //         "child_name" => isset($row->child_name) ? $row->child_name : '',
+            //         "resp_cat" => isset($row->resp_cat) ? $row->resp_cat : '',
+            //         "address" => isset($row->address) ? $row->address : '',
+            //         "phone" => isset($row->phone) ? $row->phone : '',
+            //         "occupation" => isset($row->occupation) ? $row->occupation : '',
+            //         "other_occupation" => isset($row->other_occupation) ? $row->other_occupation : '',
+            //         "resp_edu" => isset($row->resp_edu) ? $row->resp_edu : '',
+            //         "created_at" => isset($row->created_at) ? $row->created_at : '',
+            //         "updated_at" => isset($row->updated_at) ? $row->updated_at : '',
+            //         "other_edu" => isset($row->other_edu) ? $row->other_edu : '',
+            //         "service_cat" => isset($row->service_cat) ? $row->service_cat : '',
+            //         "serv_received" => isset($row->serv_received) ? $row->serv_received : '',
+            //         "other_received" => isset($row->other_received) ? $row->other_received : '',
+            //         "freq_visit" => isset($row->freq_visit) ? $row->freq_visit : '',
+            //         "llin_recipient" => isset($row->llin_recipient) ? $row->llin_recipient : '',
+            //         "llin_where" => isset($row->llin_where) ? $row->llin_where : '',
+            //         "where_others" => isset($row->where_others) ? $row->where_others : '',
+            //         "llin_where" => isset($row->llin_where) ? $row->llin_where : '',
+            //         "llin_freq" => isset($row->llin_freq) ? $row->llin_freq : '',
+            //         "llin_freq" => isset($row->llin_freq) ? $row->llin_freq : '',
+            //         "llin_sleep" => isset($row->llin_sleep) ? $row->llin_sleep : '',
+            //         "sleep_often" => isset($row->sleep_often) ? $row->sleep_often : '',
+            //         "why_no" => isset($row->why_no) ? $row->why_no : '',
+            //         "ipt_recipient" => isset($row->ipt_recipient) ? $row->ipt_recipient : '',
+            //         "freq_ipt" => isset($row->freq_ipt) ? $row->freq_ipt : '',
+            //         "sp_recipient" => isset($row->sp_recipient) ? $row->sp_recipient : '',
+            //         "given_sp" => isset($row->given_sp) ? $row->given_sp : '',
+            //         "sp_no" => isset($row->sp_no) ? $row->sp_no : '',
+            //         "why_others" => isset($row->why_others) ? $row->why_others : '',
+            //         "smc_recipient" => isset($row->smc_recipient) ? $row->smc_recipient : '',
+            //         "smc_age" => isset($row->smc_age) ? $row->smc_age : '',
+            //         "malaria" => isset($row->malaria) ? $row->malaria : '',
+            //         "tested_when" => isset($row->tested_when) ? $row->tested_when : '',
+            //         "act_recipient" => isset($row->act_recipient) ? $row->act_recipient : '',
+            //         "drug_received" => isset($row->drug_received) ? $row->drug_received : '',
+            //         "act_finish" => isset($row->act_finish) ? $row->act_finish : '',
+            //         "drug_finish_no" => isset($row->drug_finish_no) ? $row->drug_finish_no : '',
+            //         "rating" => isset($row->rating) ? $row->rating : '',
+            //         "dissatisfied" => isset($row->dissatisfied) ? $row->dissatisfied : '',
+            //         "others" => isset($row->others) ? $row->others : '',
+            //         "satisfied" => isset($row->satisfied) ? $row->satisfied : '',
+            //         "suggestion" => isset($row->suggestion) ? $row->suggestion : '',
+            //         "upload_image" => isset($row->upload_image) ? $row->upload_image : '',
+            //         "store_gps" => isset($row->store_gps) ? $row->store_gps : ''
+
+            //     ]);
+            // }
+
+            $collection = Cei::paginate(10);
+
+
+            $page_views = request()->page_views;
+
+            // dd($page_views??100);
+
+            if (Gate::denies('admin_spo_cbo_me')) {
+                abort('404');
+            }
+            $user = Auth::user();
+            $spouser = Spo::where('email',  $user->email)->get();
+            $state = "";
+            $cboemail = "";
+            foreach ($spouser as $spo_detail) {
+                $state = $spo_detail->state;
+            }
+
+            $role = implode(' ', $user->roles->pluck('name')->toArray());
+            $clients = "";
+
+            if ($role == "Cbo") {
+                $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->latest()->paginate(10);
+                $kobocei = Cei::where('cboemail', $user->email)->latest()->paginate(10);
+            }
+
+            if ($role == "Admin") {
+                // $clients = ClientExitQuestionare::all()->sortDesc();
+                $clients = ClientExitQuestionare::latest()->paginate(10);
+                $kobocei = Cei::paginate(10);
+            }
+
+            if ($role == "Me") {
+                // $clients = ClientExitQuestionare::all()->sortDesc();
+                $clients = ClientExitQuestionare::latest()->paginate(10);
+                $kobocei = Cei::paginate(10);
+            }
+
+            if ($role == "Spo") {
+                $state = substr($state, 0, strpos($state, ' '));
+                $clients = ClientExitQuestionare::where('state', $state)->latest()->paginate(10);
+                $kobocei = Cei::where('state', $state)->latest()->paginate(10);
+            }
+
+            $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
+            // return $collection;
+            return view('backend.clientexit.clientexit')->with([
+                'clients' => $clients,
+                'health_facilities' => $health_facilities,
+                'collection' => $collection,
+                'kobocei' => $kobocei
+            ]);
+        } catch (\Exception $e) {
+            return $e;
         }
-        $user = Auth::user();
-        $spouser = Spo::where('email',  $user->email)->get();
-        $state = "";
-        $cboemail = "";
-        foreach ($spouser as $spo_detail) {
-            $state = $spo_detail->state;
-        }
-
-        $role = implode(' ', $user->roles->pluck('name')->toArray());
-        $clients = "";
-
-        if ($role == "Cbo") {
-            $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->get()->sortDesc();
-            $kobocei = Cei::where('cboemail', $user->email)->get()->sortDesc();
-        }
-
-        if ($role == "Admin") {
-            // $clients = ClientExitQuestionare::all()->sortDesc();
-            $clients = ClientExitQuestionare::latest()->paginate(10);
-            $kobocei = Cei::paginate(10);
-        }
-
-        if ($role == "Me") {
-            // $clients = ClientExitQuestionare::all()->sortDesc();
-            $clients = ClientExitQuestionare::latest()->paginate(10);
-            $kobocei = Cei::paginate(10);
-        }
-
-        if ($role == "Spo") {
-            $state = substr($state, 0, strpos($state, ' '));
-            $clients = ClientExitQuestionare::where('state', $state)->get()->sortDesc();
-            $kobocei = Cei::where('state', $state)->get();
-        }
-
-        $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
-
-        return view('backend.clientexit.clientexit')->with([
-            'clients' => $clients,
-            'health_facilities' => $health_facilities,
-            'collection' => $collection,
-            'kobocei' => $kobocei
-        ]);
     }
 
     public function view_more($id)
