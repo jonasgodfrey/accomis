@@ -14,8 +14,8 @@ use App\Models\Ward;
 use App\Models\HealthFacility;
 use App\Models\Remedial;
 use App\Models\Spo;
-use App\Models\Cei;
-// use App\Models\CeiBackup;
+// use App\Models\Cei;
+use App\Models\CeiBackup;
 use DB;
 
 class HomeController extends Controller
