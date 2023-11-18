@@ -75,6 +75,11 @@
                          </a>
                      </li>
                  @endcan
+                 <li class="nav-item">
+                    <a href="{{ route('data.analysis') }}">
+                        Analysis
+                    </a>
+                 </li>
 
                  @can('admin_me')
                  <li class="nav-header brand-link">ANALYSIS SECTION</li>
