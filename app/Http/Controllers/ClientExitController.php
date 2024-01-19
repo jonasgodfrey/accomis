@@ -8,7 +8,7 @@ use App\Models\ClientExitQuestionare;
 use App\Models\HealthFacility;
 use App\Models\Spo;
 use App\Models\Cei;
-// use App\Models\Ceibackup;
+use App\Models\River;
 use App\Models\Lgas;
 use App\Models\States;
 use App\Models\User;
@@ -126,6 +126,7 @@ class ClientExitController extends Controller
             // }
 
             $collection = Cei::paginate(10);
+            $collection2 = River::paginate(10);
 
 
             $page_views = request()->page_views;
@@ -155,6 +156,7 @@ class ClientExitController extends Controller
                 // $clients = ClientExitQuestionare::all()->sortDesc();
                 $clients = ClientExitQuestionare::latest()->paginate(10);
                 $kobocei = Cei::paginate(10);
+                $kobocei2 = River::paginate(10);
             }
 
             if ($role == "Me") {
@@ -167,6 +169,7 @@ class ClientExitController extends Controller
                 $state = substr($state, 0, strpos($state, ' '));
                 $clients = ClientExitQuestionare::where('state', $state)->latest()->paginate(10);
                 $kobocei = Cei::where('state', $state)->latest()->paginate(10);
+                $kobocei2 = River::where('state', $state)->latest()->paginate(10);
             }
 
             $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();
@@ -175,6 +178,7 @@ class ClientExitController extends Controller
                 'clients' => $clients,
                 'health_facilities' => $health_facilities,
                 'collection' => $collection,
+                'collection2' => $collection2,
                 'kobocei' => $kobocei
             ]);
         } catch (\Exception $e) {
