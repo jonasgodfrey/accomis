@@ -37,11 +37,11 @@
                                     <select name="quarter" class="form-control select2 dynamic" style="width: 100%;"
                                         id="quarter" required>
                                         <option style="display:none" value="">Select Quarter</option>
-                                        <option value="Quarter_1_2021">Quarter_1_2021</option>
-                                        <option value="Quarter_2_2021">Quarter_2_2021</option>
-                                        <option value="Quarter_3_2021">Quarter_3_2021</option>
-                                        <option value="Quarter_4_2021">Quarter_4_2021</option>
-                                        <option value="Quarter_5_2021">Quarter_5_2021</option>
+                                        <option value="q1">Quarter_1_2024</option>
+                                        <option value="q2">Quarter_2_2024</option>
+                                        <option value="q3">Quarter_3_2024</option>
+                                        <option value="q4">Quarter_4_2024</option>
+                                        <option value="q5">Quarter_5_2024</option>
                                     </select>
                                 </div>
                             </div>
@@ -165,14 +165,14 @@
                                         required>
                                         <option style="display:none" value="">Select Quarter</option>
                                         <option value="all_quarter">All Time</option>
+                                        <option value="q1">q1</option>
+                                        <option value="q2">q2</option>
+                                        <option value="q3">q3</option>
+                                        <option value="q4">q4</option>
+                                        <option value="q5">q5</option>
                                         <option value="q6">q6</option>
                                         <option value="q7">q7</option>
                                         <option value="q8">q8</option>
-                                        <option value="q9">q9</option>
-                                        <option value="q10">q10</option>
-                                        <option value="q11">q11</option>
-                                        <option value="q12">q12</option>
-                                        <option value="q13">q13</option>
                                     </select>
                                 </div>
                             </div>
@@ -304,14 +304,14 @@
                                         required>
                                         <option style="display:none" value="">Select Quarter</option>
                                         <option value="all_quarter">All Time</option>
+                                        <option value="q1">q1</option>
+                                        <option value="q2">q2</option>
+                                        <option value="q3">q3</option>
+                                        <option value="q4">q4</option>
+                                        <option value="q5">q5</option>
                                         <option value="q6">q6</option>
                                         <option value="q7">q7</option>
                                         <option value="q8">q8</option>
-                                        <option value="q9">q9</option>
-                                        <option value="q10">q10</option>
-                                        <option value="q11">q11</option>
-                                        <option value="q12">q12</option>
-                                        <option value="q13">q13</option>
                                     </select>
                                 </div>
                             </div>

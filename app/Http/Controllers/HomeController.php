@@ -73,17 +73,17 @@ class HomeController extends Controller
             $exitfgd = count(Remedial::where('tracker_type', 'Exit FGD')->get());
             $kii = count(Remedial::where('tracker_type', 'KII')->get());
             $patronage = count(Remedial::where('identified_issues', '[Low Patronage]')->get());
-            
+
             $kobollin = Cei::where('llin_recipient','Yes')->count();
             $koboact = Cei::where('act_recipient','Yes')->count();
             $kobosp = Cei::where('sp_recipient','Yes')->count();
             $kobosmc = Cei::where('smc_recipient','Yes')->count();
             $kobomalaria = Cei::where('malaria','Yes')->count();
-            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();                  
+            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();
             $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
             $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
 
-            
+
 
             return view('backend.dashboards.admin_dashboard')->with([
                 'states'=>$states,
@@ -126,7 +126,7 @@ class HomeController extends Controller
                 'koboantenatal_service'=>$koboantenatalserv,
                 'kobonewborn_service'=>$kobonewborncare
 
-                
+
             ]);
         }
 
@@ -150,17 +150,17 @@ class HomeController extends Controller
 
             $spo_data = DB::table('spos')->where('email', $user->email)
                 ->get();
-             
+
             $state = '';
             $spo_email = '';
             $spo_name = '';
 
-            foreach ($spo_data as $spo) { 
+            foreach ($spo_data as $spo) {
                 $spo_email = $spo->email;
                 $spo_name = $spo->spo_name;
                 $state = $spo->state;
             }
-            $state = substr($state, 0, strpos($state, ' '));    
+            $state = substr($state, 0, strpos($state, ' '));
 
             // $lgas =  count(Lgas::where('status', 'active')->where('state', 'LIKE', "%{$state}%")->get());
             $wards = count(Ward::where('status', 'active')->where('state', 'LIKE', "%{$state}%")->get());
@@ -192,7 +192,7 @@ class HomeController extends Controller
                 'client_exits'=>$client_exits,
                 // Start Kobocei Data
                 'kobocei'=>$kobocei,
-                
+
                 // end
                 'tested_malaria'=>$tested_malaria ,
                 'llin_recipients'=>$llin_recipients,
@@ -206,7 +206,7 @@ class HomeController extends Controller
                 'issues_identified'=>$issues_identified,
                 'username'=> $user->name,
                 'state'=>$state,
-  
+
             ]);
         }
     }

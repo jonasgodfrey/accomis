@@ -144,4 +144,4 @@ $chart->dataset('My dataset 2', 'bar', [4, 3, 2, 1, 4, 4, 7, 8, 9, 5]);
 
     return view('backend.analysis')
         ->with('chart', $chart);
-})->name('data.analysis');
+})->name('data.analysis')->middleware('auth');
