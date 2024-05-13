@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataEntry;
 use App\Models\States;
 use App\Models\ClientExitQuestionare;
 use App\Models\Cei;
@@ -161,6 +162,50 @@ class CeiAnalysisController extends Controller
             $client_exit = Cei::where($whereCondition)->get();
         }
 
+        if ($role == "Spo") {
+
+            foreach ($spouser as $spo_detail) {
+                $state = $spo_detail->state;
+                $state_name = substr($state, 0, strpos($state, ' '));
+                $state = States::where('name', $state_name)->get();
+            }
+
+            return view('backend.cei_analysis.kobocei_analysis')->with([
+                'state' => $state,
+                'states' => [],
+                'ceis' => $client_exit,
+            ]);
+        } else {
+
+            return view('backend.cei_analysis.kobocei_analysis')->with([
+                'states' => $state,
+                'state' => [],
+                'ceis' => $client_exit,
+            ]);
+        }
+    }
+    public function kobo_analysis_table_new(Request $request)
+    {
+
+        $state = States::all();
+        $client_exit = [];
+        $user = Auth::user();
+        $role = implode(' ', $user->roles->pluck('name')->toArray());
+        $spouser = Spo::where('email', $user->email)->get();
+
+        $whereCondition = [
+            ['state', '=', $request->state],
+            ['qtr', '=', $request->quarter],
+            ['cboemail', '=', $request->cbo],
+
+        ];
+
+        // if ($request->state != "") {
+        //     $client_exit = DataEntry::where($whereCondition)->get();
+        // }else{
+        // }
+        $client_exit = DataEntry::get();
+        // return $client_exit;
         if ($role == "Spo") {
 
             foreach ($spouser as $spo_detail) {

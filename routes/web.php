@@ -123,7 +123,8 @@ Route::get('/otherreportsanalysis', [App\Http\Controllers\FgdAnalysisController:
 
 Route::post('/cei_analysis', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
 Route::post('/cei_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_table'])->name('cei_analysis.table');
-Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table'])->name('kobo_analysis.table');
+// Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table'])->name('kobo_analysis.table');
+Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table_new'])->name('kobo_analysis.table');
 Route::post('/ceimonthly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_monthly'])->name('cei_monthly.search');
 Route::post('/ceimonthly/kobo-search', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_monthly'])->name('kobocei_monthly.search');
 Route::post('/ceiquarterly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_quarterly'])->name('cei_quarterly.search');
