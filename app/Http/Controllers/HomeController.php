@@ -15,6 +15,7 @@ use App\Models\HealthFacility;
 use App\Models\Remedial;
 use App\Models\Spo;
 use App\Models\Cei;
+use App\Models\DataEntry;
 // use App\Models\CeiBackup;
 use DB;
 
@@ -134,7 +135,7 @@ class HomeController extends Controller
 
             $health_facilities = count(HealthFacility::where('CBO_Email', $user->email)->get());
             $client_exits = count(ClientExitQuestionare::where('auth_user_email', $user->email)->get());
-            $kobocei = count(Cei::where('cboemail', $user->email)->get());
+            $kobocei = count(DataEntry::where('cboemail', $user->email)->get());
             $remidial = count(Remedial::where('cbo', $user->email)->get());
 
             return view('backend.dashboards.cbo_dashboard')->with([
@@ -167,7 +168,7 @@ class HomeController extends Controller
             $health_facilities = count(HealthFacility::where('state', 'LIKE', "%{$state}%")->get());
             $cbos = count(Cbo::where('state', 'LIKE', "%{$state}%")->get());
             $client_exits = count(ClientExitQuestionare::where('state', 'LIKE', "%{$state}%")->get());
-            $kobocei = count(Cei::where('state', 'LIKE', "%{$state}%")->get());
+            $kobocei = count(DataEntry::where('state', 'LIKE', "%{$state}%")->get());
             $tested_malaria = count(ClientExitQuestionare::where('malaria_test', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
