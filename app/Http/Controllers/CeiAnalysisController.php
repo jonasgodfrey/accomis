@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataEntry;
 use App\Models\States;
 use App\Models\ClientExitQuestionare;
 use App\Models\Cei;
@@ -183,6 +184,52 @@ class CeiAnalysisController extends Controller
             ]);
         }
     }
+    public function kobo_analysis_table_new(Request $request)
+    {
+
+        $state = States::all();
+        $client_exit = [];
+        $user = Auth::user();
+        $role = implode(' ', $user->roles->pluck('name')->toArray());
+        $spouser = Spo::where('email', $user->email)->get();
+
+        $whereCondition = [
+            ['state', '=', $request->state],
+            ['qtr', '=', $request->quarter],
+            ['cboemail', '=', $request->cbo],
+
+        ];
+
+
+        if ($request->state != "") {
+            $client_exit = DataEntry::where($whereCondition)->get();
+        }
+        // else{
+        // }
+        // $client_exit = DataEntry::get();
+        // return $client_exit;
+        if ($role == "Spo") {
+
+            foreach ($spouser as $spo_detail) {
+                $state = $spo_detail->state;
+                $state_name = substr($state, 0, strpos($state, ' '));
+                $state = States::where('name', $state_name)->get();
+            }
+
+            return view('backend.cei_analysis.kobocei_analysis')->with([
+                'state' => $state,
+                'states' => [],
+                'ceis' => $client_exit,
+            ]);
+        } else {
+
+            return view('backend.cei_analysis.kobocei_analysis')->with([
+                'states' => $state,
+                'state' => [],
+                'ceis' => $client_exit,
+            ]);
+        }
+    }
 
     public function cei_monthly(Request $request)
     {
@@ -230,7 +277,7 @@ class CeiAnalysisController extends Controller
             if (($request->state != 'all_states') && ($request->month == 'all_months')) {
 
                 /* get requested cei data */
-                $clientexit = ClientExitQuestionare::where([
+                $clientexit = DataEntry::where([
                     'state' => $request->state,
                     'year' => $request->year
                 ])->get();
@@ -241,7 +288,7 @@ class CeiAnalysisController extends Controller
 
                 /* get all states data based on condition*/
                 foreach ($active_states as $data) {
-                    $states_client_record = ClientExitQuestionare::where([
+                    $states_client_record = DataEntry::where([
                         'state' => $data->name,
                         'month' => $request->month,
                         'year' => $request->year,
@@ -254,7 +301,7 @@ class CeiAnalysisController extends Controller
 
                 /* get all states data based on condition*/
                 foreach ($active_states as $data) {
-                    $states_client_record = ClientExitQuestionare::where([
+                    $states_client_record = DataEntry::where([
                         'state' => $data->name,
                         'year' => $request->year,
                     ])->get();
@@ -265,7 +312,7 @@ class CeiAnalysisController extends Controller
             } else {
 
                 /* get count of requested cei */
-                $clientexit = ClientExitQuestionare::where([
+                $clientexit = DataEntry::where([
                     'state' => $request->state,
                     'month' => $request->month,
                     'year' => $request->year
@@ -382,10 +429,14 @@ class CeiAnalysisController extends Controller
                  */
                 foreach ($active_states as $data) {
 
-                    $client_record = ClientExitQuestionare::where([
+                    $client_record = DataEntry::where([
                         'state' => $data->name,
-                        'quarter' => $request->quarter,
+                        'qtr' => $request->quarter,
                     ])->get();
+                    // $client_record = ClientExitQuestionare::where([
+                    //     'state' => $data->name,
+                    //     'quarter' => $request->quarter,
+                    // ])->get();
 
                     /* store fetched data into an array */
                     $state_data[] = ['state_name' => $data->name, 'count' => $client_record->count(), 'quarter' => $request->quarter];
@@ -393,10 +444,14 @@ class CeiAnalysisController extends Controller
             } else {
 
                 /* get data of requested cei */
-                $client_record = ClientExitQuestionare::where([
+                $client_record = DataEntry::where([
                     'state' => $request->state,
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ])->get();
+                // $client_record = ClientExitQuestionare::where([
+                //     'state' => $request->state,
+                //     'quarter' => $request->quarter
+                // ])->get();
 
                 /* store fetched data into an array */
                 $state_data[] = ['state_name' => $request->state, 'count' => $client_record->count(), 'quarter' => $request->quarter];
@@ -407,7 +462,7 @@ class CeiAnalysisController extends Controller
             $data = [
                 'myid' => '1',
                 'state' => $request->state,
-                'quarter' => $request->quarter,
+                'qtr' => $request->quarter,
                 'states_data' => $state_data
             ];
 
@@ -438,7 +493,7 @@ class CeiAnalysisController extends Controller
              */
             foreach ($active_states as $data) {
 
-                $client_record = Cei::where([
+                $client_record = DataEntry::where([
                     'state' => $data->name,
                     'qtr' => $request->quarter,
                 ])->get();
@@ -447,7 +502,7 @@ class CeiAnalysisController extends Controller
                 $state_data[] = [
                     'state_name' => $data->name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
         } elseif (($request->state != 'all_states') && ($request->quarter == 'all_quarter')) {
@@ -455,7 +510,7 @@ class CeiAnalysisController extends Controller
             /**
              *  Get all states data based on where condition
              */
-            $client_record = Cei::where([
+            $client_record = DataEntry::where([
                 'state' => $request->state,
             ])->get();
 
@@ -463,7 +518,7 @@ class CeiAnalysisController extends Controller
             $state_data[] = [
                 'state_name' => $request->state,
                 'count' => $client_record->count(),
-                'quarter' => $request->quarter,
+                'qtr' => $request->quarter,
             ];
         } elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
 
@@ -480,13 +535,13 @@ class CeiAnalysisController extends Controller
                 $state_data[] = [
                     'state_name' => $data->name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
         } else {
 
             /* get count of requested cei */
-            $client_record = Cei::where([
+            $client_record = DataEntry::where([
                 'state' => $request->state,
                 'qtr' => $request->quarter,
             ])->get();
@@ -495,7 +550,7 @@ class CeiAnalysisController extends Controller
             $state_data[] = [
                 'state_name' => $request->name,
                 'count' => $client_record->count(),
-                'quarter' => $request->quarter
+                'qtr' => $request->quarter
             ];
         }
 
@@ -526,7 +581,7 @@ class CeiAnalysisController extends Controller
                 /**
                  *  Get all states data based on where condition
                  */
-                $client_record = Cei::where([
+                $client_record = DataEntry::where([
                     'state' => $request->state,
                     'cboemail' => $cbo->email
                 ])->get();
@@ -535,7 +590,7 @@ class CeiAnalysisController extends Controller
                     'state_name' => $request->state,
                     'cbo_name' => $cbo->cbo_name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
 
@@ -546,7 +601,7 @@ class CeiAnalysisController extends Controller
                 /**
                  *  Get all states data based on where condition
                  */
-                $client_record = Cei::where([
+                $client_record = DataEntry::where([
                     'state' => $request->state,
                     'cboemail' => $cbo->email,
                     'qtr' => $request->quarter
@@ -556,7 +611,7 @@ class CeiAnalysisController extends Controller
                     'state_name' => $request->state,
                     'cbo_name' => $cbo->cbo_name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
 

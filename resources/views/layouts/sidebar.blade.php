@@ -59,7 +59,7 @@
                      <a href="/" class="nav-link active">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
                          <p>
-                             Dashboard
+                             NFM 3 Dashboard
                          </p>
                      </a>
                  </li>
@@ -74,23 +74,20 @@
                              </p>
                          </a>
                      </li>
+
+                     <li class="nav-item">
+                    <a href="{{ route('data.analysis') }}" class="nav-link">
+                    <i class="nav-icon  fa fa-chart-bar"></i>
+                       <p> Dynamic Analysis </p>
+                    </a>
+                 </li>
                  @endcan
+                 
 
                  @can('admin_me')
                  <li class="nav-header brand-link">ANALYSIS SECTION</li>
-
-                     <li class="nav-item">
-                         <a href="{{ route('cei_analysis.barchart') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-chart-bar"></i>
-                             <p>Cei BarCharts</p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                        <a href="{{ route('cei_analysis') }}" class="nav-link">
-                            <i class="nav-icon  fa fa-book"></i>
-                            <p>Client Exit Analysis</p>
-                        </a>
-                    </li>
+                     
+                    
                     <li class="nav-item">
                         <a href="/koboceianalysis" class="nav-link">
                             <i class="nav-icon  fa fa-book"></i>
@@ -109,114 +106,51 @@
                             <p>CEI Quarterly Analysis</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/otherreportsanalysis" class="nav-link">
-                            <i class="nav-icon  fa fa-book"></i>
-                            <p>FGD/KII Analysis</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('genanalysis') }}" class="nav-link">
-                            <i class="nav-icon  fa fa-chart-line"></i>
-                            <p>State Level Analysis</p>
-                        </a>
-                    </li>
+                    
+                    
                  @endcan
 
                  @can('admin_cbo')
-                     <li class="nav-header brand-link">QUESTIONEERS SECTION</li>
-                     <li class="nav-item">
+                     <li class="nav-header brand-link">SUBMISSIONS</li>                   
 
-                         <!-- <li class="nav-item">
-                        <a href="{{ route('cbo') }}" class="nav-link">
-                          <i class="nav-icon  far fa-calendar-alt"></i>
-                          <p>
-                            CBO/CAT
-                            <span class="badge badge-info right">2</span>
-                          </p>
-                        </a>
-                      </li> -->
-                     @endcan
-                     @can('admin_cbo')
+                         
                      <li class="nav-item">
                          <a href="{{ route('client.exit') }}" class="nav-link">
                              <i class="nav-icon  far fa-file"></i>
                              <p>
-                                 Client Exit Interview
+                                 CEI Submissions
                              </p>
                          </a>
                      </li>
                  @endcan
 
 
-                 @can('spo_role')
-                     <li class="nav-item">
-                         <a href="{{ route('cei_analysis') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-book"></i>
-                             <p>Client Exit Analysis</p>
-                         </a>
-                     </li>
-
-
-
+                 @can('spo_role')     
+                 <li class="nav-header brand-link">SUBMISSIONS</li>              
+                  
                  <li class="nav-item">
-                     <a href="/koboceianalysis" class="nav-link">
-                         <i class="nav-icon  fa fa-book"></i>
-                         <p>KoboCei Analysis</p>
-                     </a>
-                 </li>
+                        <a href="/koboceianalysis" class="nav-link">
+                            <i class="nav-icon  fa fa-book"></i>
+                            <p>CEI Counts</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="{{ route('client.exit') }}" class="nav-link">
+                             <i class="nav-icon  fa fa-file"></i>
+                             <p>
+                             CEI SUBMISSIONS
+                             </p>
+                         </a>
+                     </li>               
+
              @endcan
 
-                 @can('admin_cbo')
-                     <li class="nav-item has-treeview">
-                         <a href="{{ route('remidial') }}" class="nav-link">
-                             <i class="nav-icon  far fa-file"></i>
-                             <p>
-                                 Remedial Feedback
+                
 
-                             </p>
-                         </a>
+                 
+                 
 
-                     </li>
-                 @endcan
-
-                 @can('admin_cbo')
-                     <li class="nav-item">
-                         <a href="{{ route('cbo.monthly') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-book"></i>
-                             <p>CBO Monthly Reports</p>
-                         </a>
-                     </li>
-
-                     <li class="nav-item">
-                         <a href="{{ route('fgdreport') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-book"></i>
-                             <p>Other Reports</p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="#" class="nav-link">
-                             <i class="nav-icon  fa fa-piggy-bank"></i>
-                             <p>Retirements</p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="#" class="nav-link">
-                             <i class="nav-icon  fa fa-video"></i>
-                             <p>Tutorials</p>
-                         </a>
-                     </li>
-                 @endcan
-                 @can('admin_spo')
-                     <li class="nav-item">
-                         <a href="{{ route('spo_add_monthly') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-book"></i>
-                             <p>SPO Monthly Report</p>
-                         </a>
-                     </li>
-                 @endcan
-
-                 @can('admin_spo_me')
+                 @can('admin_role')
                      <li class="nav-header brand-link">REPORTS SECTION</li>
 
 
@@ -228,43 +162,11 @@
                                  Client Exit Interview
                              </p>
                          </a>
-                     </li>
+                     </li>               
 
 
 
-                     <li class="nav-item has-treeview">
-                         <a href="{{ route('remidial') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-file"></i>
-                             <p>
-                                 Remedial Feedbacks
-
-                             </p>
-                         </a>
-
-                     </li>
-
-
-
-                     <li class="nav-item">
-                         <a href="{{ route('cbo.monthly') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-file"></i>
-                             <p>CBO Monthly Report</p>
-                         </a>
-                     </li>
-
-                     <li class="nav-item">
-                         <a href="{{ route('fgdreport') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-book"></i>
-                             <p>Other Reports</p>
-                         </a>
-                     </li>
-
-                     <li class="nav-item">
-                         <a href="{{ route('spo_add_monthly') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-file"></i>
-                             <p>SPO Monthly Report</p>
-                         </a>
-                     </li>
+                     
                  @endcan
 
 
@@ -320,51 +222,7 @@
                   </li> -->
                  @endcan
 
-                 @can('me_role')
-                     <li class="nav-header brand-link">SETTINGS SECTION</li>
-
-                     <li class="nav-item">
-                         <a href="{{ route('spo.monthly') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-users"></i>
-                             <p>SPO</p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="{{ route('wards.view') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-map-pin"></i>
-                             <p>Wards</p>
-                         </a>
-                     </li>
-
-                     <li class="nav-item">
-                         <a href="{{ route('cbo') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-list"></i>
-                             <p>
-                                 List of CBO/CAT
-                             </p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="{{ route('health_facility') }}" class="nav-link">
-                             <i class="nav-icon  fa fa-hospital-user"></i>
-                             <p>Health Facilities</p>
-                         </a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="#" class="nav-link">
-                             <i class="nav-icon  fa fa-user"></i>
-                             <p>Profile</p>
-                         </a>
-                     </li>
-
-
-                     <!-- <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon  far fa-circle text-info"></i>
-                      <p>User</p>
-                    </a>
-                  </li> -->
-                 @endcan
+                 
 
                  <li class="nav-item">
                      <a href="#" class="nav-link"

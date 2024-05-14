@@ -15,6 +15,7 @@ use App\Models\HealthFacility;
 use App\Models\Remedial;
 use App\Models\Spo;
 use App\Models\Cei;
+use App\Models\DataEntry;
 // use App\Models\CeiBackup;
 use DB;
 
@@ -73,17 +74,17 @@ class HomeController extends Controller
             $exitfgd = count(Remedial::where('tracker_type', 'Exit FGD')->get());
             $kii = count(Remedial::where('tracker_type', 'KII')->get());
             $patronage = count(Remedial::where('identified_issues', '[Low Patronage]')->get());
-            
+
             $kobollin = Cei::where('llin_recipient','Yes')->count();
             $koboact = Cei::where('act_recipient','Yes')->count();
             $kobosp = Cei::where('sp_recipient','Yes')->count();
             $kobosmc = Cei::where('smc_recipient','Yes')->count();
             $kobomalaria = Cei::where('malaria','Yes')->count();
-            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();                  
+            $kobomalserv = Cei::where('service_cat','Malaria Services')->count();
             $koboantenatalserv = Cei::where('service_cat','Antenatal Care')->count();
             $kobonewborncare = Cei::where('service_cat','Maternal and Newborn Care')->count();
 
-            
+
 
             return view('backend.dashboards.admin_dashboard')->with([
                 'states'=>$states,
@@ -126,7 +127,7 @@ class HomeController extends Controller
                 'koboantenatal_service'=>$koboantenatalserv,
                 'kobonewborn_service'=>$kobonewborncare
 
-                
+
             ]);
         }
 
@@ -134,7 +135,7 @@ class HomeController extends Controller
 
             $health_facilities = count(HealthFacility::where('CBO_Email', $user->email)->get());
             $client_exits = count(ClientExitQuestionare::where('auth_user_email', $user->email)->get());
-            $kobocei = count(Cei::where('cboemail', $user->email)->get());
+            $kobocei = count(DataEntry::where('cboemail', $user->email)->get());
             $remidial = count(Remedial::where('cbo', $user->email)->get());
 
             return view('backend.dashboards.cbo_dashboard')->with([
@@ -150,24 +151,24 @@ class HomeController extends Controller
 
             $spo_data = DB::table('spos')->where('email', $user->email)
                 ->get();
-             
+
             $state = '';
             $spo_email = '';
             $spo_name = '';
 
-            foreach ($spo_data as $spo) { 
+            foreach ($spo_data as $spo) {
                 $spo_email = $spo->email;
                 $spo_name = $spo->spo_name;
                 $state = $spo->state;
             }
-            $state = substr($state, 0, strpos($state, ' '));    
+            $state = substr($state, 0, strpos($state, ' '));
 
             // $lgas =  count(Lgas::where('status', 'active')->where('state', 'LIKE', "%{$state}%")->get());
             $wards = count(Ward::where('status', 'active')->where('state', 'LIKE', "%{$state}%")->get());
             $health_facilities = count(HealthFacility::where('state', 'LIKE', "%{$state}%")->get());
             $cbos = count(Cbo::where('state', 'LIKE', "%{$state}%")->get());
             $client_exits = count(ClientExitQuestionare::where('state', 'LIKE', "%{$state}%")->get());
-            $kobocei = count(Cei::where('state', 'LIKE', "%{$state}%")->get());
+            $kobocei = count(DataEntry::where('state', 'LIKE', "%{$state}%")->get());
             $tested_malaria = count(ClientExitQuestionare::where('malaria_test', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $llin_recipients = count(ClientExitQuestionare::where('llin_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
             $act_recipients = count(ClientExitQuestionare::where('abc_therapy_reception', 'yes')->where('state', 'LIKE', "%{$state}%")->get());
@@ -192,7 +193,7 @@ class HomeController extends Controller
                 'client_exits'=>$client_exits,
                 // Start Kobocei Data
                 'kobocei'=>$kobocei,
-                
+
                 // end
                 'tested_malaria'=>$tested_malaria ,
                 'llin_recipients'=>$llin_recipients,
@@ -206,7 +207,7 @@ class HomeController extends Controller
                 'issues_identified'=>$issues_identified,
                 'username'=> $user->name,
                 'state'=>$state,
-  
+
             ]);
         }
     }

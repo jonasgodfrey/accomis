@@ -8,7 +8,12 @@ use App\Models\ClientExitQuestionare;
 use App\Models\HealthFacility;
 use App\Models\Spo;
 use App\Models\Cei;
+<<<<<<< HEAD
 use App\Models\River;
+=======
+use App\Models\DataEntry;
+// use App\Models\Ceibackup;
+>>>>>>> rabi
 use App\Models\Lgas;
 use App\Models\States;
 use App\Models\User;
@@ -125,8 +130,12 @@ class ClientExitController extends Controller
             //     ]);
             // }
 
+<<<<<<< HEAD
             $collection = Cei::paginate(10);
             $collection2 = River::paginate(10);
+=======
+            $collection = DataEntry::paginate(10);
+>>>>>>> rabi
 
 
             $page_views = request()->page_views;
@@ -149,27 +158,35 @@ class ClientExitController extends Controller
 
             if ($role == "Cbo") {
                 $clients = ClientExitQuestionare::where('auth_user_email', $user->email)->latest()->paginate(10);
-                $kobocei = Cei::where('cboemail', $user->email)->latest()->paginate(10);
+                $kobocei = DataEntry::where('cboemail', $user->email)->latest()->paginate(10);
             }
 
             if ($role == "Admin") {
                 // $clients = ClientExitQuestionare::all()->sortDesc();
                 $clients = ClientExitQuestionare::latest()->paginate(10);
+<<<<<<< HEAD
                 $kobocei = Cei::paginate(10);
                 $kobocei2 = River::paginate(10);
+=======
+                $kobocei = DataEntry::paginate(10);
+>>>>>>> rabi
             }
 
             if ($role == "Me") {
                 // $clients = ClientExitQuestionare::all()->sortDesc();
                 $clients = ClientExitQuestionare::latest()->paginate(10);
-                $kobocei = Cei::paginate(10);
+                $kobocei = DataEntry::paginate(10);
             }
 
             if ($role == "Spo") {
                 $state = substr($state, 0, strpos($state, ' '));
                 $clients = ClientExitQuestionare::where('state', $state)->latest()->paginate(10);
+<<<<<<< HEAD
                 $kobocei = Cei::where('state', $state)->latest()->paginate(10);
                 $kobocei2 = River::where('state', $state)->latest()->paginate(10);
+=======
+                $kobocei = DataEntry::where('state', $state)->latest()->paginate(10);
+>>>>>>> rabi
             }
 
             $health_facilities = HealthFacility::where('CBO_Email', $user->email)->get();

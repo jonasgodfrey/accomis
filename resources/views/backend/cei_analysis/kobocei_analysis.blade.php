@@ -34,7 +34,7 @@
                                             </option>
                                         @endforeach
                                     @endif
-                                    
+
                                     @if (count($states) != 0)
                                         @foreach ($states as $state)
                                             <option id="{{ $state->id }}" value="{{ $state->name }}">
@@ -43,7 +43,7 @@
                                         @endforeach
                                     @endif
 
-                                   
+
                                 </select>
 
 
@@ -63,13 +63,13 @@
                                 <label>Quarter</label>
                                 <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
                                     <option style="display:none" value="">Select Quarter</option>
-                                    <option value="q6">Quarter 6 2022</option>
-                                    <option value="q7">Quarter 7 2022</option>
-                                    <option value="q8">Quarter 8 2022</option>
-                                    <option value="q9">Quarter 9 2023</option>
-                                    <option value="q10">Quarter 10 2023</option>
-                                    <option value="q11">Quarter 11 2023</option>
-                                    <option value="q12">Quarter 12 2023</option>
+                                    <option value="q1">Quarter 1 2024</option>
+                                    <option value="q2">Quarter 2 2024</option>
+                                    <option value="q3">Quarter 3 2024</option>
+                                    <option value="q4">Quarter 4 2024</option>
+                                    <option value="q5">Quarter 5 2024</option>
+                                    <option value="q6">Quarter 6 2024</option>
+                                    <option value="q7">Quarter 7 2024</option>
                                 </select>
                             </div>
                         </div>

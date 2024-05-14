@@ -1,5 +1,6 @@
 <?php
 
+use App\Charts\SampleChart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KoboceiController;
@@ -122,7 +123,8 @@ Route::get('/otherreportsanalysis', [App\Http\Controllers\FgdAnalysisController:
 
 Route::post('/cei_analysis', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_fetch'])->name('cei_analysis.fetch');
 Route::post('/cei_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'cei_analysis_table'])->name('cei_analysis.table');
-Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table'])->name('kobo_analysis.table');
+// Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table'])->name('kobo_analysis.table');
+Route::post('/kobo_analysis/table', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_analysis_table_new'])->name('kobo_analysis.table');
 Route::post('/ceimonthly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_monthly'])->name('cei_monthly.search');
 Route::post('/ceimonthly/kobo-search', [App\Http\Controllers\CeiAnalysisController::class, 'kobo_cei_monthly'])->name('kobocei_monthly.search');
 Route::post('/ceiquarterly/search', [App\Http\Controllers\CeiAnalysisController::class, 'cei_quarterly'])->name('cei_quarterly.search');
@@ -134,3 +136,12 @@ Route::post('/other_reports/year-search', [App\Http\Controllers\FgdAnalysisContr
 
 //file display
 Route::get('image/{filename}', [App\Http\Controllers\ImageController::class, 'displayImage'])->name('displayImage');
+Route::get("/data/analysis", function(){
+    $chart = new SampleChart;
+$chart->labels(['One', 'Two', 'Three', 'Four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']);
+$chart->dataset('My dataset', 'bar', [1, 2, 3, 4, 10, 6, 3, 9, 7, 12]);
+$chart->dataset('My dataset 2', 'bar', [4, 3, 2, 1, 4, 4, 7, 8, 9, 5]);
+
+    return view('backend.analysis')
+        ->with('chart', $chart);
+})->name('data.analysis')->middleware('auth');
