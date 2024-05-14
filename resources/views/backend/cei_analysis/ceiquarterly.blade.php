@@ -132,8 +132,8 @@
         <hr>
 
         <!-- Main content -->
-        {{-- <section class="content">
-            <div class="container-fluid"> --}}
+        <section class="content">
+            <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
 
                 {{-- <div class="card-body">
@@ -191,8 +191,8 @@
                 </div> --}}
 
                 <!-- SELECT2 EXAMPLE -->
-                {{-- <div class="card card-warning"> --}}
-                    <div class="card-header">
+                <div class="card card-warning">
+                    {{-- <div class="card-header">
                         <h3 class="card-title">Kobocei Quarterly Entries</h3>
 
                         <div class="card-tools">
@@ -201,20 +201,20 @@
                             <button type="button" class="btn btn-tool" data-card-widget="remove"><i
                                     class="fas fa-times"></i></button>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- /.card-header -->
-                    <div class="card-body">
+                    {{-- <div class="card-body">
                         <button type="submit" class="btn btn-danger" id="bulk-delete"
                             style="display:none; float:right">Delete</button>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3"> --}}
 
                             {{-- @foreach ($kobos as $kobo)
 
                     <div class="c">
-                    <button class="btn-primary btn">{{$kobo->Transaction_Type}}</button>
-                </div>
+                    <button class="btn-primary btn">{{$kobo->Transaction_Type}}</button>--}}
+                {{-- </div> --}}
 
-                @endforeach --}}
+                {{-- @endforeach --}}
                         {{-- </div> --}}
                         {{-- <table id="example2" class="table table-bordered table-striped">
                             <thead>
@@ -253,13 +253,12 @@
                         </table> --}}
 
 
-                    {{-- </div> --}}
+                    </div>
 
 
 
-                {{-- </div> --}}
-                <!-- /.container-fluid -->
-        {{-- </section> --}}
+                </div><!-- /.container-fluid -->
+        </section>
         <!-- /.content -->
 
         <!-- Main content -->

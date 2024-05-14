@@ -462,7 +462,7 @@ class CeiAnalysisController extends Controller
             $data = [
                 'myid' => '1',
                 'state' => $request->state,
-                'quarter' => $request->quarter,
+                'qtr' => $request->quarter,
                 'states_data' => $state_data
             ];
 
@@ -493,7 +493,7 @@ class CeiAnalysisController extends Controller
              */
             foreach ($active_states as $data) {
 
-                $client_record = Cei::where([
+                $client_record = DataEntry::where([
                     'state' => $data->name,
                     'qtr' => $request->quarter,
                 ])->get();
@@ -502,7 +502,7 @@ class CeiAnalysisController extends Controller
                 $state_data[] = [
                     'state_name' => $data->name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
         } elseif (($request->state != 'all_states') && ($request->quarter == 'all_quarter')) {
@@ -510,7 +510,7 @@ class CeiAnalysisController extends Controller
             /**
              *  Get all states data based on where condition
              */
-            $client_record = Cei::where([
+            $client_record = DataEntry::where([
                 'state' => $request->state,
             ])->get();
 
@@ -518,7 +518,7 @@ class CeiAnalysisController extends Controller
             $state_data[] = [
                 'state_name' => $request->state,
                 'count' => $client_record->count(),
-                'quarter' => $request->quarter,
+                'qtr' => $request->quarter,
             ];
         } elseif (($request->state == 'all_states') && ($request->quarter == 'all_quarter')) {
 
@@ -535,13 +535,13 @@ class CeiAnalysisController extends Controller
                 $state_data[] = [
                     'state_name' => $data->name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
         } else {
 
             /* get count of requested cei */
-            $client_record = Cei::where([
+            $client_record = DataEntry::where([
                 'state' => $request->state,
                 'qtr' => $request->quarter,
             ])->get();
@@ -550,7 +550,7 @@ class CeiAnalysisController extends Controller
             $state_data[] = [
                 'state_name' => $request->name,
                 'count' => $client_record->count(),
-                'quarter' => $request->quarter
+                'qtr' => $request->quarter
             ];
         }
 
@@ -581,7 +581,7 @@ class CeiAnalysisController extends Controller
                 /**
                  *  Get all states data based on where condition
                  */
-                $client_record = Cei::where([
+                $client_record = DataEntry::where([
                     'state' => $request->state,
                     'cboemail' => $cbo->email
                 ])->get();
@@ -590,7 +590,7 @@ class CeiAnalysisController extends Controller
                     'state_name' => $request->state,
                     'cbo_name' => $cbo->cbo_name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
 
@@ -601,7 +601,7 @@ class CeiAnalysisController extends Controller
                 /**
                  *  Get all states data based on where condition
                  */
-                $client_record = Cei::where([
+                $client_record = DataEntry::where([
                     'state' => $request->state,
                     'cboemail' => $cbo->email,
                     'qtr' => $request->quarter
@@ -611,7 +611,7 @@ class CeiAnalysisController extends Controller
                     'state_name' => $request->state,
                     'cbo_name' => $cbo->cbo_name,
                     'count' => $client_record->count(),
-                    'quarter' => $request->quarter
+                    'qtr' => $request->quarter
                 ];
             }
 
