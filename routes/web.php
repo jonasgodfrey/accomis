@@ -136,12 +136,12 @@ Route::post('/other_reports/year-search', [App\Http\Controllers\FgdAnalysisContr
 
 //file display
 Route::get('image/{filename}', [App\Http\Controllers\ImageController::class, 'displayImage'])->name('displayImage');
-Route::get("/", function(){
-    $chart = new SampleChart;
-$chart->labels(['One', 'Two', 'Three', 'Four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']);
-$chart->dataset('My dataset', 'bar', [1, 2, 3, 4, 10, 6, 3, 9, 7, 12]);
-$chart->dataset('My dataset 2', 'bar', [4, 3, 2, 1, 4, 4, 7, 8, 9, 5]);
+// Route::get("/", function(){
+//     $chart = new SampleChart;
+// $chart->labels(['One', 'Two', 'Three', 'Four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']);
+// $chart->dataset('My dataset', 'bar', [1, 2, 3, 4, 10, 6, 3, 9, 7, 12]);
+// $chart->dataset('My dataset 2', 'bar', [4, 3, 2, 1, 4, 4, 7, 8, 9, 5]);
 
-    return view('backend.analysis')
-        ->with('chart', $chart);
-})->name('data.analysis')->middleware('auth');
+//     return view('backend.analysis')
+//         ->with('chart', $chart);
+// })->name('data.analysis')->middleware('auth');
