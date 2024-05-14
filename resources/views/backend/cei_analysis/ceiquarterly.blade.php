@@ -132,11 +132,11 @@
         <hr>
 
         <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
+        {{-- <section class="content">
+            <div class="container-fluid"> --}}
                 <!-- Small boxes (Stat box) -->
 
-                <div class="card-body">
+                {{-- <div class="card-body">
                     <form role="form" action="{{ route('kobocei_quarterly.search') }}" enctype="multipart/form-data"
                         method="POST">
                         @csrf
@@ -188,10 +188,10 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> --}}
 
                 <!-- SELECT2 EXAMPLE -->
-                <div class="card card-warning">
+                {{-- <div class="card card-warning"> --}}
                     <div class="card-header">
                         <h3 class="card-title">Kobocei Quarterly Entries</h3>
 
@@ -215,8 +215,8 @@
                 </div>
 
                 @endforeach --}}
-                        </div>
-                        <table id="example2" class="table table-bordered table-striped">
+                        {{-- </div> --}}
+                        {{-- <table id="example2" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     @can('admin_spo_me')
@@ -250,15 +250,16 @@
                                 @endif
                             </tbody>
 
-                        </table>
+                        </table> --}}
 
 
-                    </div>
+                    {{-- </div> --}}
 
 
 
-                </div><!-- /.container-fluid -->
-        </section>
+                {{-- </div> --}}
+                <!-- /.container-fluid -->
+        {{-- </section> --}}
         <!-- /.content -->
 
         <!-- Main content -->
