@@ -148,9 +148,14 @@ class ApiFetchCron extends Command
                 // Add the cleaned item to the cleaned data array
                 // $cleanedData[] = $cleanedItem;
                 try {
-                    DataEntry::create($cleanedItem);
+                    if(DataEntry::where('_id', $cleanedItem['_id'])->exists()){
+                        Log::alert("Data already exists".$cleanedItem['_id']);
+                    }else{
+                        DataEntry::create($cleanedItem);
+                    }
                 } catch (\Exception $e) {
-                    Log::alert($e);
+                    Log::alert($cleanedItem['_id'].' failed to save');
+                    Log::alert($e->getMessage());
                 }
             }
 
@@ -193,7 +198,7 @@ class ApiFetchCron extends Command
         if ($collectionCount > 0) {
             $cleanData = $this->cleanDateUp($collection, $limit, $startValue);
         }
-        Log::info($cleanData);
+        // Log::info($cleanData);
         // die;
 
         // if ($collectionCount > 0) {
