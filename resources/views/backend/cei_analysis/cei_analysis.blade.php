@@ -60,11 +60,11 @@
                                     <label>Quarter</label>
                                     <select name="quarter" class="form-control" style="width: 100%;" id="quater" required>
                                         <option style="display:none" value="">Select Quarter</option>
-                                        <option value="Quarter_1_2021">Quarter 1 2021</option>
-                                        <option value="Quarter_2_2021">Quarter 2 2021</option>
-                                        <option value="Quarter_3_2021">Quarter 3 2021</option>
-                                        <option value="Quarter_4_2021">Quarter 4 2021</option>
-                                        <option value="Quarter_5_2022">Quarter 5 2022</option>
+                                        <option value="q1">Quarter 1 2024</option>
+                                        <option value="q2">Quarter 2 2024</option>
+                                        <option value="q3">Quarter 3 2024</option>
+                                        <option value="q4">Quarter 4 2024</option>
+                                        <option value="q5">Quarter 5 2025</option>
                                     </select>
                                 </div>
                             </div>
